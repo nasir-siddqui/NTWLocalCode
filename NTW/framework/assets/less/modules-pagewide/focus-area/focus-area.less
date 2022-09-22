@@ -1,0 +1,30 @@
+.tsFocusArea {
+	background: lighten(@lightergrey,5%);
+	border-top: 1px solid @lightergrey;
+	border-bottom: 1px solid @lightergrey;
+	.padding(all;@gutter);
+	.margin(bottom; @gutter-double);
+}
+
+.tsFocusArea-list {
+	.l-inline-list;
+	vertical-align: middle;
+	.margin(bottom;@gutter-half);
+	&:last-child {
+		.margin(bottom;0);
+	}
+	li> {
+		display: block;
+	}
+}
+
+.tsFocusArea-list li:first-child label {
+	.margin(left;0);
+}
+
+// test
+/*
+[data-name] {
+	color: red;
+}
+*/

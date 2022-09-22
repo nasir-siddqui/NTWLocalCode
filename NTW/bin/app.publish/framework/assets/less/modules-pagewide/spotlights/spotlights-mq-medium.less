@@ -1,0 +1,26 @@
+.tsSpotlight-item {
+    width: 33.3333333%;
+}
+
+.tsSpotlight-item--promo {
+    .tsSpotlight-header {
+        width: 33.3333333%;
+    }
+    .tsSpotlight-info {
+        width: 33.3333333%;
+    }
+}
+
+.tsSpotlight--wide {
+    .tsSpotlight-item {
+        width: 50%;
+    }
+}
+
+.tsSpotlight-list--padding {
+    .tsSpotlight-link--wide {
+        &:nth-child(1n+3) {
+            .margin(top;@gutter);
+        }
+    }
+}

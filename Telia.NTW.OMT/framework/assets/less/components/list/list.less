@@ -1,0 +1,178 @@
+/* 
+* ------------------------------------------------------------------------
+* List: default
+*
+* This list is a generic list where items end up after each other
+* vertically with no gutter between each item
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"] {
+    .l-list();
+}
+
+[class^="tscList"][class*="--HiddenItems"] > li:not(.show) { 
+    display: none!important;
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* List: inline list
+*
+* This list is a generic list where items end up after each other
+* horizontally with no gutter between each item
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"][class*="--Inline"] {
+    .l-inline-list();
+    counter-reset: list-counter;
+    & > li {
+        counter-increment: list-counter;
+    }      
+}
+
+// full width variant
+[class^="tscList"][class*="--Inline"][class*="--fullWidth"] {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    & > li {
+        display: table-cell;
+    }
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* List: fluid list
+*
+* This list is a generic list where items end up after each other
+* horizontally with no gutter between each item
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"][class*="--Fluid"] {
+    .clearfix;
+    & > li {
+        float: left;
+    }
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* List: column
+*
+* This list is seprated in columns in desktop view and 1 column in 
+* mobile view. No gutter between the elements. Combine with 
+* tscList or tscInlineList classes
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"][class*="2column"] {
+    & > li {
+        width: 50%;
+    }
+}
+[class^="tscList"][class*="3column"] {
+    & > li {
+        width: 33.33333%;
+        &.wide {
+            width: 66.6666%;
+        }
+    }
+}
+[class^="tscList"][class*="4column"] {
+    & > li {
+        width: 25%;
+    }
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* List: gutter
+*
+* The gutter classes is added to the list classes in order to have a
+* gutter between each element. There is no gutter before the first or 
+* after the last in a standard list or in each row of an inline list.
+* If the gutter class is combined with a regular vertical list there 
+* will be no left gutter so you can style with border etc.
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"][class*="--Space"] {
+    .margin(top;-@gutter);
+    & > li {
+        .padding(top;@gutter);    
+    }
+}
+[class^="tscList"][class*="--SpaceHalf"] {
+    .margin(top;-@gutter-half);
+    & > li {
+        .padding(top;@gutter-half);    
+    }
+}
+[class^="tscList"][class*="--SpaceDouble"] {
+    .margin(top;-@gutter-double);
+    & > li {
+        .padding(top;@gutter-double);    
+    }
+}
+[class^="tscList"][class*="--Inline"][class*="--Space"],
+[class^="tscList"][class*="--Fluid"][class*="--Space"] {
+    .margin(left;-@gutter);
+    & > li {
+        .padding(left;@gutter);    
+    }
+}
+[class^="tscList"][class*="--Inline"][class*="--SpaceHalf"],
+[class^="tscList"][class*="--Fluid"][class*="--SpaceHalf"] {
+    .margin(left;-@gutter-half);
+    & > li {
+        .padding(left;@gutter-half);    
+    }
+}
+[class^="tscList"][class*="--Inline"][class*="--SpaceDouble"],
+[class^="tscList"][class*="--Fluid"][class*="--SpaceDouble"] {
+    .margin(left;-@gutter-double);
+    & > li {
+        .padding(left;@gutter-double);    
+    }
+}
+
+/* 
+* ------------------------------------------------------------------------
+* List: border
+*
+* Border around each inline list element
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscList"][class*="--Inline"][class*="--Border"] {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd; 
+    > li {
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+}
+[class^="tscList"][class*="--Inline"][class*="--Border"][class*="--Space"] {
+    & > li {
+        .padding(all;@gutter);
+    }
+}
+[class^="tscList"][class*="--Inline"][class*="--Border"][class*="--NoTopBorder"] {
+    border-top: 0 none;
+}
+
+[class^="tscList"][class*="--Inline"][class*="--Border"][class*="--NoBottomBorder"] {
+    & > li {
+        border-bottom: 0 none;
+    }
+}
+
+

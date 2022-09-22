@@ -1,0 +1,113 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * EASY-TO-FIND........Quicklinks for the start page
+ * ALTERNATIVE.........Quicklinks for the start page
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $EASY-TO-FIND
+\*------------------------------------*/
+
+.tsEasyToFind {
+	background-color: @purple;
+	display: block;
+}
+
+.tsEasyToFind-container {
+	background-color: @purple;
+	.padding(top;@gutter);
+	.padding(bottom;@gutter-plus);
+}
+
+.tsEasyToFind-container--single {
+	.padding(top;@gutter);
+	.padding(bottom;@gutter-plus);
+}
+
+.tsEasyToFind-heading {
+	color: @white;
+}
+
+.tsEasyToFind-links {
+    position: relative;
+}
+
+.tsEasyToFind-links:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 40px;
+    height: 100%;
+    border-left: 1px solid @searchtextboxcolor;
+}
+
+.tsEasyToFind--single .tsEasyToFind-links:before {
+    border-left: 1px solid @lightclay;
+}
+
+
+.tsEasyToFind-links a {
+	font-weight: bold;
+	.padding(all;@gutter-half);
+	
+//	border-left: 1px solid @searchtextboxcolor;
+//	border-right: 1px solid @darkerpurple;
+}
+
+.tsEasyToFind-links > li:nth-child(1) {
+    border-top: none;
+}
+
+.tsWrapInner {
+    .tsEasyToFind {
+        .margin(leftright;-@gutter-half;-@gutter-half);        
+    }
+    .tsEasyToFind-container {
+        .padding(leftright;@gutter-half;@gutter-half);
+    }
+}
+
+
+/*------------------------------------*\
+    $ALTERNATIVE
+\*------------------------------------*/
+
+// A lighter version of Easy to find
+
+.tsEasyToFind--alt {
+   display: block;
+	//background-color: @lighterclay;
+	background-color: lighten(@lightclay,5%);
+}
+
+.tsEasyToFind--alt .tsEasyToFind-heading {
+	color: @purple;
+}
+
+.tsEasyToFind--alt .tsEasyToFind-links > li {
+	border-top: 1px solid lighten(@clay,18%);
+}
+
+.tsEasyToFind--alt .tsEasyToFind-container {
+	background-color: @lighterclay;
+}
+
+.tsEasyToFind--alt .tsEasyToFind-links a {
+	border-right: 1px solid lighten(@clay,18%);
+}
+.tsEasyToFind--alt  .tsEasyToFind-links:before {
+	border-color: @lighterclay;
+}
+
+

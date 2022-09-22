@@ -1,0 +1,197 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * NEWS-LIST...........System and network info, and news
+ * SOCIAL-AREA.........Social media links
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $NEWS-LIST
+\*------------------------------------*/
+
+.tsNewsList-area {
+//	background: @lightblue;
+    background-color: @lightergrey;
+	* {
+//		color: @white;
+        color: @black;
+	}
+	a {
+		font-weight: bold;
+		overflow:hidden;	
+        color: @linkcolor;
+	    &:hover {
+//	        color: @white;
+            color: @linkcolor;
+            text-decoration: underline;
+	    }
+	}
+}
+
+.tsNewsList-container {
+	.l-inline-list;
+//	background: @blue;
+    background-color: @lightergrey;
+	padding: 0;
+	&>li {
+		padding: 0 10px;
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+}
+
+.tsNewsList,
+.tsNewsList--alt {
+	.l-list;
+}
+
+.tsNewsList--alt {
+//	background: @darkblue; 
+    background-color: @lightergrey;
+}
+
+.tsNewsList-items,
+.tsNewsList-items--alt {
+	.l-inline-list;
+	width: 100%;
+}
+
+.tsNewsList-items li,
+.tsNewsList-items--alt li {
+	.l-list;
+	padding: 8px 0 6px 0;
+	width: 100%;
+//	border-bottom: 1px solid rgb(34,140,196);
+	border-bottom: 1px solid @lightgrey;
+	&:last-of-type {
+		border-bottom: 0;
+	}
+}
+
+.tsNewsList-items--alt li {
+//	border-bottom: 1px solid rgb(33,131,184);
+	border-bottom: 1px solid @lightgrey;
+}
+
+.tsNewsList-heading,
+.tsNewsList-more {
+	display: block;
+	margin: 0;
+}
+
+
+
+
+.tsNewsList-more i {
+//    position: relative;
+//    top: 1px;
+} 
+
+.tsNewsList-date {
+	display: block;
+	margin-bottom: -2px;
+	.font-size(12);
+}
+
+.tsNewsList-more {
+	.font-size(12);	
+	font-weight: bold;
+}
+
+a.tsNewsList-more {
+    color: @black;    
+}
+
+[class*=tsNewsList] .tsIcon-Next {
+//    position: relative;
+//    width: 9px;
+//    height: 13px;
+//    overflow: hidden;
+    margin-left: 2px;
+    .font-size(11);
+}
+
+[class*=tsNewsList] .tsIcon-Next:before {
+//    position: absolute;
+//    top: -25px;
+//    left: -6px;
+}
+
+
+
+/*------------------------------------*\
+    $SOCIAL-AREA
+\*------------------------------------*/
+
+.tsSocialArea {
+//	background-color: @darkblue;
+    background-color: @lightergrey;
+//	border-top: 1px solid @lightblue;
+	padding: 0;
+	//.padding(bottom;10);
+}
+
+.tsSocialArea-list {
+	//.l-inline-list;
+	.padding(all;0);
+	margin: 0 auto;
+
+}
+
+.tsSocialArea-list li {
+	.l-list;
+	//.media;
+	display: block;
+	width: 100%;
+	padding: 14px 0;
+	text-align: center;
+}
+
+.tsSocialArea-list i {
+	//.margin(right;5);
+}
+
+.tsSocialArea-list a,
+.tsSocialArea-list {
+	.font-size(11);
+	font-weight: bold;
+	color: @black;
+}
+.tsSocialArea-list a {
+	text-decoration: underline;
+}
+
+.tsSocialArea [class*=tsIcon-] {
+    position: relative;
+    width:  20px;
+    height: 20px;
+    overflow: hidden;
+    .font-size(18);
+//    background-color: @white;
+    background-color: @lightergrey;
+//    color: @darkblue;
+    color: @linkcolor;
+}
+
+.tsSocialArea [class*=tsIcon-]:before {
+    position: absolute;
+}
+
+.tsSocialArea .tsIcon-Facebook:before { 
+    bottom: 0; 
+    right: 3px;
+}
+
+.tsSocialArea .tsIcon-Twitter:before {
+    top: 0;
+    left: 0;
+    .font-size(lineheight;14;20);
+}

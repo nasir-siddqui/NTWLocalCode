@@ -1,0 +1,181 @@
+//Old styles, use mixin 
+//Remove after Christmas :)
+
+//Radio button login
+.tsRadio-login {
+    position: relative;
+    display: inline-block;
+    .padding(right;@gutter-half);
+    .margin(topbottom;@gutter-half;@gutter-half);
+    font-weight: bold;
+}
+.tsRadio-login input {
+    visibility: hidden;
+    margin: 0;
+}
+.tsRadio-text {
+    .padding(left;@gutter-half/2);
+    .font-size(18)!important;
+    color: @grey;
+    font-weight: normal;
+}
+:disabled + .tsRadio-text {
+    color:@grey;
+}
+
+.tsRadio-login input:checked + label,
+.tsRadio-login input[checked = checked] + label{
+    &:after {
+        .border-radius(50%);
+        background-color: @turq;
+        width: 9px;
+        height: 9px;
+        content: "";
+        .inline-block;
+        position: absolute;
+        top: 5px;
+        left: 3px;
+    }
+}
+.tsRadio-login .fakeradio {
+        border: 1px solid @grey;
+        .border-radius(50%);
+        width: 15px;
+        height: 15px;
+        content: "";
+        .inline-block;
+        position: absolute;
+        top: 2px;
+        left: 0; 
+}
+.tsRadio-login.disabled .fakeradio {
+    background-color: @lightergrey;
+    border-color: @lightgrey;
+}
+.tsRadio-login.disabled .tsRadio-text {
+    color:  @lightgrey;
+}
+
+/* */
+
+
+.tsRadiobutton {
+    display:none;
+}
+
+.tsRadiobutton + .tsRadiobutton-label span {
+    display:inline-block;
+    width:14px;
+    height:14px;
+    margin:-3px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background: @white;
+    border: 1px solid @lightgrey;
+	 .border-radius(50%);
+}
+
+.tsRadiobutton:checked + .tsRadiobutton-label span:before {
+ 	.border-radius(50%);
+	background-color: @turq;
+	width: 8px;
+	height: 8px;
+	content: "";
+	.inline-block;
+	position: absolute;
+	margin-left: 2px;
+	margin-top: 2px;
+}
+
+
+
+// small checkbox with turqouis cross when selected
+
+[class*="tsCheckbox-styled"] {
+    display:none;
+}
+
+[class*="tsCheckbox-styled"] + .tsCheckbox-label {
+	 text-align: center;
+}
+
+[class*="tsCheckbox-styled"][class*="--left"] + .tsCheckbox-label {
+    text-align: left;
+    font-weight: normal;
+    color: @darkgrey;
+}
+
+[class*="tsCheckbox-styled"] + .tsCheckbox-label span {
+    display:inline-block;
+    width:14px;
+    height:14px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    background: @white;
+    border: 1px solid @lightgrey;
+    .font-size(lineheight;14;10);
+	 text-align: center;
+	 vertical-align:middle;
+}
+
+[class*="tsCheckbox-styled"]:disabled + .tsCheckbox-label span {
+    background: @lightergrey;
+}
+
+[class*="tsCheckbox-styled"]:checked + .tsCheckbox-label span:before {
+	content: '\e019';
+	width: 9px;
+	height: 9px;
+	text-align: center;
+   vertical-align:middle;
+   font-family: iconfont;
+	font-weight: normal;
+	color: @turq;
+   .font-size(lineheight;9;9);
+	position: relative;
+	top: 0;
+	display: inline !important; // temporary for SF release v10
+	margin-top: 0 !important; // temporary for SF release v10
+}
+
+[class*="tsCheckbox-styled"]:checked:disabled + .tsCheckbox-label span:before {
+	color: @grey;
+}
+
+
+// larger checkbox
+
+.tsCheckbox {
+    .margin(all;@gutter-half);
+    color: @turq;
+    width: 20px;
+    height: 20px;
+    border:1px solid @lightgrey;
+    background-color: @white;
+    position: relative;
+}
+.tsCheckbox i {
+    display: none;
+}
+.tsCheckbox input {
+    .visuallyhidden;
+}
+.tsCheckbox input:checked + i {
+    position: absolute;
+    top: -8px;
+    left: 2px;
+    font-weight: bold;
+    display: block;
+}
+.tsIconButton {
+    width: 30px;
+    height: 30px;
+    background-color: @purple;
+    text-align: center; 
+    .inline-block;
+    .border-radius(50%);
+    color:@white;
+    .font-size(lineheight;18;28);
+   .margin(left;@gutter-half);
+}

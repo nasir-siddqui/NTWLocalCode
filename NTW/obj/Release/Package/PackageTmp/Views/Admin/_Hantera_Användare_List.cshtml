@@ -1,0 +1,29 @@
+﻿@model List<Telia.NTW.Web.ViewModel.Admin.Hantera.AnvändareRow>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable">
+    <caption>Användare</caption>
+    <thead>
+        <tr>
+            <th>Användar ID</th>
+            <th>Namn</th>
+            <th>OrgNr</th>
+            <th>Bolagsnamn</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var användare in Model)
+        {
+            <tr>
+                <td>@användare.AnvändarID</td>
+                <td>@användare.Namn</td>
+                <td>@användare.OrgNr</td>
+                <td>@användare.Bolagsnamn</td>
+                <td>
+                    @Html.ActionLink(" ", "Hantera_Användare_Edit", "Admin", new { userId = @användare.UserId }, new { @class = "tsIcon-Edit tsMarginLeft", @title = "Redigera" })
+                    <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Admin', 'Hantera_User_Delete', 'användaren', @användare.UserId)"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

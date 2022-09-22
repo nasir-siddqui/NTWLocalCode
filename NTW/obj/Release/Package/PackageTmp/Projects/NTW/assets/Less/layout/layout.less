@@ -1,0 +1,61 @@
+.tsComponent {
+    .padding(topbottom;@gutter;@gutter);    
+}
+
+.tsComponent > .tsComponent-header {
+    .margin(top;-@gutter);
+}
+
+.tsComponent--dark {
+    background: @lightergrey;
+    .border(topbottom;@inputbordercolor);
+}
+
+.tsComponent--darkNoBorder {
+    background: @lightergrey;
+}
+
+.tsComponent--light {
+    background: @nearwhite;
+    .border(topbottom;@inputbordercolor);
+}
+
+.tsComponent--negativeMargin {
+    .margin(left;-@gutter);
+    .margin(right;-@gutter);
+    .padding(all;@gutter;@gutter;@gutter;@gutter);
+}
+
+.tsComponent--lightNoBorder {
+    background: @nearwhite;
+}
+
+.tsComponent--inset {
+    background-color: @nearwhite;
+    box-shadow: 0px 5px 7px @lightergrey inset;
+}
+
+.tsComponent--10px {
+    .padding(topbottom;@gutter-half;@gutter-half);
+}
+
+.tsComponent--20px {
+    .padding(topbottom;@gutter;@gutter);
+}
+
+.tsComponent--hiddenBottom {
+    .margin(bottom;-60);
+    .padding(bottom;70);
+}
+
+.tsBodyText {
+    margin-bottom: 0;
+}
+
+.tsWrapInner .tsComponent {
+    padding-bottom: 0;        
+}
+
+.tsComponent.tsBodyText { 
+    .padding(topbottom;@gutter;@gutter);    
+}

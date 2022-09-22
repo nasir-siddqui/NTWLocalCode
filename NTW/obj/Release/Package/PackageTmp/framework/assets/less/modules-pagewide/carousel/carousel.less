@@ -1,0 +1,216 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * CAROUSEL................Carousel
+ * CAROUSEL NAVIGATION.........Navigation of carousel
+ * CAROUSEL HERO ITEMS.........Items in carousel
+*/
+
+
+/*------------------------------------*\
+    $CAROUSEL
+\*------------------------------------*/
+
+
+.tsCarousel {
+  overflow: hidden;
+  position: relative;
+  //.margin(bottom;@gutter);
+}
+.tsCarousel-outer {
+  .tsWrapInner {
+    .padding(leftright;0;0)
+  }
+}
+.tsCarousel-inner {
+  overflow: hidden;
+  position: relative;
+  &> div{
+     float:left;
+  width:100%;
+  position: relative;
+  display: none;
+  &:first-child{
+    display: block;
+    }
+  }
+}
+
+.tsCarousel .tsCarousel-inner{
+   &> div{
+    display: block;
+  }
+}
+
+
+
+/*------------------------------------*\
+    $CAROUSEL NAVIGATION
+\*------------------------------------*/
+.tsCarousel-nav {
+	.l-list;
+	// position: absolute;
+	// bottom: 0;
+	// left: 50%;
+  text-align: center;
+
+	li {
+    .margin(right;@gutter-half);
+    .unselectable;
+		.inline-block;
+		cursor: pointer;
+    &:last-child{
+    margin-right: 0;
+    }
+	}
+}
+
+.tsCaroselbullet {
+  .border-radius(50%);
+  background: @carousel-bullet-color;
+  width: 12px;
+  height: 12px;
+  &.on{
+    background-color: lighten(@carousel-bullet-color-on, 20%);
+    .transparency.background(@carousel-bullet-color-on, 0.8);
+  }
+
+
+}
+.touch .tsCarousel .tsCarousel-Prev,
+.touch .tsCarousel .tsCarousel-Next {
+  display: none;
+}
+.no-touch .tsCarousel .tsCarousel-Prev,
+.no-touch .tsCarousel .tsCarousel-Next {
+  opacity: 0;
+  position: absolute;
+  top:50%;
+  left: 10px;
+}
+.no-touch .tsCarousel:hover .tsCarousel-Prev,
+.no-touch .tsCarousel:hover .tsCarousel-Next,
+ {
+  .inline-block;
+  padding: 15px;
+  //background-color: @white;
+  .transparency.background(@white;.2);
+  //background-color: rgba(255,255,255,0.2);
+
+  cursor: pointer;
+  margin-top: -39px;
+  opacity: 1;
+  .transition(opacity 300ms ease-in-out);
+
+  i {
+    font-weight: bold;
+    font-size: 35px;
+    color: @purple;
+    &:hover {
+       color: @darkestpurple;
+    }
+    b {
+      .visuallyhidden;
+    }
+  }
+
+
+}
+.no-touch .tsCarousel .tsCarousel-Next {
+    left: auto;
+    right: 10px;
+  }
+
+
+// .lt-ie9 .tsCaroselbullet{
+//   background-color: lighten(@carousel-bullet-color, 80%);
+// }
+
+/*------------------------------------*\
+    $CAROUSEL HERO ITEMS
+\*------------------------------------*/
+
+.tsHero {
+    text-align: center;
+}
+
+.tsHero-inner-item,
+.tsHero-inner-item--alt {
+    position: relative;
+    padding: 0 10px;
+    left: auto;
+    top: auto;
+    right: auto;
+    .margin(topbottom; @gutter;@gutter-double);
+    text-align: center;
+    .h1{
+      font-weight: normal;
+    }
+}
+
+.tsCarousel--alt {
+  //  .margin(leftright;-@gutter-half;-@gutter-half);
+}
+.tsCarousel--alt
+{
+  .h3{
+    .font-size(lineheight;24;28);
+    color:@purple;
+  }
+  p{
+    .tsIntroText;
+  }
+}
+.tsCarousel--alt .tsHero-inner-item,
+.tsCarousel--alt .tsHero-inner-item--alt {
+  margin: 0;
+  .padding(all;@gutter-half);
+}
+
+.tsCarousel-inner .tsHero-outer--alt {
+  margin-bottom: 0;
+}
+
+.tsCarousel--alt-wrapper .tsWrapInner {
+  padding: 0!important;
+}
+.tsCarousel--alt-wrapper {
+  .margin(bottom;@gutter);
+}
+
+
+
+.tsHero-splash,
+.tsHero-splash--alt {
+  position: absolute;
+  top:10px;
+  left: 10px;
+  .border-radius(50%);
+  background-color: @turq;
+  height: 65px;
+  width: 65px;
+  display: table;
+  .font-size(lineheight;12;12);
+  z-index:10;
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    word-break:break-word;
+    .padding(all;5);
+    color:@white;
+  }
+}
+.tsHero-splash {
+    background-color: @pink;
+}
+.tsHero-inner-item {
+  position: static;
+}
+.tsCarousel--alt-wrapper .tsCarousel-inner > div {
+  position: relative;
+}
+
+

@@ -1,0 +1,53 @@
+
+.tsMediaBlocks {
+    clear: both;
+}
+.tsMediaBlocks .tsBodyText {
+    .padding(top;@gutter);
+}
+
+
+.tsMediaBlock .is-collapsed:not(.is-disabled) > [data-widget-collapse=inner] {
+	max-height: 172px;
+	overflow: hidden;
+	 
+}
+.tsMediaBlock .is-expanded:not(.is-disabled) > [data-widget-collapse=inner] {
+	padding-bottom:30px;
+}
+
+.tsMediaBlock .is-disabled > [data-widget-collapse=inner] {
+    max-height: none !important;
+}
+
+.tsMediaBlock [data-widget-control=collapse-trigger] {
+    .previewGradient;
+}
+
+.tsMediaBlock .is-expanded [data-widget-control=collapse-trigger] {
+    .visuallyhidden();
+}
+
+/*
+.tsMediaBlock [data-widget-control=collapse-trigger] .tsBtn--collapse > i::after {
+    .collapseBtn-caret;
+}
+
+.tsMediaBlock .is-expanded [data-widget-control=collapse-trigger] .tsBtn--collapse > i::after {
+    .collapseBtn-caret-expanded;
+}
+*/
+/*
+.tsMediaBlock [data-widget-control=collapse-trigger] > i::after {
+    .collapseBtn-caret;
+}
+
+.tsMediaBlock .is-expanded [data-widget-control=collapse-trigger] > i::after {
+    .collapseBtn-caret-expanded;
+}
+*/
+
+.tsMediaBlock-img {
+    text-align: center;
+}
+

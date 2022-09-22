@@ -1,0 +1,28 @@
+﻿@model Telia.NTW.Web.ViewModel.Admin.Hantera.RedigeraAnvändareViewModel
+
+@{
+    ViewBag.Title = "Redigera användare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Hantera", "Hantera")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera användare</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginBottom--None tsMarginTop">
+    <h1>Redigera användare</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+@Html.Partial("_HanteraAnvändare")
+        <div class="tsMarginTop">
+            @Html.ActionLink("Avbryt", "Hantera", "Webstyrning", new { @class = "tsBtn--Regular" })
+            <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Spara" />
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+.tsStickyBar {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+
+.tsStickyBar-container {
+	.tsWrapInner;
+	color: @black;
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	background: @darkgrey;
+	border-top: 2px solid @darkgrey;
+	cursor: pointer;
+	color: @white;
+}
+
+.tsStickyBar-headerrow {
+	border-bottom: 1px solid @clay;
+	width: 100%;
+	.font-size(11);
+	.padding(topbottom;3;3);
+	clear: both;
+	.inline-block;
+	color: @white;
+	.tsOrderSummaryChart-column {
+		.padding(left;@gutter-half);
+	}
+
+}
+
+.tsStickyBar-summaryrow {
+	clear: both;	
+	width: 100%;
+	padding-top:0;
+	padding-bottom:0;
+	font-weight: bold;
+	.inline-block;
+	.tsOrderSummaryChart-column-alt {
+		.font-size(14);
+	}
+	.tsOrderSummaryChart-column {
+		color: @white;
+		.padding(left;@gutter-half);
+	}
+}
+
+.tsColumns-6 .tsStickyBar-summaryrow .tsOrderSummaryChart-column {
+	.font-size(13);
+}

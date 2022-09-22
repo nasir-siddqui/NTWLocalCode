@@ -1,0 +1,142 @@
+
+
+
+/* --- menu v5 overrides --- * /
+
+// search field
+
+.menu-v5 .tsHeader-Search input[type=search],
+.menu-v5 .tsHeader-Search input[type=text] {
+    margin: 0;
+    padding-left: 40px;
+    width: 40px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.menu-v5 .tsSearch-form-input:focus {
+    cursor: auto;
+}
+
+
+// search field placeholder
+
+.menu-v5 .tsSearch-form-input:not(:focus)::-webkit-input-placeholder { 
+    // WebKit browsers
+    color: transparent;
+    .transition;
+}
+
+.menu-v5 .tsSearch-form-input:not(:focus):-moz-placeholder { 
+    // Mozilla Firefox 4 to 18
+    color: transparent;
+    .transition;
+}
+
+.menu-v5 .tsSearch-form-input:not(:focus)::-moz-placeholder { 
+    // Mozilla Firefox 19+
+    color: transparent;
+    .transition;
+}
+
+.menu-v5 .tsSearch-form-input:not(:focus):-ms-input-placeholder { 
+    // Internet Explorer 10+
+    color: transparent;
+    .transition;
+}
+
+
+// submit button
+
+.menu-v5 .tsSearch-form-input:not(:focus) ~ .tsSearch-submit {
+    .visuallyhidden;
+}
+
+
+// submit icon
+
+.menu-v5 .tsIcon-Search {
+    right: 10px;
+    margin-right: 0;
+}
+
+.menu-v5 .tsSearch-form-input:focus ~ .tsIcon-Search {
+    right: 100%;
+    margin-right: -40px;
+    color: @black;
+}
+
+/* --- END: menu v5 overrides --- */
+
+
+
+
+
+
+/* --- ONLY menu v5 --- * /
+
+// search field
+
+.tsHeader-Search input[type=search],
+.tsHeader-Search input[type=text] {
+    margin: 0;
+    padding-left: 40px;
+    width: 40px;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.tsSearch-form-input:focus {
+    cursor: auto;
+}
+
+
+// search field placeholder
+
+.tsSearch-form-input:not(:focus)::-webkit-input-placeholder { 
+    // WebKit browsers
+    color: transparent;
+    .transition;
+}
+
+.tsSearch-form-input:not(:focus):-moz-placeholder { 
+    // Mozilla Firefox 4 to 18
+    color: transparent;
+    .transition;
+}
+
+.tsSearch-form-input:not(:focus)::-moz-placeholder { 
+    // Mozilla Firefox 19+
+    color: transparent;
+    .transition;
+}
+
+.tsSearch-form-input:not(:focus):-ms-input-placeholder { 
+    // Internet Explorer 10+
+    color: transparent;
+    .transition;
+}
+
+
+// submit button
+
+.tsSearch-form-input:not(:focus) ~ .tsSearch-submit {
+    .visuallyhidden;
+}
+
+
+// submit icon
+
+.tsIcon-Search {
+    right: 10px;
+    margin-right: 0;
+}
+
+.tsSearch-form-input:focus ~ .tsIcon-Search {
+    right: 100%;
+    margin-right: -40px;
+    color: @black;
+}
+
+/* --- END: ONLY menu v5 --- */
+

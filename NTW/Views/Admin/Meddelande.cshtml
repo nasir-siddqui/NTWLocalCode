@@ -1,0 +1,106 @@
+﻿@model Telia.NTW.Web.ViewModel.Admin.MeddelandenViewModel
+
+@{
+	ViewBag.Title = "Aktuellt";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@Html.Partial("_QuickHelp")*@
+
+<div class="tsBodyText tsWrapInner">
+	<h1>Meddelande</h1>
+	<p>
+		Skapa nya meddelanden eller redigera existerande.
+	</p>
+</div>
+<div class="tsComponent--20px tsComponent--light tsMarginTop tsMarginBottom--doubleGutter">
+	<div class="tsWrapInner">
+		@Html.ActionLink("Skapa nytt meddelande", "SkapaMeddelande", "Admin", new { @class = "tsBtn--Regular" })
+	</div>
+</div>
+
+<ul class="tscList tsMarginBottom">
+	<li class="tsPageSection">
+		<div class="tsPageSection-heading tsMarginBottom--None">
+			<h2 class="h2 tsWrapInner">Aktiva meddelanden</h2>
+		</div>
+		<div class="tsWrapInner tsMarginTop">
+			@if (Model.Present.Count() == 0) {
+				<p>
+					<em>Inga aktiva meddelanden</em>
+				</p>
+			}
+			@foreach (var meddelande in Model.Present)
+			{
+				<div style="float: right">
+					<a href="@Url.Action("RedigeraMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/edit.png")" alt="Redigera" style="width: 20px" />
+					</a>
+					<a href="@Url.Action("TaBortMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/ta_bort.png")" alt="Ta bort" style="width: 20px" />
+					</a>
+				</div>
+				<h3>@meddelande.From.ToString("yyyy-MM-dd HH:mm") - @meddelande.To.ToString("yyyy-MM-dd HH:mm")</h3>
+				<p>
+					@meddelande.Text
+				</p>
+			}
+		</div>
+	</li>
+	<li class="tsPageSection">
+		<div class="tsPageSection-heading tsMarginBottom--None">
+			<h2 class="h2 tsWrapInner">Kommande meddelanden</h2>
+		</div>
+		<div class="tsWrapInner tsMarginTop">
+			@if (Model.Future.Count() == 0)
+			{
+				<p>
+					<em>Inga kommande meddelanden</em>
+				</p>
+			}
+			@foreach (var meddelande in Model.Future)
+			{
+				<div style="float: right">
+					<a href="@Url.Action("RedigeraMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/edit.png")" alt="Redigera" style="width: 20px" />
+					</a>
+					<a href="@Url.Action("TaBortMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/ta_bort.png")" alt="Ta bort" style="width: 20px" />
+					</a>
+				</div>
+				<h3>@meddelande.From.ToString("yyyy-MM-dd HH:mm") - @meddelande.To.ToString("yyyy-MM-dd HH:mm")</h3>
+				<p>
+					@meddelande.Text
+				</p>
+			}
+		</div>
+	</li>
+	<li class="tsPageSection">
+		<div class="tsPageSection-heading tsMarginBottom--None">
+			<h2 class="h2 tsWrapInner">Tidigare meddelanden</h2>
+		</div>
+		<div class="tsWrapInner tsMarginTop">
+			@if (Model.Past.Count() == 0)
+			{
+				<p>
+					<em>Inga tidigare meddelanden</em>
+				</p>
+			}
+			@foreach (var meddelande in Model.Past)
+			{
+				<div style="float: right">
+					<a href="@Url.Action("RedigeraMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/edit.png")" alt="Redigera" style="width: 20px" />
+					</a>
+					<a href="@Url.Action("TaBortMeddelande", new { @id = meddelande.Id })">
+						<img src="@Url.Content("~/Media/ta_bort.png")" alt="Ta bort" style="width: 20px" />
+					</a>
+				</div>
+				<h3>@meddelande.From.ToString("yyyy-MM-dd HH:mm") - @meddelande.To.ToString("yyyy-MM-dd HH:mm")</h3>
+				<p>
+					@meddelande.Text
+				</p>
+			}
+		</div>
+	</li>
+</ul>

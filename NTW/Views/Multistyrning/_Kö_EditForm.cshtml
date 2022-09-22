@@ -1,0 +1,29 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning.MultistyrningsköEditViewModel
+
+@Html.AntiForgeryToken()
+
+@Html.HiddenFor(m => m.KöVIPMultiConnectedId)
+
+<div class="tsMarginBottom tsMarginTop">
+	<div class="tseTextField--Normal--Full--Half tsMarginBottom">
+		@Html.DropDownListFor(m => m.AlternativVIPMultiConnectedId, Model.AlternativList, "", new { @class = "combobox-autocomplete" })
+        @Html.ValidationMessageFor(m => m.AlternativVIPMultiConnectedId)
+	</div>
+
+	<div class="tseRadioBox tseTextField--Normal--Half--Inline">
+		@Html.RadioButtonFor(m => m.SåSnartSomMöjligt, false, new { @id = "InkopplingstypBegartDatum" })
+		@Html.LabelFor(m => m.SåSnartSomMöjligt, "Begärt datum: ", new { @for = "InkopplingstypBegartDatum" })
+
+		<div class="tseTextField--Normal--Half--Inline">
+			@Html.TextBoxFor(m => m.BegärtDatum, new { @class = "tseInput", @type = "text", data_datepicker = "datetime" })
+			@Html.ValidationMessageFor(m => m.BegärtDatum)
+		</div>
+	</div>
+    
+    @Html.HiddenFor(m => m.OldBegärtDatum)
+
+    <div class="tseRadioBox">
+        @Html.RadioButtonFor(m => m.SåSnartSomMöjligt, true, new { @id = "InkopplingstypSaFortSomMojligt" })
+        @Html.LabelFor(m => m.SåSnartSomMöjligt, "Så snart som möjligt", new { @for = "InkopplingstypSaFortSomMojligt" })
+    </div>
+</div>

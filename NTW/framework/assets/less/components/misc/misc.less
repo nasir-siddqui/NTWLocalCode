@@ -1,0 +1,452 @@
+/* 
+* ------------------------------------------------------------------------
+* Area: default
+*
+* An area with padding and light grey background
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscArea"] {
+    .padding(topbottom;@gutter;@gutter);
+}
+[class^="tscArea"][class*="--Border"] {
+    .border(topbottom;@inputbordercolor);
+}
+// the area might be used for loading data with ajax.
+// center the loading icon wrapper
+[class^="tscArea"] .tscAreaLoading {
+    text-align: center;
+}
+
+// a large area with double padding
+[class^="tscArea"][class*="--Double"] {
+    .padding(topbottom;@gutter-double;@gutter-double);
+}
+// a small area with half padding
+[class^="tscArea"][class*="--Half"] {
+    .padding(topbottom;@gutter-half;@gutter-half);
+}
+// different background colors
+[class^="tscArea"][class*="--White"] {
+    background: @white;
+}
+[class^="tscArea"][class*="--NearWhite"] {
+    background: @nearwhite;
+}
+[class^="tscArea"][class*="--LightGrey"] {
+    background: @lightgrey;
+}
+[class^="tscArea"][class*="--LighterGrey"] {
+    background: @lightergrey;
+}
+// left/right border with padding
+[class^="tscArea"][class*="--Full"] {
+    .padding(leftright;@gutter;@gutter);
+}
+[class^="tscArea"][class*="--Full"][class*="--Border"] {
+    border: 1px solid @inputbordercolor;
+}
+[class^="tscArea"][class*="--Full"][class*="--Double"] {
+    .padding(leftright;@gutter-double;@gutter-double);
+}
+[class^="tscArea"][class*="--Full"][class*="--Half"] {
+    .padding(leftright;@gutter-half;@gutter-half);
+}
+// if two areas are place next to each other, remove the top border on the 2:nd and further
+[class^="tscArea"] + [class^="tscArea"] {
+    border-top: 0 none;
+}
+// no top
+[class^="tscArea"][class*="--NoTop"] {
+    padding-top: 0;
+    border-top: 0 none;
+}
+// An area to center stuf
+[class^="tscArea"][class*="--Center"] {
+    text-align: center;
+}
+
+/* 
+* ------------------------------------------------------------------------
+* tscLoading
+*
+* A stand alone Loading-area that can be used inside any component
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscLoading"] {
+    text-align: center;
+}
+
+[class^="tscLoading"][class*="--Full"] {
+    width: 100%;
+    float: left;
+}
+
+[class^="tscLoading"][class*="--PaddingGutter"] {
+    .padding(topbottom;@gutter;@gutter);
+}
+
+[class^="tscLoading"][class*="--PaddingHalfGutter"] {
+    .padding(topbottom;@gutter/2;@gutter/2);
+}
+
+[class^="tscLoading"][class*="--BackgroundWhite"] {
+    background-color: white;
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* Button dropdown
+* ------------------------------------------------------------------------
+*/
+
+.tscButtonDropdown {
+    display: inline-block;
+    position: relative;
+    & > [class^="tsBtn"] {
+        width: 100%;
+    }
+    & > .tscButtonDropdown-containerWrapper {
+        position: absolute;
+        width: 100%;
+        display: none;
+        z-index: 10;
+        & > .tscButtonDropdown-container {
+            background-color: @white;
+            .padding(all;@gutter-half);
+            border: 1px solid #ddd;
+            textarea {
+                resize: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Rows: default
+*
+* Rows is a wrapper to control the appearence of the bootstrap grid 
+* classes. It will add some margins to the rows. Feel free to add more 
+* variants here. If the tscRows class is omitted there will be no margin
+* ------------------------------------------------------------------------
+*/
+
+.tscRows {
+    .margin(topbottom;@gutter-half;@gutter-half);
+    .row {
+        .margin(topbottom;@gutter-half/2;@gutter-half/2);
+    }
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* InlineRow
+*
+* A general row which will be of full length where the main column will
+* be as wide as possible
+* ------------------------------------------------------------------------
+*/
+
+/* Use like this
+
+<div class="tscInlineRow">
+    <div>
+        <i class="tsIcon-Configure"></i>
+    </div>
+    <div class="tscInlineRow-main">
+        <h3 class="h3 normal grey">PRODUKT</h3>
+        <h1 class="h1">Telia Prolane Transit</h1>
+    </div>
+</div>
+
+*/
+
+[class^="tscInlineRow"] {
+    display: table;
+    vertical-align: middle;
+    .margin(leftright;-@gutter-half;-@gutter-half);
+    & > div {
+        .padding(leftright;@gutter-half;@gutter-half);
+        display: table-cell;  
+        vertical-align: middle;      
+    }
+    & > .tscInlineRow-main {
+        width: 100%;
+    }
+    & > .tscInlineRow-nowrap {
+        white-space: nowrap;
+    }
+    // maybe this should be moved out from this component
+    i {
+        .icon-with-background(100;@lightgrey);
+    }
+    & > .tscInlineRow-narrow {
+        min-width: 180px;
+    }
+}
+
+.tscInline, .tscInline--Gutter, .tscInline--GutterHalf,
+.tscInline--Middle, .tscInline--Middle--Gutter, .tscInline--Middle--GutterHalf {
+    .l-inline-elements();
+    & {
+        white-space: nowrap;
+    }
+    & > * {
+        white-space: normal;
+    }
+}
+.tscInline--Middle, .tscInline--Middle--Gutter, .tscInline--Middle--GutterHalf {
+    & > * {
+        vertical-align: middle;
+    }
+}
+.tscInline, .tscInline--Middle {
+     & > [class*="tscInline-Element"] {
+        .margin(right;@gutter);
+        &[class*="--Narrow"] {
+            width: 150px;
+        }
+    }    
+}
+.tscInline--Gutter, .tscInline--Middle--Gutter {
+    & > * {
+        .margin(right;@gutter);
+    }
+}
+.tscInline--GutterHalf, .tscInline--Middle--GutterHalf {
+    & > * {
+        .margin(right;@gutter-half);
+    }
+}
+
+
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Icon headline
+*
+* A combination of a icon together with a headline with possiblity of
+* adding a label. Feel free to add size variations of this one.
+* ------------------------------------------------------------------------
+*/
+
+[class^="tscIconHeadline"] {
+    overflow: hidden;
+    .tscIconBackground {
+        float: left;
+        .margin(right;15);
+        .icon-background(80;@lightgrey);
+    }
+    [class^="tscLabel"] {
+        color: @grey;
+        .font-size(13);
+        font-weight: normal;
+    }
+    .tscLabel--preHeader {
+        .font-size(16);
+        font-weight: 400;
+        .padding(top;@gutter-half);
+        .margin(bottom;0);
+        /*.margin(top;@gutter-half);*/
+        text-transform: uppercase;
+    }
+}
+
+.tscIconHeadline--small {
+    overflow: visible;
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+    }
+    .tscLabel{
+        float:left;
+    }
+    .tscIconBackground {
+        .margin(right;@gutter-half);
+        .margin(top;@gutter/4);
+        .icon-background(34;@lightgrey);
+    }
+
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Icon link
+*
+* A combination of a icon together with a link.
+* ------------------------------------------------------------------------
+*/
+
+.tscIconLink {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        cursor: pointer;
+    }
+    .tscIconBackground {
+        float: left;
+        .margin(right;5);
+        .icon-background(26;@purple);
+    }
+    .tscLabel {
+        .margin(top;3);
+        float: left;
+        font-weight: bold;
+        color: @purple;
+    }
+    .tscHiddenInput {
+        position: absolute;
+        top: 0;
+        right: 0;
+        /*width: 100%;
+        height: 100%;*/
+        .font-size(100);
+        opacity: 0;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.tscIconLink--turq {
+    .tscIconBackground {
+        background-color: @turq;
+    }
+    .tscLabel {
+        color: @turq;
+    }
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* Append item
+* ------------------------------------------------------------------------
+*/
+
+.tscAppend-item {
+    float: left;
+    width: 200px;
+    .margin(all;0;@gutter;@gutter;0);
+    .tscLabel {
+        float: left;
+        width: 130px;
+        .padding(all;@gutter/2;0;0;@gutter/2);
+        overflow: hidden;
+        white-space:nowrap; 
+        text-overflow: ellipsis;
+        color: @grey;
+    }
+}
+
+.tscAppend-placeholder {
+    float: left;
+    position: relative;
+    width: 70px;
+    height: 45px;
+    background-color: @lightergrey;
+    .tscIconBackground {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: @grey;
+        i {
+            color: @white;
+            .font-size(10);
+            .padding(all;5;5;5;5);
+        }
+    }
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* Close 
+*
+* When you want text/link displayed as a block and to the right
+* ------------------------------------------------------------------------
+*/
+
+.tsClose {
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+/* 
+* ------------------------------------------------------------------------
+* Edit 
+*
+* A container for edit and save button to the right
+* ------------------------------------------------------------------------
+*/
+
+.tscEdit {
+    display: block;
+    .margin(bottom; 0);
+    text-align: right;
+    input, >span, button{
+        .margin(left;10);
+    }
+    a[disabled=disabled]{
+        cursor: default;
+        .opacity(0.2);
+    }
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Button container 
+*
+* A container for a centered button
+* ------------------------------------------------------------------------
+*/
+
+
+[class^="tscButtonContainer"] {
+    text-align: center;
+    .padding(all;@gutter;@gutter;@gutter;@gutter);
+}
+ 
+[class^="tscButtonContainer"][class*="--Full"] {
+    float: left;
+    width: 100%;
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* Label 
+*
+* When you want text/link displayed as a block and to the right
+* ------------------------------------------------------------------------
+*/
+
+.tscLabel {
+    float: left;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: @grey;
+    .padding(all;5;10;5;10);
+    .margin(left;10);
+    border-radius: 2px;
+    color: @white;
+    position: relative;
+    top: -4px;
+}

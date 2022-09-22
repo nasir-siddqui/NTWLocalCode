@@ -1,0 +1,27 @@
+<div class="tsMarginBottom--doubleGutter">
+    <div class="tscArea--LighterGrey--Border">
+        <div class="tsWrapInner tscInline" ng-if="customization.add.enabled">         
+            <div class="tscForm--InsetInline">
+                <div class="tscFormSection--Inline">
+                    <form ng-submit="add()">
+                        <div class="tseTextField--Normal--Wide--InlineHalf" ng-repeat="f in customization.add.fields" >
+                            <input type="{{f.type}}" name="{{f.name}}" ng-disabled="add.loading" placeholder="{{f.placeholder}}" ng-model="f.value" />
+                            <span ng-if="f.validation.error != ''" class="error">{{f.validation.error}}</span>
+                        </div>
+                        <button type="submit" class="tsBtn--Normal--Regular--Animated" ts-loading-button x-status="add.status" x-click-enabled="false" x-progress-text="Saving" x-failure-text="Oops, try again">{{customization.add.submitText}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tsAttention--Panic tsMarginBottom" data-id="addTableRowObjectStatusContainer" ng-if="add.error !== null">
+        <div class="tsAttention-Message tsAttention-MessageClosable tsWrapInner">
+                <i class="tsIcon-Panic"></i>
+                <p>
+                    <strong class="tsAttention-heading" data-id="billingAddressStatusHeader">{{customization.add.errorPrefixText}}</strong>
+                    <a class="tsAttention-closeMessage" data-toggle="collapse" data-target="[data-id=addTableRowObjectStatusContainer]" href="/"><span>Stäng</span> <i class="tsIcon-Close"></i></a>
+                    <span data-id="billingAddressStatusText">{{add.error}}</span>
+                </p>
+        </div>
+    </div>
+</div>

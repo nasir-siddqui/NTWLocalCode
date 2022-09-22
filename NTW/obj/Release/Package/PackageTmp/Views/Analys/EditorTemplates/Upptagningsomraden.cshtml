@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Telia.NTW.Web.ViewModel.Shared.EditorTemplateModels.CheckboxModel>
+@{
+    var items = Model.ToList().Select((value, i) => new { i, value });
+    string noItemsShow= items.Count() == 0 ? null : "hidden";
+}
+<label class="@noItemsShow">Upptagningsområden saknas då statistik för abonnemanget saknas.</label>
+@foreach (var item in items)
+{
+    var name = "UpptagningsomradeList[" + item.i + "]";
+    var propSelected = name + ".ChkSelected";
+    var propNamn = name + ".ChkNamn";
+    var propId = name + ".ChkId";
+    var checkboxId = name + ".IdName";
+    var checkboxClass = item.value.ChkSelected ? "tseCheckbox tseCheckbox--checked" : "tseCheckbox";
+    var checkedAttr = item.value.ChkSelected ? "checked" : null;
+    <input type="checkbox" class="@checkboxClass checkboxUpptagningsomraden" name="@propSelected" id="@checkboxId" value="true" @checkedAttr />
+    <label class="tseCheckbox-label" for="@checkboxId">@item.value.ChkNamn</label>
+    <input name="@propSelected" type="hidden" value="false">
+    <input name="@propId" type="hidden" value="@item.value.ChkId">
+    <input name="@propNamn" type="hidden" value="@item.value.ChkNamn">
+}

@@ -1,0 +1,384 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * SHORT-CUTS..........Dynamic short-cuts for the start page
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $SHORT-CUTS
+\*------------------------------------*/
+
+.tsShortCuts {
+    float: left;
+	background-color: transparent;
+    width: 100%;
+    &.combineRoles {
+        .margin(top;0);
+    }
+}
+
+.tsShortCuts-container {
+    float: left;
+	.padding(all;20) !important;
+    /*position: relative;*/
+	background-color: @purple;
+    width: 100%;
+}
+
+.tsShortCuts-heading {
+	display: inline-block;
+	.font-size(24);
+	color: @white;
+	font-weight: normal;
+}
+
+.tsShortCuts-manage {
+	color: @white;
+	float: right;
+	cursor: pointer;
+	line-height: 20px;
+	&:hover {
+		color: @white;
+	}
+	[class*=tsIcon-] {
+		line-height: 20px;
+		position: relative;
+		top: 5px;
+		.margin(left; 10);
+	}
+}
+
+.tsShortCuts-links {
+	width: 100%;
+	.padding(left; 0);
+	.margin(bottom; 5);
+	list-style: none;
+	float: left;
+	li {
+		position: relative;
+	}
+	a, .tsBookmark-item {
+		width: 100%;
+		padding: 10px 10px 10px 20px;
+		display: block;
+		//background: @nearwhite;
+		color: @purple;
+		&:hover {
+			background-color: @lightergrey;
+		}
+        .tscLabel {
+            float: none;
+            top: 0;
+        }
+	}
+}
+
+.tsShortCuts-links > li {
+    position: relative;
+	display: inline-block;
+	float: left;
+	border-bottom: 1px solid @darkpurple;
+	background: @nearwhite;
+	vertical-align: top;
+	.font-size(14);
+	font-weight: bold;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    transition: background-color 1s;
+	.tsHandleShortCut-icon, .tsShortCuts-deleteBookmark, .tsIcon-Add {
+        position: absolute;
+        top: 7px;
+        right: 10px;
+        width: 26px;
+        height: 26px;
+        .border-radius(26px);
+        background-color: @purple;
+        font-weight: normal;
+        color: @white;
+        .font-size(14);
+        .padding(all;6;5;4;5);
+        cursor: pointer;
+	}
+    .tsLinkIcon {
+        float: left;
+        width: 40px;
+        height: 40px;
+        color: @purple;
+        line-height: 40px;
+        .margin(right;@gutter/2);
+        border-right: 1px solid rgba(136, 60, 180, 0.2);
+    }
+    .tsRightLinkIcon {
+        float: right;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        color: @purple;
+        .margin(left;@gutter/2);
+        border-left: 1px solid rgba(136, 60, 180, 0.2);
+        padding-left: 13px;
+        padding-top: 5px; 
+    }
+
+    &.hightlight {
+        background: rgba(250, 250, 250, 0.8);
+    }
+
+}
+
+.tsShortCuts-links > li.tsShortCuts-add-link {
+	border: none;
+	background: @purple;
+	cursor: pointer;
+	color: @nearwhite;
+	span {
+		border: 1px dashed @nearwhite;
+        height: 40px;
+		float: left;
+		width: 100%;
+		padding: 9px 10px 6px 20px;
+		i {
+            background-color: @lightergrey;
+            float: right;
+			color: @purple;
+		}
+	}
+}
+
+.tsShortCuts-hide {
+	display: none;
+}
+
+.tsShortCuts-remove-link [class*=tsIcon-] {
+	position: absolute; 
+	right: 0; 
+	top: 0px; 
+	color: @pink;
+}
+
+.tsShortCuts-manage-links {
+	float: left; 
+	position: relative; 
+	width: 100%; 
+	display: block;
+}
+
+.tsShortCuts-add {
+	display: none;
+	width: 50%;
+	background-color: @nearwhite;
+	border: 1px solid @lightgrey;
+	margin-top: 20px;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: left;
+	.tsShortCuts-add-button {
+		display:block; 
+		width:100%;
+		[class*=tsIcon-] {
+			color: @nearwhite;
+			.font-size(10);
+			height: 10px;
+			width: 30px;
+			line-height: 15px;
+			position: relative;
+			top: 5px;
+			float: right;
+		}
+	}
+}
+
+.tsShortCuts-expand {
+	display: none;
+    float: left;
+	background-color: @white; 
+	width: 100%;
+	position: relative;
+}
+
+.tsShortCuts-arrow-up {
+    .arrow(up;10;@darknearwhite);
+	position: absolute;
+	top: -9px;
+	z-index: 2;
+	left: 48.8%;
+}
+
+.tsShortCuts-add-url {
+	float: left;
+	width: 100%;
+	background-color: @darknearwhite;
+	border: 1px solid @lightgrey;
+    .padding(all;20;);
+	input.ts-btn {
+		//padding: 8px 8px 7px;
+        //.padding(all;12);
+        //min-height: 45px;
+        height: 45px;
+		width: auto;
+	}
+	.tsInputField {
+		color: black;
+        border: 1px solid @inputbordercolor;
+        .padding(all;12;11;13;11);
+        height: 45px;
+	}
+    p.error {
+        .margin(bottom;5);
+        color: red;
+    }
+
+}
+
+.tsShortCuts-formField-container {
+    width: 100%;
+    display: table-cell;
+    vertical-align: top;
+
+}
+
+.tsShortCuts-formSubmit-container {
+    display: table-cell;
+    vertical-align: bottom;
+    float: none;
+}
+
+.tsShortCuts-formField {
+    display:inline-block;
+    width: 48%;
+    width: -webkit-calc(~"50% - 12px");
+    width: calc(~"50% - 12px");
+    .margin(right;10);
+    input {
+        width: 100%;
+        .padding(all;10px);
+    }
+	label {
+        .margin(top;0);
+		width: 100%;
+	}
+    .textinput-placeholder {
+        float: left;
+        width: 100%;
+    }
+}
+
+
+.tsShortCuts-add-btn {
+	float: right;
+	color: @turq;
+	.font-size(14);
+	display: inline-block;
+	.padding(all; 5);
+	.margin(top; 15);
+	.margin(right; 12);
+	background-color: @lightergrey;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.tsShortCuts-list {
+    border-bottom: 1px solid @lightergrey;
+    border-left: 1px solid @lightergrey;
+    border-right: 1px solid @lightergrey;
+}
+
+/* When dragging a link */
+.tsShortCuts-links {
+    .ui-sortable-helper, .ui-sortable-helper:nth-child(even) {
+        border: none;
+    }
+
+}
+
+.ui-sortable:not(.ui-sortable-disabled) {
+    li {
+        a:hover {
+            cursor: move;
+        }
+    }
+}
+
+
+/* Highlight effect */
+.tsShortCuts {
+    .tsAccordion-alt-list-item, .tsAccordion-alt2-list-item {
+        -webkit-transition: background-color 1s;
+        -moz-transition: background-color 1s;
+        -o-transition: background-color 1s;
+        -ms-transition: background-color 1s;
+        transition: background-color 1s;
+        &.addedBookmark {
+            & > h2 {
+                color: @lightgrey;
+            }
+        }
+        &.highlight {
+            background-color: rgba(0, 180, 140, 0.2);
+        }
+        .tsAccordion-nestled-alt-list {
+            li {
+                -webkit-transition: background-color 1s;
+                -moz-transition: background-color 1s;
+                -o-transition: background-color 1s;
+                -ms-transition: background-color 1s;
+                transition: background-color 1s;
+                &.highlight {
+                    background-color: rgba(0, 180, 140, 0.2);
+                }
+                &.addedBookmark {
+                    & > h2 {
+                        color: @lightgrey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Inverted version */
+.tsShortCuts--inverted {
+    background-color: @lightergrey;
+    .h2 {
+        color: @purple;
+    }
+    .tsShortCuts-manage {
+        color: @purple;
+    }
+    .tsShortCuts-links {
+        & > li {
+            border-bottom: 1px solid @lightergrey;
+            &:last-child {
+                border: none;
+            }
+        }
+        .tsShortCuts-add-link {
+            background: none;
+            color: @purple;
+            span {
+                border: 1px dashed @purple;
+                i {
+                    background-color: @purple;
+                    color: @white;
+                }
+            }
+        }
+        .tsBookmark-item {
+            &:hover {
+                background-color: @white;
+            }
+        }
+    }
+}

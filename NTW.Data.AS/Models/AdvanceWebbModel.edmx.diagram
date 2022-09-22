@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5190c8c238c4313a7dcd67a54b5966a" Name="Diagram1">
+        <EntityTypeShape EntityType="AdvanceWebbModel.AdvanceExtension" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.AnswerExtension" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.AreaCode" Width="1.5" PointX="2.375" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.CallType" Width="1.5" PointX="2.875" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.CompanyInfo" Width="1.5" PointX="4.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.Extension" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.FictiveOrgNr" Width="1.5" PointX="8" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.GroupInfo" Width="1.5" PointX="2" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.Interval" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.Region" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.CallData" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.vCallData" Width="1.5" PointX="9" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_AnswerExtension_AdvanceExtension" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CallData_AnswerExtension" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_AreaCode_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CallData_CallType" ManuallyRouted="false" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_Webb_Users_Org_Webb_Users_Koncern" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

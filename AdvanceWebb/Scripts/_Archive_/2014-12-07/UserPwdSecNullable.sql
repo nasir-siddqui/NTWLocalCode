@@ -1,0 +1,4 @@
+﻿USE AdvanceWebb
+
+ALTER TABLE [Users] ALTER COLUMN Password VARCHAR(50)
+ALTER TABLE [Users] ALTER COLUMN Security VARCHAR(10)

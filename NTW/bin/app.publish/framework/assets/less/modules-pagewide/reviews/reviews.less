@@ -1,0 +1,93 @@
+.tsReviewsRatings {
+	.l-inline-list;
+	.margin(bottom;50);
+	& > li {
+		.padding(top;@gutter);
+        text-align: center;
+	}
+    width: 100%;
+}
+.tsReviews {
+	.l-list;
+	color: @black;
+	& > li{
+		overflow: hidden;
+		border-bottom: 1px solid @ratingbgcolor;
+		.padding(bottom;30);
+		.margin(bottom;30);
+		&:last-child{
+			.margin(bottom;60);
+		}
+	}
+	p {
+		.margin(bottom;@gutter-half);
+	}
+}
+
+.tsReviewsChart {
+	width: 100%;
+	.padding(right;@gutter)!important;
+	& > div{
+		text-align: center;
+	}
+}
+.tsReviewsRating {
+	width:100%;
+}
+.tsReviewsInfo {
+	width:100%;
+	p {
+		.margin(bottom;@gutter-half);
+        text-align: left;
+	}
+}
+.tsReviewsInfo-header {
+	font-weight: bold;
+}
+
+.tsReviews-header {
+	.margin(bottom;@gutter-half);
+}
+.tsReviews-subinfo {
+	.font-size(12);
+    color: @grey;
+}
+.tsReviews-textcontainer {
+	width: 100%;
+	float: left;
+	.padding(right;@gutter);
+}
+.tsReviews-maintext {
+	.font-size(16);
+}
+.tsReviews-subtext {
+	.font-size(14);
+}
+.tsReviews-reviewhelp {
+	max-width: 100%;
+	float: left;
+	background-color: @ratingbgcolor;
+	.padding(all;10);
+}
+.tsReviews-subinfo-logo {
+	max-height: 15px;
+	.margin(leftright;@gutter-half/2;@gutter-half/2);
+}
+
+.tsReviewsInfo-logo {
+	.margin(right;@gutter-half);
+}
+
+.tsRatingChart-content {
+    width: 80%;
+    
+    canvas {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+[data-ratings="review-info"] {
+    display: none;
+}
+

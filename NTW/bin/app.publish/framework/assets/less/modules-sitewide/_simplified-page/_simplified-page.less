@@ -1,0 +1,37 @@
+// A simplified page layout, with an empty footer
+
+.tsHeader-Simplified,
+.tsMain-Simplified {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.tsHeader-Simplified {
+	margin-top: 150px;
+	margin-bottom: 20px;
+}
+
+.tsHeader-Simplified .tsLogo {
+    float: none;
+}
+
+.tsMain-Simplified .tsSearch-form-input {
+    display: inline-block;
+    max-width: 300px;
+}
+
+.tsMain-Simplified label {
+    display: block;
+}
+
+@media only all {
+    .tsMain-Simplified label {
+        .visuallyhidden;
+    }
+}
+
+.tsFooter-Simplified {
+	margin-top: 150px;
+	min-height: 200px;
+	background-color: @purple;
+}

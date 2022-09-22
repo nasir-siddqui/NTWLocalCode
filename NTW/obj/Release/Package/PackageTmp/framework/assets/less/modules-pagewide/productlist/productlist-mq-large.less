@@ -1,0 +1,79 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCTLIST-ITEMS........
+
+*/
+
+
+
+
+/*------------------------------------*\
+  $PRODUCTLIST-ITEMS
+\*------------------------------------*/
+
+[class*="tsProductList--Alt"] > .tsProductList-Item ,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign {
+    width: 20%;
+}
+
+[class*="tsProductList--Alt"] > .tsProductList-Item--double,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign--double {
+    width: 40%;
+}   
+
+[class*="tsProductList--Alt"] > .tsProductList-Item--double,
+[class*="tsProductList--Alt"]> .tsProductList-Item--tsCampaign--double {
+    width: 40%;
+}   
+
+.lt-ie9 [class*="tsProductList--Alt"] > .tsProductList-Item ,
+.lt-ie9 [class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign {
+    width: 19%;
+
+}
+.lt-ie9 [class*="tsProductList--Alt"] > .tsProductList-Item--double,
+.lt-ie9 [class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign--double {
+    width: 39%;
+}  
+
+[class*="tsProductList--Alt"][class*="--Large"] .tsProductItem {
+    .padding(all;@gutter-double);
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] .tsProductItem-Img {
+    .image-container(356, 155);
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] .tsProductItem-Desc {
+    .padding(all;@gutter);
+}
+
+.tsProductList--Alt--Vertical {
+    
+     .tsProductItem-Info {
+        height: auto;
+        .padding(all;@gutter);
+        padding-left: 0; 
+    }
+
+    .tsProductItem-Price{
+        padding-right: 0;
+    }
+
+    .tsProductItem-Img {
+        width: 45%;
+        margin-top: -40px;
+        margin-left: -80px;
+        margin-bottom: -40px;
+    }
+    
+    
+    .tsProductItem-Desc {
+        .padding(right;@gutter-double);
+    }
+    
+}

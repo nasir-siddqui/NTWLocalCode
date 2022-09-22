@@ -1,0 +1,21 @@
+﻿@model Telia.NTW.Web.ViewModel.Shared.DeleteConfirmViewModel
+
+<tr>
+    <td class="tsTable-hiddenContainer" colspan="7">
+        <div class="tsComponent--inset tsClear" ts-full-container="" style="margin-left: -406.5px; margin-right: -406.5px;">
+            <div class="tsAttention--Panic tsAttention--tableLayout">
+                <div class="tsAttention-Message tsWrapInner">
+                    <i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+                    <p class="tsAttention-Content">
+                        <span class="tsMarginRight">Är du säker att du vill radera @Model.EntityName?</span>
+                        @Html.ActionLink("Ja, radera " + Model.EntityName, Model.DeleteAction, Model.ControllerName,
+                            new { id = Model.Id, id2 = Model.Id2, id3 = Model.Id3, id4 = Model.Id4, id5 = Model.Id5 },
+                            new { @class = "tsBtn--Normal--Internal--Regular--Animated tsMarginRight" }
+                        )
+                        <a class="tsBtn--Normal--Internal--Regular" onclick="deleteConfirmation.hideConfirmation(event)">Nej</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>

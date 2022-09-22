@@ -1,0 +1,19 @@
+<div class="search menu-search tsClear">
+    <form class="search-form">
+        <input type="search" class="search-field ui-autocomplete-input" name="search" placeholder="{{ searchPlaceholder }}" autocomplete="off" ng-model="organizationId" ng-pattern="orgIdRegex" ng-disabled="isSearching">
+        <i class="tsIcon-Search" ts-animate-toggle="searchResult"></i>
+        <input type="submit" class="search-submit" value="Sök" ts-animate-toggle="searchResult" ng-click="getOrganization(organizationId)" ng-disabled="isSearching">
+    </form>
+    <ul class="tsAccordion-list tsAccordion-list--striped tsShortCuts-list tsHidden" ts-animate="searchResult" data-animate-type="slide" data-animate-duration="200">
+        <li ng-show="newOrganization" class="tsAccordion-list-item">
+            <h2 class="h4" ng-click="changeUrl(newOrganization)">{{ newOrganization.name }}</h2>
+        </li>
+        <li ng-show="!newOrganization && isSearching" style="list-style-type: none;">
+            <div class='tscLoading--Full--PaddingHalfGutter--BackgroundWhite'><div class='tsLoading-icon-large'></div></div>
+        </li>
+        <li ng-show="notFound" class="tsAccordion-list-item">
+            <h2 class="h4">{{ texts.noResult }}</h2> 
+        </li>
+    </ul>
+</div>
+

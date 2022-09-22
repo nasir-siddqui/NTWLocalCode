@@ -1,0 +1,29 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model BolagEditViewModel
+
+@{
+    ViewBag.Title = "Redigera bolag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Hantera", "Hantera")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera bolag</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1 class="h1">Redigera Bolag</h1>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("_Hantera_Bolag_EditForm")
+            
+    <!-- Spara, Avbryt -->
+    <div class="tsMarginTop tsWrapInner tsMarginBottom--doubleGutter">
+        @Html.ActionLink("Avbryt", "Hantera", "Admin", new { @class = "tsBtn--Regular" })
+        <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Uppdatera" />
+    </div>
+}

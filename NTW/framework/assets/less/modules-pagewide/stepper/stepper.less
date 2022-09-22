@@ -1,0 +1,286 @@
+.tsStepper,
+.tsStepper-alt,
+.tsOrderStepper,
+.tsOrderStepper-alt {
+	.tsWrapInner;
+}
+.tsStepper-alt,
+.tsOrderStepper-alt {
+	.vertical-gradient(@white;@lighterclay);
+}
+
+.tsStepper--highway,
+.tsOrderStepper--highway {
+	.tsStepper-step,
+	.tsOrderStepper-step {
+		width: 50%;
+	}
+	.tsStepper-step--left,
+	.tsStepper-step--right,
+	.tsOrderStepper-step--left,
+	.tsOrderStepper-step--right {
+		width: 25%;
+	}
+}
+.tsStepper-container,
+.tsOrderStepper-container {	 
+	.l-list;
+	.padding(all;@gutter;@gutter-double;0;@gutter-double);
+	.margin(topbottom;@gutter;0);
+	width: 100%;
+	display: table;
+}
+
+
+.tsStepper-step,
+.tsStepper-step--left,
+.tsStepper-step--right,
+.tsOrderStepper-step,
+.tsOrderStepper-step--left,
+.tsOrderStepper-step--right {
+	border-top: 2px solid @turq;
+	color: @turq;
+	.inline-block;
+	@var: (100%/3);
+	width: @var;
+	float: left;
+	//width: auto;
+	//display: table-cell;
+
+	&.step-inactive {
+		border-top-color: @lightgrey;
+		color: @lightgrey;
+		.tsStepper-symbol,
+		.tsOrderStepper-symbol {
+			border-color: @lightgrey;
+		}
+	}
+	.tsStepper-symbol,
+	.tsOrderStepper-symbol {
+		margin: 0 auto;
+		position: relative;
+	}
+}
+
+.tsStepper-step--left,
+.tsStepper-step--right,
+.tsOrderStepper-step--left,
+.tsOrderStepper-step--right {
+	@var: (100%/6);
+	width: @var;
+	.tsStepper-symbol,
+	.tsOrderStepper-symbol {
+		margin: 0;
+	}
+	.tsOrderStepper-label {
+		margin-left: -40px;
+		//text-align: left;
+	}
+}
+
+.tsStepper-step--right,
+.tsOrderStepper-step--right {
+	.tsStepper-symbol,
+	.tsOrderStepper-symbol {
+		margin: 0 0 0 auto;
+	}
+	.tsStepper-label,
+	.tsOrderStepper-label {
+		margin-left: 40px;
+		//text-align: right;
+	}
+}
+.tsStepper-label,
+.tsOrderStepper-label {
+	display: block;
+	width: 100%;
+	text-align: center;
+	top: -15px;
+	position: relative;
+}
+
+.tsStepper-symbol,
+.tsOrderStepper-symbol {
+	position: relative;
+	top: -20px;
+	border: 2px solid @turq;
+	.border-radius(500px);
+	background: @white;
+	text-align: center;
+	width: 47px;
+	height: 47px;
+	line-height: 43px; //height - borders
+	.margin(bottom;@gutter-half);
+	.total {
+		.inline-block;
+		&::before {
+			content: '/';
+			.inline-block;
+			margin-left: -2px;
+		}
+	}	
+}
+.tsStepper-container--threeSteps,
+.tsOrderStepper-container--threeSteps {
+    .margin(bottom; @gutter);
+    .tsStepper-step,
+    .tsOrderStepper-step {
+        width: 50%;
+    }
+    .tsStepper-step--left,
+    .tsStepper-step--right,
+    .tsOrderStepper-step--left,
+    .tsOrderStepper-step--right {
+        width: 25%;
+    }
+}
+.tsStepper-container--fiveSteps,
+.tsOrderStepper-container--fiveSteps {
+    .margin(bottom; @gutter);
+    .tsStepper-step,
+    .tsOrderStepper-step {
+        width: 23%;
+    }
+    .tsStepper-step--left,
+    .tsStepper-step--right,
+    .tsOrderStepper-step--left,
+    .tsOrderStepper-step--right {
+        width: 15%;
+    }
+}
+
+
+//vertical
+.tsStepper-vertical {
+}
+.tsStepper-container-vertical {
+	margin: 0;
+	padding: 2px;
+}
+.tsStepper-vertical .tsStepper-step {
+	float: none;
+	display: inline-block;
+	margin-left: 20px;
+	position: relative;
+	border: none;
+	width: auto;
+	min-height: 40px;
+	border-left: 2px solid @lightgrey;
+
+}
+
+.tsStepper-vertical .tsStepper-step:last-child {
+	border: none;
+}
+.tsStepper-vertical .tsStepper-symbol {
+	position: absolute;
+	top: 0;
+	left:-24px;
+	border-color: @lightgrey;
+	color: @lightgrey;
+}
+.tsStepper-vertical .tsStepper-step .tsStepper-label {
+	padding-left: 40px;
+	top: 12px;
+	text-align: left;
+	color: @textcolor;
+	padding-bottom: 40px;
+	width: auto;
+}
+.tsStepper-small  {
+	overflow: hidden;
+	&> ol {
+		margin:0;
+		padding: 0;
+	}
+}
+.tsStepper-small ol {
+	.inline-block;
+}
+.tsStepper-small li{
+	.inline-block;
+	width: auto;
+	border: none;
+	float: left;
+}
+
+
+
+// .tsStepper-small .tsStepper-separator {
+// 	display: inline-block;
+// 	width: 15px;
+// 	height: 15px;
+// 	.border-radius(50%);
+// 	border: 2px solid @blue;
+// 	float: left;
+// 	.margin(all;12;30;13;30);
+// 	position: relative;
+// 	&:after,
+// 	&:before{
+// 		.inline-block;
+// 	    text-align: center;
+// 	    font-family: iconfont;
+// 	    font-size: 21px;
+// 	    font-size: 2.1rem;
+// 	    line-height: 40px;
+// 		speak: none;
+// 		-webkit-font-smoothing: antialiased;  // What looks best?
+// 		content: "\e010";
+// 		position: absolute;
+// 		top:-14px;
+// 		text-align: center;
+// 	}
+// 	&:after {
+// 		right: -23px;
+// 	}
+// 	&:before {
+// 		left: -32px;
+// 	}
+
+// }
+.tsStepper-small .tsStepper-symbol {
+	float: left;
+	position: static;
+	margin-bottom: 0;
+}
+
+ .tsStepper-small .tsStepper-separator {
+
+  	float: left;
+  	.margin(all;12;30;13;30);
+  	position: relative;
+	.inline-block;
+    text-align: center;
+    i{
+    	color: @blue;
+    	.font-size(18);
+    }
+	
+}
+.tsStepper-small .tsStepper-separator {
+  	&:after,
+  	&:before{
+		color: @grey;
+  		.inline-block;
+  	    text-align: center;
+  	    font-family: iconfont;
+	   	.font-size(6);
+ 	    line-height: 44px;
+  		speak: none;
+  		-webkit-font-smoothing: antialiased;  // What looks best?
+ 
+ 		content: "\e044";
+  		position: absolute;
+  		top:-14px;
+
+  	}
+  	&:after {
+
+ 		right: -28px;
+  	}
+  	&:before {
+
+ 		left: -27px;
+  	}
+  
+  }

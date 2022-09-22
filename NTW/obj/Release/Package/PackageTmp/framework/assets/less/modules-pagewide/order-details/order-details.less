@@ -1,0 +1,254 @@
+.tsSalesBlock-intro {
+	border-bottom: 2px solid @clay;
+	.padding(topbottom;@gutter;@gutter-half);
+	.margin(bottom;@gutter-half);
+}
+
+.tsSalesBlock-intro-alt {
+	border-bottom: 2px solid @clay;
+	.padding(top;@gutter);
+	line-height:20px !important;
+}
+
+.tsSalesBlock-header {
+	.font-size(15);
+	font-weight: bold;
+}
+
+.tsSalesBlock-desc {
+	.font-size(12);
+	display: block;
+	margin: 0;
+	font-weight: normal;
+}
+
+.tsSalesBlock-form {
+	.margin(bottom;@gutter-double);
+	.font-size(12);
+}
+
+.tsSalesBlock,
+.tsSalesBlock-form {
+	input[type="text"],
+	input[type="number"],
+	input[type="email"] {
+		font-size: 16px;
+		.padding(all;5;4;6;4);
+	}
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+	&.input--medium {
+		font-size: 16px;
+		width: 220px;
+		.padding(all;5;10;6;10);
+	}
+}
+
+.tsSalesBlock-link { 
+	color: @turq;
+	font-weight: normal;
+}
+
+
+.tsInputContainer-close {
+	color: @turq;
+	border: 1px solid @turq;
+	.border-radius(50%);
+	width: 21px;
+	height: 21px;
+	.font-size(10);
+	.padding(all;4);
+	background: @white;
+	position: absolute;
+	margin-left: -10px;
+	margin-top: -10px;
+	cursor: pointer;
+	z-index: 5;
+}
+
+
+
+.tsSalesBlock-alt,
+.tsSalesBlock {
+	.tsWrapInner;
+	color: @black;
+	.font-size(13);
+	input[type="text"],
+	input[type="number"],
+	input[type="email"]{
+		width: 150px;
+	}
+	
+	p { // add a class to this 
+		.margin(bottom;0); 
+	}
+	
+	.tsDropdown,
+	.tsInputContainer { 
+		.margin(bottom;@gutter-half);
+	}	
+}
+
+
+
+.tsSalesBlock-alt {
+	background: @lightergrey;
+}
+
+
+.tsSalesBlock-labelfreeinput {
+	.margin(bottom;@gutter-half);
+	display: block;
+}
+
+.tsSalesBlock-toplabel {
+	.margin(bottom;5);
+	display: block;
+}
+
+.tsSalesBlock-inlinelabel {
+	.margin(bottom;5);
+	.inline-block;
+}
+
+
+.tsInputlabel {
+	.font-size(12);
+	color: #999;
+	display: block;
+	.margin(bottom;3);
+}
+
+.tsSalesBlock-list {
+	.margin(all;0);
+	.padding(all;0);
+	list-style: none;
+	.margin(bottom;@gutter-double);
+}
+.tsSalesBlock-listitem {
+	.margin(bottom;@gutter);
+}
+
+.tsSalesBlock-listitem .tsDropdown {
+	min-width: 175px;
+	.inline-block;
+}
+
+.tsSalesBlock-vertical-list {
+	.margin(all;0);
+	.margin(bottom;@gutter);
+	.padding(all;0);
+	list-style: none;
+	li {
+		.margin(bottom;@gutter-half);
+	}
+}
+
+.tsSalesBlock-horizontal-list,
+.tsSalesBlock-horizontal-list--alt {
+	.margin(all;0);
+	.padding(all;0);
+	.padding(bottom;@gutter-half);
+	list-style: none;
+	li {
+		width: 100%;
+		vertical-align: top;
+		strong {
+			.margin(top;@gutter-half);
+			.inline-block;
+			 a {
+			 	font-size: 12px; 
+			 	font-weight: normal;
+			 	color: @turq;
+			 	.margin(left;5);
+			 }
+		}
+	}
+	li:first-child strong {
+		.margin(top;0);
+	}
+	
+	.tsIcon-Edit {
+		.font-size(12);
+	}
+	
+	border-bottom: 1px solid @lightclay;
+}
+
+.tsSalesBlock-horizontal-list--alt {
+	border-bottom: 0;
+}
+
+.tsSalesBlock-horizontal-list--alt li {
+	.margin(right;@gutter);	
+}
+
+
+.tsSalesBlock-highlight {
+	color: @blue;
+}
+
+
+.tsSalesBlock-container {
+	background: lighten(@lightergrey,2%);
+}
+
+
+.tsFormItems {
+	display: block;
+	.margin(top;@gutter-half);
+	label {
+		display: inline;
+	}
+}
+
+
+.terms-and-conditions a {
+	font-weight: normal;
+	color: @purple;
+}
+
+.tsValidationFeedback {
+	display: block;
+	color: red;
+	font-weight: bold;
+	.padding(top;@gutter-half);
+	height: 14px;
+}
+
+.tsPageLoader {
+	.tsWrapInner;
+	text-align: center;
+	.padding(all;@gutter-double);
+}
+
+// tmp
+.tsBtn-edit,
+.tsSalesBlock input[type="submit"].tsBtn-edit {
+	.btn-edit()
+}
+
+.tsSalesbutton {
+	.inline-block;
+	vertical-align: middle;
+	border: 0;
+	text-decoration: none;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	font-weight: bold;
+	color: @white;
+	.font-size(14);
+	background: @turq;
+	.margin(top;5);
+	.padding(all;6;11;7;11);
+	cursor: pointer;
+	.transition;
+	&:hover {
+		color: @white;
+		background: @darkturq;
+	}
+}

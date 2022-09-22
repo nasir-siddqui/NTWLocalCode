@@ -1,0 +1,28 @@
+{
+    "product": {
+        "category": "MP3 Players",
+        "alaScore_url": "http://ii.alatest.com/stars_new/sv_SE/55x64/99.png",
+        "alaScore": 99,
+        "user_count": "7576",
+        "review_date": "",
+        "average_user": "87",
+        "product_url_alternate": "http://alatest.se/redirect/alid/99/?partner_id=46000034",
+        "trend": "0",
+        "review_url": "http://api.alatest.com/v2/product/99/review/pro?format=json&locale=sv_SE",
+        "average_pro": "79",
+        "award": "",
+        "price": "",
+        "average_date": "2013-09-03",
+        "product_age": "97",
+        "rank": "458620683",
+        "image": "http://ii.alatest.com/product/full/9/9/Apple-iPod-Nano-7th-Generation-16GB-Silver-224475526.jpg",
+        "pro_count": "22",
+        "category_id": "287",
+        "al_id": "99",
+        "product_name": "Apple iPod nano (7th generation)",
+        "description": "Apple iPod U2 Special Edition - Digital spelare - hdd 30 GB - AAC, MP3 - videouppspelning -bildskÃ¤rm: 2.5\" - svart"
+    },
+    "request": "http://api.alatest.com/v2/product/al_id/99?",
+    "product_id": "99",
+    "id_kind": "al_id"
+}

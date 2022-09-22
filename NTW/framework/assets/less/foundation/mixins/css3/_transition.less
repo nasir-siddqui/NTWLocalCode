@@ -1,0 +1,24 @@
+// Basic transition for e.g. link hover
+// Accepts ONE or MULTIPLE arguments
+
+.transition(@value1: all 300ms ease-in-out, @value2:X,...) {
+	@value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	-webkit-transition: @value;
+	-moz-transition: @value;
+	-ms-transition: @value;
+	-o-transition: @value;
+	transition: @value;
+}
+
+.transitionProperty(...) {
+    @props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
+    -webkit-transition-property: @props;
+    -moz-transition-property: @props;
+    -ms-transition-property: @props;
+    -o-transition-property: @props;
+    transition-property: @props;
+}
+
+// .linearTransition() and .notransition() are removed, since they can both be achieved by usign the mixin above. /pekkos
+// /@pekkos
+// ok nice! /nagorka

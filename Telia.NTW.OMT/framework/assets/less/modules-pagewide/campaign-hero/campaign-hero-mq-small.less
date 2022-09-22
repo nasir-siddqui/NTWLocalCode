@@ -1,0 +1,19 @@
+// --alt has transparent background
+[class*="tsCampaignHero"][class*="--alt"] {
+    .padding(all;@gutter-double;@gutter-double;@gutter;@gutter-double);
+}
+
+[class*="tsCampaignHero"] .tsCampaign-img{
+    .margin(bottom;@gutter-double);
+}
+
+// should be able to use without image, hence magin on text
+.tsCampaignHero {
+    .tsCampaign-img{ 
+        margin-bottom: 0;
+    }
+    .tsCampaignText {
+        .margin(top;55); // according to anton
+    }
+}
+

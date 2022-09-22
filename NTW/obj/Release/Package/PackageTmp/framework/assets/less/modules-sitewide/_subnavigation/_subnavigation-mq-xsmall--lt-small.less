@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * SUB-NAVIGATION........
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $SUB-NAVIGATION
+\*------------------------------------*/
+
+.tsSubNavigation {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.tsSubNavigation > ul {
+//.tsSubNavigation-Items {
+	.l-wrap-bleed(@gutter-half);
+	margin-bottom: 0;
+	.padding(leftright;@gutter-half;@gutter-half);
+	border-top: 2px solid @nearblack;
+	border-bottom: none;
+	background-color: @darkergrey; 
+}
+
+.tsSubNavigation > ul > li {
+//.tsSubNavigation-Item {
+	border-bottom: 1px solid @nearblack;	
+	position: relative;
+	&:last-child {
+		border-bottom: 0;
+	}	
+}
+
+.tsSubNavigation a {
+//.tsSubNavigation-Item a {
+    display: block;
+	color: @white;
+	.padding(topbottom;12;12);
+	.font-size(16);
+	font-family: @basefont;
+	
+	&::after {
+		content: "\e01b";
+		.inline-block;
+		position: absolute;
+		right: 0;
+		width: 20px;
+		height: 20px;
+		color: @white;
+		text-align: center;
+	    font-family: iconfont;
+	    font-weight: normal;
+	    font-style: normal;
+		font-variant: normal;
+	    line-height: 20px;
+		speak: none;
+		-webkit-font-smoothing: antialiased;  // What looks best?
+
+		 & > b {
+		    .hide-text;
+		}
+	}
+}
+
+

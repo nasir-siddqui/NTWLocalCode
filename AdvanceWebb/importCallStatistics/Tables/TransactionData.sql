@@ -1,0 +1,25 @@
+﻿CREATE TABLE [importCallStatistics].[TransactionData] (
+    [Id]                 INT            IDENTITY (1, 1) NOT NULL,
+    [ExchangeId]         NVARCHAR (255) NULL,
+    [SubFileNumb]        NVARCHAR (255) NULL,
+    [AOperator]          NVARCHAR (255) NULL,
+    [ANumber]            NVARCHAR (255) NULL,
+    [BOperator]          NVARCHAR (255) NULL,
+    [BNumber]            NVARCHAR (255) NULL,
+    [COperator]          NVARCHAR (255) NULL,
+    [CNumber]            NVARCHAR (255) NULL,
+    [ChargeDayStart]     NVARCHAR (255) NULL,
+    [ChargeTimeStart]    NVARCHAR (255) NULL,
+    [ChargeableDuration] NVARCHAR (255) NULL,
+    [A5Number]           NVARCHAR (255) NULL,
+    [CallType]           NVARCHAR (255) NULL,
+    [VatIdPrice1]        NVARCHAR (255) NULL,
+    [VatIdPrice2]        NVARCHAR (255) NULL,
+    [Price1]             NVARCHAR (255) NULL,
+    [Price2]             NVARCHAR (255) NULL,
+    [ServiceId]          NVARCHAR (255) NULL,
+    [AreaCode]           NVARCHAR (255) NULL,
+    [AreaId]             INT            NULL,
+    [ToBeExported]       BIT            CONSTRAINT [DF_MPS2STAFF_ToBeExported] DEFAULT ((0)) NULL
+);
+

@@ -1,0 +1,83 @@
+.tsResponsiveTabs,
+.tsResponsiveTabs--Alt {
+	border-bottom: @lightergrey 1px solid;
+	background-color: @lightestblack;
+}
+.tsResponsiveTabs--Alt {
+	background-color: @purple;
+}
+.tsResponsiveTabs-Title {
+    display: none;
+}
+ .tsResponsiveTabs 	.r-tabs-nav {
+ 	display: block;
+    .l-inline-list;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 40px;
+    li:only-child {
+		text-align: left;
+		border-right: 0;
+		border-left: 0;
+		a {
+			color: @black !important;
+			cursor: pointer;
+			border-bottom: @lightergrey 1px solid;
+		}
+    }
+ }
+ .tsResponsiveTabs-Anchor {
+ // height: 100%;
+}
+ .tsResponsiveTabs--Alt  .tsResponsiveTabs-Anchor {
+ 	color: @white!important;
+ }
+ .tsResponsiveTabs--Alt .is-active .tsResponsiveTabs-Anchor {
+ 	color: @purple!important;
+ }
+
+.tsResponsiveTabs-Content {
+	border-top: @lightergrey 1px solid;
+}
+.tsResponsiveTabs--Alt .tsResponsiveTabs-Content {
+	border-top-color: @darkestpurple;
+}
+.tsResponsiveTabs-Panel.is-active {
+    display: block;
+
+}
+.tsResponsiveTabs-Tab.is-active {
+	top: 0px;
+	position: relative;
+}
+.tsResponsiveTabs-Tab {
+	border-left: @lightergrey 1px solid;
+	
+}
+ .tsResponsiveTabs--Alt .tsResponsiveTabs-Tab {
+	border-left-color: @darkestpurple;
+}
+.tsResponsiveTabs-Tab:last-child {
+	border-right: @lightergrey 1px solid; 
+}
+.tsResponsiveTabs--Alt  .tsResponsiveTabs-Tab:last-child {
+	border-right-color: @darkestpurple;
+}
+.tsResponsiveTabs .tsResponsiveTabs-Anchor {
+	border-top: 9px solid transparent;
+	padding: 8px 5px 14px;
+}
+.is-active .tsResponsiveTabs-Anchor {
+	border-top: 9px solid @purple;
+}
+.tsResponsiveTabs-Content {
+	
+}
+.tsResponsiveTabs-Tab:only-child.is-active {
+	background-color: @lightestblack;
+
+	.tsResponsiveTabs-Anchor {
+		border-top: 9px solid transparent;
+	}
+}

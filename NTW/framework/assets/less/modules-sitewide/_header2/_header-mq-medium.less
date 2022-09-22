@@ -1,0 +1,578 @@
+.tsHeader {
+    //border-top: 27px solid @lightpurple;
+    padding-top: 27px;
+}
+
+.tsHeader-Main {
+    background-color: @purple;
+}
+
+.tsHeader-Logo {
+	position: absolute;
+	z-index: 1;
+	.margin(left;-@gutter);
+	.padding(leftright;@gutter;@gutter);
+	a {
+		display: block;
+		.padding(topbottom;18;18);
+        /*&::after {
+            content: url(/media/logo_white.png); 
+            position: absolute;
+            left: ~"@{gutter}px";
+        }*/
+	}
+	img {
+		height: 38px;
+        /*visibility: hidden;*/
+    }
+
+}
+
+.tsHeader-FoldOut > a {
+	//display: block;
+}
+
+/*.tsHeader.is-foldout .tsHeader-FoldOut > a::after {
+	content: "";
+	position: absolute;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 9px solid @lightpurple;
+	bottom: 0;
+	left: 50%;
+	.margin(left;-6);
+}*/
+
+/*
+.tsHeader-FoldOut-Menu {
+	overflow: hidden;
+	.transition(height 300ms linear);
+}
+*/
+
+/*
+
+.tsHeader-PrimaryMenu .open > a,
+.tsHeader-PrimaryMenu .tsHeader-FoldOut > a {
+	.transition(margin-bottom 300ms linear);	
+}
+*/
+/*
+
+.tsHeader:not(.is-foldout) .tsHeader-PrimaryMenu .tsHeader-FoldOut > a,
+.tsHeader:not(.is-foldout) .tsHeader-PrimaryMenu .open > a {
+	margin-bottom: 0!important;
+}
+*/
+/*
+
+.tsHeader.is-initialized .tsHeader-FoldOut-Menu {
+	display: block;
+}
+
+.tsHeader.is-initialized:not(.is-foldout) .tsHeader-FoldOut-Menu {
+	height: 0!important;
+}
+*/
+
+.tsHeader-Inner {
+	//position: relative;
+	.clearfix;
+    & > .tsHeader-Close {
+        display: none;
+    }
+}
+
+.tsHeader-SubMenu  {
+	ul {
+		.l-inline-list();
+	}
+}
+
+.tsHeader-SubMenu {
+	display: block;
+	background-color: #fff;
+	ul {
+        padding-top: 1px;
+        border-bottom: 1px solid @lightgrey;
+	}
+	ul > li {
+		.margin(right;@gutter);
+	}
+	a {
+		position: relative;
+		display: block;
+		.padding(all;9;0;9;0);
+        span::after {
+            display: none;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            left: 0;
+            background-color: @purple;
+        }
+	}
+	.current a span::after, a:hover span::after {
+        display: block;
+    }
+}
+
+.tsHeader-PrimaryMenu {
+	.margin(left;138);
+	float: left;
+	& > ul {
+		.l-inline-list();
+		& > li > a {
+            position: relative;
+			display: block;
+			.font-size(lineheight;20;80);
+			.padding(leftright;@gutter-half;@gutter-half);
+            color: @white;
+            text-decoration: none;
+            span {
+            	position: relative;
+            }
+            span::after {
+                display: none;
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                left: 0;
+                bottom: 0;
+                background-color: @white;
+            }
+            &::after {
+                display: none;
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                left: 0;
+                background-color: @white;
+                .border-radius(2px 2px 0 0);
+            }
+		}
+        & > li.open > a::after {
+            display: block;
+        }
+        & > li > a:hover span::after {
+        	display: block;
+        }
+		.tsHeader-SubMenu  {
+			display: none;
+			position: absolute;
+			left: 0;
+		    width: 100%;
+		}	
+	}
+}
+
+.tsHeader-SecondaryMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+    background-color: @darkpurple;
+}
+
+.tsHeader-SecondaryMenu-Segment {
+	float: left;
+	.l-inline-list();
+    ul& {
+        margin-left: -10px;
+	}
+    a, span {
+		.font-size(lineheight;11;27);
+		display: block;
+		.padding(leftright;10;10);
+		color: @white;
+        position: relative;
+	}
+    a {
+        z-index: 2;
+        color: @lightergrey;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .current {
+        position: relative;
+        z-index: 1;
+        &::after, &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: @purple;
+            bottom: 0;
+        }
+        &::after {
+            right: -10px;
+        }
+        &::before {
+            left: -10px;
+        }          
+    }
+	.current span {
+		background-color: @purple;
+        &::after, &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: @darkpurple;
+            bottom: 0;
+            z-index: 1;
+        }
+        &::after {
+            right: -10px;
+            .border-radius(0 0 0 50%);
+        }
+        &::before {
+            left: -10px;
+            .border-radius(0 0 50% 0);
+        }  
+	}
+}
+
+.tsHeader-SecondaryMenu-User {
+	float: right;
+	.l-inline-list();
+    ul& {
+        margin-right: -10px;
+	}
+    ul& > li {
+        .padding(leftright;10;10);        
+    }
+    a, span {
+		.font-size(lineheight;11;27);
+		color: @lightergrey;
+        i {
+            margin-right: 5px;
+            color: @lightergrey;
+            .font-size(lineheight;11;20);
+        }
+	}
+    a:hover {
+        text-decoration: underline;
+    }
+
+	.logout {
+		color: @extralightpurple;
+	}
+}
+
+.tsHeader-Search {
+	margin-top: 20px;
+    width: 100%;
+    left: 0;
+	[class^="tseTextField"] {
+        .transition(width 300ms linear);
+		position: relative;
+		z-index: 1;
+		width: 150px;
+	}
+	.tsHeader-Collapse-Search {
+		background-color: @white;
+		z-index: 1;
+        .padding(all;@gutter-half - 3;0;@gutter-half - 2;0);
+        top: 1px;
+        right: 1px;
+        width: 36px;
+	}
+}
+.tsHeader-Search.is-expanded [class^="tseTextField"],
+.tsHeader-Search.is-focused [class^="tseTextField"] {
+	width: 300px;
+}
+
+.tsHeader-UserMenu {
+	position: relative;
+	float: left;
+}
+
+.tsHeader-Collapse-UserMenu {
+	.margin(top;20);
+	text-align: left;
+	.padding(left;2);
+	position: relative;
+    color: @white;
+	&::after {
+		content: "";
+		position: absolute;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid @white;
+		top: 16px;
+		right: 2px;
+	}	
+}
+
+.tsHeader-UserMenu ul {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	a {
+		.padding(all;@gutter-half;@gutter;@gutter-half;@gutter);
+		background-color: @lightgrey;
+		display: block;
+		color: @purple;
+		&:hover {
+			background-color: @lightergrey;
+		}
+	}
+}
+
+.tsHeader-UserMenu.is-expanded ul {
+	display: block;
+}
+
+
+.tsHeader-FoldOut-Menu {
+	display: none;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+    background-color: @nearwhite;
+	.tsWrapInner > ul {
+		.l-inline-list();
+		.padding(all;@gutter-double);
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+	.tsWrapInner > ul > li {
+		.margin(right;@gutter-double);
+	}
+	.tsWrapInner > ul > li > a {
+		.font-size(lineheight;20;24);
+	}
+	ul ul {
+		.margin(top;@gutter-half);
+	}
+	ul ul a {
+		.font-size(14); 
+	}
+	.tsHeader-FoldOut-Promotion {
+		.margin(top;24);
+		float: right;
+	}
+}
+
+.tsHeader {
+
+	.tsHeader-PrimaryMenu li.open {
+		margin-bottom: 40px;
+		.tsHeader-SubMenu {
+			display: block;
+	    }
+	}
+	.tsHeader-PrimaryMenu li.tsHeader-FoldOut.open {
+		margin-bottom: 0;
+	}
+}
+
+/*
+
+.tsHeader.fixed .tsHeader-PrimaryMenu li.open .tsHeader-SubMenu {
+	position: fixed;
+	top: 0;
+	background-color: @lightpurple;
+	width: 100%;
+	z-index: 10;
+	ul {
+		.tsWrapInner;
+		.padding(leftright;@gutter-double;@gutter-double);
+	}
+}
+.tsHeader.fixed .tsHeader-Search {
+	position: fixed;
+	top: 0;
+	z-index: 11;
+	height: 0;
+	.tsWrapInner {
+		height: 0;
+	}
+	form {
+		float: right;
+		.margin(top;5);
+	}
+	[class^="tseTextField"] input {
+		.padding(topbottom;3;3);
+	}
+	.tsHeader-Collapse-Search {
+		width: 26px;
+		.padding(topbottom;2;3);
+	}
+}
+
+.tsHeader.fixed .tsHeader-UserMenu {
+	position: fixed;
+	top: 0;
+	z-index: 11;
+	.tsHeader-Collapse-UserMenu {
+		.margin(top;0);
+		color: @white;
+		&::after {
+			border-top-color: @white;
+		}
+	}
+}
+
+.tsHeader:not(.fixed) .tsHeader-UserMenu {
+	margin-left: 0!important;
+}
+*/
+
+.tsHeader--White {
+    .tsHeader-SubMenu {
+        border-bottom: 1px solid @lightgrey;
+        ul {
+            border-bottom: 0 none;
+        }
+    }
+}
+
+
+.tsHeader-Fixed {
+	position: fixed;
+	z-index: 10000;
+	top: -40px;
+	.transition(top 200ms linear);
+	width: 100%;
+	background-color: @purple;
+    .logo {
+        display: inline-block;
+        vertical-align: middle;
+        color: @white;
+        .margin(right;@gutter-half);
+    }
+    .tsHeader-SubMenu {
+		position: relative;
+		z-index: 1;
+		background-color: transparent;
+		display: inline-block;
+		width: auto;
+		vertical-align: middle;
+		ul {
+			border-bottom: 0 none;
+            padding-bottom: 1px;
+		}
+		a span::after {
+			background-color: @white;
+            bottom: -1px;
+		}
+	}
+	.tsHeader-UserMenu {
+		display: inline-block;
+		position: relative;
+		float: none;
+		z-index: 1;
+		.tsHeader-Collapse-UserMenu {
+			margin-top: 1px;
+		}
+		ul {
+			.l-list();
+		}
+	}
+	.tsHeader-Search {
+		margin-top: 6px;
+		top: 0;
+        [class^=tseTextField] input {
+            .padding(topbottom;1;2); 
+            height: 25px;
+        }
+        .tsHeader-Collapse-Search {
+            .padding(topbottom;1;2);
+            i {
+                .font-size(lineheight;18;20);
+            }
+        }
+	}
+	a { 
+		color: @white;
+	}
+}
+
+.tsHeader-Fixed.is-visible {
+	top: 0;
+	--webkit-box-shadow: 0 0 10px 3px #777;
+	-moz-box-shadow: 0 0 10px 3px #777;
+	box-shadow: 0 0 10px 3px #777;
+}
+
+.tsHeader-Fixed--White {
+	.transition(none);
+	background-color: @white;
+    border-bottom: 1px solid @lightgrey;
+	a {
+		color: @purple;
+	}
+    .tsHeader-SubMenu {
+        border-bottom: 0 none;
+		a span::after {
+			background-color: @purple;
+			bottom: 0;
+		}
+		ul {
+            padding-bottom: 0px;			
+		}
+	}
+}
+.tsHeader-Fixed--White.is-visible {
+    --webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    outline: 1px solid transparent;
+}
+
+.tsHeader.fixed {
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	top: 0;
+	.padding(top;0);
+	border-bottom: 0 none;
+	background-color: @lightpurple;
+	background-image: none;
+	.tsHeader-SecondaryMenu {
+		display: none;
+	}
+	.tsHeader-Logo {
+		display: none;
+	}
+	.tsHeader-PrimaryMenu > ul > li:not(.open) {
+		display: none;
+	}
+	.tsHeader-PrimaryMenu > ul > li.open > a {
+		display: none;
+	}
+	.tsHeader-PrimaryMenu {
+		margin-left: 0;
+	}
+	.tsHeader-PrimaryMenu li.open .tsHeader-SubMenu {
+		position: relative;
+	} 
+	.tsHeader-Collapse-UserMenu {
+		margin-top: 0;
+	}
+	.tsHeader-Search {
+		top: 5px;
+	}
+	[class^="tseTextField"] input {
+		.padding(topbottom;3;3);
+	}
+	.tsHeader-Collapse-Search {
+		width: 26px;
+		.padding(topbottom;2;3);
+	}
+
+}
+

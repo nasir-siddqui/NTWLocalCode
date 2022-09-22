@@ -1,0 +1,212 @@
+
+<div class="tsAttention--Panic tsMarginBottom" ng-if="displayOrganisationsWarning">
+    <div class="tsAttention-Message tsWrapInner">
+        <p class="tscInline--Middle">
+            <i class="tsIcon-Panic tscInline-Element"></i>
+            <span>{{ translationInvite.translate("UNAVAILABLE_ORGANISATIONS") }}</span>
+        </p>
+    </div>
+</div>
+
+<div ng-if="isLoading" class="tscLoading tsMarginTop tsMarginBottom"><span class="tsLoading-icon-large"></span></div>
+
+<div class="tsAttention--Panic tsAttention--tableLayout tsMarginBottom" ng-if="loadingError">
+    <div class="tsAttention-Message tsWrapInner">
+        <i class="tsIcon-Panic"></i>
+        <div class="tsAttention-Content">
+            <span>{{ loadingError }}</span>
+        </div>
+    </div>
+</div>
+
+<form ts-validator ng-if="!isLoading && !loadingError">
+
+    <div class="tsAttention--Info tsMarginBottom tsAttention--tableLayout" ng-if="invite.invitedBy">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Information"></i>
+            <p class="tsAttention-Content">
+                <span ng-if="invite.userInfoLoading" class="tsLoading-icon"></span>
+                <span ng-if="invite.invitedByName">{{ translationInvite.translate("INVITE_SENT", [invite.invitedByName, utils.formatDate(invite.createDate)]) }}</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="tsWrapInner">
+        
+        <div class="tscInline--Middle tsMarginBottom tsMarginTop">
+            <span class="tscInline-Element--Narrow grey">{{ translationInvite.translate("FIRSTNAME") }}</span>
+            <div class="tseTextField--Half">
+                <input type="text" ng-model="invite.firstName" maxlength="50">
+            </div>
+        </div>        
+
+        <div class="tscInline--Middle tsMarginBottom">
+            <span class="tscInline-Element--Narrow grey">{{ translationInvite.translate("LASTNAME") }}</span>
+            <div class="tseTextField--Half">
+                <input type="text" ng-model="invite.lastName" maxlength="50">
+            </div>
+        </div>        
+
+        <div class="tscInline--Middle tsMarginBottom">
+            <span class="tscInline-Element--Narrow grey">{{ translationInvite.translate("MOBILE") }} *</span>
+            <div class="tseTextField--Half">
+                <input type="text" name="mobile" ng-model="invite.mobileNumber" data-rules="required mobilenumber" data-message-mobilenumber="MOBILE_ERROR" data-message-required="MOBILE_ERROR_REQUIRED" maxlength="50">
+            </div>
+        </div>        
+
+        <div class="tscInline--Middle tsMarginBottom">
+            <span class="tscInline-Element--Narrow grey">{{ translationInvite.translate("EMAIL") }} *</span>
+            <div class="tseTextField--Half">
+                <input type="text" name="email" ng-model="invite.email" data-rules="required email" data-message-email="EMAIL_ERROR" data-message-required="EMAIL_ERROR_REQUIRED" maxlength="100">
+            </div>
+        </div>
+
+        <div class="tscInline tsMarginBottom">
+            <span class="tscInline-Element--Narrow grey tsMarginTop--halfGutter">{{ translationInvite.translate("COMMENT") }}</span>
+            <div class="tseTextArea--Wide">
+                <textarea rows="8" ng-model="invite.inviteText"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tsAttention--Info tsMarginBottom">
+        <div class="tsAttention-Message tsWrapInner">
+            <p class="tscInline--Middle">
+                <i class="tsIcon-Information tscInline-Element"></i>
+                <span>{{ translationInvite.translate("GENERAL_ROLES_INFO") }}</span>
+            </p>
+        </div>
+    </div>
+    
+    
+    <div class="tsWrapInner">
+
+        <div ts-combine-roles data-header-text-expr="texts.generalHeader" data-add-text-expr="texts.generalAddText" data-instance="instances.general" data-manage-text-expr="texts.generalManageText" data-manage-enabled="true" data-manage-init="true" class="tsMarginBottom tsClear">
+        </div> 
+
+        <h2 class="h2">{{ translationInvite.translate("GENERAL_ACCESS") }}</h2>
+
+        <div ts-access-list data-instance="instances.general" data-read-only="true" data-full-access-text="FULL_ACCESS" data-partial-access-text="PARTIAL_ACCESS" data-no-access-text="NO_ACCESS"></div>
+
+    </div>
+    
+    <div class="tsMarginBottom" ng-if="isAdmin">
+
+        <div class="tsAttention--Info tsMarginBottom tsAttention--tableLayout" ng-if="addedOrganisations">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span>{{ addedOrganisations }}</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="tsAttention--Info tsMarginBottom tsAttention--tableLayout">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span>{{ translationInvite.translate("ADMIN_ORGANISATIONS") }}</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="tsWrapInner tsClear">
+            <div ts-saved-organizations data-read-only="true" data-header="INVITE_HEADER" data-manage="INVITE_MANAGE" data-close="INVITE_CLOSE" data-add="INVITE_ADD" data-no-result="INVITE_NO_RESULT"></div>
+        </div>
+
+    </div>
+
+    <div ng-if="organisationErrorRequired" class="tsAttention--Panic tsAttention--tableLayout tsMarginBottom">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Panic"></i>
+            <div class="tsAttention-Content">
+                <span>{{ organisationErrorRequired }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tsWrapInner">
+
+        <div class="tscArea--Full--NearWhite tsMarginTop tsMarginBottom">
+            <h2 class="h2 tsMarginBottom">{{ translationInvite.translate("MY_ORGANISATIONS") }}</h2>
+            <ul class="tscList" data-rules="required" data-message-required="NO_ORGANISATIONS_SELECTED_ERROR" data-name="organisation" data-type="checkbox" ts-validator-error="organisationErrorRequired">
+                <li ng-repeat="org in inviteOrgs">
+                    <div class="tseRadioBox--Normal--CheckButton--ColorNavigation" ng-class="{ readOnly: !org.editable }">
+                        <input id="org-{{ org.id }}" type="checkbox" ng-model="org.$selected" value="true" ng-disabled="!org.editable" ng-change="manageInviteNgService.updateInviteOrganisation(org)">
+                        <label for="org-{{ org.id }}">{{ org.name }}</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div ng-transclude></div>
+
+    <div class="tsWrapInner">
+
+        <div ts-dynamic-custom-table
+            x-dropdown-enabled="false"
+            x-search-text-expr='tableParent.translationInvite.translate("FILTER_PLACEHOLDER")'
+            x-search-enabled="true"
+            x-page-size="15"
+            x-initial-sort-field="name"
+            x-multiple-selection-enabled="false"
+            x-open-link-enabled="false"
+            x-open-link-url="{link}" 
+            x-row-details-header=""
+            x-row-details-button-text-expr='tableParent.translationInvite.translate("CUSTOMIZE_ROLES")'
+            x-row-details-button-text-expanded=""
+            x-row-details-button-disabled-expression="p.$rowActionCalled"
+            x-row-details-button-disabled-text=""
+            x-row-details-template='<div class="tsWrapInner tsPaddingTop tsPaddingBottom"><div class="tsPaddingLeft tsPaddingRight">
+                <div ts-combine-roles data-instance="tableParent.instances.orgPrefix + p.id" data-header-text-expr="tableParent.translationInvite.translate(&#39;ADD_ROLES_FOR_ORG&#39;, [p.name])" data-add-text-expr="tableParent.texts.orgAddText" data-manage-text-expr="tableParent.texts.orgManageText" data-manage-enabled="true" data-manage-init="true" class="tsClear"></div>
+                <h3 class="h3 tsMarginTop">{ tableParent.translationInvite.translate(&#39;ACCESS_FOR_ORG&#39;, [p.name]) }</h3>
+                <div ts-access-list data-instance="tableParent.instances.orgPrefix + p.id" data-read-only="true" data-full-access-text="FULL_ACCESS" data-partial-access-text="PARTIAL_ACCESS" data-no-access-text="NO_ACCESS"></div>
+            </div></div>'
+            x-row-details-break-free="true"
+            x-hard-filter-enabled="false"
+            x-data-definition-identity="id"
+            x-data-definition-columns-expr="tableParent.columns"
+            x-api-is-angular-service="true"
+            x-api-name="local/angularApplications/services/manageInviteNgService"
+            x-api-action-fn-name="removeInviteOrganisation"
+            x-api-delete-row-after-action="true"
+            x-api-data-fn-name="getInviteOrganisations"
+            x-api-data-fn-parameters='[]'
+            x-api-allow-data-update="true"
+            x-row-delete-enabled="true"
+            x-row-delete-button-disabled-expression="!p.editable"
+            x-row-delete-id-property="id"
+            x-row-delete-display-template="false"
+            x-column-template-2='{ translation.translate(p.hasRoles ? "YES" : "NO") }'
+            x-translation="translationInvite"
+            >
+        </div>
+
+    </div>
+
+    <div class="tsAttention--Panic tsMarginBottom" ng-if="saveError">
+        <div class="tsAttention-Message tsWrapInner">
+            <p class="tscInline--Middle">
+                <i class="tsIcon-Panic tscInline-Element"></i>
+                <span>{{ saveError }}</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="tsAttention--Info tsMarginBottom" ng-if="saveSuccess">
+        <div class="tsAttention-Message tsWrapInner">
+            <p class="tscInline--Middle">
+                <i class="tsIcon-Information tscInline-Element"></i>
+                <span ts-redirect data-url="{{ saveRedirect }}" data-timeout="5" ng-bind-html="$eval(texts.redirectExpr)"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="tsWrapInner center tsMarginBottom">
+        <button type="submit" class="tsBtn--Normal--Regular" ng-click="save()" ng-disabled="saveSuccess">{{ translationInvite.translate("SAVE") }}</button>
+    </div>
+
+</form>

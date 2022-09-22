@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Telia.NTW.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="StaffUsername" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">stavip</Value>
+    </Setting>
+    <Setting Name="StaffPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9tt_PW12</Value>
+    </Setting>
+    <Setting Name="ExternalIdP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://test-ntwidp.tewss.telia.se</Value>
+    </Setting>
+    <Setting Name="InternalIdP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://test-idp.internal4.teliasonera.net</Value>
+    </Setting>
+    <Setting Name="ExternalLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.telia.se/foretag/minasidorpaarbetet/</Value>
+    </Setting>
+    <Setting Name="ExternalIdPLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://access.tewss.telia.se/sso/SSO?SPEntityID=https://www.advance.telia.com</Value>
+    </Setting>
+    <Setting Name="InternalIdPLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://test-idp.internal.teliasonera.net/sso/SSO?SPEntityID=https://www.advance.telia.com</Value>
+    </Setting>
+    <Setting Name="StaffOdbcName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AdvanceStaff</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

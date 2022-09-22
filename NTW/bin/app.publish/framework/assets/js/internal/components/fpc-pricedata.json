@@ -1,0 +1,124 @@
+{ 
+    "pricedata": {
+        "prepaid": {
+            "surf_abroad": "Max 99",
+            "sms_code" : "Zon1",
+            "in_country" :"2,49",
+            "call_price" :"2,49",
+            "receive_call" :"0,73",
+            "opening_fee" :"0",
+            "send_sms" :"0,84",
+            "receive_sms" :"0",
+            "send_mms" :"4,75",
+            "receive_mms" :"3,50",
+            "data_mbb" :"4,75",
+            "data_max_price" :"59,00",
+            "data_max_mb" :"50",
+            "data_add" :"59,00",
+            "data_add_price" :"59,00",
+            "data_add_unit" :"50",
+            "data_add_mb" :"50",
+            "gprs_mdu": "2,23"
+        },
+        "postpaid": {
+            "surf_abroad" :"Max 99",
+            "sms_code" :"Zon1",
+            "in_country" :"2,49",
+            "call_price" :"2,49",
+            "receive_call" :"0,73",
+            "opening_fee" :"0",
+            "send_sms" :"0,84",
+            "receive_sms" :"0",
+            "send_mms" :"4,75",
+            "receive_mms" :"3,50",
+            "data_mbb" :"4,75", 
+            "data_max_price" :"59,00",
+            "data_max_mb" :"50",
+            "data_add" :"59,00",
+            "data_add_mb" :"50",
+            "data_add_price" :"59,00",
+            "data_add_unit" :"50",
+            "gprs_mdu": "2,23"
+        },
+        "extaservices": [{
+            "name": "travellers_talk",
+            "displayname": "Travellers talk",
+            "data": {
+                "in_country": "0,69",
+                "call_price": "0,69",
+                "receive_call": "0,49",
+                "send_sms": "0,99",
+                "monthly_fee" :"0"
+            },
+            "factbox_data": {
+                "call_price" :"0,69",
+                "opening_fee_call" :"7,99",
+                "opening_fee_answer" :"4,99",
+                "subscribe_price" :"0"
+            }
+        },{
+            "name": "is_abroad",
+            "displayname": "Is abroad",
+            "data": {
+                "in_country" :"0,79",
+                "to_sweden" :"0,79",
+                "to_zone_1_2a" :"0,79",
+                "receive_call" :"0",
+                "send_sms" :"0,79",
+                "opening_fee" :"0,79",
+                "call_to_landline": "0,79",
+                "call_to_cellphone": "1,79"
+            },
+            "factbox_data": {
+                "call_price" :"0,79",
+                "subscribe_price": "59"
+            }
+        },{
+            "name": "to_abroad",
+            "displayname": "To abroad",
+            "name": "Till utlandet",
+            "factbox_data": {
+                "subscribe_price": "9"
+            }
+        },{
+            "name": "oresund_prices",
+            "displayname": "Öresundspriser",
+            "data": {
+                "in_country" :"0,69",
+                "call_price" :"0,69",
+                "receive_call" :"0",
+                "send_sms" :"0,69",
+                "opening_fee" :"0,69",
+                "call_to_landline" :"0,69",
+                "call_to_cellphone" :"1,19"
+            },
+            "factbox_data": {
+                "opening_fee_answer" :"4,99",
+                "subscribe_price" :"50"
+            }
+        },{
+            "name": "mobil_total",
+            "displayname": "Telia Mobil total",
+            "data": {
+                "in_country" :"0,69",
+                "call_price" :"0,69",
+                "receive_call" :"0",
+                "send_sms" :"0,69",
+                "receive_sms" :"0",
+                "send_mms" :"0,69",
+                "receive_mms" :"0",
+                "opening_fee" :"0,99"
+            },
+            "factbox_data": {
+                "monthly_from_price": "199",
+                "call_price": "0,69"
+            }        
+        }],
+        "infodata": "* Öppningsavgift tillkommer",
+        "operatornames": [
+            "Netcom AS",
+            "Network Telenor"
+        ]
+    }
+}
+

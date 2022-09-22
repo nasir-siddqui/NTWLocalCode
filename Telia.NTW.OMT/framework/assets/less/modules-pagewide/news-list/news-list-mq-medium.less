@@ -1,0 +1,123 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * NEWS-LIST...........System and network info, and news
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $NEWS-LIST
+\*------------------------------------*/
+
+.tsNewsList-container {
+//	background: @blue -webkit-linear-gradient(left, @blue 0, @blue 50%, @darkblue 50%, @darkblue 100%) no-repeat;
+//	background: @blue -moz-linear-gradient(left, @blue 0, @blue 50%, @darkblue 50%, @darkblue 100%) no-repeat;
+//	background: @blue -ms-linear-gradient(left, @blue 0, @blue 50%, @darkblue 50%, @darkblue 100%) no-repeat;
+//	background: @blue linear-gradient(left, @blue 0, @blue 50%, @darkblue 50%, @darkblue 100%) no-repeat;	
+}
+
+.tsNewsList-container > li {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
+.tsNewsList-container > .tsNewsList {
+	.padding(right; @gutter);
+}
+
+.tsNewsList-container > .tsNewsList--alt {
+	.padding(left; @gutter);
+}
+
+.no-cssgradients .tsNewsList-container {
+//	background-image: url("../gfx/gfx/no-cssgradients-bg-newslist.png");
+//	.background-image(no-cssgradients-bg-newslist);
+//	background-position: center center;
+//	background-repeat: repeat-y;
+}
+
+/*.tsNewsList-heading {
+    margin: 10px 0;
+}
+*/
+
+.tsNewsList-heading {	
+//	.inline-block;
+	float: left;
+//	margin: 2px 0 0;
+}
+
+.tsNewsList-date {
+//	display: inline;
+	float: right;
+	.margin(left;@gutter);
+}
+
+.tsNewsList-items,
+.tsNewsList-items--alt {		
+	width: 100%;
+}
+
+.tsNewsList-items li,
+.tsNewsList-items--alt li{		
+	.padding(topbottom; 15; 15);
+}
+
+.tsNewsList,
+.tsNewsList--alt {
+	width: 50%;
+}
+
+.tsNewsList--alt {
+	background-color: transparent;
+}
+
+.tsNewsList-more {
+	float: right;
+}
+
+.tsSocialArea {
+	overflow: hidden;
+	margin: auto;
+	padding-bottom: 0;
+}
+
+.tsSocialArea li {
+	.inline-block;
+	width: auto;
+	/*&:last-child {
+		padding-left: 10px;
+
+	}*/	
+}
+
+.tsSocialArea i {
+	//margin-right: 5px;
+}
+
+.tsSocialArea a {
+	//padding-bottom: 0
+	//width: auto;
+}
+
+.tsSocialArea-list {
+	margin: auto;
+	text-align: center;
+}
+
+.tsSocialArea-list li > :last-child {
+	/*white-space:nowrap;
+	width: auto;
+	float: left;
+	
+	// no icon?
+	margin-left: 40px;*/
+}

@@ -1,0 +1,7 @@
+
+// Inputs pixel based line height and calculates rem equals, with em fallback
+
+.line-height() {
+  @em: (@baselineheight / @basefontsize);
+  line-height: ~"@{em}em";
+}

@@ -1,0 +1,63 @@
+.accordian-title() {
+	display: block;
+	.padding(leftright;@gutter-half;@gutter-half);
+	border-bottom: @lightergrey 1px solid;
+	background-color: @lightestblack;
+	position: relative;
+	cursor: pointer;
+	&:after,
+	&:before {
+		position: absolute;
+		top: 10px;
+		right: auto;
+		
+	    text-align: center;
+	    font-family: iconfont;
+	    font-size: 18px;
+	    line-height: 1;
+
+	    line-height: 1em;
+	     speak: none;
+	     -webkit-font-smoothing: antialiased;  
+	     text-align: center;
+	     color: @white;
+	     .border-radius(50%);
+		background-color: @purple;
+		padding: 5px;
+	     & > b {
+	        .hide-text;
+	    }
+	}
+	&:before {
+		content: "\e039";
+
+	}
+	&:after {
+		display: none;
+		content: "\e606";
+	}
+}
+.accordian-title-is-active () {
+	background-color: @white;
+	border-bottom-color: transparent;
+	&:before {
+		display: none;
+	}
+	&:after {
+		.inline-block;
+	}
+}
+.accordian-title-is-disabled () {
+		opacity: 0.5;
+}
+.accordian-anchor() {
+	display: block;
+	padding: 15px 0 15px 40px;
+	text-decoration: none;
+	color: @purple!important;
+}
+.accordian-panel (){
+	.padding(topbottom;30;@gutter);
+	display: none;
+	.clearfix;
+}

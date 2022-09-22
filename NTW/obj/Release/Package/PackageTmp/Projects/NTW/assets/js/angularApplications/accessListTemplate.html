@@ -1,0 +1,19 @@
+<div class="tsAccess">
+    <div ng-if="puiStructure === null" class="tsWrapInner">
+        <div class='tscLoading--Full'><div class='tsLoading-icon-large'></div></div>
+    </div>
+    <ul class="tsAccess-columnContainer">
+        <li class="tsColumn-list-4" ng-repeat="item in puiStructure">
+            <h3 class="h4 tsAccess-headline">{{ item.displayName }}</h3>
+            <ul class="tsAccess-list">
+                <li class="tsAccess-listItem" ng-repeat="item2 in item.items | orderBy:'displayName'">                    
+                    <div ng-if="item2.displayName" class="tseRadioBox--CheckButton--ColorNavigation tsPullLeft" ng-class="{ semichecked: isSemichecked(item2), readOnly: readOnly, checked: readOnly && item2.$selected }">
+                        <input type="checkbox" id="{{ item2.key }}" ng-change="checkStatusChanged(item2)" ng-model="item2.$selected" ng-disabled="readOnly">
+                        <label for="{{ item2.key }}">{{ item2.displayName }}</label>
+                        <span ng-if="item2.items" class="label">{{ checkStatus(item2) }}</span>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,185 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * FOLDOUT...................
+
+*/
+
+
+// The Foldout widget inserts a container in a list view and expands 100% to initially show an enlarged image
+// Could be developed to show other kinds of content
+
+
+
+/*------------------------------------*\
+    $FOLDOUT
+\*------------------------------------*/
+
+.tsFoldout {
+    border: 1px solid @lightergrey;
+}
+
+.tsFoldout-Inner {
+    width: 100%;
+    .padding(topbottom;@gutter-double;@gutter-double);
+	text-align: center;
+    background-color: @foldoutbgcolor;
+}
+
+.tsFoldout--channel{
+    .media-overflow();
+
+    .tsChannelImage{
+        .padding(all; @gutter; @gutter; @gutter; @gutter);
+    }
+
+    .tsChannelImage img{
+        max-width: none;
+    }
+
+    .tsChannelContent{
+        .padding(all; @gutter; @gutter; @gutter; 0);
+    }
+}
+
+.tsProductList--foldout {
+    &.tsProductList {
+        .tsFoldout.is-expanded {
+            .margin(top;@gutter-half/2;);
+        }
+    }
+    &.tsProductList--Alt {
+        .tsFoldout.is-expanded {
+            .margin(top;-1;);
+        }
+    }
+    [data-js=foldout-item].is-expanded::before,
+    [data-js=foldout-item].is-expanded::after {
+        bottom: -11px;
+    }
+}
+
+.tsFoldout.is-collapsed {
+    .visuallyhidden;
+}
+
+.csstransitions .tsFoldout {
+    -webkit-transition: max-height 1s ease-in-out;
+    transition: max-height 300ms ease-in-out;
+    overflow: hidden;
+    -webkit-transform: translate3d(0,0,0); 
+    transform: translate3d(0,0,0); 
+}
+
+
+.tsFoldout.is-collapsed {
+    max-height: 0;
+}
+
+.tsFoldout-Close {
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -18px;
+    padding: 7px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid @turq;
+    .border-radius(50%);
+    font-size: 18px;
+    color: @turq;
+    background-color: @white;
+    &:hover {
+        //color: @darkturk;
+        
+    }
+}
+
+[data-js=foldout-item].is-expanded {
+    position: relative;
+
+    .tsProductItem{
+        border:2px solid @blue;
+    }
+}
+
+[data-js=foldout-item].is-expanded::before,
+[data-js=foldout-item].is-expanded::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    pointer-events: none;    
+}
+
+[data-js=foldout-item].is-expanded::after {
+    margin-left: -8px;
+    border: 8px solid transparent;
+    border-bottom-width: 8px;
+    border-bottom-color: @foldoutbgcolor;        
+}
+
+[data-js=foldout-item].is-expanded::before {
+    margin-left: -11px;
+    border: 11px solid transparent;
+    border-bottom-width: 11px;
+    border-bottom-color: @lightergrey;    
+}
+
+[data-js=foldout-item] .tsProductItem-Img {
+    opacity: 0.9;
+    .transition;
+    margin-bottom: 0;
+    &.tsMovieImage {
+        .margin(bottom;@gutter-half);
+    }
+}
+
+[data-js=foldout-item]:hover .tsProductItem-Img {
+    opacity: 1;
+}
+
+
+
+/*
+.arrow_box { 
+  position: relative;
+  background-color:  @foldoutbgcolor;
+  border: 1px solid #EBEBEB; 
+} 
+
+.arrow_box:after, 
+.arrow_box:before { 
+    bottom: 100%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+} 
+
+.arrow_box:after { 
+      border-color: rgba(240, 239, 237, 0); 
+      border-bottom-color: #f0efed; 
+      border-width: 15px; 
+      left: 40%; 
+      margin-left: -15px; 
+} 
+
+.arrow_box:before { 
+    border-color: rgba(235, 235, 235, 0); 
+    border-bottom-color: #EBEBEB; 
+    border-width: 16px; 
+    left: 40%; 
+    margin-left: -16px; 
+}
+*/

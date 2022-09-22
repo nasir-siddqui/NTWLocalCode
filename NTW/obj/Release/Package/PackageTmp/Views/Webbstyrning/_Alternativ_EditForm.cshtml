@@ -1,0 +1,92 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.StyrningsalternativEditViewModel
+
+<p class="tsWrapInner">
+    Observera att du redigerar en arbetskopia av styrningsalternativet. Denna arbetskopia är inte synlig för kund.<br />
+    Spara innebär att du sparar arbetskopian. Godkänn innebär att arbetskopian blir godkänd och synlig för kund.
+</p>
+
+<div class="tscLoading--PaddingGutter" ng-hide="true">
+    <div class="tsLoading-icon-large tsMarginTop"></div>
+</div>
+
+<div ng-non-bindable data-$injector>
+    <div data-angular="styrningsalternativApp" ng-controller="styrningsalternativCtrl" ng-cloak ng-init="init('@Model.abonnemang', '@Model.serviceId', '@Model.connectLinkId', '@Model.namn', '@Model.lopnummer', '@Model.alternativnummer', '@Model.index', '@Model.status')">
+        <!-- Edit form -->
+        <div class="tsWrapInner">
+            <form name="styrningsalternativForm">
+                <!-- Status -->
+                <ul class="tscList">
+                    <li class="tscInfoRow">
+                        <span>Status:</span>
+                        <span>{{styrningsalternativ.status}}</span>
+                    </li>
+                </ul>
+
+                <div>
+                    <!-- Styrning -->
+                    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+                        <label for="styrning" class="tscForm-label">Styrning</label>
+	                    <input ng-model="styrningsalternativ.namn" id="styrning" name="styrning" type="text" class="tseInput" required/>
+						<span ng-show="styrningsalternativForm.styrning.$error.required" class="field-validation-error">
+							Obligatoriskt
+						</span>
+                    </div>
+
+                    <!-- Löpnummer -->
+                    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+                        <label for="lopnummer" class="tscForm-label">Löpnummer</label>
+                        <input ng-model="styrningsalternativ.lopnummer" id="lopnummer" name="lopnummer" type="number" class="tseInput" disabled="disabled" />
+                    </div>
+                </div>
+				
+	            <!-- Alternativnummer -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+                    <label for="alternativnummer" class="tscForm-label">Alternativnummer</label>
+					<input ng-model="styrningsalternativ.alternativnummer" id="alternativnummer" name="alternativnummer" class="tseInput" type="text" ng-pattern="/^[0-9]{0,2}$/" />
+					<span ng-show="!styrningsalternativForm.alternativnummer.$valid" class="field-validation-error">
+						Får innehålla max två siffror
+					</span>
+                </div>
+
+                <!-- Index -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+                    <label for="index" class="tscForm-label">Index</label>
+					<input ng-model="styrningsalternativ.index" id="index" name="index" class="tseInput" type="text" ng-pattern="/^[0-9]{0,2}$/" />
+					<span ng-show="!styrningsalternativForm.index.$valid" class="field-validation-error">
+						Får innehålla max två siffror
+					</span>
+                </div>
+
+                <h2 class="h2 tsMarginTop tsBorderTop tsPaddingTop tsMarginBottom--halfGutter">
+                    Styrningsalternativträd
+                </h2>
+            </form>
+
+            <!-- Copy other styrningsalternativ -->
+            <div class="tsMarginTop tsMarginBottom">
+                <a class="tsBtn--Regular" ng-click="showCopyAlternativ=true">Kopiera annat styrningsalternativ</a>
+                <span ng-show="showCopyAlternativ">
+                    <span class="tseTextField--Normal--Half--Inline tsMarginLeft">
+                        @Html.DropDownListFor(m => m.chosenStyrningsalternativForCopy, Model.styrningsalternativForCopy, "Välj alternativ", new { @class = "combobox-autocomplete", ng_model = "styrningsalternativForCopy" })
+                    </span>
+                    <a class="tsBtn--Regular" ng-click="copyAlternative()">Kopiera</a>
+                    <a class="tsBtn--Regular tsMarginLeft" ng-click="showCopyAlternativ=false">Avbryt</a>
+                </span>
+            </div>
+
+            <!-- Styrningsalternativ tree -->
+            @Html.Partial("_Alternativ_Tree_Edit")
+
+	        <!-- Buttons -->
+            <div class="tsMarginTop--doubleGutter tsMarginBottom">
+				<input type="submit" value="Spara" class="tsBtn--Regular" ng-click="save()" ng-disabled="styrningsalternativForm.$invalid || !treeValid" />
+				<a class="tsBtn--Regular tsMarginLeft" ng-click="confirm()" ng-disabled="styrningsalternativForm.$invalid || !treeValid">Godkänn</a>
+	            @Html.ActionLink("Avbryt", "Abonnemang", new
+	            {
+		            serviceId = Model.serviceId,
+		            abonnemang = Model.abonnemang
+	            }, new { @class = "tsBtn--Regular tsMarginLeft" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,469 @@
+.tsFeedback ,
+[class^="tsFeedback"][class*="--Chat"] {
+	position: fixed;
+	right: 0px;
+	top: 50%;
+	//margin-right: -51px;
+	overflow: visible;
+	.transform(rotate(-90deg));
+	-webkit-transform-origin: 50%  51%;
+	z-index: 10;
+	// & > div {
+	// 	overflow: visible;
+	// }
+	margin-top: -54px;
+}
+[class^="tsFeedback"][class*="--Chat"] {
+	margin-top: 40px;
+}
+
+.csstransforms [class^="tsFeedback"][class*="--Chat"] {
+	right: -19px;
+}
+
+.csstransforms  .tsFeedback{
+	right:-25px;
+}
+
+// .touch .tsFeedback ,
+// .touch [class^="tsFeedback"][class*="--Chat"] {
+// 	right: -25px;
+// }
+
+.tsFeedback-label {
+	background-image: url(/resources/templating-kit/themes/telia-se/css/gfx/feedback.png);
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: right 50%;
+	//background-color: transparent;
+	display: block;
+	width: 20px;
+	height: 95px;
+	line-height: 35px;
+	&> span, 
+	[class*=tsIcon-] {
+		.visuallyhidden;
+	}
+}
+
+[class^="tsFeedback"][class*="--Chat"] {
+	display: none;
+	.tsFeedback-label {
+		background-image: url(/resources/templating-kit/themes/telia-se/css/gfx/chat.png);
+	}
+}
+
+.csstransforms .tsFeedback-label {
+	background-image: none!important;
+	position: static;
+	padding: 0;
+	margin: 0;
+	height: auto;
+ 	//line-height: 28px;
+ 	float: none;
+ 	background-color: @turq;
+ 	color: @white;
+ 	width: auto;
+ 	.border-radius(5px 5px 0 0);
+ 	.inline-block;
+ }
+
+ .csstransforms .tsFeedback-label > span {
+ 	.visuallyvisible;
+	// display: inline-block;
+	padding: 0 8px 0 29px;
+	float: none;
+	font-weight: normal;
+}
+
+.csstransforms .tsFeedback .tsFeedback-label > span {
+	padding: 0 8px 0px 8px;
+}
+
+.csstransforms  [class^="tsFeedback"][class*="--Chat"] [class*=tsIcon-],
+.csstransforms  .tsFeedback [class*=tsIcon-] {
+	.visuallyvisible;
+	background-color: transparent;
+	.font-size(lineheight;17;20); 
+	height: 24px;
+	width: 24px;
+	padding: 0;
+	margin: auto;
+	position: absolute;
+	bottom: 50%;
+	margin-bottom: -10px;
+	left: 0;
+	.transform(rotate(90deg));
+}
+
+
+.tsChat-offers {
+	padding-right: 20px;
+	position: fixed;
+	right: 40px;
+	width: 370px;
+	-webkit-transform-origin: 50%  51%;
+	margin-top: -50px;
+	top: 50%;
+	z-index: 100000;
+	[class^="tsChat-offer"][class*="--MarginTop"] {
+		.margin(top;60);
+	}
+
+	[class^="tsChat-offer"] {
+		border: 1px solid @lightclay;
+		.border-radius(@radius: 2px);
+		background-color: @lighterclay;
+		cursor: default;
+		border-radius: 2px;
+		padding: 20px;
+		&:before {
+			content: ' ';
+			position: absolute;
+			border: 12px solid transparent;
+			border-left-color: @lightclay;
+			right: -3px;
+			top: 108px;
+			z-index: 1;
+		}
+		&:after {
+			content: ' ';
+			position: absolute;
+			right: 1px;
+			top: 110px;
+			border: 25px;
+			border-style: solid;
+			border-width: 10px;
+			border-color: transparent transparent transparent @lighterclay;
+			z-index: 2;
+		}
+		input {
+			width: 100%;
+		}
+		textarea {
+			width: 100%;
+			height: 200px;
+		}
+		.tsBtn {
+			background-color: @turq;
+			&:hover {
+				background-color: @lightturq;
+			}
+		}
+		h2 {
+			color: @grey;
+		}
+		.tsCloseChat {
+			color: @grey;
+			float: right;
+		}
+	}
+}
+
+/* CO-BROWSING */
+
+/* Co-browsing query*/
+#cob_message_panel {
+    width:250px;
+    background: #f6f6f6;
+    color: #6c6f70;
+    position: fixed !important;
+    bottom:-5px;
+    left:50%;
+    margin-left:-125px;
+    display:hidden;
+    font-family: helvetica;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    padding-bottom:12px;
+    border-top: #faa51a 0px solid;
+    border-right: #faa51a 0px solid;
+    border-left: #faa51a 0px solid;
+    text-spacing: 20px;
+    z-index:1015;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+#cob_message_panel p {
+    margin:0px;
+    padding-bottom:5px;
+}
+
+/* General button class */
+.cob_button {
+    display: inline-block;
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline;
+    vertical-align: baseline;
+    margin: 0 2px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: white;
+}
+.cob_button:hover {
+    text-decoration: none;
+}
+.cob_button:active {
+    position: relative;
+    top: 1px;
+}
+.cob_style_small {
+    font-size: 11px;
+    padding: .2em 1em .275em;
+}
+
+/* Marker for customer mouse pointer at agent */
+#cob_cursor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1005;
+    top: 250px;
+    left: 500px;
+    display: none;
+}
+/* Classes for animated hightlight of agent click at end-customer */
+.cob_cursor_bkg2 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/2.png);
+}
+.cob_cursor_bkg3 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/3.png);
+}
+.cob_cursor_bkg4 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/4.png);
+}
+.cob_cursor_bkg5 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/5.png);
+}
+.cob_cursor_bkg6 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/6.png);
+}
+.cob_cursor_bkg7 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/7.png);
+}
+.cob_cursor_bkg8 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/8.png);
+}
+.cob_cursor_bkg9 {
+  background: url(/resources/teliasonera/telia-se/assets/client/cursor/9.png);
+}
+/* Button for stopping Co-browsing */
+.cob_stop {
+    width:160px;
+    margin-left:-100px;
+    display: inline-block;
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline;
+    vertical-align: baseline;
+    /*margin: 0 2px;*/
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: blue;
+    position: fixed !important;
+    bottom:0px;
+    left:50%;
+    z-index: 1015;
+}
+.cob_stop:hover {
+    text-decoration: none;
+    text-decoration: #faa51a line-through;
+}
+.cob_stop:active {
+    /*position: relative;*/
+    top: auto;
+}
+
+/* Dialog used for asking user if he/she want to switch page */
+#cob_dialog {
+    width:250px;
+    background: #f6f6f6;
+    color: #6c6f70;
+    position: fixed !important;
+    bottom:50%;
+    left:50%;
+    margin-left:-125px;
+    display:hidden;
+    font-family: helvetica;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    border-top: #faa51a 0px solid;
+    border-right: #faa51a 0px solid;
+    border-left: #faa51a 0px solid;
+    border-bottom: #faa51a 0px solid;
+    text-spacing: 20px;
+    z-index:1015;
+    filter: alpha(opacity=100);
+    opacity: .99;
+    display: none;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+#cob_dialog_p {
+    margin:0px;
+    padding-bottom:5px;
+}
+
+/* Overlay when ctrl button is pressed by agent */
+.cob_click_overlay
+{
+    background-color: #0000FF;
+    opacity: .15;
+    filter: alpha(opacity=15);
+    position: fixed; top: 0px; left: 0px;
+    width: 100%; height: 100%;
+    z-index: 1010;
+    display: none;
+}
+
+/* Class when Co-browsing is down */
+.cob_style_gray {
+    color: #e9e9e9;
+    border: solid 1px #555;
+    background: #6e6e6e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#575757));
+    background: -moz-linear-gradient(top,  #888,  #575757);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#888888', endColorstr='#575757');
+}
+.cob_style_gray:hover {
+    background: #616161;
+    background: -webkit-gradient(linear, left top, left bottom, from(#757575), to(#4b4b4b));
+    background: -moz-linear-gradient(top,  #757575,  #4b4b4b);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#757575', endColorstr='#4b4b4b');
+}
+.cob_style_gray:active {
+    color: #afafaf;
+    background: -webkit-gradient(linear, left top, left bottom, from(#575757), to(#888));
+    background: -moz-linear-gradient(top,  #575757,  #888);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
+}
+
+.cob_style_orange {
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+    background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+}
+.cob_style_orange:hover {
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+    background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+}
+.cob_style_orange:active {
+    color: #fcd3a5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+    background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a');
+}
+
+/* blue */
+.cob_style_blue {
+    color: #d9eef7;
+    border: solid 1px #0076a3;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.cob_style_blue:hover {
+    background: #007ead;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+    background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.cob_style_blue:active {
+    color: #80bed6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+    background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+
+/* green */
+.cob_style_green {
+    color: #e8f0de;
+    border: solid 1px #538312;
+    background: #64991e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7db72f), to(#4e7d0e));
+    background: -moz-linear-gradient(top,  #7db72f,  #4e7d0e);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+}
+.cob_style_green:hover {
+    background: #538018;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6b9d28), to(#436b0c));
+    background: -moz-linear-gradient(top,  #6b9d28,  #436b0c);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b9d28', endColorstr='#436b0c');
+}
+.cob_style_green:active {
+    color: #a9c08c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4e7d0e), to(#7db72f));
+    background: -moz-linear-gradient(top,  #4e7d0e,  #7db72f);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e7d0e', endColorstr='#7db72f');
+}
+
+/* purple */
+.cob_style_purple {
+    color: #feeef5;
+    border: solid 1px #4e256b;
+    background: #8c55a8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#8c55a8), to(#652d86));
+    background: -moz-linear-gradient(top,  #8c55a8,  #652d86);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#8c55a8', endColorstr='#652d86');
+}
+.cob_style_purple:hover {
+    background: #652d86;
+    background: -webkit-gradient(linear, left top, left bottom, from(#652d86), to(#4e256b));
+    background: -moz-linear-gradient(top,  #652d86,  #4e256b);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#652d86', endColorstr='#4e256b');
+}
+.cob_style_purple:active {
+    color: #f3c3d9;
+    background: -webkit-gradient(linear, left top, left bottom, from(#652d86), to(#8c55a8));
+    background: -moz-linear-gradient(top,  #652d86,  #8c55a8);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#652d86', endColorstr='#8c55a8');
+}
+
+#cob_start_button {
+    display: block;
+}
+#cob_start_button a {
+    display: none;
+}
+
+#cob_entry_close {
+    display: none;
+}
+
+#cob_entry_dialog {
+    display: none;
+}

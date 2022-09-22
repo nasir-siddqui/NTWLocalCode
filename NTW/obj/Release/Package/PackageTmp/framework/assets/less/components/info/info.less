@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * INFO................INFO BAR
+ */
+
+
+
+
+/*------------------------------------*\
+   $INFO
+\*------------------------------------*/
+
+
+.tscInfo-bar {
+    float: left;
+    width: 100%;
+    color: @grey;
+}
+
+.tscInfo-list {
+    float: left;
+    width: 100%;
+    border-top: 1px solid @lightergrey;
+    border-bottom: 1px solid @lightergrey;
+    .padding(all;15;0;15;0);
+    .font-size(16);
+}
+
+.tscInfo-listItem {
+    list-style-type: none;
+    float: left;
+    .margin(right;100);
+    i {
+        float: left;
+        width: 30px;
+        .margin(right;10);
+    }
+    p {
+        float: left;
+        .margin(bottom;0);
+    }
+    a {
+        float: left;
+    }
+    &:last-child {
+        .margin(right;0);
+    }
+}

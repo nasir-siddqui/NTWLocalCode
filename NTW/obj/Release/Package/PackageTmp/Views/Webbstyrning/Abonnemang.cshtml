@@ -1,0 +1,70 @@
+﻿@using Telia.NTW.Core.Helpers
+@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.AbonnemangViewModel
+
+@{
+	ViewBag.Title = "Abonnemang";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+	<ul class="tsCrumbtrail-links" role="navigation">
+		<li>@Html.ActionLink("Webbstyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+		<li>@Model.Abonnemang</li>
+	</ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+	<h1>@Model.Abonnemang</h1>
+	<p>
+		Administrera webbstyrning för abonnemang @Model.Abonnemang
+	</p>
+</div>
+
+<div class="tsComponent--20px tsComponent--light tsMarginTop">
+	<div class="tsWrapInner">
+		@{
+			bool first = true;
+		}
+
+		@if (User.IsInRole(RoleHelper.WebbstyrningWrite))
+		{
+			@Html.ActionLink("Schemalägg styrningsändring", "Kö_Create", new { abonnemang = @Model.Abonnemang, serviceId = @Model.ServiceId }, new { @class = "tsBtn--Regular" })
+			first = false;
+		}
+
+		@if (User.IsInRole(RoleHelper.Administratör))
+		{
+			@Html.ActionLink("Skapa styrningsalternativ", "Alternativ_Create", new { serviceId = @Model.ServiceId, abonnemang = @Model.Abonnemang }, new { @class = "tsBtn--Regular" + (first ? "" : " tsMarginLeft") })
+			first = false;
+		}
+
+		@Html.ActionLink("Exportera", "Abonnemang_ExportToExcel", new { serviceId = @Model.ServiceId, abonnemang = @Model.Abonnemang }, new { @class = "tsBtn--Regular" + (first ? "" : " tsMarginLeft") })
+	</div>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	<div class="tsTable-select tsComponent" ng-cloak>
+		@Html.Partial("_Kö_List")
+
+		@Html.Partial("_Alternativ_List", Model)
+
+		@Html.Partial("_Svarsställen", Model.Svarsställen)
+
+		@Html.Partial("_Historik", Model.Historik)
+
+		@if (User.IsInRole("Administratör"))
+		{
+			@Html.Partial("_Log", Model.Logg)
+		}
+	</div>
+
+
+	@*	<div class="tscButtonContainer tsWrapInner">*@
+	@*		@Html.ActionLink("Exportera", "ExporteraTillExcel", "Webbstyrning", new { serviceId = @Model.ServiceId }, new { @class = "tsBtn--Regular" })*@
+	@*	</div>*@
+
+</div>

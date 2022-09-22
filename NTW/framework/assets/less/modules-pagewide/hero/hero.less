@@ -1,0 +1,94 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * HERO ITEMS................Item/Item content
+*/
+
+
+
+/*------------------------------------*\
+    $HERO ITEMS
+\*------------------------------------*/
+
+.tsHero-outer {
+    position: relative;
+    height: 0;
+    padding-bottom: 80%;
+    .margin(bottom;@gutter)
+
+}
+
+.tsHero-imagecontainer {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.tsHero-outer--alt {
+
+    .margin(bottom;@gutter);
+    position: relative;
+}
+
+.tsHero-imagecontainer--alt {
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.tsHero-imagecontainer--alt2 {
+    .tsHero-imagecontainer--alt;
+}
+.tsHero-imagecontainer--noZoom {
+    .tsHero-imagecontainer--alt;
+    background-position: top center;
+    background-size: 100%;
+}
+.tsHero-imagecontainer--repeat {
+    background-repeat: repeat;
+}
+.tsHero-imagecontainer--repeat--startOutside {
+    background-repeat: repeat;
+    background-position: -20px -20px;
+}
+.tsHero-imagecontainer--alt4 {
+    .tsHero-imagecontainer--alt2;
+}
+.tsHero-imagecontainer--alt .tsHero-inner-image,
+.tsHero-imagecontainer--alt .tsHero-inner-image--alt {
+    
+    padding-bottom: 80%;
+    height: 0;
+    overflow: hidden;
+}
+.tsHero-imagecontainer--alt .tsWrapInner {
+    position: relative;
+}
+.tsHero-image-outer {
+    position:relative;
+   // .margin(bottom;@gutter);
+}
+.tsHero-image-right {
+    float:right;
+}
+
+.tsHero-banner {
+	.clearfix();
+	background: @white;
+	.padding(topbottom;40;40);
+	.border(topbottom;@lightergrey);
+}
+
+.tsHero-link * {
+    cursor: pointer;
+}

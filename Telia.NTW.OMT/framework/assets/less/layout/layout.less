@@ -1,0 +1,610 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * WRAP................
+ * ASIDE-DIVIDED....... For dividing into columns/sidebar
+ * HIGHLIGHTED.........
+ * MODULE-SPACE........
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $WRAP
+\*------------------------------------*/
+
+.tsWrapInner,
+[class*="tsWrapInner--"] {
+    .clearfix;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @width-innerwrap;
+    .padding(leftright;@gutter-half;@gutter-half);
+}
+
+[class*="tsWrapInner"][class*="--Highlighted"] {
+    background: @darknearwhite;
+}
+[class*="tsWrapInner"][class*="--NoPadding"] {
+    padding: 0;
+}
+
+#main,
+.main,
+[role=main] {
+    clear: both;
+}
+
+//placeholder
+.textinput-placeholder {
+    position: relative;
+    //.inline-block;
+}
+.textinput-placeholder > label {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    color: @textcolor;
+}
+.textinput-placeholder > label.visibilityhidden {
+	visibility: hidden;
+}
+
+.tseTextField .textinput-placeholder > label {
+    top: 15px;
+}
+
+
+.tsWrap--Background {
+    .backgroundImage;
+}
+
+
+
+/*------------------------------------*\
+    $ASIDE-DIVIDED
+\*------------------------------------*/
+
+.tsInfoBox {
+    background-color: @darknearwhite;
+    .padding(all;@gutter);
+    .margin(bottom;@gutter);
+
+    p {
+        color: @darkgrey;
+    }
+    .tsInfoBox-header {
+        clear:both;
+        font-weight: normal;
+        .margin(all;0;0;@gutter-half;0);
+    }
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $HIGHLIGHTED
+\*------------------------------------*/
+
+
+.tsHighlighted {
+	.highLighted;
+}
+.tsHighlighted--Inverted {
+    .highLighted;
+    .highLighted-inverted;
+}
+
+
+.tsHighlighted + .tsProductListContainer {
+    border-top: 1px solid @lightergrey;
+    background-image: none;
+}
+
+.tsHighlighted--darker {
+    background: @lightergrey;
+    .border(topbottom;@inputbordercolor);
+    .padding(topbottom;@gutter;@gutter);
+}
+
+.tsHighlighted--colored {
+  background-color: @purple;    
+ .padding(top;@gutter); 
+}
+.tsHighlighted--noPadding {
+    .tsHighlighted;
+    .padding(all;0);
+}
+
+.tsHighlighted--withLines {
+    .tsHighlighted--noPadding;
+    border-bottom: 1px solid @lightergrey;
+}
+    
+.tsHighlighted--noBorder {
+    .padding(topbottom;@gutter;@gutter);
+    background-color: @nearwhite;
+}
+
+[class^="tsHighlighted"][class*="--BorderBottom"] {
+	.highLighted;
+    border-bottom: 1px solid @lightergrey;
+}
+.tsHighLighted-Text {
+    color:@pink;
+}
+.tsHighLighted-Text--Alt {
+    color:@turq;
+    font-weight: bold;
+}
+
+.tsBackdrop{
+    background: @lightergrey;
+}
+
+/*------------------------------------*\
+    $MODULE-SPACE
+\*------------------------------------*/
+
+.tsModuleSpace {
+    .margin(bottom;@gutter);
+}
+
+.tsModuleSpace--All {
+    .margin(topbottom;@gutter-double;@gutter-double);
+}
+.tsModuleSpace--Double {
+    .margin(bottom;@gutter-double);
+}
+.tsModuleSpace--All--Double {
+    .margin(topbottom;@gutter-double;@gutter-double);
+}
+.tsModuleSpace--Inline {
+    .padding(bottom;@gutter);
+}
+.tsModuleSpace--Inline--All {
+    .padding(topbottom;@gutter-double;@gutter-double);
+}
+.tsModuleSpace--Inline--Double {
+    .padding(bottom;@gutter-double);
+}
+.tsModuleSpace--Inline--All--Double {
+    .padding(topbottom;@gutter-double;@gutter-double);
+}
+
+
+
+
+
+/*------------------------------------*\
+    $INLINE-BLOCKS
+\*------------------------------------*/
+
+[class^="tsInlineBlocks"] {
+	.l-inline-elements;
+}
+
+[class^="tsInlineBlocks"][class*="--Gutter"] {
+	> * {
+		.margin(right;@gutter);
+	}
+	> *:last-child {
+		.margin(right;0);
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    $CENTER-ALIGN
+\*------------------------------------*/
+
+.tsCenterAlign {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    $DIVIDERS
+\*------------------------------------*/
+.tsDivider,
+[class*="tsDivider--"]{
+    border-top: 1px solid @lightgrey;
+    margin: 10px 0;
+}
+[class*="tsDivider--"][class*="--Light"]{
+    border-top-color: @lightergrey;
+}
+
+.tsDivider--Vertical{
+    border-left: 1px solid @grey;
+    margin-left: 1em;
+    margin-right: 1.25em;
+}
+
+
+
+/* ------------------------------- */
+
+.tsColumnBlock-link {
+    .font-size(18);
+    color: @purple;
+    display:block;
+   // .margin(bottom;5);
+   .padding(topbottom;7;7);
+    
+}
+.tsColumnBlock-list {
+    margin: 0;
+    padding: 0;
+    .font-size(18);
+    color: @purple;
+    .margin(left;@gutter);
+}
+.tsColumnBlock-link:last-child {
+//    .padding(left;@gutter);
+    //.margin(bottom;@gutter);
+   // .margin(bottom;40);
+}
+
+.tsColumnBlock
+{
+    overflow: hidden;
+    & >:first-child,
+    & >:last-child  {
+        width: 100%;
+        float: left;
+    }
+}
+
+
+.tsColumnBlock-block,
+.tsColumnBlock-block--alt {
+    .padding(all;@gutter);
+    background-color: @lighterclay;
+    border: 1px solid @lightergrey;
+    .margin(bottom;@gutter);
+    overflow: hidden;
+    .h2{
+        color: @grey;
+        font-weight: normal;
+        .margin(topbottom;@gutter-half;@gutter-half);
+    }
+}
+.tsColumnBlock-block--alt {
+    width: 100%;
+    float: left;
+    p{
+        margin-bottom: 0;
+    }
+}
+.tsColumnBlock-block--alt:nth-child(even) {
+    margin-right:1%;
+}
+.tsColumnBlock-block--alt:nth-child(odd) {
+    margin-left:1%;
+    float: right;
+}
+
+.tsColumn-list-2 {
+    float: left;
+    width: 50%;
+}
+
+.tsColumn-list-4 {
+    float: left;
+    width: 25%;
+}
+.tsColumnBlock iframe {
+    .margin(bottom;@gutter);
+}
+.tsColumnBlock-block-campaign {
+    background-size: cover;
+    background-position: center center;
+}
+
+
+
+.tsAlignRight{
+    text-align: right;
+}
+
+/*------------------------------------*\
+    $List-Spaced-items
+\*------------------------------------*/
+.tsListSpacedItems{
+    li + li{
+        .margin(top; 15);
+    }
+}
+
+.tsListSpacedItems--xsmall{
+    li + li{
+        .margin(top; 5);
+    }
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $List-Spaced-items
+\*------------------------------------*/
+
+.tsListLargeDisc > li{
+    list-style: none;
+    position: relative;
+
+    &:before{
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: @turq;
+    }
+}
+
+/*------------------------------------*\
+    $Faq-list
+\*------------------------------------*/
+.tsFaq-list{
+    .font-size(16);
+
+    & > li{
+        .margin(bottom; 10;);
+    }
+
+    .tsListItem{
+       // .margin(bottom; 10;);
+        //.padding(left; 16);
+        position: relative;
+
+        &:before{
+            background: @darknearwhite;
+            width: 4px;
+            height: 4px;
+            background-color: @black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -2px;
+        }
+    }
+
+    [data-widget-collapse="inner"]{
+       // .margin(topbottom; 15; 10;);
+        .margin(bottom; 10);
+
+    }
+    
+    .tsHighlightedArrow {
+        &:before{
+            bottom: -16px;
+        }
+        &:after{
+            bottom: -15px;
+        }
+    }
+}
+
+/*------------------------------------*\
+    $Divided list
+\*------------------------------------*/
+.tsDividedList{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/*------------------------------------*\
+    $tsSplitSubComponents
+\*------------------------------------*/
+
+.tsSplitSubComponents {
+    overflow: hidden;
+    
+    > :first-child {
+        float: right;
+    }
+
+    > *{
+        float: left;
+    }
+ }
+
+/*------------------------------------*\
+    $HELPERS
+\*------------------------------------*/
+
+.tsCover{
+    overflow: hidden;
+}
+
+.tsHidden {
+    display: none;
+}
+
+.tsHiddenLabel {
+    color: transparent;
+}
+.touch .tsHideInTouch {
+   display: none;
+}
+
+.tsNoWrap {
+    white-space: nowrap;
+}
+
+.tsBorderTop {
+    border-top: 1px solid @lightergrey;
+}
+.tsBorderTop--Dark{
+    border-top: 1px solid @borderGrey;
+}
+.tsBorderTop--None {
+    border-top: 0 none !important;
+}
+
+.tsBorderBottom {
+    border-bottom: 1px solid @lightergrey;
+}
+.tsBorderBottom--Dark{
+    border-bottom: 1px solid @borderGrey;
+}
+.tsBorderBottom--None {
+    border-top: 0 none !important;
+}
+
+
+.tsPaddingTop {
+    .padding(top;@gutter) !important;
+}
+
+.tsPaddingTop--halfGutter {
+    .padding(top;@gutter-half) !important;
+}
+
+.tsPaddingTop--doubleGutter {
+    .padding(top;@gutter-double) !important;
+}
+
+.tsPaddingBottom {
+    .padding(bottom;@gutter) !important;
+}
+
+.tsPaddingBottom--halfGutter {
+    .padding(bottom;@gutter-half) !important;
+}
+
+.tsPaddingBottom--doubleGutter {
+    .padding(bottom;@gutter-double) !important;
+}
+
+.tsBorderBottom--None {
+    border-bottom: 0 none !important;
+}
+
+
+.tsPaddingLeft {
+    .padding(left;@gutter) !important;
+}
+
+.tsPaddingLeft--halfGutter {
+    .padding(left;@gutter-half) !important;
+}
+
+.tsPaddingRight {
+    .padding(right;@gutter) !important;
+}
+
+.tsPaddingRight--halfGutter {
+    .padding(right;@gutter-half) !important;
+}
+
+.tsPaddingAll{
+    .padding(all;@gutter);
+}
+
+.tsPaddingAll--halfGutter{
+    .padding(all;@gutter-half);
+}
+
+.tsMarginTop {
+    .margin(top;@gutter) !important;
+}
+
+.tsMarginTop--halfGutter {
+    .margin(top;@gutter-half) !important;
+}
+
+.tsMarginTop--doubleGutter {
+    .margin(top;@gutter-double) !important;
+}
+
+.tsMarginBottom {
+    .margin(bottom;@gutter) !important;
+}
+
+.tsMarginBottom--halfGutter {
+    .margin(bottom;@gutter-half) !important;
+}
+
+.tsMarginBottom--doubleGutter {
+    .margin(bottom;@gutter-double) !important;
+}
+
+.tsMarginBottom--None {
+    .margin(bottom;0) !important;
+}
+
+.tsMarginRight {
+    .margin(right;@gutter) !important;
+}
+
+.tsMarginRight--halfGutter {
+    .margin(right;@gutter-half) !important;
+}
+
+.tsMarginRight--doubleGutter {
+    .margin(right;@gutter-double) !important;
+}
+
+.tsMarginLeft {
+    .margin(left;@gutter) !important;
+}
+
+.tsMarginLeft--halfGutter {
+    .margin(left;@gutter-half) !important;
+}
+
+.tsMarginLeft--doubleGutter {
+    .margin(left;@gutter-double) !important;
+}
+
+
+.tsPullLeft {
+    float: left;
+}
+.tsPullRight {
+    float: right;
+}
+.tsClear {
+    .clearfix;
+}
+
+
+
+/* sticky footer fix: http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/  */
+
+.tsPageRow {
+    display: table-row;
+    height: 1px;
+}
+.tsPageWrapper {
+    height: 100%;
+}

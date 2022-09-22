@@ -1,0 +1,45 @@
+.tsSearch-Wrapper {
+	padding-right: 120px; 
+	position: relative;
+}
+.tsWrap--Background .tsSearch-Bar {
+	.padding(all;@gutter-double;0;@gutter-double*2;0);
+}
+ .tsSearch-Bar {
+	.padding(all;0);
+}
+.tsSearch-Bar input[type=submit] {
+	margin-top: 0!important;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.tsSearch-Bar p {
+	text-align: right;
+	padding-right: 100px;
+	.padding(top;@gutter-half); 
+}
+
+.tsSearch-Bar--Alt {
+  .tsSearch-Wrapper {
+    .tsSearch-Bar--Input-Wrapper {
+      padding-left: 165px;
+    }
+
+    > input {
+      &[type="search"]{
+        width: 100%;
+        float: right;
+      }
+    }
+
+    .tsSearch-Bar--Result{
+      position: absolute;
+      float: left;
+      h2 {
+        font-weight: normal;
+        color: @turq;
+      }
+    }
+  }
+}

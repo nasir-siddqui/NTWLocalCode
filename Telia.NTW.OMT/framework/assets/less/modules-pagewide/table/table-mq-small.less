@@ -1,0 +1,80 @@
+.tsTable-menu {
+    .tsTable-menu-inner {
+        [class^=tseRadioBox] {
+            width: 100%;
+        }
+    }
+}
+
+.tsTable-menu-select {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.tsTable-withDropdown {
+    .tseDropdown, .tseDropdown--small{
+        width: 100%;
+        float: none;
+        .margin(topbottom;3;5);
+        .tseDropdown-listItem {
+            display: block;
+            .margin(bottom;0);
+        }
+    }
+}
+
+//Table with hidden rows
+
+.tsTable-hiddenRows {
+    tbody {
+        tr {
+            .details {
+                background-color: @darknearwhite;
+                .padding(left;10);
+                table {
+                    width: 100%;
+                    .tsTable-detailedTable-row {
+                        td {
+                            display: table-cell;
+                            height: auto;
+                            text-align: left;
+                            &:last-child {
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tsTable {
+    tbody {
+        td.tsTable-hiddenContainer {
+            text-align: left;
+            .tscIconHeadline {
+                span {
+                    float: none;
+                    .margin(left;@gutter/2);
+                }
+            }
+        }
+        td.center {
+            text-align: center;
+        }
+        td.centeredButton {
+            text-align: center;
+            .padding(topbottom;5;5);
+        }
+        td.switch {
+            height: 30px;
+            .padding(top;5);
+            .tseRadioBox--CheckButton--ColorNavigation {
+                float: right;
+                .margin(top;5);
+            }
+        }
+    }
+}

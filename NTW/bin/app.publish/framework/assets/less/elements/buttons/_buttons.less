@@ -1,0 +1,573 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS.................You’re reading it!
+ * IMPLEMENTATIONS..........Various button implementations
+ */
+
+
+
+
+
+
+/*------------------------------------*\
+    $IMPLEMENTATIONS
+\*------------------------------------*/
+
+ // Default button
+ [class^="tsBtn"] {
+ 	.btn;
+ }
+
+ // Primary action button
+ [class^="tsBtn"][class*="--Primary"] {
+ 	.btn-primary-color;
+ }
+
+
+ // Secondary action button
+ [class^="tsBtn"][class*="--Secondary"] {
+ 	.btn-secondary-color;
+ }
+
+
+ // Internal page linking, wizards back/next
+ [class^="tsBtn"][class*="--Internal"] {
+ 	.btn-internal-color;
+ }
+
+
+ // Options
+ [class^="tsBtn"][class*="--Options"] {
+    .btn-options-color;
+ }
+
+ // Critical
+ [class^="tsBtn"][class*="--Critical"] {
+    .btn-critical-color;
+ }
+
+ // Fullwidth
+ [class^="tsBtn"][class*="--Fullwidth"] {
+     width: 100%;
+     text-align: center;
+ }
+
+ //Attention info button
+ [class^="tsBtn"][class*="--Attention"][class*="--Info"]{
+    .btn-secondary-inverted-color;
+    border-bottom: none;
+    padding: 3px 6px;
+    .margin(left;10);
+ }
+
+ //Attention panic button
+ [class^="tsBtn"][class*="--Attention"][class*="--Panic"]{
+    background-color: @white;
+    color: @orange;
+    box-shadow: none;
+    padding: 3px 6px;
+    .margin(left;10);
+ }
+
+ // Light
+ [class^="tsBtn"][class*="--Light"] {
+    .btn-resetstyling;
+ 	.btn-smallsize;
+ 	.btn-rounded;
+ 	.btn-light-color;
+ 	.font-size(14);
+ 	padding: 0.2rem 1rem 0.3rem 1rem;
+ }
+
+
+ // Light inverted
+ [class^="tsBtn"][class*="--Light"][class*="--Inverted"] {
+ 	.btn-lightinverted-color;
+ }
+ // Light Primary
+
+  [class^="tsBtn"][class*="--Light"][class*="--Primary"] {
+     .btn-lightprimary-color;
+  }
+   // Light Primary
+  [class^="tsBtn"][class*="--Light"][class*="--Primary"][class*="--Inverted"] {
+     .btn-lightprimaryinverted-color;
+  }
+
+
+ // Multi
+ [class^="tsBtn"][class*="--Multi"] {
+ 	.unselectable;
+ }
+
+
+ // Smaller size
+ [class^="tsBtn"][class*="--Small"] {
+ 	.btn-smallsize;
+ }
+
+ // Edit
+ [class^="tsBtn"][class*="--Edit"] {
+ 	.btn-edit;
+ }
+ 
+ // Justify
+ [class^="tsBtn"][class*="--Justify"] {
+    .btn-justify;
+ }
+
+[class^="tsBtn"][class*="--Inline"] {
+    .margin(right;@gutter);
+}
+[class^="tsBtn"][class*="--InlineHalf"] {
+    .margin(right;@gutter-half);
+}
+ 
+ // Delete
+ [class^="tsBtn"][class*="--Delete"] {
+    .btn-delete;
+ }
+ [class^="tsBtn"][class*="--Delete"][class*="--Default"] {
+    .btn-default-color;
+
+ }
+ 
+ 
+ // regular text size
+[class^="tsBtn"][class*="--Regular"] {
+    .font-size(lineheight;@basefontsize;@baselineheight); 
+}
+
+// file upload button
+// <span class="tsBtn--File">
+//   <input type="file">
+//   Ladda upp fil
+// </span>
+[class^="tsBtn"][class*="--File"] {
+    overflow: hidden;
+    position: relative;
+    input[type=file] {
+        font-size: 200px;
+        top: 0;
+        right: 0;
+        position: absolute;
+        .opacity(0);
+        cursor: pointer;
+    }
+} 
+[class^="tsBtn"][class*="--File"][disabled] input[type=file] {
+    cursor: default;
+}
+
+
+.cssanimations {
+    [class^="tsBtn"][class*="--Animated"].active {
+        .padding(right;59);
+        position: relative;
+        &:after{
+            content: '';
+            position: absolute;
+            right: 30px;
+            top: 10px;
+            vertical-align: middle;
+            background-image: ~"url(@{gfxurl}loading-white.png)";
+            background-size: 720px 24px; //48 * 0.5 1440 * 0.5
+            width: 24px;
+            height: 24px;
+            -webkit-animation: play .8s steps(30) infinite;
+               -moz-animation: play .8s steps(30) infinite;
+                -ms-animation: play .8s steps(30) infinite;
+                 -o-animation: play .8s steps(30) infinite;
+                    animation: play .8s steps(30) infinite;
+        }
+    }
+}
+[class^="tsBtn"][class*="--Animated"][disabled].active {
+    // need for not so light disabled color in order for the loading to be more visible //nagorka
+    background-color: lighten(@purple, 20%) !important;
+}
+[class^="tsBtn"][class*="--Animated"].finished {
+    background-color: @blue !important;
+}
+.tsAttention--Info [class^="tsBtn"][class*="--Animated"].finished {
+    background-color: darken(@blue, 10%) !important;
+}
+
+
+
+// With border
+[class^="tsBtn"][class*="--Border"] {
+    background-color: @white;
+    padding: 12px 28px;
+    box-shadow: none;
+    color: @purple;
+    border: 2px solid @purple;
+    &:hover {
+        color: @purple;
+    }
+    &[disabled],
+    &[disabled]:hover,
+    &[class*="--Disabled"],
+    &[class*="--Disabled"]:hover,
+    &[aria-disabled=true],
+    &[aria-disabled=true]:hover {
+        box-shadow: none !important;
+        background-color: @white !important;
+        border-color: lighten(@purple, 40%);
+        color: lighten(@purple, 40%) !important;
+    }
+
+}
+[class^="tsBtn"][class*="--Border"][class*="--Animated"][disabled].active {
+    background-color: @white !important;
+    border-color: lighten(@purple, 40%);
+    color: lighten(@purple, 40%) !important;
+    &:hover {
+        color: lighten(@purple, 20%);
+    }
+    &:after {
+        background-image: ~"url(@{gfxurl}loading.png)";
+        top: 8px;
+    }
+}
+[class^="tsBtn"][class*="--Border"][class*="--Animated"].finished {
+    background-color: @white !important;
+    border-color: @blue;
+    color: @blue !important;
+    &:hover {
+        color: @blue;
+    }
+}
+
+/*------------------------------------*\
+     $BUTTON-ICONS
+\*------------------------------------*/
+
+//Default
+[class^="tsBtn"] [class^="tsIcon"] {
+	position: relative;
+	.inline-block;
+	.margin(leftright;5;-5);
+	width: 16px;
+	.border-radius(50%);
+	vertical-align: middle;
+	background-color: @white;
+	.font-size(lineheight;8;16);
+}
+
+
+// Show more / show less
+[class^="tsBtn"] [class^="tsIcon-ShowMore"],
+[class^="tsBtn"] [class^="tsIcon-ShowLess"] {
+	.font-size(16);
+    background-color: transparent;
+}
+
+[class^="tsBtn"] [class*="tsIcon-Close"]{
+    background: none;
+    vertical-align: bottom;
+    font-size: 12px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $DEPRECATED-BUTTONS
+\*------------------------------------*/
+
+// Deprecated buttons, replaced by new implementations
+// These buttons may still be in use in the production environment 
+
+// Replaced by .tsBtn--Secondary--Small
+.tsBtnMulti--select {
+	.btn-smallsize;	
+	.btn-secondary-color;
+	.btn-rounded;	
+   .unselectable;
+}
+
+// Replaced by .tsBtn--Internal
+.tsBtn-navigation,
+.tsBtn-navigation--alt {
+	.btn-internal-color;
+}
+
+// Replaced by .tsBtn--Options
+.tsBtn-navigation--alt {
+	.btn-options-color;
+    .margin(right;5);
+}
+
+// Replaced by .tsBtn--Light
+.tsBtnMulti--filter {
+	.btn-smallsize;
+	.btn-light-color;
+	.btn-rounded;
+	.font-size(14);
+	padding: 0.6rem 1rem 0.6rem 1rem;
+    .btn-resetstyling;
+}
+
+// Replaced by .tsBtn--Light--Inverted
+.tsBtn--filter-remove {
+	.btn-smallsize;
+	.btn-lightinverted-color;
+	.btn-rounded;
+	.font-size(14);
+	padding: 0.6rem 1rem 0.6rem 1rem;
+    .btn-resetstyling;
+}
+
+/* Replaced by .tsBtn--Edit */
+.tsBtn-edit,
+input[type="submit"].tsBtn-edit {
+	.btn-edit()
+}
+
+// Replaced by .tsBtn--Light
+.tsBtn--collapse {
+    
+	.btn-smallsize;
+	.btn-rounded;
+	.btn-lightinverted-color;
+	.font-size(14);
+    .btn-resetstyling;
+    .padding(all;7;12;7;12);
+    
+    
+    &:hover {
+        [class^="tsIcon"] {
+            background-color: @darkturq;
+            color: @white;           
+        }
+    }
+    [class^="tsIcon"] {
+        color: @white;
+        background-color: @turq;
+        .font-size(18);
+        margin-top: -2px;
+    }
+}
+
+
+// NOT replaced!
+
+.tsBtnMulti--select .tsIcon-ShowMore {
+    color: @white; 
+    top:0;
+    background-color: @blue;
+}
+.tsBtnMulti--select.active .tsIcon-ShowMore {
+    background-color: @darkblue;
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+     $SPECIAL-IMPLEMENTATIONS
+\*------------------------------------*/
+
+// Animated button
+
+.tsAnimateBtn {
+    position: relative;
+}
+
+.tsAnimateBtn:before {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:2;
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: @blue;
+    text-align: center;
+    .transition(width 30s linear);
+}
+
+.tsAnimateBtn.done:before {
+    .transition(none) !important;
+}
+
+.tsAnimateBtn:after {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:3;
+    display: none;
+    content: attr(data-content);
+    width: 100%;
+    .padding(topbottom;8;8);
+    text-align: center;
+}
+
+.tsAnimateBtn.clicked {
+    background-color: @lightgrey;
+    color: @lightgrey;
+}
+
+input.tsAnimateBtn.clicked {
+    background-color: @blue;
+    color: @white;
+}
+
+.tsAnimateBtn.clicked:before {
+    width: 100%;
+}
+
+.tsAnimateBtn.clicked:after {
+    color: @white;
+    display: block;
+}
+
+.tsAnimateBtn--backwards:before {
+    right:0;
+    left: auto;
+    background-color: @lightgrey;
+}
+
+.tsAnimateBtn--backwards.clicked {
+    background-color: @blue;
+    color: @blue;
+}
+
+
+// New version of animateButton, will replace old
+.tsAnimateButton-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    .noBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: none;
+        &:hover {
+            background: none;
+        }
+    }
+    .tsAnimateButton-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: @blue;
+        color: @blue;
+        .transition(all;0ms);
+        &:hover {
+            background-color: @blue;
+        }
+    }
+}
+
+.tsAnimateButton-progress {
+    .placeholder {
+        background-color: @grey;
+        color: @grey;
+    }
+}
+
+.tsAnimateButton-wrapper.backwards {
+    .tsAnimateButton-bar {
+        background-color: @grey;
+        color: @grey;
+    }
+    .tsAnimateButton-progress {
+        .placeholder {
+            background-color: @blue;
+            color: @blue;
+        }
+    }
+}
+
+[class*="tsBtn"][class*="--bottomSpace"]{
+    .margin(bottom; 5);
+}
+
+
+// Switch
+.tsSwitch {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    .padding(all;@gutter/4;16;@gutter/4;34);
+    .border-radius(24px);
+    background-color: @darkgrey;
+    color: @white;
+    text-transform: uppercase;
+    text-align: right;
+    .switchOption1 {
+        float: left;
+        .border-radius(24px);
+        background-color: @darkgrey;
+    }
+    .switchOption2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .border-radius(24px);
+        background-color: @purple;
+        content: "";
+        display: none;
+        span {
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            z-index: 2;
+            text-align: left;
+        }
+    }
+    .switchSlider {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        z-index: 3;
+        width: 24px;
+        height: 24px;
+        .border-radius(24px);
+        content: "";
+        background-color: @lightgrey;
+    }
+    &:hover {
+        color: @white;
+    }
+
+}
+
+
+
+
+// Collapse trigger
+
+.tsCollapse-trigger {
+    background: none;
+    border: 0 none;
+    .font-size(lineheight;24;45);
+    width: 45px;
+    padding: 0;
+    color: @purple;
+    &:hover {
+        background: @darkpurple;
+        color: @white;
+    }
+}
+// fix issue in firefox
+.tsCollapse-trigger::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+

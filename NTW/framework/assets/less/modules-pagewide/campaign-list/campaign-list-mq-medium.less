@@ -1,0 +1,42 @@
+.tsCampaignList {
+    text-align: left;
+}
+
+[class*="tsCampaignList"] > li,
+[class*="tsCampaignList"][class*="--alt"] > li { 
+    .media;
+    //.margin(bottom;60);
+}
+
+//[class*="tsCampaignList"][class*="--product"] > li,
+//[class*="tsCampaignList"][class*="--alt"] > li {
+//    .margin(bottom;@gutter-double); // jens style - product
+//    .margin(bottom;@gutter-half); // jens style - alt
+//}
+
+
+.tsCampaignList-text { 
+    position: relative;
+    z-index: 1;
+    display: block; 
+}
+
+[class*="tsCampaignList"] .tsCampaign-img {
+    float: left;
+    margin: auto;
+    .margin(right;@gutter-double);
+    z-index: 2;
+    position: relative;  
+    width: auto;
+    width: 35%;
+    text-align: center;
+}
+
+.tsCampaignList--alt li:nth-child(even) .tsCampaign-img  {
+    float: right;
+    .margin(leftright;60;0);
+}
+
+.tsCampaignList--alt li .tsCampaign-img img {
+    max-height: 115%;
+}

@@ -1,0 +1,23 @@
+.tsOperatingInformation-infobox {
+	width: 48%;	
+}
+.tsOperatingInformation-infobox:first-child{
+	margin-right: 1%;
+}
+.tsOperatingInformation-infobox:last-child{
+	margin-left: 1%;
+}
+
+.tsOperatingInformation-list--fullWidth{
+    .margin(left; -@gutter);
+    ul {
+        width: 50%;
+        li {
+            .margin(left; @gutter);
+        }
+    }
+    .tsOperatingInformation-footer{
+        text-align:right;
+        .padding(right; 0);
+    }
+}

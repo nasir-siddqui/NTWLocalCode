@@ -1,0 +1,28 @@
+@import "radiobutton-checkbox";
+
+.lt-ie9 .tsRadiobutton,
+.lt-ie9 .tsCheckbox-styled {
+    .inline-block;
+}
+
+.lt-ie9 .tsRadiobutton + .tsRadiobutton-label span,
+.lt-ie9 .tsRadiobutton + .tsRadiobutton-label span:after,
+.lt-ie9 .tsCheckbox-styled + .tsCheckbox-label span,
+.lt-ie9 .tsCheckbox-styled + .tsCheckbox-label span:after {
+    display:none;
+}
+
+.lt-ie9 .tsRadiobutton:checked + .tsRadiobutton-label span:before,
+.lt-ie9 .tsCheckbox-styled:checked + .tsCheckbox-label span:before {
+ 	display: none;
+}
+.lt-ie9 .tsRadioBox input {
+    .visuallyvisible;
+}
+.lt-ie9 .tsRadioBox label {
+    padding: 0;
+}
+.lt-ie9 .tsRadioBox label:after,
+.lt-ie9 .tsRadioBox label:before {
+    display:none;
+}

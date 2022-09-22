@@ -1,0 +1,88 @@
+.tsMediaSelector-Wrapper {
+    .padding(leftright;30;30);
+    .margin(bottom;@gutter);
+    position: relative;
+
+}
+.tsMediaSelector {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+
+}
+.tsMediaSelector-Items {
+
+    position: relative;
+    overflow: hidden;
+    &>div {
+        float:left;
+        width:100%;
+        position: relative;
+        height: 0;
+        padding-bottom: 100%;
+    }
+}
+
+.tsMediaSelector .hide {
+    opacity: 0;
+    display: none;
+}
+
+[data-min="mqMedium"] .hide {
+    opacity: 1;
+    display: block;
+}
+[data-min="mqMedium"] .tsMediaSelector-Items >div {
+    height: auto;
+    padding-bottom: 0;
+}
+
+.tsMediaSelector-Thums {
+    .l-inline-list;
+    li {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        .padding(all;3);
+        .margin(all;@gutter-half;@gutter-half/2;@gutter-half;@gutter-half/2;);
+        .border-radius(5px);
+        border: 1px solid transparent;
+        &.selected {
+            border: 1px solid @lightgrey;
+        }
+    }
+    img {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+.tsMediaSelector-Next,
+.tsMediaSelector-Prev {
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    cursor: pointer;
+    .unselectable;
+    i{
+        color: @purple;
+        .font-size(40);
+    }
+    b{
+        .visuallyhidden;
+    }
+}
+.tsMediaSelector-Next {
+    right: 0;
+}
+.tsMediaSelector-Prev {
+    left: 0;
+}
+
+.tsMediaSelector-Items [class^="tsTactical-Badge"] {
+    top:0;
+    left:0;
+}
+
+

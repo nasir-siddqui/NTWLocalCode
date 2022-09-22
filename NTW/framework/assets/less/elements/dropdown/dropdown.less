@@ -1,0 +1,401 @@
+.tseDropdown{
+    position: relative;
+    .inline-block;
+    line-height: 28px;
+    vertical-align: middle;
+}
+
+.tseDropdown[disabled=disabled] {
+    .opacity;
+    .tseDropdown-selected {
+        cursor: default;
+    }
+}
+
+.tseDropdown-selected {
+    position: relative;
+    z-index: 3;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    color: @darkgrey;
+    border: 1px solid @clay;
+    line-height:0;
+    
+    width: 100%;
+    font-weight: normal;
+    cursor: pointer;
+    text-align: left;
+    .font-size(14);
+    font-weight: bold;
+    .padding(all;11;24;12;11);
+    *padding:0; // ie7
+    background: @white;
+    z-index: 2;
+}
+
+.tseDropdown-label {
+    overflow: hidden;
+    .inline-block;
+    .line-height;
+    max-width: 100%;
+    
+    /*line-height: normal; /* bättre lösning? ff-issue */
+    /*margin-bottom: -3px; /* bättre lösning? ff-issue */
+    *padding-left: 7px; // ie7
+}
+
+
+.tseDropdown-list {
+    position: absolute;
+    min-width: 100%;
+    display: none;
+    border: 1px solid @clay;
+    z-index: 10;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .margin(all;0);
+    .margin(top;-1);
+    .padding(all;0);
+    background: @white;
+}
+
+.tseDropdown-listItem {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    .padding(all;11;24;12;11);
+    /*padding: 0 7px 0 7px !important;*/
+    color: @darkgrey;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    .font-size(13);
+    &:hover{
+        background-color: @lighterclay;
+    }
+    &[data-stock='na'] {
+        color: @lightgrey;
+        cursor: default;
+        &:hover {
+            background: @white;
+        }
+    }
+}
+
+.tseDropdown-listItem--selected{
+    border-bottom: 0;
+    background: @lighterclay;
+    border-bottom: 1px solid @lighterclay;    
+}
+
+.tseDropdown-focus {
+    border: 1px solid @lightblue;
+}
+
+.tseDropdown-arrow {
+    .inline-block;
+    right: 10px;
+    top: 19px;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 4px solid @black;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 0;
+    z-index: 1;
+}
+
+
+
+/* Variation */
+
+.tseDropdown--small {
+    .tseDropdown();
+    .tseDropdown-selected {
+        .padding(all;8;24;8;11);
+    }
+    .tseDropdown-listItem {
+        .padding(all;5;24;5;11);
+    }
+
+    .tseDropdown-arrow {
+        top: 17px;
+    }
+}
+
+/*Pushdown*/
+.tsPushdown-inner {
+    .push-down;
+}
+.tsPushdown-inner ul {
+    margin:0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.tsPushDown-trigger,
+.tsPushDown-btn {
+    .margin(all;0;0;@gutter;@gutter-half);
+    .inline-block;
+    i{
+        .font-size(30);
+    }
+}
+.tsPushDown-trigger.is-active,
+.tsPushdown.is-expanded .tsPushDown-trigger {
+    .push-down-caret(-21px;);
+    
+}
+
+
+/* 
+    New Brandzone dropdown, use width jquery.selectBoxIt 
+*/
+// Used with info i
+.tsSelectBox-InfoWrapper {
+  padding-right: 25px;
+  .clearfix;
+}
+
+
+/* SelectBoxIt container */
+.tsSelectBox-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  // max-width: 260px;
+}
+
+/* Styles that apply to all SelectBoxIt elements */
+.tsSelectBox-container * {
+    .unselectable;
+    outline: none;
+    white-space: nowrap;
+}
+
+/* Button */
+.tsSelectBox-container .selectboxit {
+  width: 100%!important;
+  //max-width: 240px; /* Width of the dropdown button */
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  .clearfix;
+}
+/* Button Text */
+.selectboxit-text {
+  float: left;
+  padding-right: 60px!important;
+  padding-left: 20px!important;
+  max-width: 100%!important;
+}
+.selectboxit-text,
+.selectboxit-text * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+[data-dynamic-width="true"] + .tsSelectBox-container  {
+  width: auto;
+  .tsSelectBox-btn,
+  .selectboxit-text {
+    width: auto;
+  }
+  .selectboxit-text {
+    padding-right: 50px;
+  }
+}
+
+/* Height and Vertical Alignment of Text */
+.tsSelectBox-container span, 
+.tsSelectBox-list a {
+  padding: 10px 10px 10px 20px;
+  display: block;
+  height: 100%;
+}
+
+/* Focus pseudo selector */
+.tsSelectBox-container .selectboxit:focus {
+  outline: 0;
+}
+
+
+ .tsSelectBox-list {
+  .l-list;
+  min-width: 100%!important;  
+  *width: 100%;
+  position: absolute;
+  overflow: visible;
+  overflow-y: auto;
+  cursor: pointer;
+  display: none;
+  z-index: 3;
+  text-align: left;
+  margin-right: -20px;
+  background-color: @white;
+  border: 1px solid @lightgrey;
+  border-top: 0;
+  .border-radius(0 0 3px 3px);
+  max-width: 100%;
+
+}
+.tsSelectBox-AllowOverflowCss {
+   overflow-y: visible;
+}
+.selectboxit-option {
+  position: relative;
+}
+
+/* Individual options */
+.selectboxit-option-anchor{
+  padding: 10px;
+  -o-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -webkit-transition: none !important;
+  transition-property: none !important;
+  
+}
+.selectboxit-option-anchor,
+.selectboxit-option-anchor h5,
+// .selectboxit-option-anchor p,
+.tsSection-Label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-weight: normal;
+  white-space:nowrap;
+}
+.selectboxit-option-anchor p {
+  width: 100%;
+  white-space: normal;
+}
+/* Individual Option Hover Action */
+.selectboxit-option .selectboxit-option-anchor:hover {
+  text-decoration: none;
+}
+
+/* Individual Option Optgroup Header */
+.selectboxit-option, .selectboxit-optgroup-header {
+  //text-indent: 20px; /* Horizontal Positioning of the select box option text */
+  margin: 0;
+  list-style-type: none;
+  border-bottom: 1px solid @lightgrey;
+}
+.selectboxit-option-last {
+  border-bottom: none;
+}
+
+/* Drop Down optgroup headers */
+.selectboxit-optgroup-header {
+  font-weight: bold;
+}
+
+/* Drop Down optgroup header hover psuedo class */
+.selectboxit-optgroup-header:hover {
+  cursor: default;
+}
+
+/* Drop Down down arrow container */
+.selectboxit-arrow-container {
+  /* Positions the down arrow */
+  width: 40px;
+  position: absolute;
+  right: 0;
+  border-left:1px solid @lightgrey;
+}
+
+.selectboxit-arrow {
+  /* Horizontally centers the down arrow */
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: -2px;
+  font-size: 6px;
+  font-weight: bold;
+}
+
+/* Drop Down individual option icon positioning */
+.selectboxit-option-icon-container {
+  display: none!important;
+}
+
+.tsSelectBox-container .selectboxit-option-icon {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  font-size: 8px;
+}
+
+
+.selectboxit-rendering {
+  display: inline-block !important;
+  *display: inline !important;
+  zoom: 1 !important;
+  visibility: visible !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.tsSelectBox-btn {
+  background-color: @white;
+  border: 1px solid @lightgrey;
+  .border-radius(3px);
+}
+.tsSelectBox-open {
+  .border-radius(3px 3px 0px 0px);
+}
+
+
+.tsSelectBox-btn.tsSelectBox-enabled:hover,
+.tsSelectBox-btn.tsSelectBox-enabled:focus,
+.tsSelectBox-btn.tsSelectBox-enabled:active {
+  color: @black;
+  background-color: @white;
+  text-decoration: none;
+}
+.tsSelectBox-list  .tsSelectBox-disabled .selectboxit-option-anchor{
+  // display: none;
+  color:@lightgrey;
+}
+
+
+.tsSelectBox-list .selectboxit-option-anchor {
+    color: @black;
+}
+
+.tsSelectBox-list > .tsSelectBox-focus > .selectboxit-option-anchor {
+  /* Change this to purple and white*/
+  color: @white;
+  background-color: @purple;
+
+}
+
+.selectboxit-option-anchor,
+.selectboxit-text {
+  h5 {
+    .font-size(15);
+    font-weight: normal;
+  }
+  p {
+    .font-size(12);
+    margin-bottom: 0!important;
+  }
+ 
+}
+
+
+
+
+

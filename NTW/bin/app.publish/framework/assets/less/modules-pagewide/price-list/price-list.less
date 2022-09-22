@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ *
+ */
+
+/*------------------------------------*\
+    $PRICELIST
+\*------------------------------------*/
+.tsPriceList-Content{
+	display: none;
+}
+
+.tsPriceListBigHeader {
+	display: none;
+}
+.tsPriceList {
+	.tsPriceList-Section {
+		.margin(leftright;-10;-10);
+	}
+	.tsPriceList-Section-inner{
+		ul.tsPriceList-Section-Links  {
+			list-style: none;
+			.padding(all;0);
+			.margin(all;0);
+			li{
+				.margin(bottom;@gutter-half);
+				&:last-child{
+					.margin(bottom;@gutter);
+					&.tsPriceList-Mobile-Content{
+						.margin(bottom;0);
+						border-bottom: 0px;
+					}
+				}
+				a {
+					color: @purple; //not needed in new css?
+					&:hover{
+						text-decoration: underline;
+					}
+					&.tsPriceList-isExpanded{
+						text-decoration: underline;
+					}
+				}
+			}
+			h3{
+				.margin(bottom;@gutter-half);
+				.font-size(18);
+				font-weight: normal;
+			}
+			ul {
+				.padding(left;16);
+				.margin(top;@gutter-half/2);
+				.margin(bottom;@gutter);
+				list-style-type: disc;
+				a:before {
+					content: none;
+				}
+			}
+		}
+		.tsResponsiveTabs-Panel{
+			.padding(all;@gutter-half);
+			.padding(bottom;0);
+			cursor: auto;
+		}
+		.tsResponsiveTabs-Anchor > i{
+			vertical-align: middle;
+			width: 45px;
+			font-size: 33px;
+			line-height: 0px;
+		}
+	}
+	.tsPriceList-Mobile-Content{
+		display: none;
+		.margin(leftright;-@gutter;-@gutter);
+		.margin(topbottom;@gutter-half;@gutter-half);
+		.padding(all;@gutter);
+		.border(topbottom;@lightergrey);
+	}
+}
+.tsResponsiveTabs-rightPlus{
+	.tsResponsiveTabs-Anchor {
+		.padding(leftright;0;40) !important;
+	}
+	.tsResponsiveTabs-Title{
+		&:before{
+			right: 8px;
+		}
+	}
+}
+.tsPriceList .is-expanded{
+	background-color: @white;
+
+	&:before{
+		content: "\e606";
+	}
+}

@@ -1,0 +1,94 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Inloggningsstatistik
+@model InloggningsstatistikViewModel
+
+@{
+    ViewBag.Title = "Inloggningsstatistik för användare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Hantera", "Hantera")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Statistik användare</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+	<h1 class="h1">Inloggningsstatistik för användare</h1>
+	<p>Antal nuvarande inloggade användare: @Model.LiveSessionsCount</p>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	<div class="tsTable-select tsComponent" ng-cloak>
+		<!-- Senaste 20 min tabell -->
+		<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+			<caption>Senaste 20 min</caption>
+			<thead>
+				<tr>
+					<th>Användare</th>
+					<th>Bolag</th>
+					<th>Tidpunkt</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (InloggningsstatistikRow användare in Model.SenasteTjugoMinList)
+				{
+					<tr>
+						<td>@användare.Användare</td>
+						<td>@användare.Bolag</td>
+						<td>@användare.SenastInloggad</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+		<!-- Senaste dagen tabell -->
+		<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+			<caption>Senaste 24 h</caption>
+			<thead>
+				<tr>
+					<th>Användare</th>
+					<th>Bolag</th>
+					<th>Tidpunkt</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (InloggningsstatistikRow användare in Model.UnderDagenList)
+				{
+					<tr>
+						<td>@användare.Användare</td>
+						<td>@användare.Bolag</td>
+						<td>@användare.SenastInloggad</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+		<!-- Senaste månaden tabell -->
+		<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+			<caption>Senaste 30 dagarna</caption>
+			<thead>
+				<tr>
+					<th>Användare</th>
+					<th>Bolag</th>
+					<th>Tidpunkt</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (InloggningsstatistikRow användare in Model.SenasteMånadenList)
+				{
+					<tr>
+						<td>@användare.Användare</td>
+						<td>@användare.Bolag</td>
+						<td>@användare.SenastInloggad</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>

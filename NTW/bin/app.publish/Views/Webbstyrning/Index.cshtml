@@ -1,0 +1,81 @@
+﻿@using Telia.NTW.Core.Helpers
+@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model WebbstyrningViewModel
+
+@{
+	ViewBag.Title = "Webstyrning";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner">
+	<h1>Webbstyrning</h1>
+	<p>
+		Konfigurera dina abonnemang direkt på webben. @if (User.IsInRole("Administratör")) {<br /><text>Bolagsnyckel för @Model.UserDetails.Bolagsnamn : <strong>@Model.Bolagsnyckel</strong></text>}
+	</p>
+</div>
+<div class="tsWrapInner tsMarginBottom">
+
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	@*<div ts-custom-table x-multiple-selection-enabled='false'
+			x-hard-filter-field='invoiceText'
+			x-open-link-enabled='true'
+			x-row-details-enabled='false'
+			x-data-definition-columns='[{"name":"Ext. ref.","fieldName":"externalReference"},{"name":"Abonnemangsform","fieldName":"invoiceText"},{"name":"Adress","fieldName":"ADDRESS"},{"name":"Startdatum","fieldName":"activeStartDate"},{"name":"Status","fieldName":"status"}]'
+			x-open-link-url='@Url.Action("Data", new { @id = @DirektstyrningType.Direktstyrning })'
+			x-page-size='10'
+			x-dropdown-enabled='false'
+			x-data-definition-identity='instanceId'
+			x-hard-filter-enabled='false'
+			x-initial-sort-field='invoiceText'
+			x-search-text='Sök bland produkter'
+			x-data='[]'>
+		<div class="tscLoading--PaddingGutter">
+			<div class="tsLoading-icon-large"></div>
+		</div>
+	</div>*@
+
+	<div class="tsComponent" ng-cloak>
+		<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+			<thead>
+				<tr>
+					<th>Abonnemang</th>
+					<th>Aktiv styrning</th>
+				    <th>Aktiverad</th>
+                    @if (User.IsInRole(RoleHelper.WebbstyrningWrite))
+                    {
+                        <th></th>
+                    }
+					@*					<th>$1$ länkar/ikoner #1#</th>*@
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (AbonnemangslistaRow abonnemang in Model.Abonnemang)
+				{
+					<tr>
+						<td>@Html.ActionLink(abonnemang.Abonnemang, "Abonnemang", new { @serviceId = abonnemang.Id, @customerId = Model.CustomerId, @abonnemang = abonnemang.Abonnemang })</td>
+						<td>@abonnemang.AktivStyrning</td>
+					    <td>@abonnemang.Aktiverad</td>
+                        @if (User.IsInRole(RoleHelper.WebbstyrningWrite))
+                        {
+                            <td>@Html.ActionLink("Schemalägg styrningsändring", "Kö_Create", new {abonnemang = abonnemang.Abonnemang, serviceId = abonnemang.Id})</td>
+                        }
+						<!-- Bra idé nedan, men vi har ingen funktionalitet för att gå till en specifik tabell -->
+						@*						<td>*@
+						@*							<a href="@Url.Action("GrafiskÖversikt")"><img alt="Köade styrningar" title="Köade styrningar" src="@Url.Content("~/Media/grafisk_oversikt.png")" style="height: 20px;" /></a> $1$ TODO #1#*@
+						@*							<a href="@Url.Action("GrafiskÖversikt")"><img alt="Grafisk översikt" title="Grafisk översikt" src="@Url.Content("~/Media/grafisk_oversikt.png")" style="height: 20px;" /></a>*@
+						@*							<a href="@Url.Action("Historik")"><img alt="Historik" title="Historik" src="@Url.Content("~/Media/historik.png")" style="height: 20px;" /></a>*@
+						@*							<a href="@Url.Action("Styrningsalternativ")"><img alt="Styrningsalternativ" title="Styrningsalternativ" src="@Url.Content("~/Media/styrningsalternativ.png")" style="height: 20px;" /></a>*@
+						@*						</td>*@
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="tscButtonContainer tsWrapInner">
+		@Html.ActionLink("Exportera", "Index_ExportToExcel", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+	</div>
+</div>

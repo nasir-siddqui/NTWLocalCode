@@ -1,0 +1,164 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCTLIST-CONTAINER....
+ * PRODUCT-IMAGE............
+ * PRODUCTLIST-ITEMS........
+ * PRODUCTLIST-FILTER.......
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCTLIST-CONTAINER
+\*------------------------------------*/
+
+[class*="tsProductList--Alt"] {
+    .l-inline-list;
+   // .margin(bottom;@gutter);
+}
+
+
+
+/*------------------------------------*\
+    $PRODUCT-IMAGE
+\*------------------------------------*/
+.tsProductItem-Img{
+    .tsProductItem-tagWrapper {
+        .tsProductItem-tag {
+            height: 56px;
+            width: 56px;
+        }
+        +.tsProductItem-tagWrapper {
+            top: 33%;
+        }
+        .tsProductItem-tag--Medium {
+            .font-size(15);
+            b {
+                .font-size(23);
+            }
+        }
+        .tsProductItem-tag--Large {
+            .font-size(23);
+        }
+    }
+
+    .tsProductItem-tag {
+        width: 56px;
+        height: 56px;
+    }
+
+    .tsProductItem-tag + .tsProductItem-tag {
+        top: 33%;
+    }
+}
+
+
+
+/*------------------------------------*\
+    $PRODUCTLIST-ITEMS
+\*------------------------------------*/
+
+.tsProductList > .tsProductList-Item,
+[class*="tsProductList--Alt"] > .tsProductList-Item,
+.tsProductList--Gallery > .tsProductList-Item,
+.tsProductList-Item--tsCampaign {
+    width: 33.333333%;
+}
+
+.tsProductList-Item--double,
+.tsProductList-Item--tsCampaign--double {
+    width: 66.666666%;   
+}
+
+.no-js .tsProductList > .tsProductList-Item {
+    width: 50%;
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] > .tsProductList-Item {
+    width: 48%;
+    .margin(bottom;@gutter-double);
+    background: @white;
+    background: @transparentwhite;
+    margin-left: 4%;
+    border: 0;
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] > .tsProductList-Item:first-child {
+    margin-left:0;
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] .tsProductItem {
+    .padding(all;@gutter-double);
+}
+
+[class*="tsProductList--Alt"] .tsProductItem-Price {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+[class*="tsProductList--Alt"] > .tsProductList-Item {
+    border-right: 1px solid @lightergrey;
+
+}
+
+.tsProductList > .tsProductList-Item:nth-child(even) {
+  border-right: none;
+}
+
+.tsProductList > .tsProductList-Item:nth-child(3n+3) {
+  border-right: 1px solid @lightergrey;
+}
+
+.tsProductList-Item--double .tsProductItem-Img {
+    .image-container(356, 155);    
+}
+
+.tsProductList-Item--tsCampaign--double .tsProductItem-Img {
+  .image-container(410, 165);
+}
+
+
+/*------------------------------------*\
+    $LARGE PRODUCTLIST
+\*------------------------------------*/
+
+
+[class*="tsProductList--Alt"][class*="--Large"],
+[class*="tsProductList--Alt"][class*="--XLarge"] {
+    .tsProductItem-Desc,
+    .tsProductItem-Price,
+    .tsProductItem-Price--Secondary { 
+        .font-size(lineheight;16;22);
+    }
+    
+    .tsProductItem-Name { 
+        .font-size(lineheight;21;26);
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-COMPARE
+\*------------------------------------*/
+
+
+.tsProductItem-Compare {
+	.padding(left;@gutter-half);
+	.margin(bottom;@gutter-half);
+	.margin(left;0);
+	.margin(top;0);
+	text-align: center;
+}
+
+.tsProductItem-Compare:before {
+	display: none;
+}
+

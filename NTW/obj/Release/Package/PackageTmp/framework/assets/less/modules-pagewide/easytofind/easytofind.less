@@ -1,0 +1,151 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * EASY-TO-FIND........Quicklinks for the start page
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $EASY-TO-FIND
+\*------------------------------------*/
+
+
+.tsEasyToFind-heading {
+	.margin(bottom;17);
+	color: @purple;
+	.font-size(24);
+	font-weight: normal;	
+}
+
+.tsEasyToFind--single .tsEasyToFind-heading {
+    color: @nearblack;
+    .font-size(21);
+}
+
+.tsEasyToFind-links {
+	.l-inline-list;
+	border: 3px solid @darkestpurple;
+}
+
+
+.tsEasyToFind--alt .tsEasyToFind-links,
+.tsEasyToFind--single .tsEasyToFind-links {
+    border: 3px solid lighten(@lightclay,5%);   
+}
+
+
+.tsEasyToFind-links > li {
+    .media;
+    .inline-block;
+	border-top: 1px solid @darkestpurple;
+/*  &:hover {
+        background-color: @lightergrey;
+    }
+*/
+}
+
+
+
+.tsEasyToFind-links > li > i {
+    position: relative;
+    z-index: 2;
+}
+
+.tsEasyToFind-links a {
+	font-weight: bold;
+	color: @purple;
+	.padding(all;@gutter-half);
+	&:hover {
+	    text-decoration: none;
+	}
+	&:active {
+	    background-color: @white;
+	}
+}
+
+
+// hover state
+.tsEasyToFind-linkswrapper {
+    position: relative;
+    z-index: 2;
+	background-color: @white;	
+}
+
+.tsEasyToFind-links {
+    overflow: hidden;
+    z-index: 1;
+}
+
+.tsEasyToFind-links li {
+    position: relative;
+    z-index: 1;
+}
+
+.tsEasyToFind-links li a {
+    position: relative;
+    z-index: 1;
+    background-color: @white;
+}
+
+.tsEasyToFind-links li:hover a {
+    background-color: transparent
+}
+
+.tsEasyToFind-links li a:before {
+    top: 0;
+}
+
+.tsEasyToFind-links li a:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 200px;
+    background-color: @white;
+    content: " ";
+}
+
+.tsEasyToFind-links li:hover a:before {
+    background-color: @lightergrey;
+}
+
+
+.tsEasyToFind--single .tsEasyToFind-links > li {
+    width: 100%;
+    border-top: 1px solid @lightclay;
+}
+
+
+[class*=tsEasyToFind] [class*=tsIcon-] {
+    width: 40px;
+    height: 40px;
+    color: @purple;
+    line-height: 40px;
+    background-color: @white;
+}
+
+/*
+[class*=tsEasyToFind] [class*=tsIcon-]:before {
+    position: relative;
+}
+
+[class*=tsEasyToFind] .tsIcon-mobile:before         { top: -3px; }
+[class*=tsEasyToFind] .tsIcon-simcard:before        { top: -3px; }
+[class*=tsEasyToFind] .tsIcon-tv:before             { top: -7px; }
+[class*=tsEasyToFind] .tsIcon-combination:before    { top: -7px; }
+[class*=tsEasyToFind] .tsIcon-coverage:before       { top: -9px; }
+[class*=tsEasyToFind] .tsIcon-questionmark:before   { top: -8px; }
+[class*=tsEasyToFind] .tsIcon-speed:before          { top: -10px; }
+[class*=tsEasyToFind] .tsIcon-rentmovie:before      { top: -6px; }
+[class*=tsEasyToFind] .tsIcon-signal:before         { top: -8px; }
+
+*/
+

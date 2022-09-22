@@ -1,0 +1,94 @@
+.tsCart {
+	display: none;	
+	background: @white;
+	.padding(bottom;@gutter-half);
+	min-height: 131px;
+	border-bottom: 1px solid @lightgrey;
+}
+
+.is-sticky {
+	display: none;
+}
+
+.tsCart-Header {
+	background: darken(@lightgrey,5%); 
+	display: block; 
+	.padding(all;@gutter-half;0);
+	color: @white;
+}
+
+.tsCart-List {
+	padding: 0;
+	margin: 0;
+	.margin(leftright;@gutter-double;@gutter-double);
+	.margin(leftright;0;80);
+}
+
+.tsCartItem {
+	list-style: none;
+	.clearfix;
+	.media;
+	//.padding(top;@gutter);
+	.padding(top;@gutter-half);
+	width: 24%;
+	.padding(right;@gutter);
+	.inline-block;
+	float:left;
+	position: relative;
+
+}
+
+.tsCartItem-Img {
+	max-width: 50px;
+	max-height: 50px;
+	.margin(left;12);
+}
+
+.tsCartItem-Content {
+	line-height: 14px;
+	.padding(left;2);
+}
+
+.tsCartItem-Title {
+	font-weight: normal;
+	color: @purple;
+}
+
+.tsCartItem-Price {
+	.font-size(12);
+	display: block;
+	color: @blue;
+   font-weight: bold;
+}
+
+.tsCartItem-Secondaryprice {
+	.font-size(12);
+	display: block;
+}
+
+.tsCartItem-Remove {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: none;
+	max-width: 17px;
+	max-height: 17px;
+	position: absolute;
+	left: -5px;
+	.margin(top;-5);
+}
+
+.tsCartItem-Remove-Icon {
+	color: darken(@lightgrey,5%);
+	font-size: 16px;
+	float: right;
+	&:hover {
+		color: @grey;
+	}
+}
+
+.tsCart-Buttons {
+	float:right;
+	.margin(top;@gutter);
+}
+

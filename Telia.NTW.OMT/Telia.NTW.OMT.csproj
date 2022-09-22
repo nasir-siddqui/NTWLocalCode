@@ -1,0 +1,1887 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Telia.NTW.OMT</RootNamespace>
+    <AssemblyName>Telia.NTW.OMT</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.3\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.0.34.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bcl.Immutable.1.0.34\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\DefaultsConfig.cs" />
+    <Compile Include="App_Start\DicConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\MapConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\OMTUserViewModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="ViewModels\OMTUserAndCompanyViewModel.cs" />
+    <Compile Include="ViewModels\TeliaTextFieldViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower_components\angular-route\angular-route.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\bootstrap\css\bootstrap.css" />
+    <Content Include="bower_components\bootstrap\css\theme.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bower_components\bootstrap\Gruntfile.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="bower_components\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="bower_components\bootstrap\js\affix.js" />
+    <Content Include="bower_components\bootstrap\js\alert.js" />
+    <Content Include="bower_components\bootstrap\js\button.js" />
+    <Content Include="bower_components\bootstrap\js\carousel.js" />
+    <Content Include="bower_components\bootstrap\js\collapse.js" />
+    <Content Include="bower_components\bootstrap\js\dropdown.js" />
+    <Content Include="bower_components\bootstrap\js\modal.js" />
+    <Content Include="bower_components\bootstrap\js\popover.js" />
+    <Content Include="bower_components\bootstrap\js\scrollspy.js" />
+    <Content Include="bower_components\bootstrap\js\tab.js" />
+    <Content Include="bower_components\bootstrap\js\tooltip.js" />
+    <Content Include="bower_components\bootstrap\js\transition.js" />
+    <Content Include="bower_components\jquery\dist\jquery.js" />
+    <Content Include="bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="bower_components\jquery\src\ajax.js" />
+    <Content Include="bower_components\jquery\src\ajax\jsonp.js" />
+    <Content Include="bower_components\jquery\src\ajax\load.js" />
+    <Content Include="bower_components\jquery\src\ajax\parseJSON.js" />
+    <Content Include="bower_components\jquery\src\ajax\parseXML.js" />
+    <Content Include="bower_components\jquery\src\ajax\script.js" />
+    <Content Include="bower_components\jquery\src\ajax\var\nonce.js" />
+    <Content Include="bower_components\jquery\src\ajax\var\rquery.js" />
+    <Content Include="bower_components\jquery\src\ajax\xhr.js" />
+    <Content Include="bower_components\jquery\src\attributes.js" />
+    <Content Include="bower_components\jquery\src\attributes\attr.js" />
+    <Content Include="bower_components\jquery\src\attributes\classes.js" />
+    <Content Include="bower_components\jquery\src\attributes\prop.js" />
+    <Content Include="bower_components\jquery\src\attributes\support.js" />
+    <Content Include="bower_components\jquery\src\attributes\val.js" />
+    <Content Include="bower_components\jquery\src\callbacks.js" />
+    <Content Include="bower_components\jquery\src\core.js" />
+    <Content Include="bower_components\jquery\src\core\access.js" />
+    <Content Include="bower_components\jquery\src\core\init.js" />
+    <Content Include="bower_components\jquery\src\core\parseHTML.js" />
+    <Content Include="bower_components\jquery\src\core\ready.js" />
+    <Content Include="bower_components\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="bower_components\jquery\src\css.js" />
+    <Content Include="bower_components\jquery\src\css\addGetHookIf.js" />
+    <Content Include="bower_components\jquery\src\css\curCSS.js" />
+    <Content Include="bower_components\jquery\src\css\defaultDisplay.js" />
+    <Content Include="bower_components\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="bower_components\jquery\src\css\support.js" />
+    <Content Include="bower_components\jquery\src\css\swap.js" />
+    <Content Include="bower_components\jquery\src\css\var\cssExpand.js" />
+    <Content Include="bower_components\jquery\src\css\var\getStyles.js" />
+    <Content Include="bower_components\jquery\src\css\var\isHidden.js" />
+    <Content Include="bower_components\jquery\src\css\var\rmargin.js" />
+    <Content Include="bower_components\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="bower_components\jquery\src\data.js" />
+    <Content Include="bower_components\jquery\src\data\accepts.js" />
+    <Content Include="bower_components\jquery\src\data\Data.js" />
+    <Content Include="bower_components\jquery\src\data\var\data_priv.js" />
+    <Content Include="bower_components\jquery\src\data\var\data_user.js" />
+    <Content Include="bower_components\jquery\src\deferred.js" />
+    <Content Include="bower_components\jquery\src\deprecated.js" />
+    <Content Include="bower_components\jquery\src\dimensions.js" />
+    <Content Include="bower_components\jquery\src\effects.js" />
+    <Content Include="bower_components\jquery\src\effects\animatedSelector.js" />
+    <Content Include="bower_components\jquery\src\effects\Tween.js" />
+    <Content Include="bower_components\jquery\src\event.js" />
+    <Content Include="bower_components\jquery\src\event\alias.js" />
+    <Content Include="bower_components\jquery\src\event\support.js" />
+    <Content Include="bower_components\jquery\src\exports\amd.js" />
+    <Content Include="bower_components\jquery\src\exports\global.js" />
+    <Content Include="bower_components\jquery\src\intro.js" />
+    <Content Include="bower_components\jquery\src\jquery.js" />
+    <Content Include="bower_components\jquery\src\manipulation.js" />
+    <Content Include="bower_components\jquery\src\manipulation\support.js" />
+    <Content Include="bower_components\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="bower_components\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="bower_components\jquery\src\offset.js" />
+    <Content Include="bower_components\jquery\src\outro.js" />
+    <Content Include="bower_components\jquery\src\queue.js" />
+    <Content Include="bower_components\jquery\src\queue\delay.js" />
+    <Content Include="bower_components\jquery\src\selector-native.js" />
+    <Content Include="bower_components\jquery\src\selector-sizzle.js" />
+    <Content Include="bower_components\jquery\src\selector.js" />
+    <Content Include="bower_components\jquery\src\serialize.js" />
+    <Content Include="bower_components\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="bower_components\jquery\src\traversing.js" />
+    <Content Include="bower_components\jquery\src\traversing\findFilter.js" />
+    <Content Include="bower_components\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="bower_components\jquery\src\var\arr.js" />
+    <Content Include="bower_components\jquery\src\var\class2type.js" />
+    <Content Include="bower_components\jquery\src\var\concat.js" />
+    <Content Include="bower_components\jquery\src\var\hasOwn.js" />
+    <Content Include="bower_components\jquery\src\var\indexOf.js" />
+    <Content Include="bower_components\jquery\src\var\pnum.js" />
+    <Content Include="bower_components\jquery\src\var\push.js" />
+    <Content Include="bower_components\jquery\src\var\rnotwhite.js" />
+    <Content Include="bower_components\jquery\src\var\slice.js" />
+    <Content Include="bower_components\jquery\src\var\strundefined.js" />
+    <Content Include="bower_components\jquery\src\var\support.js" />
+    <Content Include="bower_components\jquery\src\var\toString.js" />
+    <Content Include="bower_components\jquery\src\wrap.js" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-svg\Telia-Icon-Glyphs-svg-old.svg" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-svg\Telia-Icon-Glyphs-svg.old.svg" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-svg\Telia-Icon-Glyphs-svg.svg" />
+    <Content Include="favicon.ico" />
+    <Content Include="framework\assets\js\deprecated\collapse-hovermenu-v2.js" />
+    <Content Include="framework\assets\js\deprecated\collapse-hovermenu.js" />
+    <Content Include="framework\assets\js\deprecated\collapse.v1.js" />
+    <Content Include="framework\assets\js\deprecated\collapse.v2.js" />
+    <Content Include="framework\assets\js\deprecated\listfilter.v1.js" />
+    <Content Include="framework\assets\js\deprecated\listfilter.v2.js" />
+    <Content Include="framework\assets\js\deprecated\listfilter.v3.js" />
+    <Content Include="framework\assets\js\deprecated\navigation.js" />
+    <Content Include="framework\assets\js\deprecated\navprimary-hovermenu.js" />
+    <Content Include="framework\assets\js\deprecated\navprimary.js" />
+    <Content Include="framework\assets\js\deprecated\navprimary.v2.js" />
+    <Content Include="framework\assets\js\deprecated\navprimary.v5.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-animate.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-mask.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-resource.min.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-route.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-route.min.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-sanitize.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular-ui-route.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular.js" />
+    <Content Include="framework\assets\js\external\angular\libs\angular.min.js" />
+    <Content Include="framework\assets\js\external\angular\libs\ui-bootstrap.js" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\angular-sanitize.js" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="framework\assets\js\external\bower_components\angular\angular-csp.css" />
+    <Content Include="framework\assets\js\external\bower_components\angular\angular.js" />
+    <Content Include="framework\assets\js\external\bower_components\angular\angular.min.js" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\doc-ready.js" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\examples\require-js.html" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\examples\require-js.js" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\index.html" />
+    <Content Include="framework\assets\js\external\bower_components\eventEmitter\EventEmitter.js" />
+    <Content Include="framework\assets\js\external\bower_components\eventEmitter\EventEmitter.min.js" />
+    <Content Include="framework\assets\js\external\bower_components\eventie\eventie.js" />
+    <Content Include="framework\assets\js\external\bower_components\eventie\test.html" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\get-size.js" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\index.html" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\test\index.html" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\test\tests.css" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\test\tests.js" />
+    <Content Include="framework\assets\js\external\bower_components\get-style-property\get-style-property.js" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\imagesloaded.js" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\jquery.bridget.js" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\test\index.html" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\test\nice-greeter.js" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\test\tests.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\basic.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\bottom-up.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\examples.css" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\require-js.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\require-js.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\right-to-left.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\examples\stamps.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\masonry.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\basic-layout.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\empty.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\fit-width.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\gutter.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\helpers.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\index.html" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\stamp.js" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\tests.css" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\zero-column-width.js" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\matches-selector.js" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\tests.html" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\tests.js" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\cells-by-row.html" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\cells-by-row.js" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\examples.css" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\item-methods.html" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\require-js.html" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\require-js.js" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\examples\toggler.html" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\item.js" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\outlayer.js" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\.gitignore" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\underscore.js" />
+    <Content Include="framework\assets\js\external\CgTeliaOnline.jquery.min.js" />
+    <Content Include="framework\assets\js\external\k_button.js" />
+    <Content Include="framework\assets\js\external\libs\es5-shim\es5-shim-min.js" />
+    <Content Include="framework\assets\js\external\libs\es5-shim\es5-shim.js" />
+    <Content Include="framework\assets\js\external\libs\hash\hash-min.js" />
+    <Content Include="framework\assets\js\external\libs\hash\hash.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-1.10.2.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-1.10.2.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-1.9.1.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-ui-1.10.3.mybusiness.min-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-ui-1.10.3.mybusiness.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-ui-1.10.4.full.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery-ui-mybusiness.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.backgroundSize-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.backgroundSize.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.csv-0.71.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.dataTables-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.dataTables.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.debouncing-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.debouncing.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.jsviews.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.localScroll-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.localScroll.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.responsiveiframe-min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.responsiveiframe.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.scrollTo.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.selectBoxIt.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.tinysort.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\jquery.validate.min.js" />
+    <Content Include="framework\assets\js\external\libs\jquery\poly-checked.min.js" />
+    <Content Include="framework\assets\js\external\libs\json\json3.min.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry-min-v2-min.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry-min-v2.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry-min.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry.pkgd.js" />
+    <Content Include="framework\assets\js\external\libs\masonry\masonry.pkgd.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\chart.min-min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\chart.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\hammer.min-min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\hammer.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\jspdf.amd.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\jspdf.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\modal.js" />
+    <Content Include="framework\assets\js\external\libs\misc\modernizr.min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\raphael-min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\responsiveCarousel-min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\responsiveCarousel.js" />
+    <Content Include="framework\assets\js\external\libs\misc\swipe-min.js" />
+    <Content Include="framework\assets\js\external\libs\misc\swipe.js" />
+    <Content Include="framework\assets\js\external\libs\modernizr\modernizr.min.js" />
+    <Content Include="framework\assets\js\external\libs\require.js" />
+    <Content Include="framework\assets\js\external\sitester.js" />
+    <Content Include="framework\assets\js\external\swipe-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-config-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-config.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\formCtrl-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\formCtrl.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\googleMapsCtrl-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\googleMapsCtrl.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\searchGuidesCtrl-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\searchGuidesCtrl.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-controllers\searchVideosCtrl.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\collapseDirective.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\googleMapsDirective-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\googleMapsDirective.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\listDirective-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\listDirective.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\selectlistDirective-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\selectlistDirective.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-directives\tsSelect.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-extentions-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-extentions.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-filters\commonFilter.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-filters\retailerFilter.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-filters\selectlistFilter.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-services\jsonService-min.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-services\jsonService.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-services\retailerService.js" />
+    <Content Include="framework\assets\js\internal\angular\tse-sitecatalyst\app.js" />
+    <Content Include="framework\assets\js\internal\components\animateButton.js" />
+    <Content Include="framework\assets\js\internal\components\attention.jquery.js" />
+    <Content Include="framework\assets\js\internal\components\campaign.js" />
+    <Content Include="framework\assets\js\internal\components\carousel.js" />
+    <Content Include="framework\assets\js\internal\components\carousel.v1.fixes.js" />
+    <Content Include="framework\assets\js\internal\components\carousel.v2.js" />
+    <Content Include="framework\assets\js\internal\components\cart.js" />
+    <Content Include="framework\assets\js\internal\components\checkage.js" />
+    <Content Include="framework\assets\js\internal\components\collapse.js" />
+    <Content Include="framework\assets\js\internal\components\collapse.tindra.js" />
+    <Content Include="framework\assets\js\internal\components\collapser.js" />
+    <Content Include="framework\assets\js\internal\components\colorselector-ck.js" />
+    <Content Include="framework\assets\js\internal\components\colorselector.js" />
+    <Content Include="framework\assets\js\internal\components\feedback.js" />
+    <Content Include="framework\assets\js\internal\components\foldout.js" />
+    <Content Include="framework\assets\js\internal\components\fpc.js" />
+    <Content Include="framework\assets\js\internal\components\google.maps.jquery.js" />
+    <Content Include="framework\assets\js\internal\components\google.maps.jquery2.js" />
+    <Content Include="framework\assets\js\internal\components\google.maps.js" />
+    <Content Include="framework\assets\js\internal\components\google.maps.ng.js" />
+    <Content Include="framework\assets\js\internal\components\header-white.js" />
+    <Content Include="framework\assets\js\internal\components\header.js" />
+    <Content Include="framework\assets\js\internal\components\indexnav.js" />
+    <Content Include="framework\assets\js\internal\components\infopopup.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.360view.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.accordionList.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.addFile.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.addIframe.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.animateButton.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.callouts.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.categorySearch.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.chat.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.chatValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.checkBookmarks.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.clearForm-min.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.clearForm.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.columnList.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.customValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.dcfGroupTemplates.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.disableOptions-min.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.downloadFile.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.dropdown-min.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.dropdown.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.dynamicCustomerFlow.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.editable.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.filler.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.filterSort.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.filterTabs.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.formValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.heightList.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.iframe.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.inputs.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.invoiceEmailValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.loadVideo-min.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.loadVideo.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.manageBillingAccounts.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.manageBookmarks-ck.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.manageBookmarks.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.manageRole.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.masonryList.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.multilevel.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.passwordValidation-ck.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.passwordValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.positionList.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.priceInformation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.reloadTable.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.renderTemplate.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.resize.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.sessionTimeout.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.setFocus.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.shortcutsValidation.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.showMore.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.supportSearch.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.switcher.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.syncPassword.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.toggleClass.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.toggleData.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.toggleManage.js" />
+    <Content Include="framework\assets\js\internal\components\jquery.validation.js" />
+    <Content Include="framework\assets\js\internal\components\listfilter.js" />
+    <Content Include="framework\assets\js\internal\components\lists.js" />
+    <Content Include="framework\assets\js\internal\components\masonrylist.js" />
+    <Content Include="framework\assets\js\internal\components\navprimary.js" />
+    <Content Include="framework\assets\js\internal\components\navprimary.tindra.js" />
+    <Content Include="framework\assets\js\internal\components\paging.js" />
+    <Content Include="framework\assets\js\internal\components\refill.js" />
+    <Content Include="framework\assets\js\internal\components\responsivetabs.js" />
+    <Content Include="framework\assets\js\internal\components\reviews.js" />
+    <Content Include="framework\assets\js\internal\components\search.js" />
+    <Content Include="framework\assets\js\internal\components\share.js" />
+    <Content Include="framework\assets\js\internal\components\table.js" />
+    <Content Include="framework\assets\js\internal\components\ui-dropdown.js" />
+    <Content Include="framework\assets\js\internal\components\validateMessages.js" />
+    <Content Include="framework\assets\js\internal\globals\common\bowser.min.js" />
+    <Content Include="framework\assets\js\internal\globals\common\browser-check.js" />
+    <Content Include="framework\assets\js\internal\globals\common\cookie.js" />
+    <Content Include="framework\assets\js\internal\globals\common\extensions-min.js" />
+    <Content Include="framework\assets\js\internal\globals\common\extensions.js" />
+    <Content Include="framework\assets\js\internal\globals\common\integrity-cookie.js" />
+    <Content Include="framework\assets\js\internal\globals\common\utils-min.js" />
+    <Content Include="framework\assets\js\internal\globals\common\utils.js" />
+    <Content Include="framework\assets\js\internal\globals\init.js" />
+    <Content Include="framework\assets\js\internal\globals\init.notforprod.js" />
+    <Content Include="framework\assets\js\internal\globals\init.tindra-min.js" />
+    <Content Include="framework\assets\js\internal\globals\init.tindra.js" />
+    <Content Include="framework\assets\js\internal\globals\mediaqueries.js" />
+    <Content Include="framework\assets\js\internal\libs\require-init.js" />
+    <Content Include="framework\assets\js\internal\libs\require-main.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\common.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\dwrWrapper.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\errorKeyTranslation.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\hide-address-bar.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\iframe-resize.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\ios-orientation-fix.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\placeholders.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\pricelist.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\serviceErrorHandling.js" />
+    <Content Include="framework\assets\js\internal\pagespecific\translation.js" />
+    <Content Include="framework\assets\js\tsPreload-min.js" />
+    <Content Include="framework\assets\less\css\icons-ie7.css" />
+    <Content Include="framework\assets\less\modules-pagewide\css\angular.css" />
+    <Content Include="framework\styles\css\headerfooter-ie-old.css" />
+    <Content Include="framework\styles\css\ts-bankid.css" />
+    <Content Include="framework\styles\css\ts-default.css" />
+    <Content Include="framework\styles\css\ts-headerfooter-ie.css" />
+    <Content Include="framework\styles\css\ts-headerfooter.css" />
+    <Content Include="framework\styles\css\ts-icons-lte8.css" />
+    <Content Include="framework\styles\css\ts-icons.css" />
+    <Content Include="framework\styles\css\ts-ie-lte8-blessed1.css" />
+    <Content Include="framework\styles\css\ts-ie-lte8.css" />
+    <Content Include="framework\styles\css\ts-print.css" />
+    <Content Include="framework\styles\css\ts-trends.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Media\edit.png" />
+    <Content Include="Media\favicon-120.png" />
+    <Content Include="Media\favicon-144.png" />
+    <Content Include="Media\favicon-152.png" />
+    <Content Include="Media\favicon-32.png" />
+    <Content Include="Media\favicon.ico" />
+    <Content Include="Media\favicon.png" />
+    <Content Include="Media\grafisk_oversikt.png" />
+    <Content Include="Media\historik.png" />
+    <Content Include="Media\logg.png" />
+    <Content Include="Media\logo2x.png" />
+    <Content Include="Media\logoExcel.png" />
+    <Content Include="Media\navbar-background.png" />
+    <Content Include="Media\styrningsalternativ.png" />
+    <Content Include="Media\ta_bort.png" />
+    <Content Include="Media\telia-loga.png" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\accessListTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\accessTree.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\accessTree2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\accessTreeTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\combineRoles.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\combineRoles2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\combineRolesTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\commonDirectives.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\companyContactsTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\customTable.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\customTableTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcf.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcf2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfFieldsTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfFieldTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfHelper.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfShareDialogTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfSummaryFieldsTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\dcfTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\editAnalysNummerApp.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\editBolagApp.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageCustomTable.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageCustomTableTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroup.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroupBatchTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroupCollectTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroupMainTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroupOrganisationsTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageGroupSearchTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageInvite.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageInviteTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageOrganization.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageOrganization2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageProfile.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageProfile2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageroles.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageroles2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageUser.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageUser2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageUserHomeTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\manageUserSummaryTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\modules.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\organizationSearchTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\registerUser.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\savedOrganizations.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\savedOrganizationsTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\cacheService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\corpAdministrationService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\corpAdministrationService_old.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\customerIdentityService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\DCFService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\hashService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\manageGroupNgService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\manageInviteNgService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\savedOrganizationsService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\selectedRolesService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\selectedRolesService2.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\serviceProvider.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\userSettingsService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\userStorageService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\services\validationService.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\styrningsalternativApp.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\summary.js" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\summaryTemplate.html" />
+    <Content Include="Projects\NTW\assets\js\angularApplications\templates.js" />
+    <Content Include="Projects\NTW\assets\js\build.js" />
+    <Content Include="Projects\NTW\assets\js\external\css3-mediaqueries.js" />
+    <Content Include="Projects\NTW\assets\js\external\ng-table.js" />
+    <Content Include="Projects\NTW\assets\js\init-require.js" />
+    <Content Include="Projects\NTW\assets\js\internal\header.js" />
+    <Content Include="Projects\NTW\assets\js\internal\queryStringHelper.js" />
+    <Content Include="Projects\NTW\assets\js\internal\toggleClass.js" />
+    <Content Include="Projects\NTW\assets\js\internal\validateForm.js" />
+    <Content Include="Projects\NTW\assets\js\internal\validateMessages.js" />
+    <Content Include="Projects\NTW\assets\js\internal\validateShortcuts.js" />
+    <Content Include="Projects\NTW\assets\js\main.js" />
+    <Content Include="Projects\NTW\assets\js\mock\adamApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\billedAccountsApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\bookmarksApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\chatApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\corpAdministrationServiceApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\customerIdentityServiceApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\customerInvoicesApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\DCFServiceApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\engine.js" />
+    <Content Include="Projects\NTW\assets\js\mock\ibApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\ibData.js" />
+    <Content Include="Projects\NTW\assets\js\mock\priceInformationApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\searchApi.js" />
+    <Content Include="Projects\NTW\assets\js\mock\userStorageApi.js" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout-mq-xsmall--lt-medium.css" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout-mq-xsmall--lt-medium.min.css" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw.css" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw.min.css" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-114.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-120.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-144.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-152.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-48.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-57.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-72.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-76.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\appicons\appicon-96.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\ellipsis.xml" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\app-rec.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\app-zappa.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\mobilt-homerun.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\saker-surf.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\sparr-utland.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\teliaforsakring.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\addon-services\viaplay.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\chat.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\checkboxes.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\drift-info2.jpg" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\ds-effect.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\feedback.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx.png.bak.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx2x.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx2x.png.bak.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx_mybusiness.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\icons-114x114.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\icons-152x152.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\icons-80x80.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\loading-ie.gif" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\loading-stone.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\loading-white.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\loading.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\no-cssgradients-bg-newslist.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\no-radius-splash.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-alt-selected.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-alt.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-large-alt.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-large.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-large2.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin-selected.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\previewgradient.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\tseCheckbox.png" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\utility-xrep-background.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-114.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-120.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-144.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-152.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-48.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-57.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-72.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-76.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\appicons\appicon-96.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\ellipsis.xml" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\app-rec.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\app-zappa.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\mobilt-homerun.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\saker-surf.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\sparr-utland.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\teliaforsakring.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\addon-services\viaplay.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\chat.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\checkboxes.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\drift-info2.jpg" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\ds-effect.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\feedback.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx.png.bak.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx2x.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx2x.png.bak.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx_mybusiness.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\icons-114x114.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\icons-152x152.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\icons-80x80.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\loading-ie.gif" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\loading-stone.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\loading-white.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\loading.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\no-cssgradients-bg-newslist.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\no-radius-splash.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-alt-selected.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-alt.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-large-alt.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-large.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-large2.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin-selected.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\previewgradient.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\tseCheckbox.png" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\utility-xrep-background.png" />
+    <Content Include="Scripts\advancedModelValidation.js" />
+    <Content Include="Scripts\analys.js" />
+    <Content Include="Scripts\combobox.js" />
+    <Content Include="Scripts\deleteConfirmation.js" />
+    <Content Include="Scripts\jquery-ui-timepicker-addon.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\validation.isdatetimeafter.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Projects\NTW\data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="bower_components\angular-route\.bower.json" />
+    <Content Include="bower_components\angular-route\bower.json" />
+    <Content Include="bower_components\angular-route\package.json" />
+    <Content Include="bower_components\angular-route\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
+    <Content Include="bower_components\bootstrap\.bower.json" />
+    <Content Include="bower_components\bootstrap\bower.json" />
+    <Content Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bower_components\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bower_components\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="bower_components\bootstrap\less\alerts.less" />
+    <Content Include="bower_components\bootstrap\less\badges.less" />
+    <Content Include="bower_components\bootstrap\less\bootstrap.less" />
+    <Content Include="bower_components\bootstrap\less\breadcrumbs.less" />
+    <Content Include="bower_components\bootstrap\less\button-groups.less" />
+    <Content Include="bower_components\bootstrap\less\buttons.less" />
+    <Content Include="bower_components\bootstrap\less\carousel.less" />
+    <Content Include="bower_components\bootstrap\less\close.less" />
+    <Content Include="bower_components\bootstrap\less\code.less" />
+    <Content Include="bower_components\bootstrap\less\component-animations.less" />
+    <Content Include="bower_components\bootstrap\less\dropdowns.less" />
+    <Content Include="bower_components\bootstrap\less\forms.less" />
+    <Content Include="bower_components\bootstrap\less\glyphicons.less" />
+    <Content Include="bower_components\bootstrap\less\grid.less" />
+    <Content Include="bower_components\bootstrap\less\input-groups.less" />
+    <Content Include="bower_components\bootstrap\less\jumbotron.less" />
+    <Content Include="bower_components\bootstrap\less\labels.less" />
+    <Content Include="bower_components\bootstrap\less\list-group.less" />
+    <Content Include="bower_components\bootstrap\less\media.less" />
+    <Content Include="bower_components\bootstrap\less\mixins.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\alerts.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\buttons.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\center-block.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\forms.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\gradients.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\grid.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\image.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\labels.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\list-group.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\opacity.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\pagination.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\panels.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\resize.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\size.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\table-row.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="bower_components\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="bower_components\bootstrap\less\modals.less" />
+    <Content Include="bower_components\bootstrap\less\navbar.less" />
+    <Content Include="bower_components\bootstrap\less\navs.less" />
+    <Content Include="bower_components\bootstrap\less\normalize.less" />
+    <Content Include="bower_components\bootstrap\less\pager.less" />
+    <Content Include="bower_components\bootstrap\less\pagination.less" />
+    <Content Include="bower_components\bootstrap\less\panels.less" />
+    <Content Include="bower_components\bootstrap\less\popovers.less" />
+    <Content Include="bower_components\bootstrap\less\print.less" />
+    <Content Include="bower_components\bootstrap\less\progress-bars.less" />
+    <Content Include="bower_components\bootstrap\less\responsive-embed.less" />
+    <Content Include="bower_components\bootstrap\less\responsive-utilities.less" />
+    <Content Include="bower_components\bootstrap\less\scaffolding.less" />
+    <Content Include="bower_components\bootstrap\less\tables.less" />
+    <Content Include="bower_components\bootstrap\less\theme.less" />
+    <Content Include="bower_components\bootstrap\less\thumbnails.less" />
+    <Content Include="bower_components\bootstrap\less\tooltip.less" />
+    <Content Include="bower_components\bootstrap\less\type.less" />
+    <Content Include="bower_components\bootstrap\less\utilities.less" />
+    <Content Include="bower_components\bootstrap\less\variables.less" />
+    <Content Include="bower_components\bootstrap\less\wells.less" />
+    <Content Include="bower_components\bootstrap\LICENSE" />
+    <Content Include="bower_components\bootstrap\package.json" />
+    <Content Include="bower_components\bootstrap\README.md" />
+    <Content Include="bower_components\jquery\.bower.json" />
+    <Content Include="bower_components\jquery\bower.json" />
+    <Content Include="Content\_all.less" />
+    <Content Include="Content\_anchor.less" />
+    <Content Include="Content\_datepicker.less" />
+    <Content Include="Content\_dropdown.less" />
+    <Content Include="Content\_form.less" />
+    <Content Include="Content\_slider.less" />
+    <Content Include="Content\_tree.less" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-eot\Telia-Icon-Glyphs-eot-old.eot" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-eot\Telia-Icon-Glyphs-eot.eot" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-eot\Telia-Icon-Glyphs-eot.old.eot" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-ttf\Telia-Icon-Glyphs-ttf-old.ttf" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-ttf\Telia-Icon-Glyphs-ttf.old.ttf" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-ttf\Telia-Icon-Glyphs-ttf.ttf" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-woff\Telia-Icon-Glyphs-woff-old.woff" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-woff\Telia-Icon-Glyphs-woff.old.woff" />
+    <Content Include="dms\templating-kit\themes\telia-se\types\Telia-Icon-Glyphs-woff\Telia-Icon-Glyphs-woff.woff" />
+    <Content Include="framework\assets\gfx\folder moved.rtf" />
+    <Content Include="framework\assets\js\deprecated\collapse-v3-classes" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\angular-sanitize\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\angular\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\angular\angular.min.js.gzip" />
+    <Content Include="framework\assets\js\external\bower_components\angular\angular.min.js.map" />
+    <Content Include="framework\assets\js\external\bower_components\angular\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\angular\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\doc-ready\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\eventEmitter\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\eventEmitter\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\eventEmitter\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\eventie\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\eventie\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\eventie\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\component.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-size\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\get-style-property\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-style-property\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-style-property\component.json" />
+    <Content Include="framework\assets\js\external\bower_components\get-style-property\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\.jshintrc" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\imagesloaded.jquery.json" />
+    <Content Include="framework\assets\js\external\bower_components\imagesloaded\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\.jshintrc" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\jquery-bridget\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\.jshintrc" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\.tm_properties" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\CONTRIBUTING.mdown" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\README.mdown" />
+    <Content Include="framework\assets\js\external\bower_components\masonry\test\.jshintrc" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\matches-selector\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\.jshintrc" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\docs\item.md" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\docs\outlayer.md" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\notes.md" />
+    <Content Include="framework\assets\js\external\bower_components\outlayer\README.md" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\.bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\.editorconfig" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\bower.json" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\component.json" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\LICENSE" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\package.json" />
+    <Content Include="framework\assets\js\external\bower_components\underscore\README.md" />
+    <Content Include="framework\assets\js\internal\components\ala-features.json" />
+    <Content Include="framework\assets\js\internal\components\ala-product.json" />
+    <Content Include="framework\assets\js\internal\components\ala-reviews.json" />
+    <Content Include="framework\assets\js\internal\components\fpc-countries.json" />
+    <Content Include="framework\assets\js\internal\components\fpc-pricedata.json" />
+    <Content Include="framework\assets\js\sonar-project.properties" />
+    <Content Include="framework\assets\less\components\expandable\all.less" />
+    <Content Include="framework\assets\less\components\expandable\expandable-mq-xsmall.less" />
+    <Content Include="framework\assets\less\components\expandable\expandable.less" />
+    <Content Include="framework\assets\less\components\form\all.less" />
+    <Content Include="framework\assets\less\components\form\form-mq-large.less" />
+    <Content Include="framework\assets\less\components\form\form-mq-medium.less" />
+    <Content Include="framework\assets\less\components\form\form-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\components\form\form.less" />
+    <Content Include="framework\assets\less\components\form\ie-lte8.less" />
+    <Content Include="framework\assets\less\components\info\all.less" />
+    <Content Include="framework\assets\less\components\info\info-mq-small.less" />
+    <Content Include="framework\assets\less\components\info\info.less" />
+    <Content Include="framework\assets\less\components\listitem\all.less" />
+    <Content Include="framework\assets\less\components\listitem\ie-lte8.less" />
+    <Content Include="framework\assets\less\components\listitem\listitem-mq-medium.less" />
+    <Content Include="framework\assets\less\components\listitem\listitem-mq-small.less" />
+    <Content Include="framework\assets\less\components\listitem\listitem.less" />
+    <Content Include="framework\assets\less\components\list\all.less" />
+    <Content Include="framework\assets\less\components\list\list.less" />
+    <Content Include="framework\assets\less\components\misc\all.less" />
+    <Content Include="framework\assets\less\components\misc\misc-mq-medium.less" />
+    <Content Include="framework\assets\less\components\misc\misc.less" />
+    <Content Include="framework\assets\less\components\tabs\all.less" />
+    <Content Include="framework\assets\less\components\tabs\tabs-mq-medium.less" />
+    <Content Include="framework\assets\less\components\tabs\tabs.less" />
+    <Content Include="framework\assets\less\elements\autocomplete\_all.less" />
+    <Content Include="framework\assets\less\elements\autocomplete\_autocomplete.less" />
+    <Content Include="framework\assets\less\elements\buttons-old\_all.less" />
+    <Content Include="framework\assets\less\elements\buttons-old\_buttons-mq-small.less" />
+    <Content Include="framework\assets\less\elements\buttons-old\_buttons-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\elements\buttons-old\_buttons.less" />
+    <Content Include="framework\assets\less\elements\buttons-old\_ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\buttons.less" />
+    <Content Include="framework\assets\less\elements\buttons\_all.less" />
+    <Content Include="framework\assets\less\elements\buttons\_buttons-mq-small.less" />
+    <Content Include="framework\assets\less\elements\buttons\_buttons-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\elements\buttons\_buttons.less" />
+    <Content Include="framework\assets\less\elements\buttons\_ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\dropdown\all.less" />
+    <Content Include="framework\assets\less\elements\dropdown\dropdown-mq-small.less" />
+    <Content Include="framework\assets\less\elements\dropdown\dropdown.less" />
+    <Content Include="framework\assets\less\elements\dropdown\ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\icons-ie7.less" />
+    <Content Include="framework\assets\less\elements\icons.less" />
+    <Content Include="framework\assets\less\elements\inputs-ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\inputs.less" />
+    <Content Include="framework\assets\less\elements\inputs\_all.less" />
+    <Content Include="framework\assets\less\elements\inputs\_ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\inputs\_inputs-mq-small.less" />
+    <Content Include="framework\assets\less\elements\inputs\_inputs-mq-xsmall--mq-lt-medium.less" />
+    <Content Include="framework\assets\less\elements\inputs\_inputs-mq-xsmall.less" />
+    <Content Include="framework\assets\less\elements\inputs\_inputs.less" />
+    <Content Include="framework\assets\less\elements\radiobutton-checkbox\all.less" />
+    <Content Include="framework\assets\less\elements\radiobutton-checkbox\ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\radiobutton-checkbox\radiobutton-checkbox.less" />
+    <Content Include="framework\assets\less\elements\table\all.less" />
+    <Content Include="framework\assets\less\elements\table\ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\table\table-lt-medium.less" />
+    <Content Include="framework\assets\less\elements\table\table-mq-small.less" />
+    <Content Include="framework\assets\less\elements\table\table-mq-xsmall.less" />
+    <Content Include="framework\assets\less\elements\table\table.less" />
+    <Content Include="framework\assets\less\elements\tactical\all.less" />
+    <Content Include="framework\assets\less\elements\tactical\tactical-lt-medium.less" />
+    <Content Include="framework\assets\less\elements\tactical\tactical-mq-small.less" />
+    <Content Include="framework\assets\less\elements\tactical\tactical-mq-xsmall.less" />
+    <Content Include="framework\assets\less\elements\tactical\tactical.less" />
+    <Content Include="framework\assets\less\elements\tags\all.less" />
+    <Content Include="framework\assets\less\elements\tags\ie-lte8.less" />
+    <Content Include="framework\assets\less\elements\tags\tags-mq-small.less" />
+    <Content Include="framework\assets\less\elements\tags\tags.less" />
+    <Content Include="framework\assets\less\elements\_elements-ie.less" />
+    <Content Include="framework\assets\less\elements\_elements.less" />
+    <Content Include="framework\assets\less\foundation\grid\all.less" />
+    <Content Include="framework\assets\less\foundation\grid\grid.less" />
+    <Content Include="framework\assets\less\foundation\grid\mixins.less" />
+    <Content Include="framework\assets\less\foundation\grid\variables.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_background.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_border-radius.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_box-shadow.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_box-sizing.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_box.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_opacity.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_transform.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_transition.less" />
+    <Content Include="framework\assets\less\foundation\mixins\css3\_unselectable.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_accordian.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_arrows.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_buttons-old.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_buttons.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_form.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_hero.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_inputs.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_pushdown.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_radiobox.less" />
+    <Content Include="framework\assets\less\foundation\mixins\elements\_table.less" />
+    <Content Include="framework\assets\less\foundation\mixins\graphics\_background.less" />
+    <Content Include="framework\assets\less\foundation\mixins\graphics\_border.less" />
+    <Content Include="framework\assets\less\foundation\mixins\graphics\_icons.less" />
+    <Content Include="framework\assets\less\foundation\mixins\graphics\_transparency.less" />
+    <Content Include="framework\assets\less\foundation\mixins\graphics\_vertical-gradient.less" />
+    <Content Include="framework\assets\less\foundation\mixins\keyframe-animations\_animations.less" />
+    <Content Include="framework\assets\less\foundation\mixins\keyframe-animations\_fade-in.less" />
+    <Content Include="framework\assets\less\foundation\mixins\keyframe-animations\_fade-out.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_clearfix.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_image-container.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_inline-block.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_l-inline-list.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_l-list.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_l-wrap-bleed.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_margin.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_media-object.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_padding.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_relative-width.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_vertical-spacing.less" />
+    <Content Include="framework\assets\less\foundation\mixins\layout\_visibility.less" />
+    <Content Include="framework\assets\less\foundation\mixins\patterns\_collapse-preview.less" />
+    <Content Include="framework\assets\less\foundation\mixins\patterns\_menu-vertical.less" />
+    <Content Include="framework\assets\less\foundation\mixins\typography\_ellipsis.less" />
+    <Content Include="framework\assets\less\foundation\mixins\typography\_font-family.less" />
+    <Content Include="framework\assets\less\foundation\mixins\typography\_font-size.less" />
+    <Content Include="framework\assets\less\foundation\mixins\typography\_hide-text.less" />
+    <Content Include="framework\assets\less\foundation\mixins\typography\_line-height.less" />
+    <Content Include="framework\assets\less\foundation\_animations.less" />
+    <Content Include="framework\assets\less\foundation\_base.less" />
+    <Content Include="framework\assets\less\foundation\_mixins.less" />
+    <Content Include="framework\assets\less\foundation\_normalize.less" />
+    <Content Include="framework\assets\less\foundation\_typography.less" />
+    <Content Include="framework\assets\less\foundation\_variables.less" />
+    <Content Include="framework\assets\less\layout\all.less" />
+    <Content Include="framework\assets\less\layout\ie-lte8.less" />
+    <Content Include="framework\assets\less\layout\layout-mq-large.less" />
+    <Content Include="framework\assets\less\layout\layout-mq-medium.less" />
+    <Content Include="framework\assets\less\layout\layout-mq-small.less" />
+    <Content Include="framework\assets\less\layout\layout-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\layout\layout-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\layout\layout.less" />
+    <Content Include="framework\assets\less\legacybrowsers\ie-specifics.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\360view-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\360view-mq-xsmall--lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\360view-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\360view.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\360view\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\access\access.less" />
+    <Content Include="framework\assets\less\modules-pagewide\access\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\access\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accordion\accordion-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accordion\accordion-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accordion\accordion.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accordion\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accordion\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\accountinformation-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\accountinformation-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\accountinformation-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\accountinformation-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\accountinformation.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\accountinformation\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\angular\angular.less" />
+    <Content Include="framework\assets\less\modules-pagewide\banner\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\banner\banner.less" />
+    <Content Include="framework\assets\less\modules-pagewide\banner\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\block-list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\block-list-mq-small--medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\block-list-mq-xsmall--small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\block-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\block-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\business-merge\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\button-container-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\button-container-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\button-container-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\button-container.less" />
+    <Content Include="framework\assets\less\modules-pagewide\button-container\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\buttonlist-mq-medium--lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\buttonlist-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\buttonlist-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\buttonlist.less" />
+    <Content Include="framework\assets\less\modules-pagewide\buttonlist\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\callouts\_all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\callouts\_callouts-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\callouts\_callouts-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\callouts\_callouts.less" />
+    <Content Include="framework\assets\less\modules-pagewide\callouts\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\campaign-hero.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-hero\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\campaign-list-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\campaign-list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\campaign-list-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\campaign-list-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\campaign-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\campaign-page-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\campaign-page-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\campaign-page-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\campaign-page.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign-page\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign\campaign-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign\campaign.less" />
+    <Content Include="framework\assets\less\modules-pagewide\campaign\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\captcha\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\captcha\captcha.less" />
+    <Content Include="framework\assets\less\modules-pagewide\captcha\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\captcha\ie-specific.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\carousel-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\carousel-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\carousel-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\carousel.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\ie-lte8 copy.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\carousel\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\cart\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\cart\cart-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\cart\cart-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\cart\cart.less" />
+    <Content Include="framework\assets\less\modules-pagewide\cart\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\categories\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\categories\categories-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\categories\categories-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\categories\categories.less" />
+    <Content Include="framework\assets\less\modules-pagewide\categories\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\choose-phone-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\choose-phone-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\choose-phone-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\choose-phone-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\choose-phone.less" />
+    <Content Include="framework\assets\less\modules-pagewide\choose-phone\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\collapse\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\collapse\collapse.less" />
+    <Content Include="framework\assets\less\modules-pagewide\collapse\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\collapse\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\color-selector\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\color-selector\color-selector-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\color-selector\color-selector-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\color-selector\color-selector.less" />
+    <Content Include="framework\assets\less\modules-pagewide\color-selector\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\combination.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\combinations-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\combinations-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\combinations-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\combinations-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\combination\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-channels\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-channels\comparechannels-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-channels\comparechannels.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-channels\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-product-table\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-product-table\comparetable-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-product-table\comparetable.less" />
+    <Content Include="framework\assets\less\modules-pagewide\compare-product-table\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\configure-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\configure-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\configure-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\configure.less" />
+    <Content Include="framework\assets\less\modules-pagewide\configure\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\create-portal-user-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\create-portal-user-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\create-portal-user-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\create-portal-user-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\create-portal-user.less" />
+    <Content Include="framework\assets\less\modules-pagewide\create-portal-user\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\datatable\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\datatable\datatable-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\datatable\datatable.less" />
+    <Content Include="framework\assets\less\modules-pagewide\datatable\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dictionary\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dictionary\dictionary-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dictionary\dictionary-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dictionary\dictionary.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dictionary\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\division-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\division-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\division-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\division-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\division.less" />
+    <Content Include="framework\assets\less\modules-pagewide\division\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\downloadables\_all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\downloadables\_downloadables.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dropdown\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dropdown\dropdown.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dropdown\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-flow\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-flow\dynamic-customer-flow-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-flow\dynamic-customer-flow-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-flow\dynamic-customer-flow.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-flow\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-forms\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-forms\dcf.less" />
+    <Content Include="framework\assets\less\modules-pagewide\dynamic-customer-forms\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\easytofind-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\easytofind-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\easytofind.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\easytofind\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\facts-box\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\facts-box\facts-box-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\facts-box\facts-box.less" />
+    <Content Include="framework\assets\less\modules-pagewide\facts-box\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\filter-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\filter-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\filter-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\filter.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\filter\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\fluid-grid\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\fluid-grid\fluid-grid-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\fluid-grid\fluid-grid-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\fluid-grid\fluid-grid.less" />
+    <Content Include="framework\assets\less\modules-pagewide\fluid-grid\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\focus-area\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\focus-area\focus-area-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\focus-area\focus-area.less" />
+    <Content Include="framework\assets\less\modules-pagewide\focus-area\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\foldout-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\foldout-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\foldout-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\foldout.less" />
+    <Content Include="framework\assets\less\modules-pagewide\foldout\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\form\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\form\form-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\form\form-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\form\form.less" />
+    <Content Include="framework\assets\less\modules-pagewide\form\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\gallery-view\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\gallery-view\gallery-view.less" />
+    <Content Include="framework\assets\less\modules-pagewide\gallery-view\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\guide\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\guide\guide-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\guide\guide.less" />
+    <Content Include="framework\assets\less\modules-pagewide\guide\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_hero-h1intro-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_hero-h1intro-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_hero-h1intro-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_hero-h1intro-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_hero-h1intro.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero-h1intro\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero-mq-xlarge.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\hero.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\hero\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\highlight-box-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\highlight-box-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\highlight-box-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\highlight-box-mq-xsmall-lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\highlight-box.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\highlight-box\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\iframe\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\iframe\iframe.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\image-list-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\image-list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\image-list-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\image-list-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\image-list\image-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\info-popup\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\info-popup\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\info-popup\info-popup-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\info-popup\info-popup-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\info-popup\info-popup.less" />
+    <Content Include="framework\assets\less\modules-pagewide\inline-feedback\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\inline-feedback\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\inline-feedback\inline-feedback.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\library-view-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\library-view-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\library-view-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\library-view-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\library-view\library-view.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\list-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\list-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\list\list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\login-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\login-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\login-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\login\login.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\map-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\map-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\map-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\map\map.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-block\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-block\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-block\media-block-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-block\media-block-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-block\media-block.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\media-selector-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\media-selector-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\media-selector-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\media-selector-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\media-selector\media-selector.less" />
+    <Content Include="framework\assets\less\modules-pagewide\modal\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\modal\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\modal\modal-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\modal\modal-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\modal\modal.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\mq-hidden\mq-hidden-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\multi-connections-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\multi-connections-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\multi-connections-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\multi-connections\multi-connections.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\news-list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\news-list-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\news-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\news-list\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\notifications\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\notifications\notifications-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\notifications\notifications.less" />
+    <Content Include="framework\assets\less\modules-pagewide\offer\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\offer\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\offer\offer-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\offer\offer.less" />
+    <Content Include="framework\assets\less\modules-pagewide\operatinginformation\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\operatinginformation\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\operatinginformation\operatinginformation-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\operatinginformation\operatinginformation.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\order-details-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\order-details-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\order-details-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-details\order-details.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-steps\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-steps\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-steps\order-steps.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\order-summary-chart-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\order-summary-chart-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\order-summary-chart-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\order-summary-chart\order-summary-chart.less" />
+    <Content Include="framework\assets\less\modules-pagewide\overview\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\overview\overview-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\overview\overview-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\overview\overview-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\overview\overview.less" />
+    <Content Include="framework\assets\less\modules-pagewide\page-section\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\page-section\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\page-section\page-section.less" />
+    <Content Include="framework\assets\less\modules-pagewide\paging\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\paging\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\paging\paging.less" />
+    <Content Include="framework\assets\less\modules-pagewide\price-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\price-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\price-list\price-list-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\price-list\price-list-mq-xlarge.less" />
+    <Content Include="framework\assets\less\modules-pagewide\price-list\price-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\product-attributes-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\product-attributes-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\product-attributes-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-attributes\product-attributes.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\product-details-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\product-details-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\product-details-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\product-details-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\product-details.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details-new\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\product-details.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-details\_product-details.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-package\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-package\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-package\product-package.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-selector\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-selector\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-selector\product-selector-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\product-selector\product-selector.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-xsmall--lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\productlist.less" />
+    <Content Include="framework\assets\less\modules-pagewide\productlist\_print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\progress-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\progress-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\progress-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\progress\progress.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-help\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-help\quick-help-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-help\quick-help-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-help\quick-help.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-order\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-order\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-order\quick-order-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\quick-order\quick-order.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\rating-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\rating-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\rating-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\rating-mq-xlarge.less" />
+    <Content Include="framework\assets\less\modules-pagewide\rating\rating.less" />
+    <Content Include="framework\assets\less\modules-pagewide\refill\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\refill\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\refill\refill-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\refill\refill-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\refill\refill.less" />
+    <Content Include="framework\assets\less\modules-pagewide\register-service-errend\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\register-service-errend\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\register-service-errend\register-service-errend-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\register-service-errend\register-service-errend-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\register-service-errend\register-service-errend.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\responsive-tabs-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\responsive-tabs-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\responsive-tabs-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\responsive-tabs\responsive-tabs.less" />
+    <Content Include="framework\assets\less\modules-pagewide\result-list\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\result-list\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\result-list\result-list-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\result-list\result-list.less" />
+    <Content Include="framework\assets\less\modules-pagewide\reviews\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\reviews\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\reviews\reviews-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\reviews\reviews-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\reviews\reviews.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\search-bar-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\search-bar-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\search-bar-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-bar\search-bar.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\search-result-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\search-result-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\search-result-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\search-result.less" />
+    <Content Include="framework\assets\less\modules-pagewide\search-results\search-results.less.orig" />
+    <Content Include="framework\assets\less\modules-pagewide\section-navigation\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\section-navigation\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\section-navigation\section-navigation-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\section-navigation\section-navigation.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\section-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\section-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\section-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sections\section.less" />
+    <Content Include="framework\assets\less\modules-pagewide\settings\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\settings\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\settings\settings-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\settings\settings-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\settings\settings.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\shortcuts-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\shortcuts-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\shortcuts-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\shortcuts-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\shortcuts\shortcuts.less" />
+    <Content Include="framework\assets\less\modules-pagewide\show-more\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\show-more\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\show-more\show-more-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\show-more\show-more.less" />
+    <Content Include="framework\assets\less\modules-pagewide\speech-bubble\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\speech-bubble\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\speech-bubble\speech-bubble.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-medium--lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\spotlights\spotlights.less" />
+    <Content Include="framework\assets\less\modules-pagewide\standard\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\standard\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\standard\standard.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\stepper-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\stepper-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\stepper-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\stepper-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\stepper\stepper.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\sticky-bar-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\sticky-bar-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\sticky-bar-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\sticky-bar\sticky-bar.less" />
+    <Content Include="framework\assets\less\modules-pagewide\storytel-rss\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\storytel-rss\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\storytel-rss\storytel-rss-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\storytel-rss\storytel-rss.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\subscription-offer-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\subscription-offer-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\subscription-offer-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\subscription-offer-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\subscription-offer\subscription-offer.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table-mq-medium--lt-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\table\table.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\teaser-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\teaser-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\teaser-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\teaser-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-pagewide\teaser\teaser.less" />
+    <Content Include="framework\assets\less\modules-pagewide\thumbs\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\thumbs\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\thumbs\thumbs.less" />
+    <Content Include="framework\assets\less\modules-pagewide\transfer\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\transfer\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\transfer\print.less" />
+    <Content Include="framework\assets\less\modules-pagewide\transfer\transfer-old.less" />
+    <Content Include="framework\assets\less\modules-pagewide\transfer\transfer.less" />
+    <Content Include="framework\assets\less\modules-pagewide\validation\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\validation\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\validation\validation-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\validation\validation.less" />
+    <Content Include="framework\assets\less\modules-pagewide\video\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\video\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\video\video-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\video\video-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\video\video.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\all.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq-large.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-pagewide\wizard\wizard-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_attention\all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_attention\attention-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_attention\attention-mq-small.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_attention\attention.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_attention\ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_chat\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_chat\_chat-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_chat\_chat.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_chat\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_crumbtrail\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_crumbtrail\_crumbtrail-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_crumbtrail\_crumbtrail.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_crumbtrail\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_crumbtrail\_print.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_feedback\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_feedback\_feedback-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_feedback\_feedback.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_feedback\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-medium--lt-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-small--lt-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-small.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_footer.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_footer\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_header-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_header-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_header-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_header.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header2\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-small--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-xsmall--lt-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_header.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_header\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_search-mq-large.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_search-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_search-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_search\_search.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_share\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_share\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_share\_share-mq-xsmall.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_share\_share.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_simplified-page\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_simplified-page\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_simplified-page\_simplified-page.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_all.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_ie-lte8.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_print.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_subnavigation-mq-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_subnavigation-mq-small.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_subnavigation-mq-xsmall--lt-medium.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_subnavigation-mq-xsmall--lt-small.less" />
+    <Content Include="framework\assets\less\modules-sitewide\_subnavigation\_subnavigation.less" />
+    <Content Include="framework\assets\less\_foundation.less" />
+    <Content Include="framework\assets\less\_framework.less" />
+    <Content Include="framework\assets\less\_modules-sitewide-ie-lte8.less" />
+    <Content Include="framework\assets\less\_modules-sitewide.less" />
+    <Content Include="framework\assets\type\readme" />
+    <Content Include="framework\styles\less\ts-default.less" />
+    <Content Include="framework\styles\less\ts-headerfooter-ie.less" />
+    <Content Include="framework\styles\less\ts-headerfooter.less" />
+    <Content Include="framework\styles\less\ts-icons-lte8.less" />
+    <Content Include="framework\styles\less\ts-icons.less" />
+    <Content Include="framework\styles\less\ts-ie-lte8.less" />
+    <Content Include="framework\styles\less\ts-print.less" />
+    <Content Include="framework\styles\less\ts-trends.less" />
+    <Content Include="Projects\NTW\assets\Less\angular\angular.less" />
+    <Content Include="Projects\NTW\assets\Less\grid\all.less" />
+    <Content Include="Projects\NTW\assets\Less\grid\grid.less" />
+    <Content Include="Projects\NTW\assets\Less\grid\mixins.less" />
+    <Content Include="Projects\NTW\assets\Less\grid\variables.less" />
+    <Content Include="Projects\NTW\assets\Less\layout\all.less" />
+    <Content Include="Projects\NTW\assets\Less\layout\ie-lte8.less" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout-mq-medium.less" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout-mq-xsmall--lt-medium.css.map" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout-mq-xsmall--lt-medium.less" />
+    <Content Include="Projects\NTW\assets\Less\layout\layout.less" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw-ie-lte8.less" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw-merge-ie-lte8.less" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw-merge.less" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw.css.map" />
+    <Content Include="Projects\NTW\assets\Less\ts-ntw.less" />
+    <Content Include="Projects\NTW\assets\Less\typography\typography.less" />
+    <Content Include="Projects\NTW\assets\Modules\footer\all.less" />
+    <Content Include="Projects\NTW\assets\Modules\footer\footer.less" />
+    <Content Include="Projects\NTW\assets\Modules\header\all.less" />
+    <Content Include="Projects\NTW\assets\Modules\header\header-mq-medium.less" />
+    <Content Include="Projects\NTW\assets\Modules\header\header-mq-xsmall--lt-medium.less" />
+    <Content Include="Projects\NTW\assets\Modules\header\header.less" />
+    <Content Include="Projects\NTW\assets\Modules\header\ie-lte8.less" />
+    <Content Include="Projects\NTW\assets\Modules\search-results\all.less" />
+    <Content Include="Projects\NTW\assets\Modules\search-results\search-results.less" />
+    <Content Include="Content\_table.less" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\checkboxes.psd" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\gfx2x.psd" />
+    <Content Include="Resources\teliasonera\telia-se\css\gfx\pin.psd" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\checkboxes.psd" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\gfx2x.psd" />
+    <Content Include="Resources\templating-kit\themes\telia-se\css\gfx\pin.psd" />
+    <Content Include="Views\Shared\_LayoutNoMenu.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\User_Saved.cshtml" />
+    <None Include="Properties\PublishProfiles\Prod.pubxml" />
+    <None Include="Properties\PublishProfiles\TestTelia.pubxml" />
+    <Content Include="Views\Home\CreateUserAndCompany.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TeliaTextField.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TeliaDropdown.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TeliaSwitch.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SwitchBase.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TeliaCheckbox.cshtml" />
+    <None Include="Web.TestTelia.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NTW.Core\Telia.NTW.Core.csproj">
+      <Project>{6acff09c-a38b-4ae9-b4ed-be074c5af3b7}</Project>
+      <Name>Telia.NTW.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PropertyUtils\Sigma.Utils.csproj">
+      <Project>{203E20D9-B916-468C-9A8F-EB8345B9F917}</Project>
+      <Name>Sigma.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestTelia|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54763</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54763/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>rmdir "$(ProjectDir)bower_components\" /S /Q
+rmdir "$(ProjectDir)Content\" /S /Q
+rmdir "$(ProjectDir)dms\" /S /Q
+rmdir "$(ProjectDir)framework\" /S /Q
+rmdir "$(ProjectDir)Media\" /S /Q
+rmdir "$(ProjectDir)Projects\" /S /Q
+rmdir "$(ProjectDir)Resources\" /S /Q
+rmdir "$(ProjectDir)Scripts\" /S /Q
+
+xcopy /S /E /Y "$(SolutionDir)NTW\bower_components" "$(ProjectDir)bower_components\"
+xcopy /S /E /Y "$(SolutionDir)NTW\Content" "$(ProjectDir)Content\"
+xcopy /S /E /Y "$(SolutionDir)NTW\dms" "$(ProjectDir)dms\"
+xcopy /S /E /Y "$(SolutionDir)NTW\framework" "$(ProjectDir)framework\"
+xcopy /S /E /Y "$(SolutionDir)NTW\Media" "$(ProjectDir)Media\"
+xcopy /S /E /Y "$(SolutionDir)NTW\Projects" "$(ProjectDir)Projects\"
+xcopy /S /E /Y "$(SolutionDir)NTW\Resources" "$(ProjectDir)Resources\"
+xcopy /S /E /Y "$(SolutionDir)NTW\Scripts" "$(ProjectDir)Scripts\"</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+</Project>

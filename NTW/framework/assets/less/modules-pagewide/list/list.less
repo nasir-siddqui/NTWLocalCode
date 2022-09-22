@@ -1,0 +1,86 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * LIST................A simple list
+ * LinkLIST................Linklist
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $LIST
+\*------------------------------------*/
+
+.tsList {
+    .l-list();
+}
+
+.tsList-header {
+    .margin(bottom;@gutter);
+}
+
+.tsList-item {
+}
+
+.tsList-itemHeader {
+    font-weight: bold;
+    .margin(bottom;@gutter/4);
+}
+
+.tsList--alt--disc {
+    .l-list();
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.tsList--alt {
+    .l-list();
+    //.font-size(14);
+    i {
+        .font-size(12);
+        width: 20px;
+        .margin(right;3);
+    }
+    .margin(bottom;@gutter);
+}
+
+.tsList--alt-item {
+    line-height: 26px;
+}
+.tsList-Inline {
+    .l-inline-list();
+    li{
+        .margin(leftright;@gutter-half;@gutter-half);
+    }
+}
+/*------------------------------------*\
+    $LINKLIST
+\*------------------------------------*/
+.tsLinkList {
+    //.margin(left;@gutter);
+}
+.tsLinkList-Item {
+    border-bottom: 1px solid @lightgrey;
+    a{
+        .padding(topbottom;@gutter;@gutter);
+        .inline-block;
+        font-weight: bold;
+    }&>p {
+        .margin(bottom;5);
+    }
+    &>p:first-child {
+        .margin(top;@gutter);
+    }
+    &>p:last-child {
+        .margin(bottom;48);
+    }
+}
+.tsLinkList-Item:first-child{
+    border-top: 1px solid @lightgrey;
+}

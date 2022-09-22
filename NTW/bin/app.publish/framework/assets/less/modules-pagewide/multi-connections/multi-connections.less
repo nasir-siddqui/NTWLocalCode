@@ -1,0 +1,160 @@
+.tsMultiConnections {
+  .tsWrapInner;
+  background: @lighterclay;
+  .padding(topbottom;@gutter-double;@gutter-double);
+}
+
+.tsMultiConnections-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-top:-10px;
+}
+
+.tsMultiConnections-item {
+  .padding(topbottom; @gutter;@gutter);   
+    
+  > label {
+    font-weight: bold;
+  }
+  .tsSalesBlock-form {
+    margin: 0;
+  }
+  &:nth-child(even) {
+    background: lighten(@lighterclay,3%);
+  }
+}
+
+.tsMultiConnections--header {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .tsLoading-icon {
+    .margin(left;5);
+  }
+}
+
+.tsMultiConnections--title {
+  float: left;
+  .font-size(lineheight;14;32);
+  .margin(right;@gutter-half);
+}
+
+.tsMultiConnections--header .tsSalesbutton,
+.tsMultiConnections--header .tsBtn {
+  float: right
+}
+
+.tsSalesbutton--cancel {
+  background-color: @grey;
+}
+
+.tsSalesbutton--cancel:hover {
+  background-color: @darkgrey;
+}
+
+.tsSalesbutton--cancel {
+	background-color: @grey;
+}
+
+.tsSalesbutton--cancel:hover {
+	background-color: @darkgrey;
+}
+
+.tsMultiConnections-stepper {
+	text-align: left;
+	//.padding(top;@gutter);
+}
+
+.tsMultiConnections-stepper-disclaimer {
+  .font-size(12);
+  color: @grey;
+  .margin(top;5);
+  display: block;
+}
+
+.tsMultiConnections-label {
+  .inline-block;
+  width: 125px
+}
+
+.tsMultiConnection {
+  display: block;
+  .padding(top;@gutter);
+}
+
+.tsMultiConnection p {
+  margin: 0;
+}
+
+.tsMultiConnection.tsItem--disabled {
+  color: @grey;
+}
+
+.tsMultiConnection.tsItem--open { 
+  display: block !important; 
+}
+
+[data-state="active"] + .tsMultiConnection,
+[data-state="inactive"] + .tsMultiConnection {
+  display: block;
+}
+
+[data-state="inactive"] + .tsMultiConnection .tsRadiobutton-label {
+  cursor: default;
+}
+
+.tsMultiConnections-item .tsSalesBlock-intro {
+  border: 0;
+  padding: 0;
+  .padding(top;@gutter);
+}
+
+.tsMultiConnections-item .tsSalesBlock-header {
+  .font-size(14);
+}
+
+.tsMultiConnections-item .tsSalesBlock-desc {
+  display: none;
+}
+
+.tsIEplaceholder {
+  display: none;
+}
+
+.tsInlineText {
+  margin-bottom: 10px;
+}
+
+
+
+//Fixed area
+
+.tsSalesBlock--Fixed {
+  top: -100px;
+  -webkit-transition: top 400ms linear;
+  -moz-transition: top 400ms linear;
+  -ms-transition: top 400ms linear;
+  -o-transition: top 400ms linear;
+  transition: top 400ms linear;
+}
+
+.tsSalesBlock--Fixed.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 600;
+  width: 100%;
+  .tsSalesBlock-form{
+    margin-bottom: 0;
+  }
+}
+.tsSalesBlock--Fixed.is-fixed > div {
+  .tsWrapInner;
+  .padding(all;0;120;@gutter;120);
+  .transparency.background(@darkgrey,0.9);
+  color:@white;
+  border-bottom: 2px solid @darkgrey;
+}

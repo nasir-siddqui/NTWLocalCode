@@ -1,0 +1,97 @@
+
+//Rating
+.tsRating-list {
+	.l-list;
+}
+
+.tsRating-list-item {
+
+}
+
+.tsRating-header {
+	text-transform: capitalize;
+	.inline-block;
+	width: 100%;
+	color: @ratingtextcolor;
+	.font-size(12);
+	font-weight: normal;
+    text-align: left;
+}
+
+.tsRating-bar {
+	.inline-block;
+	width: 100%;
+	height: 7px;
+	background-color: @ratingbgcolor;
+	.border-radius(5px);
+	span{
+		background-color: @ratingfillbgcolor;
+		height: 100%;
+		display: block;
+		.border-radius(5px 0 0 5px);
+		.transition(width 1s);
+	}
+	span.filled {
+		.border-radius(5px);
+	}
+}
+
+
+//Rating Chart
+.tsRatingChart-info {
+	& > span{
+		max-width: 130px;
+		.inline-block;
+	}
+    color: @grey;
+    .font-size(lineheight;13;16);
+}
+.tsRatingChart-content {
+	position: relative;
+	.inline-block;
+}
+.tsRatingChart-labels {
+	position: absolute;
+	top: 50%;
+	margin-top: -28.5px;
+	width: 100%;
+	text-align: center;
+}
+.tsRatingChart-value,
+.tsRatingChart-maxvalue {
+	display: block;
+	width: 100%;
+
+}
+.tsRatingChart-value {
+	.font-size(lineheight;53;53);
+	color: @ratingfillbgcolor;
+}
+.tsRatingChart-maxvalue {
+	color: @ratingtextcolor;
+	.font-size(13);
+}
+
+
+//Rating points
+.tsRating-points {
+	.l-inline-list;
+	.margin(bottom;10);
+	i{
+		line-height: 31px;
+		color:  @ratingbgcolor;
+	}
+}
+.tsRating-point { 
+	.border-radius(50%);
+	
+	width: 26px;
+	height: 26px; 
+	.margin(right;5)!important;
+	text-align: center;
+}
+.tsRating-point.active {
+	i{
+		color: @ratingfillbgcolor;
+	}
+}

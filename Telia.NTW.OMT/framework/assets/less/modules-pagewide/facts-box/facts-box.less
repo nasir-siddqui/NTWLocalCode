@@ -1,0 +1,139 @@
+.tsFactsBox {
+  .clearfix;
+  .margin(bottom; @gutter);
+  //.padding(all; 15; 15; @gutter);
+  .padding(all; 30; 35);
+  background: @lightestclay;
+  color: @nearblack;
+  border: 1px solid @lightgrey;
+
+  .margin(leftright;-@gutter-half;-@gutter-half);
+
+  > :first-child{
+    .margin(top; 0);
+  }
+
+  > :last-child{
+    .margin(bottom; 0);
+  }
+}
+
+//This is not working with "selectbox", why is this a general ul style, add class? /Erika
+.tsFactsBox	ul {
+  .padding(left;@gutter);
+}
+
+.tsFactsBox dl {
+  .margin(bottom;@gutter-half);
+  dd {
+    width: 50%;
+    float: left;
+  }
+
+  dt {
+    width: 50%;
+    float: right;
+    text-align: right;
+    font-weight: normal;
+  }
+}
+
+// move later
+.is-visible {
+  display: block !important;
+}
+.is-hidden {
+  display: none !important;
+}
+
+
+.tsFactsBox--Alt {
+  .padding(all; 0);
+  .margin(all; 0; 0);
+
+  .heading {
+    .padding(all; 20);
+    background: @lightestclay;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    .margin(bottom; 0);
+  }
+
+  &.is-collapsed .collapse {
+    border-top: 0px;
+  }
+
+  &.is-expanded .collapse {
+    border-top: 1px solid @lightgrey;
+    .padding(all; 20);
+    background: @white;
+  }
+
+  &.is-collapsed:not(.is-disabled) > [data-widget-collapse=inner] {
+    overflow: hidden;
+    display: none;
+  }
+
+  &.is-collapsed.is-disabled > [data-widget-collapse=inner] {
+    height: auto;
+  }
+
+  > [data-widget-collapse=inner] {
+    max-height: 0px;
+  }
+
+  .tsFactsBox--Alt-trigger {
+    float: left;
+
+
+  [class*="tsHighlight-box-TriggerIcon-Plus"]{
+    float: left;
+    display: block;
+    margin-right: 10px;
+
+    &:after{
+      content: "\e620";
+      font-size: 24px;
+      display: block;
+        font-family: iconfont;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+      color: @purple;
+    }
+  }
+    [class*="tsHighlight-box-TriggerIcon-Minus"]{
+    float: left;
+    display: block;
+    margin-right: 10px;
+
+    &:after{
+      content: "\e621";
+      font-size: 24px;
+      display: block;
+        font-family: iconfont;
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+      color: @purple;
+    }
+  }
+
+
+
+
+    i {
+      font-size: 1.4rem;
+      color: @black;
+      font-weight: bold;
+    }
+  }
+
+  &.is-expanded [data-widget-collapse="preview"] {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,58 @@
+
+.tsWizard--Horizontal {
+	.l-inline-list;
+	.padding(leftright;@gutter*2.5;@gutter*2.5);
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"] {
+	.padding(leftright;@gutter/2;@gutter/2);
+//	width: 33.3333%;
+	width: 50%;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:before {
+	z-index: 2;
+	margin-left: -18px;
+	width: 36px;
+	line-height: 36px;
+}
+
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:first-child,
+.tsWizard--Horizontal [class^="tsWizard-Item"]:last-child {
+	width: 25%;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:first-child:after,
+.tsWizard--Horizontal [class^="tsWizard-Item"]:last-child:after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: -2px;
+	left: 0;
+	display: block;
+	border-top: 2px solid @white;
+	width: 50%;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:last-child:after {
+	left: auto;
+	right: 0;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:first-child:before {
+	left: 50%;
+	margin-left: -21px;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:last-child:before {
+	left: 50%;
+	margin-left: -21px;
+}
+.tsWizard--Alt {
+	width: 100%;
+	[class^=tsWizard-Item] {
+		border-left: none;
+		
+	}
+}

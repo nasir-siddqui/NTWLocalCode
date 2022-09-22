@@ -1,0 +1,339 @@
+.tsOrderSummaryChart,
+.tsOrderSummaryChart-alt {
+	.padding(bottom;@gutter-double);
+}
+ 
+.tsOrderSummaryChart-alt {
+	.padding(top;0);
+	.margin(bottom;0);
+} 
+
+
+
+.tsOrderSummaryChart-container {
+	color: @black;
+	p {
+		.margin(bottom;@gutter-half);
+	}
+}
+
+
+.tsOrderSummaryChart-headerrow {
+	border-top: 2px solid @clay;
+	border-bottom: 0; //overwrite
+	width: 100%;
+	.font-size(11);
+	.padding(topbottom;7;3);
+	clear: both;
+	.inline-block;
+	.tsOrderSummaryChart-column {
+		.padding(left;@gutter-half);
+	}
+}
+
+.tsOrderSummaryChart-summaryrow {
+	clear: both;	
+	border-top: 1px solid @clay;
+	border-bottom: 1px solid @clay;
+	width: 100%;
+	.padding(topbottom;7;4); 
+	font-weight: bold;
+	.margin(top;3);
+	.inline-block;
+	.tsOrderSummaryChart-column {
+		.font-size(14);
+	}
+	.tsChart-price {
+		color: @blue;
+		float: none;
+	}
+}
+
+.tsOrderSummaryChart-group {
+	border-top: 1px solid @clay;
+	.padding(top;2);
+	&:nth-child(even) {
+		background: lighten(@lighterclay,3%);
+	}
+}
+
+.tsOrderSummaryChart-subsummaryrow {
+	clear: both;	
+	border-top: 1px solid @clay;
+	border-bottom: 1px solid @clay;
+	width: 100%;
+	.padding(topbottom;7;4); 
+	font-weight: bold;
+	.margin(top;3);
+	.inline-block;
+	.tsOrderSummaryChart-column {
+		.font-size(13);
+	}
+	.tsOrderSummaryChart-column-alt {
+		font-weight: normal;
+	}
+	.tsChart-price {
+		color: @blue;
+		float: none;
+		font-weight: normal;
+	}
+}
+
+
+.tsOrderSummaryChart-totalrow {
+	border: 0;
+	.padding(top;0);
+	.margin(top;0);
+	clear: both;
+	.inline-block;
+}
+
+.tsOrderSummaryChart-row {
+	width: 100%;
+	.margin(topbottom;0;-2);
+	font-weight: bold;
+	.font-size(12);
+	clear: both;
+	.inline-block;
+}
+
+.tsOrderSummaryChart-row .tsOrderSummaryChart-column-alt {
+	.padding(top;7);
+	.padding(left;0);
+	.padding(right;5);
+}
+
+.tsOrderSummaryChart-row span {
+    float: left;
+}
+
+
+.tsOrderSummaryChart-column {
+	display: block;
+	float: left;
+}
+
+.tsOrderSummaryChart-column-alt {
+	@var: 1.75*(100%/5.75);
+	width: @var;
+	display: block;
+	float: left;
+	.margin(top;0);
+}
+
+
+.tsChart {
+	background: @blue;
+	color: @white;
+	.padding(all;6;10;6;10);
+	.font-size(14);
+	display: block;
+	float: left;
+	.padding(left;@gutter-half);
+}
+
+.tsChart-label {
+	display: none;
+}
+
+.tsChart-price {
+	color: @white;
+	font-weight: bold;
+	.padding(all;@gutter-half;0;@gutter-half;@gutter-half);
+}
+
+
+// set colours of the bars /////////////////////////////////////////////
+
+.tsChart-0 {
+	background: @pink;
+}
+
+.tsChart-1,
+.tsChart-1to2,
+.tsChart-1to3,
+.tsChart-1to4,
+.tsChart-1to5,
+.tsChart-1to6 {
+	background: @darkpink;
+}
+
+.tsChart-2,
+.tsChart-2to3,
+.tsChart-2to4,
+.tsChart-2to5,
+.tsChart-2to6 {
+	background: @darkerpink;
+}
+
+.tsChart-3,
+.tsChart-3to4,
+.tsChart-3to5,
+.tsChart-3to6, {
+	background: darken(@darkerpink,5%); 
+}
+
+.tsChart-4,
+.tsChart-4to5,
+.tsChart-4to6 {
+	background: darken(@darkerpink,10%); 
+}
+
+.tsChart-5,
+.tsChart-5to6 {
+	background: darken(@darkerpink,15%); 
+}
+
+.tsChart-6 {
+	background: darken(@darkerpink,20%); 
+}
+
+.tsChart-free {
+	background: lighten(@lighterclay,2%);
+	.font-size(13);
+	.tsChart-price {
+		color: @clay;
+	}
+}
+
+.tsChart-0.tsChart-free {
+	display: block;
+	background: transparent;
+}
+
+
+
+// calculate the width ///////////////////////////////////////////////
+
+.tsOrderSummaryChart-columns {
+	@var: 4*(100%/5.75);
+	width: @var;
+	.inline-block;
+	float: left;
+}
+
+.tsColumns-1 {
+	.tsChart-0,
+	.tsOrderSummaryChart-column {
+		width: 100%;
+	}
+}
+
+.tsColumns-2 {
+	.tsChart-0,
+	.tsChart-1,
+	.tsOrderSummaryChart-column {
+		@var: (100%/2);
+		width: @var;
+	}
+}
+
+.tsColumns-3 {
+	.tsChart-0,
+	.tsChart-1,
+	.tsChart-2,
+	.tsOrderSummaryChart-column {
+		@var: (100%/3);
+		width: @var;
+	}
+	
+	.tsChart-1to2 {
+		@var: 2*(100%/3);
+		width: @var;
+	}
+}
+
+.tsColumns-4 {
+	.tsChart-0,
+	.tsChart-1,
+	.tsChart-2,
+	.tsChart-3,
+	.tsOrderSummaryChart-column {
+		@var: (100%/4);
+		width: @var;
+	}
+	
+	.tsChart-1to2,
+	.tsChart-2to3 {
+		@var: 2*(100%/4);
+		width: @var;
+	}
+	
+	.tsChart-1to3 {
+		@var: 3*(100%/4);
+		width: @var;
+	}
+}
+
+.tsColumns-5 {
+	.tsChart-0,
+	.tsChart-1,
+	.tsChart-2,
+	.tsChart-3,
+	.tsChart-4,
+	.tsOrderSummaryChart-column {
+		@var: (100%/5);
+		width: @var;
+	}
+	
+	.tsChart-1to2,
+	.tsChart-2to3,
+	.tsChart-3to4 {
+		@var: 2*(100%/5);
+		width: @var;
+	}
+	
+	.tsChart-1to3,
+	.tsChart-2to4 {
+		@var: 3*(100%/5);
+		width: @var;
+	}
+	
+	.tsChart-1to4 {
+		@var: 4*(100%/5);
+		width: @var;
+	}
+}
+
+.tsColumns-6 {
+	.tsChart-0,
+	.tsChart-1,
+	.tsChart-2,
+	.tsChart-3,
+	.tsChart-4, 
+	.tsChart-5,
+	.tsOrderSummaryChart-column {
+		@var: (100%/6);
+		width: @var;
+	}
+	
+	.tsChart-1to2,
+	.tsChart-2to3,
+	.tsChart-3to4,
+	.tsChart-4to5 {
+		@var: 2*(100%/6);
+		width: @var;
+	}
+	
+	.tsChart-1to3,
+	.tsChart-2to4,
+	.tsChart-3to5 {
+		@var: 3*(100%/6);
+		width: @var;
+	}
+	
+	.tsChart-1to4,
+	.tsChart-2to5 {
+		@var: 4*(100%/6);
+		width: @var;
+	}
+	
+	.tsChart-1to5 {
+		@var: 5*(100%/6);
+		width: @var;
+	}
+	
+	.tsOrderSummaryChart-summaryrow .tsChart-price{
+		.font-size(13);
+	} 
+}

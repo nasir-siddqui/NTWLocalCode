@@ -1,0 +1,3 @@
+function navprimary() {
+    // Do nothing!
+    }

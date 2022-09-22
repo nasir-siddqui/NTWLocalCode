@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * OVERVIEW............Donut-chart that gives a graphical overview of your engagements
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $OVERVIEW
+\*------------------------------------*/
+
+
+.tsOverview-container {
+	background-color: @white;
+	position: relative;
+}
+
+.tsOverview-links {
+	position: absolute;
+	width: 100%;
+	top:0;
+	left: 0;
+	list-style-type: none;
+}
+
+.tsOverview-category {
+	width: 50%;
+	float: left;
+	position: relative;
+	height: 120px;
+	.padding(right;40);
+	.padding(left;0);
+	.margin(bottom;50);
+}
+
+.tsOverview-category h3 {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+	border-bottom: 1px solid @lightgrey;
+}
+
+.tsOverview-category h3 span {
+	font-weight: normal;
+}
+
+.tsOverview-category:nth-child(even) {
+	text-align: right;
+}
+
+.tsOverview-category:nth-child(even) h3 {
+	right: 30px;
+}
+
+.tsOverview-categoryDetails {
+	.l-list();
+	position: absolute;
+	bottom: 0;
+}
+
+.tsOverview-category:nth-child(even) .tsOverview-categoryDetails {
+	right: 30px;
+	float: right;
+}
+
+.rectangle {
+	width: 1.6rem;
+	height: 1.6rem;
+	background: black;
+	float: left;
+	.margin(right;5);
+	.margin(top;2);
+}
+
+.purpleRectangle {
+	.rectangle();
+	background-color: @purple;
+}
+
+.orangeRectangle {
+	.rectangle();
+	background-color: @orange;
+}
+
+.pinkRectangle {
+	.rectangle();
+	background-color: @pink;
+}
+
+.yellowRectangle {
+	.rectangle();
+	background-color: #f9dc00;
+}
+
+.turqRectangle {
+	.rectangle();
+	background-color: @turq;
+}
+
+.blueRectangle {
+	.rectangle();
+	background-color: @blue;
+}
+
+.tsOverview-chart {
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	top: 1em;
+	left: 1em;
+	pointer-events: none;
+}
+
+.tsOverview-chart svg { 
+	transform: rotate(-45deg) scale(2.4);
+	-ms-transform: rotate(-45deg) scale(2.4); /* IE 9 */
+	-webkit-transform: rotate(-45deg) scale(2.4); /* Safari and Chrome */
+    position: absolute;
+    top: 135px;
+    left: 135px;
+}
+
+.tsOverview-chart svg g { 
+	pointer-events: visible;
+}
+
+.tsOverview-backgroundCircle {
+	position: relative;
+    width: 50rem; height: 50rem;
+    .margin(top;18);
+	.margin(bottom;20);
+    border-radius: 50%;
+    background: white;
+    border: 1px solid @lightgrey;
+    margin-left: 23.5%;
+	z-index: 1;
+}

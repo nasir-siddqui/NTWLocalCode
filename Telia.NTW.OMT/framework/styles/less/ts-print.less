@@ -1,0 +1,230 @@
+@import "../../assets/less/_foundation.less";
+
+
+body::before {
+  display: none;
+}
+
+/*------------------------------------*\
+    $ROOT
+\*------------------------------------*/
+
+body {
+	background: white;
+	color: black;
+}
+
+body * {
+  background-color: white !important;
+  font-size: 12px;
+}
+
+.tsBodyText a[href^="/"]:after {
+	content: " (http://telia.se" attr(href) ")";
+}
+
+
+
+
+.tsWrapInner {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/*------------------------------------*\
+    $SITE-WIDE MODULES
+\*------------------------------------*/
+
+// Hide sitewide modules
+
+.tsNavSite,
+.tsWrapHeader,
+.tsNavPrimary,
+.tsSubNavigation,
+.tsFooter-links,
+.tsFooter-social,
+.tsFeedback,
+.tsShare,
+.tsSection-nav,
+.tsCrumbtrail {
+	display: none !important;
+}
+
+
+// Header
+
+.tsHeader {
+	margin-bottom: 40px;
+}
+
+.tsLogo img {
+	width: 100px;
+}
+
+
+// Footer
+
+.tsFooter {
+	margin-top: 60px;
+	color: @darkgrey;
+	display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PAGE-WIDE MODULES
+\*------------------------------------*/
+
+// @import "../../assets/less/modules-pagewide/login/all";
+@import "../../assets/less/modules-pagewide/easytofind/_print.less";
+@import "../../assets/less/modules-pagewide/news-list/_print.less";
+@import "../../assets/less/modules-pagewide/hero/_print.less";
+@import "../../assets/less/modules-pagewide/product-details/_print.less";
+// @import "../../assets/less/modules-pagewide/media-block/all";
+// @import "../../assets/less/modules-pagewide/datatable/all";
+// @import "../../assets/less/modules-pagewide/page-section/all";
+// @import "../../assets/less/modules-pagewide/standard/all";
+@import "../../assets/less/modules-pagewide/productlist/_print.less";
+// @import "../../assets/less/modules-pagewide/library-view/all";
+// @import "../../assets/less/modules-pagewide/attention/all";
+// @import "../../assets/less/modules-pagewide/rating/all";
+// @import "../../assets/less/modules-pagewide/reviews/all";
+// @import "../../assets/less/modules-pagewide/fluid-grid/all";
+@import "../../assets/less/modules-pagewide/collapse/_print.less";
+@import "../../assets/less/modules-pagewide/carousel/_print.less";
+// @import "../../assets/less/modules-pagewide/foldout/all";
+// @import "../../assets/less/modules-pagewide/paging/all";
+@import "../../assets/less/modules-pagewide/filter/_print.less";
+@import "../../assets/less/modules-pagewide/highlight-box/_print.less";
+// @import "../../assets/less/modules-pagewide/operatinginformation/all";
+// @import "../../assets/less/modules-pagewide/product-package/all";
+// @import "../../assets/less/modules-pagewide/division/all";
+// @import "../../assets/less/modules-pagewide/combination/all";
+// @import "../../assets/less/modules-pagewide/choose-phone/all";
+// @import "../../assets/less/modules-pagewide/stepper/all";
+// @import "../../assets/less/modules-pagewide/inline-feedback/all";
+// @import "../../assets/less/modules-pagewide/refill/all";
+// @import "../../assets/less/modules-pagewide/table/all";
+// @import "../../assets/less/modules-pagewide/section-navigation/all";
+// @import "../../assets/less/modules-pagewide/button-container/all";
+// @import "../../assets/less/modules-pagewide/progress/all";
+// @import "../../assets/less/modules-pagewide/speech-bubble/all";
+// @import "../../assets/less/modules-pagewide/mq-hidden/all";
+// @import "../../assets/less/modules-pagewide/captcha/all";
+
+
+
+
+
+
+
+
+// Page section
+
+.tsPageSection-heading,
+.tsPageSection-heading--alt,
+.tsPageSection-heading>.h2,
+.tsPageSection-heading--alt>.h2 {
+	background-color: transparent;
+	color: @black;
+	.box-shadow(none);
+}
+
+
+// Attention
+
+[class^="tsAttention--"] {
+	background-color: transparent;
+	color: @black;
+	border: 1px dotted @grey;
+}
+
+[class^="tsAttention"] [class^="tsIcon"] {
+	color: @black;
+	border: 1px solid @black;
+	.border-radius(50%);
+}
+
+[class^="tsAttention"] a {
+	color: @black;
+}
+
+
+// Support guides
+
+.tsVideo {
+	display: none;
+}
+
+
+[class^=tsWizard-Item] {
+	.font-size(20);
+	font-weight: bold;
+
+		> * {
+			.font-size(14);
+			font-weight: normal;
+		}
+
+}
+
+.tsFactsBox + .tsFactsBox {
+	border-top: none;
+}
+
+.tsDownloadables a:after {
+	content: attr(href);
+	display: block;
+}
+
+
+// RadioBox
+
+.tsRadioBox input {
+	position: static;
+}
+
+[class^="tseRadioBox"] > label {
+	.inline-block;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+@page {
+  size: auto;   /* auto is the initial value */
+
+  /* this affects the margin in the printer settings */
+  margin: 15mm 10mm 25mm 10mm;
+}
+
+.tsWrapInner {
+//	width: 500px;
+	widht: 100%;
+}
+
+.tsContentSplit > * {
+	width: 100% !important;
+}
+
+.tsNoPrint {
+	display: none;
+}
+
+.tsNoScreen {
+	display: block;
+}
+
+.tsBackdrop{
+	border-top: none;
+	border-bottom: none;
+}

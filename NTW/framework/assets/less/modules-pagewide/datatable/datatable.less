@@ -1,0 +1,49 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * DATA-TABLE................
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $DATA-TABLE
+\*------------------------------------*/
+
+.tsDataTable {
+	width: 100%;
+}
+
+.tsDataTable-divider hr {
+	border: 0;
+	height: 1px;
+	background: @lightergrey;
+	.margin(all;5;0;3;0);
+}
+
+.tsDataTable th {
+	display: block;
+	text-align: left;
+	font-weight: normal;
+	.padding(all;5;0;0;5);
+	.font-size(lineheight;14;17);
+}
+
+.tsDataTable td {
+	display: block;
+	.padding(all;0;0;5;5);
+	.font-size(lineheight;14;17);
+}
+
+.tsBodyText .tsDataTable-header {
+	.margin(topbottom;@gutter;0);
+	&:first-of-type {
+		.margin(top;0);	
+	}
+}

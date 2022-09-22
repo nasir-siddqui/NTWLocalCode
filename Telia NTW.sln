@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telia.NTW.Web", "NTW\Telia.NTW.Web.csproj", "{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telia.NTW.Core", "NTW.Core\Telia.NTW.Core.csproj", "{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telia.NTW.Analys", "NTW.Data.AS\Telia.NTW.Analys.csproj", "{709A5F6F-175E-44B2-BC06-3D0C45BF4941}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Telia.NTW.Data", "Telia.NTW.Data", "{1D2F6993-D146-4D6F-AF3F-C56E6802B1B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telia.NTW.Test.Unit", "NTW.Core.Test\Telia.NTW.Test.Unit.csproj", "{976CBD86-83A9-4492-9561-D657C35989D2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Telia.NTW.DB.AdvanceWebb", "AdvanceWebb\Telia.NTW.DB.AdvanceWebb.sqlproj", "{790B7167-9716-4E10-8732-E4CCAA7A6EB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5950CFF9-EA07-4A2B-B9EF-3931EB270240}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.Utils", "PropertyUtils\Sigma.Utils.csproj", "{203E20D9-B916-468C-9A8F-EB8345B9F917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telia.NTW.OMT", "Telia.NTW.OMT\Telia.NTW.OMT.csproj", "{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.Utils.Test", "Sigma.Utils.Test\Sigma.Utils.Test.csproj", "{67AA390C-3BFD-4903-B763-BD9FB029E408}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSO", "SSO", "{C8D0555E-AE85-48E4-8AA1-A4ACAC04AED2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExampleIdentityProvider", "..\SSO\MvcExampleIdentityProvider\MvcExampleIdentityProvider.csproj", "{877BC257-594B-4D30-B52B-834DA5FE4DA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		TestTelia|Any CPU = TestTelia|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{FE2B0F0E-3C5B-4C75-9317-CB66BDED8166}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{6ACFF09C-A38B-4AE9-B4ED-BE074C5AF3B7}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{709A5F6F-175E-44B2-BC06-3D0C45BF4941}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{976CBD86-83A9-4492-9561-D657C35989D2}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+		{790B7167-9716-4E10-8732-E4CCAA7A6EB5}.TestTelia|Any CPU.Deploy.0 = TestTelia|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.TestTelia|Any CPU.ActiveCfg = Release|Any CPU
+		{203E20D9-B916-468C-9A8F-EB8345B9F917}.TestTelia|Any CPU.Build.0 = Release|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.TestTelia|Any CPU.ActiveCfg = Release|Any CPU
+		{271822F7-8ABC-4ED5-8FCA-1252A177ECE7}.TestTelia|Any CPU.Build.0 = Release|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.TestTelia|Any CPU.ActiveCfg = Release|Any CPU
+		{67AA390C-3BFD-4903-B763-BD9FB029E408}.TestTelia|Any CPU.Build.0 = Release|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.TestTelia|Any CPU.ActiveCfg = TestTelia|Any CPU
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5}.TestTelia|Any CPU.Build.0 = TestTelia|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{877BC257-594B-4D30-B52B-834DA5FE4DA5} = {C8D0555E-AE85-48E4-8AA1-A4ACAC04AED2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA80662F-EC5B-4F11-92A6-84D5341C2CF4}
+	EndGlobalSection
+EndGlobal

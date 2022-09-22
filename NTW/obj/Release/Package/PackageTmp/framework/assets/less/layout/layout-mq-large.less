@@ -1,0 +1,65 @@
+.tsColumnBlock {
+ 
+    overflow: hidden;
+    > div{
+      float: left;
+    }
+    & > :first-child  {
+    	width: 64.66%;
+      margin-right: 2%;
+  	}
+  	& > :last-child {
+      text-align: left;
+      vertical-align: middle;
+      //float: none;
+    }
+    /*& :only-child {
+      width:100%;
+      float: none;
+    }*/
+}
+
+/* one item */
+.tsColumnBlock > div:first-child:nth-last-child(1) {
+  width: 100%;
+}
+
+/* two items */
+.tsColumnBlock > div:first-child:nth-last-child(2){
+  width: 64.6666%;
+  margin-right: 2%;
+}
+.tsColumnBlock > div:first-child:nth-last-child(2) ~ div {
+   width: 31.3333%;
+   margin-left: 2%;
+}
+
+/* three items */
+.tsColumnBlock > div:first-child:nth-last-child(3),
+.tsColumnBlock > div:first-child:nth-last-child(3) ~ div {
+   width: 31.3333%;
+  margin-right: 2%;
+}
+
+.tsPullLeft--Large{
+  float: left;
+}
+.tsPullRight--Large{
+  float: right;
+}
+
+.tsDivider,
+[class*="tsDivider--"]{
+  margin: 30px 0;
+}
+
+
+
+
+
+.tsBackdrop {
+    .tsWrapInner,
+    [class*="tsWrapInner--"]{
+      max-width: @width-innerwrap - @gutter-double;
+    }
+}

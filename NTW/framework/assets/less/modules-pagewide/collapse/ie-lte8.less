@@ -1,0 +1,38 @@
+@import "collapse";
+
+.lt-ie9 .tsPageSection.is-collapsed > [data-widget-collapse=inner] {
+    overflow: hidden;
+}
+
+.lt-ie9 .tsPageSection.is-collapsed.is-disabled > [data-widget-collapse=inner] {
+    overflow: auto;
+}
+
+.lt-ie9 [data-widget=collapse].tsPreview--xsmall > [data-widget-collapse=inner] {
+    max-height: 100px;
+}
+
+.lt-ie9 [data-widget=collapse].tsPreview--small > [data-widget-collapse=inner] {
+    max-height: 200px;
+}
+
+.lt-ie9 [data-widget=collapse].tsPreview--medium > [data-widget-collapse=inner] {
+    max-height: 400px;
+}
+
+.lt-ie9 [data-widget=collapse].tsPreview--large > [data-widget-collapse=inner] {
+    max-height: 500px;
+}
+
+.lt-ie9 [data-widget=collapse].tsPreview--xlarge > [data-widget-collapse=inner] {
+    max-height: 600px;
+}
+
+.lt-ie9 [data-widget=collapse].is-disabled.tsPreview--xsmall > [data-widget-collapse=inner],
+.lt-ie9 [data-widget=collapse].is-disabled.tsPreview--small > [data-widget-collapse=inner],
+.lt-ie9 [data-widget=collapse].is-disabled.tsPreview--medium > [data-widget-collapse=inner],
+.lt-ie9 [data-widget=collapse].is-disabled.tsPreview--large > [data-widget-collapse=inner],
+.lt-ie9 [data-widget=collapse].is-disabled.tsPreview--xlarge > [data-widget-collapse=inner]{
+    max-height: none;
+}
+

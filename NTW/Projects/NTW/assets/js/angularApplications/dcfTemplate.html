@@ -1,0 +1,313 @@
+<div ng-if="errorMessage" class="tsAttention--Panic tsMarginTop tsMarginBottom tsAttention--tableLayout">
+    <div class="tsAttention-Message tsWrapInner">
+        <i class="tsIcon-Information"></i>
+        <p class="tsAttention-Content">
+            <span>{{ errorMessage }}</span>
+        </p>
+        <a ng-click="resetError('errorMessage')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+    </div>
+</div> <!-- END: div.tsAttention -->
+
+<div ng-if="isLoading && !errorMessage" class='tscLoading--Full'>
+    <div class='tsLoading-icon-large'></div>
+    <p class="tsMarginTop grey">{{ loadingStatus }}</p>
+</div>
+
+<form class="dcfForm" ng-if="page" ts-validator="main" data-validate-hidden="false" data-disable-submit-button="false" data-prevent-submit="false" data-error-element-class="" data-add-has-error-on-wrapper=".field-wrapper" data-default-message-include-name="false">
+
+    <div ng-if="controlError" class="tsAttention--Panic tsMarginBottom tsAttention--tableLayout">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Information"></i>
+            <p class="tsAttention-Content">
+                <span>{{ controlError }}</span>
+            </p>
+            <a ng-click="resetError('controlError')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+        </div>
+    </div> <!-- END: div.tsAttention -->
+
+    <div class="tsWrapInner">
+
+        <div class="tsClear">
+            
+            <div ng-if="!isDone" class="tscInline--GutterHalf tsPullRight">
+                <button class="tsBtn--Border--Animated" ng-click="saveForm()" ts-loading-button="save" ng-disabled="isReadOnly() || saveStatus" data-set-to-disabled="false" data-status="saveStatus" data-reset-after-complete="true">{{ texts.saveButton }}</button>
+                <div ts-dcf-share-dialog="shareTop" data-share="share" data-disabled="isReadOnly()" data-share-form="shareForm(assign)" ng-if="!displayUnshare()" data-texts="texts"></div>
+                <button class="tsBtn--Border--Animated" ng-if="displayUnshare()" ng-click="unshareForm()" ts-loading-button="unshare" data-status="unshareStatus" data-reset-after-complete="true">{{ texts.unshareButton }}</button>
+            </div>
+            
+            <h1 class="h1">{{ getTitle(page) }}</h1>
+        
+        </div>
+        
+        <ul class="tscList--Inline--fullWidth tsMarginTop">
+            <li ng-repeat="p in pages" ng-class="{ 'active': page - 1 === $index }"><span class="tscStep">{{ p.title }}</span></li>
+            <li ng-class="{ 'active': isSummary }"><span class="tscStep">{{ texts.summaryTitle }}</span></li>
+            <li ng-class="{ 'active': isDone }"><span class="tscStep">{{ texts.doneTitle }}</span></li>
+        </ul>
+    
+    </div>
+
+
+    <div class="tsMarginTop" ng-if="!isDone && page > 1">
+        
+        <h2 class="h2 tsWrapInner tsMarginBottom">Bilagor</h2>
+        <ul ng-if="files" class="tscList--Space tsMarginBottom">
+            <li ng-repeat="file in files">
+                <div ng-if="file.error" class="tsAttention--Panic tsMarginBottom tsAttention--tableLayout">
+                    <div class="tsAttention-Message tsWrapInner">
+                        <i class="tsIcon-Information"></i>
+                        <p class="tsAttention-Content">
+                            <span>{{ file.error }}</span>
+                        </p>
+                        <a ng-click="resetError(file)"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+                    </div>
+                </div> <!-- END: div.tsAttention -->
+                <div class="tsWrapInner">
+                    <div class="tscInlineRow">
+                        <div class="tscInlineRow-main">{{ file.filename }}</div>
+                        <div class="tscInlineRow-nowrap">
+                            <button class="tsBtn--Animated" ts-loading-button data-reset-after-complete="true" data-status="file.downloadStatus" ng-click="downloadFile(file)">Ladda ner</button>
+                        </div>
+                        <div class="tscInlineRow-nowrap">
+                            <button class="tsBtn--Animated" ts-loading-button data-reset-after-complete="true" ng-disabled="isReadOnly() || file.removeStatus" data-status="file.removeStatus" ng-click="removeFile(file)">Radera</button>
+                        </div>
+                        <div class="tscInlineRow-nowrap">
+                            <button class="tsBtn--File--Animated" ts-loading-button data-reset-after-complete="true" ng-disabled="isReadOnly() || file.uploadStatus" data-status="file.uploadStatus" ng-click="uploadFile(file)">
+                                <span>Uppdatera</span>
+                                <input type="file" ts-dcf-file>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    
+        <div ng-if="newFile.error" class="tsAttention--Panic tsMarginBottom tsAttention--tableLayout">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span>{{ newFile.error }}</span>
+                </p>
+                <a ng-click="resetError(newFile)"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+            </div>
+        </div> <!-- END: div.tsAttention -->
+        <div class="tsWrapInner">
+            <button class="tsBtn--File--Animated" data-status="newFile.uploadStatus" data-reset-after-complete="true" ts-loading-button ng-disabled="isReadOnly() || newFile.uploadStatus" ng-click="uploadFile(newFile)">
+                <span>Ladda upp ny bilaga</span>
+                <input type="file">
+            </button>
+        </div>
+
+    </div>
+
+    <div class="tsWrapInner" ng-if="pages.length >= page && page > 1">
+
+        <fieldset ng-repeat="group in pages[page-1].groups" class="dcfFormGroup" ng-class="{ 'full': group.full, 'last': $last }">
+
+            <legend>{{ group.title }}</legend>
+            <div class="dcfFormGroup-inner">
+    
+                <div class="fields-wrapper" ng-repeat="wrapper in group.wrappers">
+                    
+                    <div ts-dcf-field class="field-wrapper" ng-class="field.classes" ng-repeat-start="field in wrapper.fields" ng-if="!field.fieldset" data-field="field" data-group="group" data-show="showField(group, field)" data-model="getDataModel(group, field)" ng-show="field.visible"></div>
+                    
+                    <!-- Maybe this is an issue
+                         Putting a check for show field here will cause the field to be hidden
+                         All inline fields (extra fields) will also be hidden -->
+                    <fieldset class="dcfFormField" ng-repeat-end ng-if="field.fieldset" ng-show="field.visible" ng-init="initField(group, field)" ng-class="field.classes">
+                        <legend ng-hide="field.hideLabel" ng-class="{'strong':field.strongLabel}">{{ field.title }} {{ field.required ? '*' : '' }}</legend>
+                        <p class="description" ng-if="field.description">{{ field.description }}</p>
+                    
+                        <div ts-dcf-field class="field-wrapper" ng-class="field.classes" data-field="field" data-group="group" data-model="getDataModel(group, field)"></div>
+                        
+                        <!--<div ts-dcf-field class="field-wrapper" ng-class="f.classes" ng-if="field.extra" ng-repeat="f in field.extra" data-field="f" data-group="group" ng-show="showField(group, f)" data-show="showField(group, f)" data-model="getDataModel(group, f)"></div>
+                        -->
+                    </fieldset>
+                    
+                    <fieldset class="dcfFormSection" ng-repeat="section in wrapper.sections" ng-show="section.visible" ng-init="initField(group, section)">
+                        <legend ng-if="section.title">{{ section.title }}</legend>
+                        <p class="description" ng-if="section.description">{{ section.description }}</p>
+                        <div class="dcfFormSection-inner">            
+                    
+                            <div ts-dcf-field class="field-wrapper" ng-class="field.classes" ng-repeat="field in section.fields" data-section="true" data-field="field" ng-show="field.visible" ng-init="initField(group, field)" data-model="getDataModel(group, field)"></div>
+                            
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+    </div>
+
+    <div ng-if="page === 1" class="tsWrapInner">
+        <div class="tscArea--Full--NearWhite--Double tsMarginTop">
+            <fieldset class="dcfFormField">
+                <legend class="strong">{{ texts.chooseOrgLabel }}</legend>
+                <div class="dcfFormField-inner">
+                    <div class="tseSelect--Half">
+                        <select ng-disabled="chooseOrg.disabled" name="organization" id="organization" ng-model="chooseOrg.org" ng-options="org.id as org.label for org in chooseOrg.orgs">
+                            <option value="">{{ texts.chooseOrgOption }}</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div ng-if="page === 1" ng-show="!chooseOrg.org" class="tsAttention--Panic tsMarginTop tsAttention--tableLayout">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Information"></i>
+            <p class="tsAttention-Content">
+                <span>{{ texts.chooseOrgWarning }}</span>
+            </p>
+        </div>
+    </div> <!-- END: div.tsAttention -->
+
+    <div ng-if="isSummary || isDone" class="tscArea--Large--NearWhite{{ isDone ? '--NoTop' : '' }}" ng-class="{ 'tsMarginTop--doubleGutter': isSummary }"> 
+
+        <div ng-if="isDone" ng-show="templateError" class="tsAttention--Panic tsMarginTop tsAttention--tableLayout">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span>{{ templateError }}</span>
+                </p>
+                <a ng-click="resetError('templateError')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+            </div>
+        </div> <!-- END: div.tsAttention -->
+
+        <div ng-if="isDone" class="tsAttention--Info tsMarginTop tsMarginBottom tsAttention--tableLayout">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span><strong ng-if="texts.saveTemplateHeading">{{ texts.saveTemplateHeading }}</strong> {{ texts.saveTemplateText }}</span>
+                    <button href ts-loading-button="template" data-status="templateStatus" class="tsBtn--Animated" ng-click="saveTemplate()" data-reset-after-complete="true">{{ texts.saveTemplateButton }}</button>
+                </p>
+            </div>
+        </div> <!-- END: div.tsAttention -->
+
+        <div ng-if="sendError" class="tsAttention--Panic tsMarginBottom tsAttention--tableLayout">
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p class="tsAttention-Content">
+                    <span>{{ sendError }}</span>
+                </p>
+                <a ng-click="resetError('sendError')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+            </div>
+        </div> <!-- END: div.tsAttention -->
+
+        <div class="tsWrapInner">
+            <div class="tscArea--White--Full--Border">
+                
+                <!-- the product information -->
+                <div class="tscArea">
+                    <div class="tscInlineRow">
+                        <div>
+                            <i class="tsIcon-Configure"></i>
+                        </div>       
+                        <div class="tscInlineRow-main">
+                            <h4 class="h4 normal grey">{{ texts.productHeading }}</h4>
+                            <h1 class="h1">{{ title }}</h1>
+                        </div>
+                        <div ng-if="isSummary">
+                            <button class="tsBtn--Animated" ts-loading-button="send" ng-disabled="isReadOnly() || sendStatus" ng-click="sendForm()" data-status="sendStatus" data-reset-after-complete="true">{{ texts.saveAndSendButtonLabel }}</button>
+                            <p class="grey small center"><em>{{ texts.saveAndSendDescription }}</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- groups -->
+                <div class="tscArea" ng-repeat="template in [false, true]">
+                    <div ng-repeat="group in allGroups" ng-if="group.template === template">
+                        <div ng-if="isDone && template" class="tseRadioBox--CheckButton--ColorNavigation">
+                            <input type="checkbox" id="{{ group.id }}" name="{{ group.id }}" ng-model="group.save">
+                            <label for="{{ group.id }}" class="h2">{{ group.title }}</label>
+                        </div>
+                        <h2 ng-if="isSummary && template" class="h2">{{ group.title }}</h2>
+                        <h3 ng-if="!template" class="h3" ng-class="{ 'tsMarginTop': !$first }">{{ group.title }}</h3>
+                        
+                        <div ng-repeat="wrapper in group.wrappers">
+                            <div class="tscInlineRow--Top tsMarginTop" ng-repeat-start="field in wrapper.fields" ng-if="field.type !== 'textarea' && field.visible && !field.removeFieldInModel" ng-init="initField(group, field)">
+                                <div class="tscInlineRow-narrow">
+                                    <span class="grey">{{ field.name }}</span>
+                                </div>
+                                <div class="tscInlineRow-main">
+                                    {{ model.groups[group.index].attributes[field.index].attributeValue }}
+                                </div>     
+                            </div>
+                            <div class="tsBodyText" ng-repeat-end  ng-if="field.type === 'textarea' && field.visible && !field.removeFieldInModel">
+                                <p ng-bind-html="model.attributes[field.index].attributeValue"></p>
+                            </div>
+                            <div class="row" ng-if="wrapper.sections">
+                                <div class="col-md-6 tsMarginTop" ng-repeat="section in wrapper.sections" ng-if="section.visible" ng-init="initField(group, section)">
+                                    <h4 class="h4">{{ section.title }}</h4>
+                                    <div class="tscInlineRow--Top tsMarginTop" ng-repeat-start="field in section.fields" ng-if="field.type !== 'textarea' && field.visible && !field.removeFieldInModel" ng-init="initField(group, field)">
+                                        <div class="tscInlineRow-narrow">
+                                            <span class="grey">{{ field.name }}</span>
+                                        </div>
+                                        <div class="tscInlineRow-main">
+                                            {{ model.groups[group.index].attributes[field.index].attributeValue }}
+                                        </div>
+                                    </div>
+                                    <div class="tsBodyText" ng-repeat-end  ng-if="field.type === 'textarea' && field.visible && !field.removeFieldInModel">
+                                        <p ng-bind-html="model.attributes[field.index].attributeValue"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div ng-if="validationError" class="tsAttention--Panic tsMarginTop tsAttention--tableLayout">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Information"></i>
+            <p class="tsAttention-Content">
+                <span>{{ texts.validationError }}</span>
+            </p>
+            <a ng-click="resetError('validationError')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+        </div>
+    </div> <!-- END: div.tsAttention -->
+
+    <div ng-if="controlError" class="tsAttention--Panic tsMarginTop tsAttention--tableLayout">
+        <div class="tsAttention-Message tsWrapInner">
+            <i class="tsIcon-Information"></i>
+            <p class="tsAttention-Content">
+                <span>{{ controlError }}</span>
+            </p>
+            <a ng-click="resetError('controlError')"><span>{{ texts.attentionClose }}</span><i class="tsIcon-Close"></i></a>
+        </div>
+    </div> <!-- END: div.tsAttention -->
+
+    <div ng-if="!isDone" class="tsWrapInner tsMarginTop center">
+
+        <div class="tscInline--GutterHalf">
+
+            <button class="tsBtn--Border--Animated" ng-click="saveForm()" ts-loading-button="save" ng-disabled="isReadOnly() || saveStatus" data-set-to-disabled="false" data-status="saveStatus" data-reset-after-complete="true">{{ texts.saveButton }}</button>
+            <div ts-dcf-share-dialog="shareBottom" data-share="share" data-wrapper="above" data-disabled="isReadOnly()" data-share-form="shareForm(assign)" ng-if="!displayUnshare()" data-texts="texts"></div>
+            <button class="tsBtn--Border--Animated" ng-if="displayUnshare()" ng-click="unshareForm()" ts-loading-button="unshare" data-status="unshareStatus" data-reset-after-complete="true">{{ texts.unshareButton }}</button>
+            
+            <!-- next step -->
+            <button class="tsBtn" ng-click="setPage(page + 1)" ng-if="page < pages.length + 1 && page > 1">{{ texts.nextStep }} {{ getPageTitle(page + 1) }}</button>
+            <button class="tsBtn--Animated" ng-click="loadForm()" ts-loading-button="formLoad" data-reset-after-complete="true" data-status="formLoadingStatus" ng-if="page === 1" ng-disabled="!chooseOrg.org || formLoadingStatus">{{ texts.nextStep }} {{ getPageTitle(page + 1) }}</button>
+
+        </div>
+
+        <p class="tsMarginTop--halfGutter">
+            <a href ng-if="page > 1" ng-click="setPage(page-1)"><strong>{{ texts.prevStep }}</strong> {{ getPageTitle(page - 1) }}</a>
+            <span ng-if="page > 1">|</span>
+            <a href ng-click="cancel()"><strong>{{ texts.cancel }}</strong></a>
+        </p>
+
+    </div>
+
+</form>
+
+
+
+

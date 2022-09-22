@@ -1,0 +1,35 @@
+.tsCallouts {
+	.l-list;
+	.margin(top; @gutter);
+}
+
+.tsCallout {
+	border-top: 2px solid @purple;
+	.font-size(lineheight;16;20);
+	font-weight: normal;
+}
+
+.tsCallout:last-child {
+	.margin(bottom; @gutter);
+	border-bottom: 2px solid @purple;
+}
+
+.tsCallout a {
+	display: block;
+	.padding(topbottom;@gutter/2;@gutter/2);
+	color: @black;
+}
+
+.tsCallout h4 {
+	.font-size(lineheight;20;28);
+	font-weight: normal;
+	color: @purple;	
+}
+
+.tsCallout img {
+	display: none;
+}
+
+.tsCallout a > p:last-of-type {
+	margin-bottom: 0;
+}

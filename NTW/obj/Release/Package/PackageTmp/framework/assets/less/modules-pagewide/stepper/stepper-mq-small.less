@@ -1,0 +1,30 @@
+.tsStepper-symbol,
+.tsOrderStepper-symbol {
+	width: 40px;
+	height: 40px;
+	line-height: 36px; //height - borders
+	
+	.total {
+		display: none;
+		&::before {
+			display: none;
+		}
+	}	
+}
+.tsStepper-container--fiveSteps,
+.tsOrderStepper-container--fiveSteps {
+    .tsStepper-step--left,
+    .tsOrderStepper-step--left {
+    	.tsStepper-label,
+        .tsOrderStepper-label {
+            .margin(left;-10);
+        }
+    }
+    .tsStepper-step--right,
+    .tsOrderStepper-step--right {
+    	.tsStepper-label,
+        .tsOrderStepper-label {
+            .margin(left;10);
+        }
+    }
+}

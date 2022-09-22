@@ -1,0 +1,51 @@
+﻿@using Telia.NTW.Core.Helpers
+@using Telia.NTW.Web.ViewModel.Leverantörsinformation
+@model NioHundraNummerViewModel
+
+    @{
+        ViewBag.Title = "Telia900Nummer";
+    }
+
+    <div class="tsWrapInner tsMarginBottom">
+        <div class="tscLoading--PaddingGutter" ng-hide="true">
+            <div class="tsLoading-icon-large tsMarginTop"></div>
+        </div>
+
+        <div class="tsComponent" ng-cloak>
+            @if (Model.NioHundraNummer != null)
+            {
+                <table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+                    <thead>
+                        <tr>
+                            <th>Nummer</th>
+                            <th>Tjänst</th>
+                            <th>Bolagsnummer</th>
+                            <th>@* redigera/ta bort *@</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (NioHundraNummerRow nummer in Model.NioHundraNummer)
+                        {
+                            <tr>
+                                <td>@nummer.Nummer</td>
+                                <td>@nummer.Tjänst</td>
+                                <td>@nummer.Organisationsnummer</td>
+                                <td>
+                                    @Html.ActionLink(" ", "NioHundraNummer_Edit", "Leverantörsinformation", new { nioId = nummer.AccessId, accessNo = nummer.Nummer }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+        </div>
+
+        <div class="tscButtonContainer tsWrapInner">
+            @Html.ActionLink("Exportera", "NioHundraNummer_ExportToExcel", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+        </div>
+
+        @*<div class="tscButtonContainer tsWrapInner">
+                <button class="tsBtn--Regular">Exportera</button>
+            </div>*@
+    </div>

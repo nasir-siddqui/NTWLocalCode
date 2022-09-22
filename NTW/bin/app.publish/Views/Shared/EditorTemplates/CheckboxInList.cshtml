@@ -1,0 +1,11 @@
+﻿@model Telia.NTW.Web.ViewModel.Shared.EditorTemplateModels.CheckboxModel
+
+@{
+	var checkboxAttributes = Model.ChkSelected ?
+		(object)new { @class = "tseCheckbox tseCheckbox--checked" } :
+		(object)new { @class = "tseCheckbox" };
+}
+@Html.CheckBoxFor(m => m.ChkSelected, checkboxAttributes)
+@Html.LabelFor(m => m.ChkSelected, Model.ChkNamn, new { @class = "tseCheckbox-label tsMarginBottom--halfGutter tsMarginRight" })
+@Html.HiddenFor(m => m.ChkId)
+@Html.HiddenFor(m => m.ChkNamn)

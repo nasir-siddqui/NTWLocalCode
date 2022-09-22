@@ -1,0 +1,51 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model WebbstyrningViewModel
+
+@{
+    ViewBag.Title = "Ej verkställda styrningar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1>Ej verkställda styrningar</h1>
+    <p>
+        Se alla styrningar som inte har gått igenom, för alla kunder
+    </p>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+	
+	<div class="tsComponent" ng-cloak>
+		<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+			@*<caption>Ej verkställda styrningar</caption>*@
+			<thead>
+				<tr>
+					<th>Begärt datum</th>
+					<th>Styrning</th>
+					<th>Bolag</th>
+					<th>Abonnemang</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (EjVerkställdaStyrningar styrning in Model.EjVerkställdaStyrningar)
+				{
+					<tr>
+						<td>@styrning.PreferredConnect</td>
+						<td>@styrning.Alternativnamn</td>
+						<td>@styrning.KundNamn</td>
+						<td>@styrning.Abonnemang</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+
+
+    @*<div class="tscButtonContainer tsWrapInner">
+        <button class="tsBtn--Regular">Exportera</button>
+    </div>*@
+</div>

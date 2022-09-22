@@ -1,0 +1,224 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * FOOTER................Footer wrapper
+ * FOOTER SOCIAL.........Social links
+ * FOOTER NAVIGATION.........Social links
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+
+
+.tsFooter {
+//	background-color: @lightpurple;
+//	background-color: @footerbgcolor;
+	background-color: @purple;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $FOOTER SOCIAL
+\*------------------------------------*/
+
+.tsFooter-social {
+	background-color: @purple;
+}
+.tsFooter-social-list {
+	.l-list;
+	display: block;
+	.padding(topbottom;@gutter;@gutter);
+	.padding(leftright;0;0);
+    text-align: center;
+}
+
+.tsFooter-social-list > li {
+    .padding(all;@gutter/2;0;0;0;);
+	overflow: hidden;
+    .inline-block;
+    .margin(all;0;25;0;25);	
+}
+
+.tsFooter-social a {
+    //color:@white;
+    display: block;
+	color: @footersocialbgcolor;
+	.padding(all;@gutter/2);
+//	line-height: 36px;
+    font-weight: bold;
+	&:visited {
+    	color: @footersocialbgcolor;
+	}
+    &:hover {
+        background-color: @darkerpurple;
+        color: @white;
+        text-decoration: none;
+    }
+}
+
+/*
+.tsFooter-social-list [class*='tsIcon-'] {
+    position: relative;
+    top: -8px;
+    width: 36px;
+    height: 36px;
+//    color: @footerbgcolor;
+    color: @purple;
+    background-color: @footersocialbgcolor;
+    line-height: 36px;
+}
+
+.tsFooter-social-list .tsIcon-Facebook:before {
+    position: relative;
+    bottom: -3px;
+    right: -5px;
+    .font-size(30);
+}
+
+.tsFooter-social-list .tsIcon-Twitter {
+    .font-size(lineheight;18;32);
+}
+
+
+*/
+
+
+/*------------------------------------*\
+    $FOOTER NAVIGATION
+\*------------------------------------*/
+
+.tsFooterNav-heading {
+	color: @white;
+//	font-size: 100%;
+    margin: 0;
+    .font-size(16);
+	a {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+.tsFooterNav-TopLevel > li {
+    .menu-vertical-topitem;
+    position: relative;
+    border-bottom-color:  @lightpurple;
+}
+
+.tsFooterNav-TopLevel a {
+    .menu-vertical-anchor;
+    .padding(left;@gutter-half);
+    padding-right: 0;
+	&:visited {
+	    color: @white;
+	}
+}
+
+.tsFooterNav-TopLevelTarget {
+    .menu-vertical-topanchorarea;
+}
+
+.tsFooterNav-SubLevel {
+	float: none;
+	width: 100%;
+}
+
+.tsFooterNav-SubLevel > li {
+    .transition;
+    .menu-vertical-subitem;
+    line-height: 24px;
+    line-height: 2.4rem;
+
+    > a:hover {
+        text-decoration: none;
+        background-color: @darkerpurple;
+}
+
+    &:hover {
+//    	background-color: darken(@purple, 7%);
+        background-color: @darkerpurple;
+    }
+}
+
+.tsFooterNav-heading {
+    .transition;
+	&:hover {
+//    	background-color: darken(@purple, 7%);
+        background-color: @darkerpurple;
+	}	
+}
+
+.tsFooterNav-TopLevel, .tsFooterNav-SubLevel {
+	.l-list;
+}
+
+.tsFooterNav-TopLevel > li:last-child {
+    border-bottom: 3px solid @lightpurple;
+}
+
+
+.tsFooterNav-TopLevel [data-widget-collapse=trigger] {
+    //.menu-vertical-triggerarea;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    .padding(all;0;0;0;5);
+    &:hover{
+        background-color: transparent;
+    }    
+}
+
+
+
+.tsFooter-links {
+	background-color: @purple;
+	border-top:2px solid @darkpurple;
+	
+}
+.tsFooterNav-TopLevel {
+	.l-wrap-bleed(@gutter-half);
+}
+
+
+
+/*------------------------------------*\
+    $FOOTER INFO
+\*------------------------------------*/
+.tsFooter-info {
+    text-align: center;
+    p{
+        border-top: 1px solid @lightpurple;
+        color: @footersocialbgcolor;
+        .margin(all;5;-10;5;-10);
+        .font-size(12);
+        padding-top: 5px;
+    }
+}
+
+
+/*------------------------------------*\
+    $FOOTER SIMPLE
+\*------------------------------------*/
+
+.tsFooterSimple {
+    .tsFooter-heading {
+        color: @footersocialbgcolor;
+        font-weight: normal;
+        text-align: center;
+        margin: 0;
+        .font-size(14);
+        padding:10px 0px;
+        .padding(topbottom;15;15);
+    }
+}
+

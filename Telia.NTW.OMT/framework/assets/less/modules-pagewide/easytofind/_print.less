@@ -1,0 +1,20 @@
+// ease to find
+
+
+[class^="tsEasyToFind"] {
+//  display: none;
+}
+
+@import "easytofind-mq-xsmall";
+//@import "easytofind-mq-medium";
+
+.tsEasyToFind-links,
+.tsEasyToFind-links * {
+  border: none !important;
+}
+
+.tsEasyToFind-links a[href^="/"]:after {
+	content: " (http://telia.se" attr(href) ")";
+  display: block;
+  font-weight: normal;
+}

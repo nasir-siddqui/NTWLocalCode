@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdvanceWebbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdvanceExtension">
+    <Key>
+      <PropertyRef Name="AdvanceExtID" />
+    </Key>
+    <Property Name="AdvanceExtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Active" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IntervalLow" Type="int" Nullable="false" />
+    <Property Name="IntervalHigh" Type="int" Nullable="false" />
+    <Property Name="Subscribed" Type="bit" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="ChangedBy" Type="int" />
+    <Property Name="AnalysisView" Type="smallint" Nullable="false" />
+    <Property Name="AnalysisRawdata" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyInfo">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgNr" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="EDI" Type="varchar" MaxLength="15" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="SamRefKod" Type="varchar" MaxLength="10" />
+    <Property Name="UnitNo" Type="varchar" MaxLength="4" />
+    <Property Name="OLD ContactName" Type="varchar" MaxLength="50" />
+    <Property Name="OLD ContactTelNo" Type="varchar" MaxLength="30" />
+    <Property Name="OLD ContactEmail" Type="varchar" MaxLength="100" />
+    <Property Name="OLD ContactUserId" Type="int" />
+    <Property Name="Date" Type="varchar" MaxLength="12" />
+    <Property Name="CustNo" Type="varchar" MaxLength="5" />
+    <Property Name="ActiveVIP" Type="bit" />
+    <Property Name="ActiveStat" Type="bit" />
+    <Property Name="ActiveCpa" Type="bit" />
+    <Property Name="New" Type="bit" />
+    <Property Name="PhoneKey" Type="varchar" MaxLength="200" />
+    <Property Name="ExtendedMulti" Type="bit" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="ChangedBy" Type="int" />
+    <Property Name="SystemChangedDate" Type="datetime" />
+    <Property Name="UserIdA" Type="int" />
+    <Property Name="UserIdD" Type="int" />
+    <Property Name="UserIdCpa" Type="int" />
+  </EntityType>
+  <EntityType Name="CompanyInfosInRoles">
+    <Key>
+      <PropertyRef Name="CompanyInfoId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="CompanyInfoId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FictiveOrgNr">
+    <Key>
+      <PropertyRef Name="Counter" />
+    </Key>
+    <Property Name="Counter" Type="int" Nullable="false" />
+    <Property Name="ForeignOrgNr" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FictiveOrgNr" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SkapadDatum" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupInfo">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupCode" Type="varchar" MaxLength="25" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="ChangedBy" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.IncludedRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IncludedRole">
+    <Key>
+      <PropertyRef Name="BaseRoleId" />
+      <PropertyRef Name="IncludedRoleId" />
+    </Key>
+    <Property Name="BaseRoleId" Type="int" Nullable="false" />
+    <Property Name="IncludedRoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Meddelandes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="From" Type="datetime" Nullable="false" />
+    <Property Name="To" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProcessHeader">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="ProcessID" Type="int" Nullable="false" />
+    <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Success" Type="bit" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ProcessOwner" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProcessTable">
+    <Key>
+      <PropertyRef Name="ProcessID" />
+    </Key>
+    <Property Name="ProcessID" Type="int" Nullable="false" />
+    <Property Name="ProcessName" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessType" Type="varchar" MaxLength="25" />
+    <Property Name="NoOfExec" Type="int" />
+    <Property Name="DeleteLimit" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+    <Property Name="ApplicationRole" Type="bit" />
+  </EntityType>
+  <EntityType Name="RolesForMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MessageId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.ServiceLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ServiceLog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Component" Type="varchar" MaxLength="50" />
+    <Property Name="InternalFunction" Type="varchar" MaxLength="50" />
+    <Property Name="ErrNo" Type="varchar" MaxLength="200" />
+    <Property Name="ErrNoHex" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="text" />
+    <Property Name="DetailDescription" Type="text" />
+    <Property Name="Severity" Type="smallint" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.STAFFlog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="STAFFlog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="effectDate" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Area" Type="char" MaxLength="50" />
+    <Property Name="Description" Type="char" MaxLength="100" />
+    <Property Name="cmdSQL" Type="char" MaxLength="1000" />
+    <Property Name="effectDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.SupportLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SupportLog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="cmdSQL" />
+      <PropertyRef Name="EffectDate" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Area" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="300" />
+    <Property Name="cmdSQL" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="EffectDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.SystemLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SystemLog">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="DateTime" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Process" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Process" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Body" Type="varchar" MaxLength="200" />
+    <Property Name="Value" Type="int" />
+  </EntityType>
+  <EntityType Name="UserAdvanceNumbers">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="AdvanceExtId" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="AdvanceExtId" Type="int" Nullable="false" />
+    <Property Name="AnalysisView" Type="smallint" Nullable="false" />
+    <Property Name="AnalysisRawData" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="ChangedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="LoginName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="varchar" MaxLength="255" />
+    <Property Name="Security" Type="varchar" MaxLength="10" />
+    <Property Name="CustNo" Type="varchar" MaxLength="5" />
+    <Property Name="Parent" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TelNo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Eno" Type="char" MaxLength="10" />
+    <Property Name="SalesUnitsAllowed" Type="varchar" MaxLength="20" />
+    <Property Name="ProdStod" Type="varchar" MaxLength="50" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ChangedDate" Type="datetime" />
+    <Property Name="ChangedBy" Type="int" />
+    <Property Name="LogonDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__RolesForM__Messa__5DA0D232">
+    <End Role="Meddelandes" Type="Self.Meddelandes" Multiplicity="1" />
+    <End Role="RolesForMessage" Type="Self.RolesForMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meddelandes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolesForMessage">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolesForM__RoleI__5E94F66B">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RolesForMessage" Type="Self.RolesForMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolesForMessage">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdvanceExtension_ChangedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AdvanceExtension" Type="Self.AdvanceExtension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="AdvanceExtension">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdvanceExtension_CompanyInfo">
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="0..1" />
+    <End Role="AdvanceExtension" Type="Self.AdvanceExtension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyInfo">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="AdvanceExtension">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ChangedByUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ContactAnalys">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ContactLeverantörsinformation">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdCpa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ContactWebstyrning">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfosInRoles_CompanyInfo">
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CompanyInfosInRoles" Type="Self.CompanyInfosInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyInfo">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="CompanyInfosInRoles">
+        <PropertyRef Name="CompanyInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfosInRoles_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="CompanyInfosInRoles" Type="Self.CompanyInfosInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyInfosInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupInfo_ChangedBy">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="GroupInfo">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IncludedRole_BaseRole">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IncludedRole" Type="Self.IncludedRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IncludedRole">
+        <PropertyRef Name="BaseRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IncludedRole_IncludedRole">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="IncludedRole" Type="Self.IncludedRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IncludedRole">
+        <PropertyRef Name="IncludedRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_ChangedByUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Users1" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Users1">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAdvanceNumbers_AdvanceExtension">
+    <End Role="AdvanceExtension" Type="Self.AdvanceExtension" Multiplicity="1" />
+    <End Role="UserAdvanceNumbers" Type="Self.UserAdvanceNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdvanceExtension">
+        <PropertyRef Name="AdvanceExtID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="AdvanceExtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAdvanceNumbers_ChangedByUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UserAdvanceNumbers" Type="Self.UserAdvanceNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAdvanceNumbers_Webb_Users_Login">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserAdvanceNumbers" Type="Self.UserAdvanceNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersInRoles_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersInRoles_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Webb_Users_Org_Webb_Users_Koncern">
+    <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="0..1" />
+    <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupInfo">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdvanceWebbModelStoreContainer">
+    <EntitySet Name="AdvanceExtension" EntityType="Self.AdvanceExtension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyInfosInRoles" EntityType="Self.CompanyInfosInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FictiveOrgNr" EntityType="Self.FictiveOrgNr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meddelandes" EntityType="Self.Meddelandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessHeader" EntityType="Self.ProcessHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcessTable" EntityType="Self.ProcessTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolesForMessage" EntityType="Self.RolesForMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAdvanceNumbers" EntityType="Self.UserAdvanceNumbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncludedRole" EntityType="Self.IncludedRole" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [IncludedRole].[BaseRoleId] AS [BaseRoleId], 
+    [IncludedRole].[IncludedRoleId] AS [IncludedRoleId]
+    FROM [dbo].[IncludedRole] AS [IncludedRole]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ServiceLog" EntityType="Self.ServiceLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ServiceLog].[Id] AS [Id], 
+    [ServiceLog].[Component] AS [Component], 
+    [ServiceLog].[InternalFunction] AS [InternalFunction], 
+    [ServiceLog].[ErrNo] AS [ErrNo], 
+    [ServiceLog].[ErrNoHex] AS [ErrNoHex], 
+    [ServiceLog].[Description] AS [Description], 
+    [ServiceLog].[DetailDescription] AS [DetailDescription], 
+    [ServiceLog].[Severity] AS [Severity], 
+    [ServiceLog].[TimeStamp] AS [TimeStamp]
+    FROM [dbo].[ServiceLog] AS [ServiceLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="STAFFlog" EntityType="Self.STAFFlog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [STAFFlog].[Id] AS [Id], 
+    [STAFFlog].[UserId] AS [UserId], 
+    [STAFFlog].[Area] AS [Area], 
+    [STAFFlog].[Description] AS [Description], 
+    [STAFFlog].[cmdSQL] AS [cmdSQL], 
+    [STAFFlog].[effectDate] AS [effectDate]
+    FROM [dbo].[STAFFlog] AS [STAFFlog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SupportLog" EntityType="Self.SupportLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SupportLog].[Id] AS [Id], 
+    [SupportLog].[UserId] AS [UserId], 
+    [SupportLog].[Area] AS [Area], 
+    [SupportLog].[Description] AS [Description], 
+    [SupportLog].[cmdSQL] AS [cmdSQL], 
+    [SupportLog].[EffectDate] AS [EffectDate]
+    FROM [dbo].[SupportLog] AS [SupportLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SystemLog" EntityType="Self.SystemLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SystemLog].[id] AS [id], 
+    [SystemLog].[DateTime] AS [DateTime], 
+    [SystemLog].[UserName] AS [UserName], 
+    [SystemLog].[Process] AS [Process], 
+    [SystemLog].[Body] AS [Body], 
+    [SystemLog].[Value] AS [Value]
+    FROM [dbo].[SystemLog] AS [SystemLog]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__RolesForM__Messa__5DA0D232" Association="Self.FK__RolesForM__Messa__5DA0D232">
+      <End Role="Meddelandes" EntitySet="Meddelandes" />
+      <End Role="RolesForMessage" EntitySet="RolesForMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolesForM__RoleI__5E94F66B" Association="Self.FK__RolesForM__RoleI__5E94F66B">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolesForMessage" EntitySet="RolesForMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdvanceExtension_ChangedBy" Association="Self.FK_AdvanceExtension_ChangedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AdvanceExtension" EntitySet="AdvanceExtension" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdvanceExtension_CompanyInfo" Association="Self.FK_AdvanceExtension_CompanyInfo">
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+      <End Role="AdvanceExtension" EntitySet="AdvanceExtension" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ChangedByUser" Association="Self.FK_CompanyInfo_ChangedByUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactAnalys" Association="Self.FK_CompanyInfo_ContactAnalys">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactLeverantörsinformation" Association="Self.FK_CompanyInfo_ContactLeverantörsinformation">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactWebstyrning" Association="Self.FK_CompanyInfo_ContactWebstyrning">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfosInRoles_CompanyInfo" Association="Self.FK_CompanyInfosInRoles_CompanyInfo">
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+      <End Role="CompanyInfosInRoles" EntitySet="CompanyInfosInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfosInRoles_Role" Association="Self.FK_CompanyInfosInRoles_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="CompanyInfosInRoles" EntitySet="CompanyInfosInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInfo_ChangedBy" Association="Self.FK_GroupInfo_ChangedBy">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="GroupInfo" EntitySet="GroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IncludedRole_BaseRole" Association="Self.FK_IncludedRole_BaseRole">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="IncludedRole" EntitySet="IncludedRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IncludedRole_IncludedRole" Association="Self.FK_IncludedRole_IncludedRole">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="IncludedRole" EntitySet="IncludedRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_ChangedByUser" Association="Self.FK_User_ChangedByUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Users1" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAdvanceNumbers_AdvanceExtension" Association="Self.FK_UserAdvanceNumbers_AdvanceExtension">
+      <End Role="AdvanceExtension" EntitySet="AdvanceExtension" />
+      <End Role="UserAdvanceNumbers" EntitySet="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAdvanceNumbers_ChangedByUser" Association="Self.FK_UserAdvanceNumbers_ChangedByUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserAdvanceNumbers" EntitySet="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAdvanceNumbers_Webb_Users_Login" Association="Self.FK_UserAdvanceNumbers_Webb_Users_Login">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserAdvanceNumbers" EntitySet="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersInRoles_Role" Association="Self.FK_UsersInRoles_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersInRoles_Users" Association="Self.FK_UsersInRoles_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Webb_Users_Org_Webb_Users_Koncern" Association="Self.FK_Webb_Users_Org_Webb_Users_Koncern">
+      <End Role="GroupInfo" EntitySet="GroupInfo" />
+      <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,176 @@
+/*------------------------------------*\
+    $TABLE
+\*------------------------------------*/
+
+
+// Table implementation
+.tsBodyText table {
+  .bodyTextTable;
+  .bodyTextTableFontStyles;
+}
+
+
+
+
+.tsBodyText table.tsTableCols2up th,
+.tsBodyText table.tsTableCols2up td {
+    width: 50%
+}
+
+.tsBodyText table.tsTableCols3up th,
+.tsBodyText table.tsTableCols3up td {
+    width: 33.3333%
+}
+
+.tsBodyText table.tsTableCols4up th,
+.tsBodyText table.tsTableCols4up td {
+    width: 25%
+}
+
+.tsBodyText table.tsTableCols5up th,
+.tsBodyText table.tsTableCols5up td {
+    width: 20%
+}
+
+.tsBodyText table.tsTableCols6up th,
+.tsBodyText table.tsTableCols6up td {
+    width: 16.6666%
+}
+
+
+
+
+
+// Overrides
+
+.tsBodyText .tsTable th,
+.tsBodyText .tsTable--alt th {
+	color: @black; // overrides @purple
+}
+
+.tsBodyText .tsTable tr:nth-child(even) > td,
+.tsBodyText .tsTable--alt tr:nth-child(even) > td {
+	background: transparent; // overrides @darknearwhite;
+}
+
+.tsBodyText .tsTable td,
+.tsBodyText .tsTable--alt td {
+    .padding(all;@gutter/4;@gutter/2;@gutter/4;@gutter/2;);
+    .font-size(lineheight;16;22);
+}
+
+
+.tsTableContainer {
+    float: left;
+    width: 100%;
+    .padding(topbottom;25;@gutter-double);
+}
+
+.tsTable-heading {
+    .padding(bottom;@gutter);
+    font-weight: 400;
+}
+
+.tsTable2Col, .tsTable3Col {
+    .margin(top;10);
+    tr {
+        td {
+            .padding(all;@gutter/4;@gutter*3;@gutter/4;0);
+            &:last-child {
+                .padding(right;0);
+            }
+        }
+    }
+}
+
+.tsTable-fullWidth {
+    width: 100%;
+    &.tsTable2Col {
+        tr {
+            td {
+                &:first-child {
+                    width: 230px;
+                }
+            }
+        }
+    }
+    .pullRight {
+        float: right;
+    }
+    .tsButton-wrapper {
+        .margin(top;5);
+    }
+    .tsButton-wrapper--marginTopBottom {
+        .margin(topbottom;5;5);
+    }
+}
+
+/*
+
+
+.tsTable {
+	table-layout: fixed;
+	width: 100%;
+	.margin(bottom;@gutter);
+	thead {
+		display: none;
+	}
+	tbody {
+		td {
+			display: block;
+			position: relative;
+			text-align: right;
+			&:first-child {
+				border-top: 1px solid @lighterclay;
+				.margin(top;10);
+				.padding(top;10);
+			}
+			overflow: hidden;
+			&:before {
+				content: attr(data-label);
+				position: absolute;
+				left: 0;
+			}
+		}
+		tr[data-url] {
+			cursor: pointer;
+		}
+	}
+}
+
+.tsTable--alt-wrapper {
+	.h1:not(:first-child) {
+		.margin(top;60);
+	}
+	.h4 {
+		.margin(topbottom;@gutter-double;28);
+		color:@darkgrey;
+		.font-size(20);
+	}
+}
+.tsTable--alt {
+	table-layout: fixed;
+	width: 100%;
+	.margin(bottom;@gutter);
+	max-width: @text-area-maxwidth;
+	tr:nth-child(even) {
+		td {
+			background: @darknearwhite;
+		}
+	}
+	td {
+		text-align: left;
+		.padding(topbottom;2;2);
+		color: @darkgrey;
+		.font-size(20);
+	}
+
+	th{
+		color:@purple;
+		text-align: left;
+		.font-size(20);
+	}
+}
+
+
+*/

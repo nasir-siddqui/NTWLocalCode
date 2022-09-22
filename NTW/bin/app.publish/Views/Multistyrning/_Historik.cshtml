@@ -1,0 +1,25 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning
+@model List<MultistyrningHistorikRow>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+    <caption>Historik</caption>
+    <thead>
+        <tr>
+            <th>Multistyrning</th>
+            <th>Begärt</th>
+            <th>Verkställd</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MultistyrningHistorikRow historikRow in Model)
+        {
+            <tr>
+                <td>@historikRow.Multistyrning</td>
+                <td>@historikRow.Begärt</td>
+                <td>@historikRow.Verkställd</td>
+                <td>@historikRow.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

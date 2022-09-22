@@ -1,0 +1,315 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+.tsCollapse-button-wrapper {
+	.clearfix();
+}
+.tsCollapse-button {
+	background: none;
+	border: 0 none;
+	padding: 0;
+	color: @purple;
+	float: right;
+	i {
+		.font-size(lineheight;24;42);
+		width: 42px;
+	}
+	&:hover, &.active {
+		background: @darkestpurple;
+		color: @white;
+	}
+}
+
+
+.tsTable {
+	table-layout: fixed;
+	width: 100%;
+	.margin(bottom;@gutter);
+	thead {
+		display: none;
+	}
+	tbody {
+		td {
+			display: block;
+			position: relative;
+			text-align: right;
+            .padding(all;@gutter/4);
+			&:first-child {
+				border-top: 1px solid @lighterclay;
+				.margin(top;10);
+			}
+			overflow: hidden;
+			&:before {
+				content: attr(data-label);
+				position: absolute;
+				left: 0;
+			}
+		}
+		tr[data-url], tr[data-toggle] {
+			cursor: pointer;
+		}
+        tr.tsTable-linkedRow {
+            cursor: pointer;
+        }
+	}
+}
+.tsTable-datatable-wrapper {
+	.clearfix();
+}
+
+.tsTable-datatable-hide {
+	display: none;
+}
+
+.tsTable-select-title {
+	line-height: 4rem;
+	line-height: 40px;
+}
+
+.tsTable-toggle-button {
+    float: right;
+	color: @turq;
+	&:hover, &.active {
+		background: @darkerturq;
+	}
+}
+
+.tsTable-menu {
+	display: none;
+	.margin(leftright;0;0);
+	.tsTable-menu-inner {
+		background: @darkerturq;
+		.padding(all;10);
+	}
+	ul {
+		.l-list();
+	}
+	ul li {
+		.margin(bottom;2);
+	}
+	li a {
+		background: @turq;
+		color: @white;
+		.padding(all;9;10;9;10);
+
+		display: block;
+	}
+	li.active a {
+		background: @darkturq;
+	}
+	.tsTable-datatable-search {
+		position: relative;
+		.margin(bottom;2);
+		input {
+			border: 1px solid @searchtextboxcolor;//@bordercolor-light;
+			background-color: @nearwhite;
+			.padding(all;6;40;6;10);
+			width: 100%;
+			height: 38px;
+			min-width: 200px;
+			.font-size(17);
+			color: @black;
+		}
+		i {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			display: block;
+			height: 37px;
+			width: 37px;
+			overflow: hidden;
+			background-color: transparent;
+			color: @clay;
+			.font-size(lineheight;24;38);
+            margin-top: -19px;
+		}
+	}
+}
+
+/*
+.tsTable-selector, .tsTable-datatable-filters {
+	display: none;
+	ul {
+		display: block;
+		li {
+			display: block;
+*/
+
+.js .tsTable-select caption {
+	display: none;
+}
+
+
+
+
+
+
+//Table with hidden rows
+.tsTable-hiddenRows {
+    tbody {
+        tr {
+            td.center {
+                text-align: center;
+            }
+            .details {
+                .padding(all;5;10;10;30);
+                .tsTable-detailedTable-row {
+                    border-bottom: 1px solid @lightergrey;
+                    &:last-child {
+                        border: none;
+                    }
+                    td {
+                        border: none;
+                        height: 20px;
+                        .padding(topbottom;10;10);
+                        &:last-child {
+                            //.padding(right;380);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .tscAreaLoading {
+        .padding(topbottom;@gutter;@gutter);
+        text-align: center;
+    }
+}
+
+
+.tsTable.tsTable-horizontal.tsTable-hiddenRows {
+    white-space: normal;
+    thead {
+        th {
+            width: auto !important;
+        }
+    }
+}
+
+.tsTable.tsTable-horizontal {
+    tbody {
+        tr {
+            td.tsTable-hiddenContainer {
+                padding: 0px;
+                margin-bottom: 0px;
+                overflow: visible;
+
+            }
+        }
+    }
+}
+
+.tsTable-withDropdown {
+    .tseDropdown, .tseDropdown--small {
+        float: left;
+        .tseDropdown-list {
+            .margin(top;-1);
+            display: none;
+            .tseDropdown-listItem {
+                display: block;
+                .padding(all;11;24;12;11);
+                .margin(all;0);
+            }
+        }
+    }
+    .tseDropdown--small {
+        .tseDropdown-list {
+            .tseDropdown-listItem {
+                .padding(all;5;24;5;11);
+            }
+        }
+    }
+    .tsTable-datatable-top {
+        .tsTable-datatable-filters {
+            ul {
+                margin: auto;
+            }
+        }
+    }
+    .tsTable-menu-selectDropdown {
+        position: relative;
+        .tseDropdown--small {
+            /*position: absolute;
+            top: 0;
+            left: 0;*/
+            .margin(right;@gutter);
+        }
+        .tseDropdown--small[data-dropdownfilter="true"] {
+            position: relative;
+            float: left;
+            margin: 0;
+        }
+    }
+    .tsTable-datatable-filterTabs {
+        margin: auto;
+        float: none;
+    }
+}
+
+.tsTable-wrapper {
+    .centeredButton {
+        [class^=tsBtn] [class^=tsIcon] {
+            border-radius: 0;
+            .margin(left;5);
+            .margin(top;0);
+            background: none;
+        }
+    }
+}
+
+
+
+//Alternative table
+.tsTable--alt {
+	max-width: @text-area-maxwidth;
+}
+.tsTable--alt td span {
+	display: block;
+}
+.tsTable--alt a {
+	color: @textcolor;
+}
+.tsTable--alt thead th:last-child,
+.tsTable--alt tbody td:last-child {
+	display: none;
+}
+.tsTable--alt tbody td {
+	.padding(leftright;@gutter-half;@gutter-half);
+	.padding(bottom;@gutter-half);
+}
+
+.tsTable--alt tbody td:before {
+	content: attr(data-label);
+	left: 10px;
+	font-weight: bold;
+}
+
+
+
+/*------------------------------------*\
+    $COLLAPSIBLE TABLE
+\*------------------------------------*/
+
+[class*="tsTableResponsive"] {
+  .bodyTextTable;
+  .tableResponsive;
+ 
+}
+
+[class*="tsTableResponsive"][class*="--VerticalStripes"] {
+  .tableResponsiveVerticalStripes;
+}
+
+
+

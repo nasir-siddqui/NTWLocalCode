@@ -1,0 +1,120 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * CONFIGURE...........Configure
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $CONFIGURE
+\*------------------------------------*/
+
+.tsConfigure-container {
+    .tsAccountInformation-detailedInfo-item {
+        .margin(bottom;0);
+    }
+    .tscForm {
+        .tscForm-group {
+            .margin(bottom;@gutter*2);
+        }
+        .tscForm-header {
+            .margin(left;0);
+        }    
+    }
+    td.tsResetPassword {
+        a {
+            .margin(left;40);
+        }
+    }
+}
+
+.tsConfigure {
+    .tsPageSection-heading {
+        .margin(bottom;0);
+    }
+    .tsAccordionContainer {
+        .padding(all;20;20;40;20);
+        .tseDropdown {
+            .padding(right;15);
+        }
+    }
+    .tsAccordion-listContainer {
+        & > ul {
+            float: left;
+            width: 100%;
+            border-top: 1px solid @lightergrey;
+            border-bottom: 1px solid @lightergrey;
+        }
+        .tsAccordion-list-item {
+            .padding(left;35);
+        }
+    }
+
+    .tsIconBackground {
+        .icon-background(25;@lightgrey);
+        .border-radius(5px);
+        cursor: pointer;
+        float: left;
+        position: relative;
+        top: 13px;
+        left: 10px;
+        i {
+            display: none;
+        }
+        &.semichecked {
+            background-color: @lightgrey;
+            i {
+                color: @turq;
+                display: block;
+            }
+        }
+        &.checked {
+            background-color: @turq;
+            border: none;
+            i {
+                color: @white;
+                display: block;
+            }
+        }
+    }
+    .tsTable {
+        thead {
+            th {
+                cursor: auto;
+            }
+        }
+    }
+    .switchList {
+        .tsAccordion-list-item {
+            cursor: auto;
+            position: relative;
+        }
+    }
+    .tsSwitch {
+        position: absolute;
+        .margin(top;12);
+    }
+}
+
+.tsConfigure-resetContainer {
+    position: relative;
+}
+
+.tsConfigure-reset {
+    text-align: center; 
+    .padding(all;15);
+    background-color: @darknearwhite;
+}
+
+.tsConfigure-reset-buttonContainer {
+    .tsBtn {
+        .margin(bottom;5);
+    }
+}

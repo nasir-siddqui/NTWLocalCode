@@ -1,0 +1,131 @@
+{
+    "count": 10606, 
+    "language": "en_US", 
+    "product_names": [
+        {
+            "count": 10606, 
+            "name": "Apple iPod nano (7th generation)"
+        }
+    ], 
+    "label": "Apple iPod nano (7th generation)", 
+    "products": [
+        {
+            "count": 10606, 
+            "alid": "99"
+        }
+    ], 
+    "feature_ratings": [
+        {
+            "count": 4102, 
+            "label": "usability", 
+            "feature_id": 17, 
+            "score": 0.9322281813749391, 
+            "positive_count": 3824, 
+            "negative_count": 278
+        }, 
+        {
+            "count": 1573, 
+            "label": "portability", 
+            "feature_id": 59, 
+            "score": 0.9523204068658614, 
+            "positive_count": 1498, 
+            "negative_count": 75
+        }, 
+        {
+            "count": 1038, 
+            "label": "sound", 
+            "feature_id": 49, 
+            "score": 0.9701348747591523, 
+            "positive_count": 1007, 
+            "negative_count": 31
+        }, 
+        {
+            "count": 1029, 
+            "label": "size", 
+            "feature_id": 60, 
+            "score": 0.8639455782312926, 
+            "positive_count": 889, 
+            "negative_count": 140
+        }, 
+        {
+            "count": 832, 
+            "label": "value for money", 
+            "feature_id": 20, 
+            "score": 0.6923076923076923, 
+            "positive_count": 576, 
+            "negative_count": 256
+        }, 
+        {
+            "count": 495, 
+            "label": "design", 
+            "feature_id": 19, 
+            "score": 0.9494949494949495, 
+            "positive_count": 470, 
+            "negative_count": 25
+        }, 
+        {
+            "count": 481, 
+            "label": "battery", 
+            "feature_id": 28, 
+            "score": 0.6548856548856549, 
+            "positive_count": 315, 
+            "negative_count": 166
+        }, 
+        {
+            "count": 223, 
+            "label": "build quality", 
+            "feature_id": 39, 
+            "score": 0.6995515695067265, 
+            "positive_count": 156, 
+            "negative_count": 67
+        }, 
+        {
+            "count": 190, 
+            "label": "storage", 
+            "feature_id": 67, 
+            "score": 0.8842105263157894, 
+            "positive_count": 168, 
+            "negative_count": 22
+        }, 
+        {
+            "count": 180, 
+            "label": "reliability", 
+            "feature_id": 65, 
+            "score": 0.40555555555555556, 
+            "positive_count": 73, 
+            "negative_count": 107
+        }, 
+        {
+            "count": 152, 
+            "label": "performance", 
+            "feature_id": 14, 
+            "score": 0.9276315789473684, 
+            "positive_count": 141, 
+            "negative_count": 11
+        }, 
+        {
+            "count": 149, 
+            "label": "headphones", 
+            "feature_id": 100, 
+            "score": 0.8523489932885906, 
+            "positive_count": 127, 
+            "negative_count": 22
+        }, 
+        {
+            "count": 127, 
+            "label": "memory", 
+            "feature_id": 30, 
+            "score": 0.7795275590551181, 
+            "positive_count": 99, 
+            "negative_count": 28
+        }, 
+        {
+            "count": 35, 
+            "label": "connectivity", 
+            "feature_id": 37, 
+            "score": 0.6, 
+            "positive_count": 21, 
+            "negative_count": 14
+        }
+    ]
+}

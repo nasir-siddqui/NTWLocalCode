@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * LOGO................Logotype
+ * PRIMARY-NAVIGATION..
+ * SEARCH..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $LOGO
+\*------------------------------------*/
+
+.tsLogo {
+    position: relative;
+    z-index: 1000;
+    .margin(right,@gutter);
+    .vertical-space(bottom);
+    display: inline-block;
+}
+
+.tsLogo img {
+    width: 118px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PRIMARY-NAVIGATION
+\*------------------------------------*/
+
+.is-disabled .tsIcon-ArrowDown2 {
+    display: none;
+}
+
+.tsNavPrimary-Tabs .tsIcon-ArrowDown2 {
+    display: none;
+}
+
+.tsNavPrimary-Tabs {
+    display: none;
+}
+
+.tsNavPrimary {
+    position: relative;
+}
+
+
+// *** Top level
+
+.tsNavPrimary-TopLevel,
+.tsNavPrimary-SubLevel-list {
+    .l-list;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(16);
+    font-weight: bold;
+}
+
+
+// *** Sub level
+
+.tsNavPrimary-SubLevelLabel [class*='tsIcon-']:before,
+.tsNavPrimary-SubLevelLabel [class^='tsIcon-']:before {
+        display: none;
+}
+
+.tsNavPrimary-InnerClose,
+.tsNavPrimary-close {
+    .tsWrapInner;
+    text-align: center;
+    cursor: pointer;
+    
+//    &:hover {
+//        background-color: @lightergrey;
+//    }
+    
+    a {
+        .font-size(12);
+        .padding(all;@gutter-half);
+        .inline-block;
+        color: @lightgrey;
+    }
+    
+    a:hover {
+        background-color: @lightergrey;
+        text-decoration: none;
+    }
+    
+    i {
+        .font-size(8); 
+        .padding(all;4);
+        .margin(left;@gutter-half/2);
+    }
+}
+
+.tsNavPrimary-close {
+    display: none !important;
+}
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    font-style: italic;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+.tsHeader-Search.tsHeader-Search-alternate {
+	width: 42px;
+}
+
+
+.tsSearch-form-label {
+    display: block;
+}
+
+.tsIcon-Search {
+//    display: none;
+}
+
+

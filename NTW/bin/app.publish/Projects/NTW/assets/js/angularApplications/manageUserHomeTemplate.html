@@ -1,0 +1,80 @@
+<div ng-if="errorMessage" class="tsAttention--Panic" ts-full-container="">
+    <div class="tsAttention-Message tsWrapInner">
+        <i class="tsIcon-Panic"></i>
+        <p>
+            <strong class="tsAttention-heading">{{ translation.translate("ERROR_HEADLINE") }}</strong>
+            <span>{{errorMessage}}</span>
+        </p>
+    </div>
+</div>
+<div ng-hide="closeAttention" class="tsAttention--Info">
+    <div class="tsAttention-Message tsAttention-MessageClosable tsWrapInner">
+        <i class="tsIcon-Information"></i>
+        <p>
+            <a class="tsAttention-closeMessage" ng-click="closeAttention = true"><span>{{ translation.translate("CLOSE") }}</span> <i class="tsIcon-Close"></i></a>
+            <span>{{ translation.translate("MODIFY_ROLES") }}</span>
+        </p>
+    </div>
+</div>
+<div class="tsWrapInner">
+    <div class="tscArea tsBorderTop tsBorderBottom tsMarginTop--doubleGutter tsMarginBottom">
+        <div class="tscInlineRow">
+            <div>
+                <i class="tsIcon-Profile"></i>
+            </div>
+            <div class="tscInlineRow-main">
+                <h4 class="h4 normal grey">{{ translation.translate("PERSONAL_INFO") }}</h4>
+                <h1 class="h1">{{ user.firstName }} {{ user.lastName }}</h1>
+            </div>
+      </div>
+    </div>
+
+    <div ng-if="!user" class='tscLoading--Full'>
+        <div class='tsLoading-icon-large'></div>
+    </div>
+
+    <div ng-if="user">
+        <ul class="tscList">
+            <li class="tscInfoRow">
+                <span>{{ translation.translate("MOBILE") }}</span>
+                <span>{{ user.mobileNumber }}</span>
+            </li>
+            <li class="tscInfoRow">
+                <span>{{ translation.translate("EMAIL") }}</span>
+                <span>{{ user.emailAddress }}</span>
+            </li>
+            <li class="tscInfoRow">
+                <span>{{ translation.translate("LANGUAGE") }}</span>
+                <select ts-select="tseSelect--Normal--Narrow"> <!--  TODO: Hur sparar vi detta? -->
+                    <option>Svenska</option>
+                    <option>English</option>
+                </select>
+            </li>
+        </ul>
+    </div>
+
+    <div ng-if="user" class="tsMarginTop tsMarginBottom">
+        <!-- Combine roles -->
+        <div ts-combine-roles
+            data-header-text='ADD_ROLES_HEADLINE'
+            data-add-text="ADD_ROLE">
+        </div>
+
+        <!-- END: Combine roles -->
+    </div>
+    
+    <div class="row">
+        <div class="tsMarginTop tsPullLeft col-md-12">
+            <!-- Access List -->
+            <h2 class="h2">{{ translation.translate("PORTAL_ACCESS") }}</h2>
+            <div ts-access-list="" data-read-only="true" data-full-access-text='FULL_ACCESS' data-partial-access-text='PARTIAL_ACCESS' data-no-access-text='NO_ACCESS'>
+            </div>
+            <!-- END: Access List -->
+        </div>
+    </div>
+
+    <div class="tscButtonContainer--Full tsBorderTop tsPaddingTop--doubleGutter tsMarginTop">
+        <button class="tsBtn--Normal--Regular" ng-click="next()" ng-disabled="!puiIsSelected">{{ translation.translate("NEXT") }}</button>
+        <p class="tsMarginTop--halfGutter center"><a href ng-click="abort()"><strong>{{ translation.translate("CANCEL") }}</strong></a></p>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Sigma.Utils.Helpers
+@model string
+
+@{
+    var fullOrHalfClass =
+        (ViewData["Half"] != null && (bool)ViewData["Half"])
+        || (ViewData["Full"] != null && !(bool)ViewData["Full"])
+            ? "tseTextField--Normal--Half--Inline"
+            : "tseTextField--Normal--Full--Half";
+
+	var textBoxHtmlAttributesFromView = ViewData["HtmlAttributes"];
+	IDictionary<string, object> textBoxHtmlAttributes;
+	if (textBoxHtmlAttributesFromView != null)
+	{
+		textBoxHtmlAttributes = PropertyHelper.ToDictionary<object>(textBoxHtmlAttributesFromView);
+	}
+	else
+	{
+		textBoxHtmlAttributes = new Dictionary<string, object>();
+	}
+
+	textBoxHtmlAttributes.Add("class", "tseInput");
+	textBoxHtmlAttributes.Add("type", "text");
+}
+
+<div class="@fullOrHalfClass tsMarginTop">
+	@Html.LabelForV2(m => m, new { @class = "tscForm-label" })
+	@Html.TextBoxFor(m => m, textBoxHtmlAttributes)
+	@Html.ValidationMessageFor(m => m)
+</div>

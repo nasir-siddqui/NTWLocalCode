@@ -1,0 +1,46 @@
+﻿@model Telia.NTW.OMT.ViewModels.OMTUserViewModel
+
+@{
+	ViewBag.Title = "Lägg till eller ändra användare i Nummertjänster Webb";
+	Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+	var skapaOrRedigera = Model.UserId == null ? "Skapa" : "Redigera";
+	var submitValue = Model.UserId == null ? "Skapa" : "Uppdatera";
+}
+
+<div class="tsWrapInner">
+	<div class="tsBodyText tsMarginTop">
+		<h1 class="h1">Nummertjänster Webb: @skapaOrRedigera användare</h1>
+		<p>
+			Här kan du @skapaOrRedigera användare i Nummertjänster Webb.
+		</p>
+	</div>
+
+	@using (Html.BeginForm())
+	{
+		@Html.HiddenFor(m => m.UserId)
+		@Html.HiddenFor(m => m.Username)
+
+		@Html.EditorFor(m => m.AnvändarID, "TeliaTextField", new {HtmlAttributes = new {Readonly = "readonly"}})
+		@Html.EditorFor(m => m.Organisationsnummer, "TeliaTextField")
+		@Html.EditorFor(m => m.Namn, "TeliaTextField")
+		@Html.EditorFor(m => m.Email, "TeliaTextField")
+		@Html.EditorFor(m => m.Telefon, "TeliaTextField")
+
+		<div class="tseTextField tsMarginTop">
+			<label class="tscForm-label">Roller:</label>
+		</div>
+		<div class="col-md-12 tscForm-row tsMarginBottom--doubleGutter">
+			<div class="tscForm-inputContainer">
+				@Html.EditorFor(m => m.UserAnalys, "TeliaCheckbox")
+				@Html.EditorFor(m => m.UserWebbstyrningLäs, "TeliaCheckbox")
+				@Html.EditorFor(m => m.UserWebbstyrningSkriv, "TeliaCheckbox")
+				@Html.EditorFor(m => m.UserMultistyrning, "TeliaCheckbox")
+				@Html.EditorFor(m => m.UserLeverantörsinformation, "TeliaCheckbox")
+			</div>
+		</div>
+
+		<div class="tsMarginTop tsMarginBottom--doubleGutter">
+			<input type="submit" value="@submitValue" class="tsBtn--Regular" />
+		</div>
+	}
+</div>

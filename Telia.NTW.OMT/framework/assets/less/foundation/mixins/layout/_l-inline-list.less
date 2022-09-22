@@ -1,0 +1,28 @@
+// Layouts list items horisontally
+// Prevents inline list elements with display: inline-block from having the "3px horisontal bug"
+.l-inline-list(@font-size: @basefontsize, @vertical-align: top) {
+  .l-list;
+	font-size: 0;
+	letter-spacing: -1em;
+	& > li {
+        .inline-block;
+        vertical-align: @vertical-align;
+        .font-size(@font-size);
+        letter-spacing: normal;
+	}
+}
+
+
+
+// An alternative, where any element inside a container may be layouted inline
+
+.l-inline-elements(@font-size: @basefontsize, @vertical-align: top) {
+	font-size: 0;
+	letter-spacing: -1em;
+	& > * {
+        .inline-block;
+        vertical-align: @vertical-align;
+        .font-size(@font-size);
+        letter-spacing: normal;
+	}
+}

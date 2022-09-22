@@ -1,0 +1,30 @@
+.tsInlineFeedback {
+	.margin(all;5;0;5;0);
+	display: none;
+}
+
+.tsInlineFeedback-error {
+	color: red;
+}
+
+.tsInlineFeedback-success,
+.tsInlineFeedback-verified,
+.tsInlineFeedback-verifiedNumber { 
+	display: block;
+	
+	.tsIcon-Check {
+		color: @darkerturq;
+		.font-size(14);
+		.margin(left;5);
+		font-weight: bold;
+	}
+}
+
+.tsInlineFeedback-verifiedNumber,
+.tsInlineFeedback-verified {
+	.font-size(16);
+	font-weight: bold;
+	.margin(topbottom;@gutter-half;@gutter-half);
+}
+
+// remove class .tsInlineFeedback-verifiedNumber when changed in magnolia

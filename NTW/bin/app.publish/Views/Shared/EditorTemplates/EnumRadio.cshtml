@@ -1,0 +1,15 @@
+﻿@model Enum
+
+@{
+	var items = Enum.GetValues(Model.GetType()).Cast<Enum>().ToList().Select((value, i) => new { i, value });
+	var name = Model.GetType().Name;
+}
+
+@foreach (var item in items)
+{
+	var radiobuttonAttributes = Model.ToString() == item.value.ToString() ?
+		   (object)new { @id = String.Format("{0}{1}", name, item.i), @checked = "checked" } :
+		   (object)new { @id = String.Format("{0}{1}", name, item.i) };
+	@Html.RadioButtonFor(m => m, item.value, radiobuttonAttributes)
+	@Html.LabelFor(m => m, item.value.ToString(), new { @for = String.Format("{0}{1}", name, item.i), @class = "tsMarginRight" })
+}

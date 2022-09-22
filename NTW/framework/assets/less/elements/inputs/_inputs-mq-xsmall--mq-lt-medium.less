@@ -1,0 +1,14 @@
+// Use the --Switch modifier to switch presentation to --Button style in xsmall and small	
+[class^="tseRadioBox"][class*="--Switch"] {
+		.radio-box-button;
+}
+
+// Fresh Turquoise
+[class^="tseRadioBox"][class*="--Switch"][class*="--ColorNavigation"] {
+		.radio-box-button(@background-color:@turq;@selectedcolor:@darkturq);
+}
+
+// Blushing Pink
+[class^="tseRadioBox"][class*="--Switch"][class*="--ColorPrimary"] {
+		.radio-box-button(@background-color:@pink;@selectedcolor:@darkpink);
+}

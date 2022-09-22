@@ -1,0 +1,34 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.KöEditViewModel
+
+@{
+    ViewBag.Title = "Schemalägg styrningsändring";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Webbstyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>@Html.ActionLink(@Model.Abonnemang, "Abonnemang", new {serviceId = @Model.ServiceId, customerId = @Model.CustomerId, abonnemang = @Model.Abonnemang})<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Schemalägg styrningsändring</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1>Schemalägg styrningsändring</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        <div class="tsMarginTop">
+            @Html.Partial("_Kö_EditForm", Model)
+
+	        <div class="tsMarginTop">
+		        @Html.ActionLink("Avbryt", "Abonnemang", new { serviceId = @Model.ServiceId, customerId = @Model.CustomerId, abonnemang = @Model.Abonnemang }, new { @class = "tsBtn--Regular" })
+		        @*		        @Html.ActionLink("Avbryt", "Webbstyrning", "Webstyrning", new { @class = "tsBtn--Regular" })*@
+		        <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Skapa" />
+	        </div>
+
+        </div>
+    }
+</div>

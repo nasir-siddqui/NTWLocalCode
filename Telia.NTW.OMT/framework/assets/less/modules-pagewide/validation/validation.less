@@ -1,0 +1,138 @@
+/* where is this used? */
+label.error {
+	border-bottom: 1px solid @validationerror;
+	width: 100%;
+}
+
+
+input[type="text"].ng-dirty.ng-invalid,
+input[type="number"].ng-dirty.ng-invalid, 
+input[type="email"].ng-dirty.ng-invalid,
+input[type="password"].ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid
+{
+	border: 1px solid @validationerror;
+}
+input[type="text"].error,
+input[type="number"].error, 
+input[type="email"].error,
+input[type="password"].error,
+textarea.error {
+	border: 1px solid @validationerror!important;
+}
+.tsValidation-error,
+.tsValidation-info,
+.tsValidation-ok {
+	display: block;
+	padding: 4px 0;	
+}
+
+.tsValidation-icon {
+	.font-size(30);		
+	display: table-cell;
+	vertical-align: middle;
+	.padding(right;@gutter-half);
+}
+
+.tsValidation-msg {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+.tsValidation-error {
+	color: @validationerror;
+	line-height: 1.2;
+	
+	a {
+		color: @validationerror !important; 
+	}
+	.tsValidation-icon {
+		color: @validationerror;
+	}
+}
+
+
+.tsValidation-info {
+	background: @white;
+	border: 1px solid @validationinfo;
+	a {
+		color: @validationinfo !important; 
+	}
+	.tsValidation-icon {
+		color: @validationinfo;
+	}
+}
+
+.tsValidation-ok {
+	background: @white;
+	border: 1px solid @validationok;
+	a {
+		color: @validationok !important; ; 
+	}
+	.tsValidation-icon {
+		color: @validationok;
+	}
+}
+
+.tsError,
+[class*="tsError--"],
+.tsVerification,
+[class*="tsVerification--"],
+.tsInfo,
+[class*="tsInfo--"]{
+	.border-radius(3px);
+	line-height: 1.4;
+	color: @darkergrey;
+	padding: 10px;
+	display: table;
+	width: 100%;
+	max-width: 300px;
+	
+	.message{
+		display: table-cell;
+		vertical-align: top;
+	}
+	
+	[class*="tsIcon"]{
+		padding-left: 10px;
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.tsError,
+[class*="tsError--"]{
+	background: lighten(@validationerror,42%);
+	border: 1px solid @validationerror;
+
+	[class*="tsIcon"]{
+		color: @validationerror;
+	}
+}
+.tsVerification,
+[class*="tsVerification--"]{
+	background: @verificationbackground;
+	border: 1px solid @verification;
+
+	[class*="tsIcon"]{
+		color: @verification;
+	}
+}
+[class*="tsError"][class*="--Full"],
+[class*="tsVerification--"][class*="--Full"]{
+	max-width: none;
+}
+
+.tsInfo {
+	background: @infobackground;
+	border: 1px solid @info;
+	[class*="tsIcon"]{
+		color: @info;
+	}
+	
+	
+}
+
+
+

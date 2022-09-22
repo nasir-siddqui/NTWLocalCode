@@ -1,0 +1,85 @@
+<div class="tsForm" ts-validator>
+    <div class="tsWrapInner">
+	   create group
+
+        <div class="tsMarginTop tsPaddingTop tsBorderTop">
+            <h2 class="h2">{{ translationGroup.translate("GROUP_FORM_TITLE") }}</h2>
+            <ul class="tscList tsPaddingTop">
+                <form name="groupInformationForm">
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_NAME") }}</span>
+                    <div>
+                        <input class="tseInput" name="name_field" type="text" ng-model="organizationCustom.name" require ng-pattern="/\S/"/>
+                        <div><span class="error" ng-show="groupInformationForm.name_field.$error.pattern">Ett namn måste anges</span></div>
+                    </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_PHONE") }}</span>
+                    <div>
+                        <input class="tseInput" name="phone_field" type="text" ng-model="organizationCustom.phone" require ng-pattern=""/>
+                    <div><span class="error" ng-show="groupInformationForm.phone_field.$error.pattern">Inte ett giltligt telefonnummer!</span></div>
+                </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_WEBSITE") }}</span>
+                    <div>
+                        <input class="tseInput" type="input" ng-model="organizationCustom.website"/>
+                    </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_COST") }}</span>
+                    <div>
+                        <input class="tseInput" type="input" ng-model="organizationCustom.cost"/>
+                    </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_AF_NUMBER") }}</span>
+                    <div>
+                        <input class="tseInput" type="input" ng-model="organizationCustom.afNumber"/>
+                    </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_CONTACT_PERSON") }}</span>
+                    <div>
+                        <input class="tseInput" type="input" ng-model="organizationCustom.contactPerson"/>
+                    </div>
+                </li>
+                <li class="tscInfoRow">
+                    <span>{{ translationGroup.translate("GROUP_FORM_PROFITABILITY_SEGMENT") }}</span>
+                    <div>
+                        <select ts-select="tseSelect--Normal--Narrow" ng-model="organizationCustom.profitabilitySegment">
+                            <option value="null">Inget valt</option>
+                            <option>Retail</option>
+                            <option>Something else</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Access tree -->
+<div class="tsWrapInner">
+    <div class="tsMarginTop tsPaddingTop tsBorderTop">
+        <h2 class="h2">Portal access *</h2>
+    </div>
+</div>
+<div class="tsConfigure-container tsPaddingTop">
+    <div class="tsPortalAccess">
+        <div ts-access-tree="" organization-mode="true"
+             full-access-text="Full access" partial-access-text="Partiell access" no-access-text="Ingen access"></div>
+    </div>
+</div>
+<!-- END: Access tree -->
+
+<div ts-manage-group-search class="tsMarginTop"></div>
+
+<div ts-manage-group-organisations class="tsMarginTop"></div>
+
+<div class="center tsMarginTop tsMarginBottom">
+    <input type="submit" ng-click="createMasterGroup()" class="tsBtn" value="Spara">
+</div>
+

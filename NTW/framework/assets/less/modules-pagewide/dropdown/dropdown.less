@@ -1,0 +1,138 @@
+// The structure of this module isn't clear, sgould be fixed
+// Modifiers are mixed with states, and module elements, and the LESS is too nested
+
+// .module
+// .module-moduleelement
+// .module--modifier
+// .is-disabled  <-- state, could be used as .module.is-disabled
+
+
+
+
+
+.tsDropdown {
+	min-width: 100px;
+	max-width: 175px;
+	position: relative;
+	.margin(right;5);
+	.inline-block;
+	line-height: 28px !important;
+	vertical-align: middle;
+	
+	&.open .tsDropdown-selected {
+		border-bottom: 0;
+		background: @lighterclay;
+		border-bottom: 1px solid @lighterclay;
+	}
+	
+	.tsPict-instock,
+	.tsPict-outofstock,
+	.tsPict-na {
+		position: absolute;
+		right: 10px;
+		margin-top: 11px;
+	}
+	
+	.tsPict-colorwheel {
+		margin-right: 5px;
+	}
+}
+
+.tsDropdown-disabled {
+	.opacity(0.5);
+	.tsDropdown-selected {
+		cursor: default;
+	}
+}
+
+.tsDropdown-selected {
+	position: relative;
+	z-index: 3;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	color: @darkgrey;
+	border: 1px solid @clay;
+	width: 100%;
+	font-weight: 400;
+	cursor: pointer;
+	text-align: left;
+	.font-size(16);
+	.padding(all;2;25;0;7); 
+	background: @white;
+}
+
+.tsDropdown-label {
+	overflow: hidden;
+	.inline-block;
+	max-width: 100%;
+	line-height: normal; /* bättre lösning? ff-issue */
+	margin-bottom: -3px; /* bättre lösning? ff-issue */
+}
+
+.tsDropdown-focus {
+	border: 1px solid @lightblue;
+}
+
+.tsDropdown-arrow {
+	.inline-block;
+	right: 10px;
+	top: 13px;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 4px solid @black;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 0;
+	z-index: 1;
+}
+
+.tsDropdown-list {
+	position: absolute;
+	min-width: 100%;
+	display: none;
+	border: 1px solid @clay;
+	border-top: 1px solid @white;
+	z-index: 6;
+	max-height: 250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	.margin(all;0);
+	.margin(top;-1);
+	.padding(all;0);
+	background: @white;
+	li {
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		padding: 0 7px 0 7px !important;
+		color: @darkgrey;
+		font-weight: 400;
+		width: 100%;
+		cursor: pointer;
+		text-align: left;
+		.font-size(16);
+		&:hover,
+		&.selected {
+			background-color: @lighterclay;
+		}
+		&[data-stock='na'] {
+			color: @lightgrey;
+			cursor: default;
+			&:hover {
+				background: @white;
+			}
+		}
+
+	}
+}
+
+
+.tsDropdown-colour {
+	width: 10px;
+	height: 10px;
+	.border-radius;
+	.inline-block;
+	margin-right: 5px;
+}

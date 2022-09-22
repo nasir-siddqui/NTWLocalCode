@@ -1,0 +1,171 @@
+
+
+// Introduktion to the the form
+.tsForm-intro {
+    border-bottom: 2px solid @clay;
+    .padding(topbottom;@gutter;@gutter-half);
+    .margin(bottom;@gutter-half);
+}
+
+.tsForm-header {
+    .font-size(15);
+    font-weight: bold;
+}
+
+.tsForm-ingress {
+    .font-size(12);
+    display: block;
+    margin: 0;
+    font-weight: normal;
+}
+
+.tsForm-label {
+    .font-size(12);
+    display: block;
+}
+
+[class^="tsForm"]{
+  .form();
+
+}
+
+[class^="tsForm"][class*="--alt"] {
+    max-width: 460px;
+    .margin(bottom;@gutter);
+    .h2 {
+        .margin(bottom;@gutter-half);
+    }   
+}
+[class^="tsForm"][class*="--alt"] fieldset {
+    border: none;
+    padding: 0;
+    .margin(bottom;@gutter);
+}
+
+
+/*
+[class^="tsForm"][class*="--Inline"] {
+	label { 
+		.inline-block;
+		line-height: 40px;
+		.margin(leftright;@gutter-half;@gutter-half);
+	}
+	input[type="text"],
+	input[type="number"], 
+	input[type="email"],
+	input[type="search"],
+	input[type="password"],
+	textarea { 
+		width: auto;
+		.margin(bottom;0);  
+	}
+}
+*/
+[class^="tsForm"][class*="--Inline"] {
+	label { 
+		display: block;
+		line-height: auto;
+		.margin(all;5;0);
+	}
+	input[type="text"],
+	input[type="number"], 
+	input[type="email"],
+	input[type="search"],
+	input[type="password"],
+	textarea { 
+		width: 100%;
+		.margin(bottom;@gutter-half);  
+	}
+}
+
+[class^="tsForm"][class*="--Distinct"] {
+	label {
+		color: @nearblack;
+	}
+	input[type="text"],
+	input[type="number"], 
+	input[type="email"],
+	input[type="search"],
+	input[type="password"],
+	textarea { 
+		color: @nearblack; 
+	}
+}
+
+
+[class^="tsInlineLabel"] {
+	.inline-block;
+	line-height: 40px;
+	.margin(right;@gutter-half);
+}
+
+[class^="tsInlineLabel"][class*="--Strong"] {
+ 	font-weight: bold;
+}
+
+
+.tsInfo-Wrapper {
+    padding-right: 30px;
+    position: relative;
+}
+.tsInfo-Wrapper .tsInfoPopup {
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+
+
+//TODO -->> Fix this and move
+.tsSearch-box {
+    position: relative;
+    input[type="search"]::-webkit-search-cancel-button {
+        display:none;
+    }
+    
+    a{
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px @lightgrey solid;
+        display: block;
+        height: 24px;
+        width: 24px;
+        color: @lightgrey;
+        i{
+            line-height: 15px;
+            font-size: 10px;
+            color: @lightgrey;
+            display: inline-block;
+        }
+    }
+}
+
+
+//Form validation - moved to: validation module
+
+/*
+ label.error {
+    border-bottom: 1px solid @validationerror;
+    width: 100%;
+}
+ input[type="text"].ng-dirty.ng-invalid,
+ input[type="number"].ng-dirty.ng-invalid, 
+ input[type="email"].ng-dirty.ng-invalid,
+ input[type="password"].ng-dirty.ng-invalid,
+ textarea.ng-dirty.ng-invalid,
+ input[type="text"].error,
+ input[type="number"].error, 
+ input[type="email"].error,
+ input[type="password"].error,
+ textarea.error {
+    border:1px solid @validationerror;
+}
+
+.tsValidation-error {
+    display: block;
+    color: @validationerror;
+    .margin(topbottom;-5;10);
+}
+*/

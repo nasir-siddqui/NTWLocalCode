@@ -1,0 +1,812 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS.................You’re reading it!
+ * IMPLEMENTATIONS..........Various button implementations
+ * DISABLED BUTTONS.........
+ * TOUCH-BUTTONS............For touch-enabled devices
+ * FIREFOX-FIX..............Adjustments for Firefox
+ * BUTTON-ICONS.............
+ * DEPRECATED-BUTTONS.......Buttons that are replaced with new implementations
+ * SPECIAL-IMPLEMENTATIONS..
+ */
+
+
+
+
+
+
+/*------------------------------------*\
+    $IMPLEMENTATIONS
+\*------------------------------------*/
+
+ // Default button
+ [class^="tsBtn"] {
+ 	.btn;
+ }
+
+// With border
+[class^="tsBtn"][class*="--Border"] {
+    .btn-with-border;
+}
+
+ // Primary action button
+ [class^="tsBtn"][class*="--Primary"] {
+ 	.btn-rounded;
+ 	.btn-primary-color;
+ }
+
+
+ // Secondary action button
+ [class^="tsBtn"][class*="--Secondary"] {
+ 	.btn-rounded;
+ 	.btn-secondary-color;
+ }
+
+
+ // Internal page linking, wizards back/next
+ [class^="tsBtn"][class*="--Internal"] {
+ 	.btn-internal-color;
+ }
+
+
+ // Options
+ [class^="tsBtn"][class*="--Options"] {
+    .btn-options-color;
+ }
+
+ // Critical
+ [class^="tsBtn"][class*="--Critical"] {
+    .btn-critical-color;
+ }
+
+
+
+ // Light
+ [class^="tsBtn"][class*="--Light"] {
+ 	.btn-smallsize;
+ 	.btn-rounded;
+ 	.btn-light-color;
+ 	.font-size(lineheight;14;28);
+// 	padding: 0.2rem 1rem 0.3rem 1rem;
+ 	padding: 0 1rem;
+ }
+
+
+ // Light inverted
+ [class^="tsBtn"][class*="--Light"][class*="--Inverted"] {
+ 	.btn-lightinverted-color;
+ }
+ // Light Primary
+
+  [class^="tsBtn"][class*="--Light"][class*="--Primary"] {
+     .btn-lightprimary-color;
+  }
+   // Light Primary
+  [class^="tsBtn"][class*="--Light"][class*="--Primary"][class*="--Inverted"] {
+     .btn-lightprimaryinverted-color;
+  }
+
+
+ // Multi
+ [class^="tsBtn"][class*="--Multi"] {
+ 	.unselectable;
+ }
+
+
+ // Smaller size
+ [class^="tsBtn"][class*="--Small"] {
+ 	.btn-smallsize;
+ }
+
+
+ /* Is there really a need for this? Try to be consquent! /pekkos */
+ // yes - the regular is way too big for salesflow, and the small too small.
+ // it's all according to the sketches.
+ // Medium size
+ [class^="tsBtn"][class*="--Medium"] {
+ 	.btn-mediumsize;
+ }
+
+
+ // Edit
+ [class^="tsBtn"][class*="--Edit"] {
+ 	.btn-edit;
+ }
+
+ // Justify
+ [class^="tsBtn"][class*="--Justify"] {
+    .btn-justify;
+ }
+ 
+ 
+// full width 
+[class^="tsBtn"][class*="--Fullwidth"] {
+	.btn-fullwidth;
+}
+
+[class^="tsBtn"][class*="--Inline"] {
+    .margin(right;@gutter);
+}
+[class^="tsBtn"][class*="--InlineHalf"] {
+    .margin(right;@gutter-half);
+}
+
+ // Delete
+ [class^="tsBtn"][class*="--Delete"] {
+    .btn-delete;
+ }
+ [class^="tsBtn"][class*="--Delete"][class*="--Default"] {
+    .btn-default-color;
+
+ }
+
+
+ // regular text size
+[class^="tsBtn"][class*="--Regular"] {
+    .font-size(lineheight;@basefontsize;@baselineheight);
+}
+
+// file upload button
+// <span class="tsBtn--File">
+//   <input type="file">
+//   Ladda upp fil
+// </span>
+[class^="tsBtn"][class*="--File"] {
+    overflow: hidden;
+    input[type=file] {
+        font-size: 200px;
+        top: 0;
+        right: 0;
+        position: absolute;
+        .opacity(0);
+        cursor: pointer;
+    }
+}
+
+[class^="tsBtn"][class*="--File"][disabled="disabled"] {
+    input[type=file] {
+        cursor: default;
+    }
+}
+
+.cssanimations {
+    [class^="tsBtn"][class*="--Animated"].active {
+        &:after{
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            background-image: ~"url(@{gfxurl}loading-white.png)";
+            background-size: 720px 24px; //48 * 0.5 1440 * 0.5
+            width: 24px;
+            height: 24px;
+            .margin(left;5);
+            .margin(topbottom; -4; -2);
+            -webkit-animation: play_ .8s steps(30) infinite;
+               -moz-animation: play_ .8s steps(30) infinite;
+                -ms-animation: play_ .8s steps(30) infinite;
+                 -o-animation: play_ .8s steps(30) infinite;
+                    animation: play_ .8s steps(30) infinite;
+        }
+    }
+    [class^="tsBtn"][class*="--Animated"][disabled="disabled"].active {
+        opacity: 1;
+    }
+    [class^="tsBtn"][class*="--Animated"][disabled="disabled"].finished {
+        opacity: 1;
+        cursor: default;
+    }
+}
+
+[class^="tsBtn"][class*="--Animated"].finished {
+    background-color: @blue;
+}
+
+
+/**
+ * TODO: Move these and make sure that these are imported prior to this file. / Wintzell
+ */
+@-webkit-keyframes play_ {
+   from { background-position:    0px; }
+     to { background-position: -720px; }
+}
+
+@-moz-keyframes play_ {
+   from { background-position:    0px; }
+     to { background-position: -720px; }
+}
+
+@-ms-keyframes play_ {
+   from { background-position:    0px; }
+     to { background-position: -720px; }
+}
+
+@-o-keyframes play_ {
+   from { background-position:    0px; }
+     to { background-position: -720px; }
+}
+
+@keyframes play_ {
+   from { background-position:    0px; }
+     to { background-position: -720px; }
+}
+
+/*------------------------------------*\
+      $DISABLED-BUTTONS
+\*------------------------------------*/
+
+/*[class^="tsBtn"][class*="--Disabled"],
+[aria-disabled=true],[disabled="disabled"] {
+	opacity: 0.2;
+	cursor: default;
+}*/
+[class^="tsBtn"][class*="--Disabled"],
+[class^="tsBtn"][aria-disabled=true],
+[class^="tsBtn"][disabled="disabled"],
+[class^="tsBtn"][disabled] {
+    opacity: 0.2;
+    cursor: default;
+}
+
+
+
+
+
+/*------------------------------------*\
+     $TOUCH-BUTTONS
+\*------------------------------------*/
+
+.touch [class*="tsBtn"],
+.touch .tsBtn--Primary,
+.touch .tsBtn--Secondary,
+.touch .tsBtn--Internal,
+.touch .tsBtn--Options {
+    .padding(topbottom;12;12);
+}
+
+.touch [class*="tsBtn"][class*="--Light"],
+.touch [class*="tsBtn"][class*="--filter"] {
+  .padding(topbottom;3;3);
+}
+
+
+
+
+
+/*------------------------------------*\
+     $FIREFOX-FIX
+\*------------------------------------*/
+
+// Adjustments for the Firefox line-height bug
+
+@-moz-document url-prefix() {
+
+	input[class^="tsBtn"] {
+		padding: 0 !important;
+	}
+
+	input[class^="tsBtn"][class*="--Small"] {
+		padding: 2px 0 !important;
+	}
+
+	input[class^="tsBtn"][class*="--Medium"] {
+		padding: 2px 0 1px !important;
+	}
+
+    // added fix for buttons that are to large in firfox /nagorka
+    button[class^="tsBtn"]::-moz-focus-inner,
+    input[class^="tsBtn"][type=sumbit]::-moz-focus-inner,
+    input[class^="tsBtn"][type=reset]::-moz-focus-inner {
+        padding: 0;
+    }
+
+}
+
+
+
+// Legacy Fix for Firefox padding/line-height behaviour
+@-moz-document url-prefix() {
+
+.touch .tsListFilter .tsBtn--filter-remove {
+    .padding(all;7);
+}
+.touch .tsBtn--login,
+.touch .tsBtn--login--alt {
+    .padding(all;@gutter;@gutter;@gutter;@gutter;);
+}
+
+//Where is this used?
+input[type=submit],
+.touch input[type=submit] {
+    //padding: 0;
+}
+
+input[type=submit]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+button::-moz-focus-inner {
+    padding: 0.35em 0.7em 0.4em;
+}
+
+.touch input[type=submit]::-moz-focus-inner,
+.touch input[type=reset]::-moz-focus-inner,
+.touch button::-moz-focus-inner {
+    padding: 0.5em 1em 0.5em;
+}
+.touch .tsSelectList {
+    top:40px;
+}
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+/*------------------------------------*\
+     $BUTTON-ICONS
+\*------------------------------------*/
+
+//Default
+[class^="tsBtn"] [class^="tsIcon"] {
+	position: relative;
+	.inline-block;
+	.margin(leftright;5;-5);
+	width: 16px;
+	.border-radius(50%);
+	vertical-align: middle;
+	background-color: @white;
+	.font-size(lineheight;8;16);
+  margin-top: -2px;
+}
+
+
+// Show more / show less
+[class^="tsBtn"] [class^="tsIcon-ShowMore"],
+[class^="tsBtn"] [class^="tsIcon-ShowLess"],
+[class^="tsBtn"] [class^="tsIcon-NewWindow"] {
+	.font-size(16);
+    background-color: transparent;
+}
+
+[class^="tsBtn"] [class*="tsIcon-Close"]{
+    background: none;
+    vertical-align: bottom;
+    font-size: 12px;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $DEPRECATED-BUTTONS
+\*------------------------------------*/
+
+// Deprecated buttons, replaced by new implementations
+// These buttons may still be in use in the production environment
+
+// Replaced by .tsBtn--Secondary--Small
+.tsBtnMulti--select {
+	.btn-smallsize;
+	.btn-secondary-color;
+	.btn-rounded;
+   .unselectable;
+}
+
+// Replaced by .tsBtn--Internal
+.tsBtn-navigation,
+.tsBtn-navigation--alt {
+	.btn-internal-color;
+}
+
+// Replaced by .tsBtn--Options
+.tsBtn-navigation--alt {
+	.btn-options-color;
+    .margin(right;5);
+}
+
+// Replaced by .tsBtn--Light
+.tsBtnMulti--filter {
+	.btn-smallsize;
+	.btn-light-color;
+	.btn-rounded;
+	.font-size(lineheight;14;28);
+//	padding: 0.2rem 1rem 0.3rem 1rem;
+	padding: 0 1rem;
+}
+
+// Replaced by .tsBtn--Light--Inverted
+.tsBtn--filter-remove {
+	.btn-smallsize;
+	.btn-lightinverted-color;
+	.btn-rounded;
+	.font-size(lineheight;14;28);
+//	padding: 0.2rem 1rem 0.3rem 1rem;
+  padding: 0 1rem;
+}
+
+// Replaced by .tsBtn--Edit
+.tsBtn-edit,
+input[type="submit"].tsBtn-edit {
+	.btn-edit()
+}
+
+// Replaced by .tsBtn--Light
+.tsBtn--collapse {
+	.btn-smallsize;
+	.btn-rounded;
+	.btn-lightinverted-color;
+	.font-size(14);
+    .padding(all;5;12;5;12);
+
+    &:hover {
+        [class^="tsIcon"] {
+            background-color: @darkturq;
+            color: @white;
+
+        }
+    }
+    [class^="tsIcon"] {
+        color: @white;
+        background-color: @turq;
+        .font-size(18);
+        margin-top: -2px;
+    }
+}
+
+
+// NOT replaced!
+
+.tsBtnMulti--select .tsIcon-ShowMore {
+    color: @white;
+    top:0;
+    background-color: @blue;
+}
+.tsBtnMulti--select.active .tsIcon-ShowMore {
+    background-color: @darkblue;
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+     $SPECIAL-IMPLEMENTATIONS
+\*------------------------------------*/
+
+// Animated button
+
+.tsAnimateBtn {
+    position: relative;
+}
+
+.tsAnimateBtn:before {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:2;
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: @blue;
+    text-align: center;
+    .transition(width 30s linear);
+}
+
+.tsAnimateBtn.done:before {
+    .transition(none) !important;
+}
+
+.tsAnimateBtn:after {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:3;
+    display: none;
+    content: attr(data-content);
+    width: 100%;
+    .padding(topbottom;8;8);
+    text-align: center;
+}
+
+.tsAnimateBtn.clicked {
+    background-color: @lightgrey;
+    color: @lightgrey;
+}
+
+input.tsAnimateBtn.clicked {
+    background-color: @blue;
+    color: @white;
+}
+
+.tsAnimateBtn.clicked:before {
+    width: 100%;
+}
+
+.tsAnimateBtn.clicked:after {
+    color: @white;
+    display: block;
+}
+
+.tsAnimateBtn--backwards:before {
+    right:0;
+    left: auto;
+    background-color: @lightgrey;
+}
+
+.tsAnimateBtn--backwards.clicked {
+    background-color: @blue;
+    color: @blue;
+}
+
+
+// New version of animateButton, will replace old
+.tsAnimateButton-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    .noBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: none;
+        &:hover {
+            background: none;
+        }
+    }
+    .tsAnimateButton-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: @blue;
+        color: @blue;
+        .transition(all;0ms);
+        &:hover {
+            background-color: @blue;
+        }
+    }
+}
+
+.tsAnimateButton-progress {
+    .placeholder {
+        background-color: @grey;
+        color: @grey;
+    }
+}
+
+.tsAnimateButton-wrapper.backwards {
+    .tsAnimateButton-bar {
+        background-color: @grey;
+        color: @grey;
+    }
+    .tsAnimateButton-progress {
+        .placeholder {
+            background-color: @blue;
+            color: @blue;
+        }
+    }
+}
+
+[class*="tsBtn"][class*="--bottomSpace"]{
+    .margin(bottom; 5);
+}
+
+
+// Switch
+.tsSwitch {
+    float: left;
+    position: relative;
+    cursor: pointer;
+    .padding(all;@gutter/4;16;@gutter/4;34);
+    .border-radius(24px);
+    background-color: @darkgrey;
+    color: @white;
+    text-transform: uppercase;
+    text-align: right;
+    .switchOption1 {
+        float: left;
+        .border-radius(24px);
+        background-color: @darkgrey;
+    }
+    .switchOption2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .border-radius(24px);
+        background-color: @purple;
+        content: "";
+        display: none;
+        span {
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            z-index: 2;
+            text-align: left;
+        }
+    }
+    .switchSlider {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        z-index: 3;
+        width: 24px;
+        height: 24px;
+        .border-radius(24px);
+        content: "";
+        background-color: @lightgrey;
+    }
+    &:hover {
+        color: @white;
+    }
+
+}
+
+
+
+
+// Collapse trigger
+
+.tsCollapse-trigger {
+    background: none;
+    border: 0 none;
+    .font-size(lineheight;24;45);
+    width: 45px;
+    padding: 0;
+    color: @purple;
+    &:hover {
+        background: @darkpurple;
+        color: @white;
+    }
+}
+// fix issue in firefox
+.tsCollapse-trigger::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+
+
+
+
+
+
+/* ------------------------------------------------- */
+
+
+/* Refactor or delete this! */
+
+/* DELETED
+// Multi select buttons, to be finished
+.tsBtnMulti--Primary {
+    .btn;
+}
+*/
+
+/* NOT USED, DELETED
+.tsBtn--Primary {
+    overflow: hidden;
+    i {
+        .font-size(18);
+        .margin(left;6);
+        .padding(top;1);
+        //float: right;
+
+    }
+}
+*/
+
+/* NOT USED, DELETED
+.tsPushdown .tsBtn.is-active,
+.tsPushdown.is-expanded .tsBtn-trigger {
+    background-color: @darkestpurple;
+
+}
+*/
+
+/* NOT USEE, DELETED
+//.tsBtnMulti--filter .tsIcon-ShowMore,
+//.tsBtnMulti--select .tsIcon-ShowMore
+.tsBtnMulti--Primary .caret
+ {
+    .inline-block;
+    position: relative;
+    top: -1px;
+    margin-left: 0.3em;
+    margin-right: -0.3em;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    .border-radius(50%);
+    background-color: @darkpink;
+}
+
+*/
+
+/* DELETED
+.tsBtnMulti--filter .tsIcon-ShowMore,
+.tsBtnMulti--select .tsIcon-ShowMore {
+    background-color: @white;
+    width: auto;
+    height: auto;
+    .font-size(20);
+     margin-right: -0.2em;
+}*/
+
+/* NOT USEE, DELETED
+.tsBtnMulti--Primary:hover .caret {
+    background-color: @darkerpink;
+}
+
+.tsBtnMulti--Primary .caret::after,
+ {
+    content: "\e019";
+    color:@white;
+}
+*/
+
+/*
+.tsBtn--filter-remove {
+//     line-height: 0.45em!important;
+//     margin-right: 0;
+
+}
+*/
+
+/* REPLACED CODE
+.tsBtn--filter-remove{
+    background-color: @turq;
+    color: @white;
+    &:hover {
+        color: @white;
+        background-color: @turq;
+        .remove{
+             background-color: @white;
+             color: @turq;
+        }
+    }
+    &:focus {
+        background-color: @filter-remove-buttons-color-trigged;
+       // outline-color: @filter-remove-buttons-color-trigged;
+    }
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+/* REMOVED
+.tsBtn[disabled=disabled] {
+    background-color: lighten(@purple,55%);
+    &:hover{
+        background-color: lighten(@purple,45%);
+    }
+}
+*/
+
+
+
+
+
+

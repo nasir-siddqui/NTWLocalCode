@@ -1,0 +1,151 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * INPUTS..............Default input declarations
+ */
+
+
+
+
+/*------------------------------------*\
+   $INPUTS
+\*------------------------------------*/
+
+
+// input field
+input.tseInput {
+    border: 1px solid @inputbordercolor;
+    .padding(all;12;11;13;11);
+    height: 45px;
+    width: 220px;
+}
+input.tseInput--wide {
+    width: 300px;
+}
+input.tseInput--small {
+    .padding(all;7;11;7;11);
+    height: auto;
+}
+.tseInput:focus {
+    border: 1px solid @blue;
+    outline: none;
+}
+
+// input field with icon
+.tseInput-iconContainer {
+    width: 220px;
+    position: relative;
+    .tsIconBackground {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+        .icon-background(24;@white);
+        &.disabled {
+            background-color: @white;
+            i {
+                color: @darkgrey;
+                .font-size(20);
+            }
+        }
+        &.valid {
+            background-color : @blue;
+            i {
+                color: @white;
+            }
+        }
+        &.invalid {
+            background-color: @lightgrey;
+            i {
+                color: @lightgrey;
+            }
+        }
+    }
+}
+
+
+// submit button
+.tseSubmit {
+    .padding(all;12;12;13;12);
+    color: @white;
+    background: @purple;
+    border: 0 none;
+
+    height: 45px; /* Another suggestion here is welcome */ /* no heights in pixel values, please! //pekkos */
+    
+    /* FF fix */
+    &::-moz-focus-inner {
+        padding: 0 !important;
+    }
+}
+
+.tseSubmit[disabled=disabled] {
+    background: @lightgrey;
+}
+
+
+.tseSubmit--turq {
+    background-color: @turq;
+}
+
+
+// checkbox
+.tseCheckbox {
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    .padding(all;0);
+    border:0;
+}
+
+.tseCheckbox + label.tseCheckbox-label {
+    .padding(left;29);
+    display:inline-block;
+    line-height:24px;
+    background-repeat:no-repeat;
+    background-position: -24px 0;
+    font-size:15px;
+    vertical-align:middle;
+    cursor:pointer;
+    position:static;
+}
+
+.tseCheckbox--checked + label.tseCheckbox-label {
+    background-position: 0 -24px;
+}
+                        
+.tseCheckbox-label{
+    background-image:url(/resources/templating-kit/themes/telia-se/css/gfx/tseCheckbox.png);
+}
+
+
+.tseTextarea {
+    width: 100%;
+    height: 200px;
+    border: 1px solid @inputbordercolor;
+    .padding(all;10); 
+}
+
+
+
+// file input
+.tseInput-file {
+    display: table;
+    position: absolute;
+    width: 100%;
+    .tseInput-wrapper {
+        display: table-cell;
+        width: 100%;
+    }
+    .tseSubmit-wrapper {
+        .padding(left;@gutter);
+        display: table-cell;
+    }
+}
+
+

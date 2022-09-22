@@ -1,0 +1,37 @@
+﻿.ui-slider {
+	position: relative;
+	margin: 0 .6em;
+
+	&.ui-slider-horizontal {
+		height: .8em;
+
+		.ui-slider-handle {
+			top: -.3em;
+			margin-left: -.6em;
+		}
+	}
+
+	&.ui-widget-content {
+		border: 1px solid @lightgrey;
+		background-color: @lightergrey;
+	}
+
+	.ui-state-default {
+		background-color: @purple;
+	}
+
+	&:hover .ui-state-default,
+	.ui-state-default:focus {
+		background-color: @darkestpurple;
+	}
+
+	.ui-slider-handle {
+		position: absolute;
+		z-index: 2;
+		width: 1.2em;
+		height: 1.2em;
+		cursor: default;
+		-ms-touch-action: none;
+		touch-action: none;
+	}
+}

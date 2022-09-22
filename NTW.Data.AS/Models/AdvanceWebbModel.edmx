@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdvanceWebbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdvanceExtension">
+          <Key>
+            <PropertyRef Name="AdvanceExtID" />
+          </Key>
+          <Property Name="AdvanceExtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IntervalLow" Type="int" Nullable="false" />
+          <Property Name="IntervalHigh" Type="int" Nullable="false" />
+          <Property Name="Subscribed" Type="bit" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ChangedDate" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+          <Property Name="AnalysisView" Type="smallint" Nullable="false" />
+          <Property Name="AnalysisRawdata" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnswerExtension">
+          <Key>
+            <PropertyRef Name="AnswerExtID" />
+          </Key>
+          <Property Name="AnswerExtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdvanceExtId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaCode">
+          <Key>
+            <PropertyRef Name="AreaCode" />
+          </Key>
+          <Property Name="AreaCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegionId" Type="smallint" Nullable="false" />
+          <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.CallData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CallData">
+          <Key>
+            <PropertyRef Name="AnswerExtId" />
+            <PropertyRef Name="CallDateTime" />
+            <PropertyRef Name="AreaCode" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="CallDuration" />
+            <PropertyRef Name="CallTypeID" />
+            <PropertyRef Name="CallDataID" />
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="CallDate" />
+          </Key>
+          <Property Name="AnswerExtId" Type="int" Nullable="false" />
+          <Property Name="CallDateTime" Type="datetime" Nullable="false" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CallDuration" Type="int" Nullable="false" />
+          <Property Name="CallTypeID" Type="smallint" Nullable="false" />
+          <Property Name="CallDataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaId" Type="smallint" Nullable="false" />
+          <Property Name="CallDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="IntervalId" Type="smallint" />
+        </EntityType>
+        <EntityType Name="CallType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" />
+          <Property Name="CallType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CompanyInfo">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgNr" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="EDI" Type="varchar" MaxLength="15" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="SamRefKod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UnitNo" Type="varchar" MaxLength="4" />
+          <Property Name="OLD ContactName" Type="varchar" MaxLength="50" />
+          <Property Name="OLD ContactTelNo" Type="varchar" MaxLength="30" />
+          <Property Name="OLD ContactEmail" Type="varchar" MaxLength="100" />
+          <Property Name="OLD ContactUserId" Type="int" />
+          <Property Name="Date" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="CustNo" Type="varchar" MaxLength="5" />
+          <Property Name="ActiveVIP" Type="bit" Nullable="false" />
+          <Property Name="ActiveStat" Type="bit" Nullable="false" />
+          <Property Name="ActiveCpa" Type="bit" />
+          <Property Name="New" Type="bit" Nullable="false" />
+          <Property Name="PhoneKey" Type="varchar" MaxLength="200" />
+          <Property Name="ExtendedMulti" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ChangedDate" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+          <Property Name="SystemChangedDate" Type="datetime" />
+          <Property Name="UserIdA" Type="int" />
+          <Property Name="UserIdD" Type="int" />
+          <Property Name="UserIdCpa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Extension">
+          <Key>
+            <PropertyRef Name="Extension" />
+          </Key>
+          <Property Name="Extension" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FictiveOrgNr">
+          <Key>
+            <PropertyRef Name="Counter" />
+          </Key>
+          <Property Name="Counter" Type="int" Nullable="false" />
+          <Property Name="ForeignOrgNr" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FictiveOrgNr" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SkapadDatum" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupInfo">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupCode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ChangedDate" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Interval">
+          <Key>
+            <PropertyRef Name="Interval" />
+          </Key>
+          <Property Name="Interval" Type="int" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="IntervalId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="SortOrder" Type="smallint" />
+          <Property Name="RegionId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AdvanceWebb.dbo.vCallData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vCallData">
+          <Key>
+            <PropertyRef Name="AnswerExtension" />
+            <PropertyRef Name="CallDateTime" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="CallDuration" />
+            <PropertyRef Name="CallType" />
+            <PropertyRef Name="area" />
+            <PropertyRef Name="Ort" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="AdvanceExtID" />
+            <PropertyRef Name="AnswerExtID" />
+          </Key>
+          <Property Name="AnswerExtension" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CallDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Extension" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="CallDate" Type="char" MaxLength="11" />
+          <Property Name="CallTime" Type="varchar" MaxLength="8" />
+          <Property Name="CallDuration" Type="int" Nullable="false" />
+          <Property Name="CallType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="area" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ort" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdvanceExtID" Type="int" Nullable="false" />
+          <Property Name="AnswerExtID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AnswerExtension_AdvanceExtension">
+          <End Role="AdvanceExtension" Type="Self.AdvanceExtension" Multiplicity="1" />
+          <End Role="AnswerExtension" Type="Self.AnswerExtension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvanceExtension">
+              <PropertyRef Name="AdvanceExtID" />
+            </Principal>
+            <Dependent Role="AnswerExtension">
+              <PropertyRef Name="AdvanceExtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCode_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="AreaCode" Type="Self.AreaCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="AreaCode">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallData_AnswerExtension">
+          <End Role="AnswerExtension" Type="Self.AnswerExtension" Multiplicity="1" />
+          <End Role="CallData" Type="Self.CallData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnswerExtension">
+              <PropertyRef Name="AnswerExtID" />
+            </Principal>
+            <Dependent Role="CallData">
+              <PropertyRef Name="AnswerExtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallData_CallType">
+          <End Role="CallType" Type="Self.CallType" Multiplicity="1" />
+          <End Role="CallData" Type="Self.CallData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CallType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CallData">
+              <PropertyRef Name="CallTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Webb_Users_Org_Webb_Users_Koncern">
+          <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="0..1" />
+          <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupInfo">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="CompanyInfo">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdvanceWebbModelStoreContainer">
+          <EntitySet Name="AdvanceExtension" EntityType="Self.AdvanceExtension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnswerExtension" EntityType="Self.AnswerExtension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaCode" EntityType="Self.AreaCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallType" EntityType="Self.CallType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Extension" EntityType="Self.Extension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FictiveOrgNr" EntityType="Self.FictiveOrgNr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interval" EntityType="Self.Interval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CallData" EntityType="Self.CallData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CallData].[AnswerExtId] AS [AnswerExtId], 
+    [CallData].[CallDateTime] AS [CallDateTime], 
+    [CallData].[AreaCode] AS [AreaCode], 
+    [CallData].[Extension] AS [Extension], 
+    [CallData].[CallDuration] AS [CallDuration], 
+    [CallData].[CallTypeID] AS [CallTypeID], 
+    [CallData].[CallDataID] AS [CallDataID], 
+    [CallData].[AreaId] AS [AreaId], 
+    [CallData].[CallDate] AS [CallDate], 
+    [CallData].[IntervalId] AS [IntervalId]
+    FROM [dbo].[CallData] AS [CallData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vCallData" EntityType="Self.vCallData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vCallData].[AnswerExtension] AS [AnswerExtension], 
+    [vCallData].[CallDateTime] AS [CallDateTime], 
+    [vCallData].[Extension] AS [Extension], 
+    [vCallData].[CallDate] AS [CallDate], 
+    [vCallData].[CallTime] AS [CallTime], 
+    [vCallData].[CallDuration] AS [CallDuration], 
+    [vCallData].[CallType] AS [CallType], 
+    [vCallData].[area] AS [area], 
+    [vCallData].[Ort] AS [Ort], 
+    [vCallData].[Region] AS [Region], 
+    [vCallData].[AdvanceExtID] AS [AdvanceExtID], 
+    [vCallData].[AnswerExtID] AS [AnswerExtID]
+    FROM [dbo].[vCallData] AS [vCallData]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AnswerExtension_AdvanceExtension" Association="Self.FK_AnswerExtension_AdvanceExtension">
+            <End Role="AdvanceExtension" EntitySet="AdvanceExtension" />
+            <End Role="AnswerExtension" EntitySet="AnswerExtension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaCode_Region" Association="Self.FK_AreaCode_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="AreaCode" EntitySet="AreaCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallData_AnswerExtension" Association="Self.FK_CallData_AnswerExtension">
+            <End Role="AnswerExtension" EntitySet="AnswerExtension" />
+            <End Role="CallData" EntitySet="CallData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallData_CallType" Association="Self.FK_CallData_CallType">
+            <End Role="CallType" EntitySet="CallType" />
+            <End Role="CallData" EntitySet="CallData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Webb_Users_Org_Webb_Users_Koncern" Association="Self.FK_Webb_Users_Org_Webb_Users_Koncern">
+            <End Role="GroupInfo" EntitySet="GroupInfo" />
+            <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdvanceWebbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdvanceExtension">
+          <Key>
+            <PropertyRef Name="AdvanceExtID" />
+          </Key>
+          <Property Name="AdvanceExtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IntervalLow" Type="Int32" Nullable="false" />
+          <Property Name="IntervalHigh" Type="Int32" Nullable="false" />
+          <Property Name="Subscribed" Type="Boolean" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <Property Name="AnalysisView" Type="Int16" Nullable="false" />
+          <Property Name="AnalysisRawdata" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AnswerExtension" Relationship="Self.FK_AnswerExtension_AdvanceExtension" FromRole="AdvanceExtension" ToRole="AnswerExtension" />
+        </EntityType>
+        <EntityType Name="AnswerExtension">
+          <Key>
+            <PropertyRef Name="AnswerExtID" />
+          </Key>
+          <Property Name="AnswerExtID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdvanceExtId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AdvanceExtension" Relationship="Self.FK_AnswerExtension_AdvanceExtension" FromRole="AnswerExtension" ToRole="AdvanceExtension" />
+          <NavigationProperty Name="CallData" Relationship="Self.FK_CallData_AnswerExtension" FromRole="AnswerExtension" ToRole="CallData" />
+        </EntityType>
+        <EntityType Name="AreaCode">
+          <Key>
+            <PropertyRef Name="AreaCode1" />
+          </Key>
+          <Property Name="AreaCode1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RegionId" Type="Int16" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_AreaCode_Region" FromRole="AreaCode" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="CallType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" />
+          <Property Name="CallType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CallData" Relationship="Self.FK_CallData_CallType" FromRole="CallType" ToRole="CallData" />
+        </EntityType>
+        <EntityType Name="CompanyInfo">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgNr" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="EDI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SamRefKod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UnitNo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="OLD_ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OLD_ContactTelNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OLD_ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OLD_ContactUserId" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ActiveVIP" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveStat" Type="Boolean" Nullable="false" />
+          <Property Name="ActiveCpa" Type="Boolean" />
+          <Property Name="New" Type="Boolean" Nullable="false" />
+          <Property Name="PhoneKey" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExtendedMulti" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <Property Name="SystemChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="UserIdA" Type="Int32" />
+          <Property Name="UserIdD" Type="Int32" />
+          <Property Name="UserIdCpa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GroupInfo" Relationship="Self.FK_Webb_Users_Org_Webb_Users_Koncern" FromRole="CompanyInfo" ToRole="GroupInfo" />
+        </EntityType>
+        <EntityType Name="Extension">
+          <Key>
+            <PropertyRef Name="Extension1" />
+          </Key>
+          <Property Name="Extension1" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FictiveOrgNr">
+          <Key>
+            <PropertyRef Name="Counter" />
+          </Key>
+          <Property Name="Counter" Type="Int32" Nullable="false" />
+          <Property Name="ForeignOrgNr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FictiveOrgNr1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkapadDatum" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="GroupInfo">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="CompanyInfo" Relationship="Self.FK_Webb_Users_Org_Webb_Users_Koncern" FromRole="GroupInfo" ToRole="CompanyInfo" />
+        </EntityType>
+        <EntityType Name="Interval">
+          <Key>
+            <PropertyRef Name="Interval1" />
+          </Key>
+          <Property Name="Interval1" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IntervalId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="SortOrder" Type="Int16" />
+          <Property Name="RegionId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AreaCode" Relationship="Self.FK_AreaCode_Region" FromRole="Region" ToRole="AreaCode" />
+        </EntityType>
+        <EntityType Name="CallData">
+          <Key>
+            <PropertyRef Name="AnswerExtId" />
+            <PropertyRef Name="CallDateTime" />
+            <PropertyRef Name="AreaCode" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="CallDuration" />
+            <PropertyRef Name="CallTypeID" />
+            <PropertyRef Name="CallDataID" />
+            <PropertyRef Name="AreaId" />
+            <PropertyRef Name="CallDate" />
+          </Key>
+          <Property Name="AnswerExtId" Type="Int32" Nullable="false" />
+          <Property Name="CallDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AreaCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Extension" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CallDuration" Type="Int32" Nullable="false" />
+          <Property Name="CallTypeID" Type="Int16" Nullable="false" />
+          <Property Name="CallDataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaId" Type="Int16" Nullable="false" />
+          <Property Name="CallDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IntervalId" Type="Int16" />
+          <NavigationProperty Name="AnswerExtension" Relationship="Self.FK_CallData_AnswerExtension" FromRole="CallData" ToRole="AnswerExtension" />
+          <NavigationProperty Name="CallType" Relationship="Self.FK_CallData_CallType" FromRole="CallData" ToRole="CallType" />
+        </EntityType>
+        <EntityType Name="vCallData">
+          <Key>
+            <PropertyRef Name="AnswerExtension" />
+            <PropertyRef Name="Extension" />
+            <PropertyRef Name="CallDuration" />
+            <PropertyRef Name="CallType" />
+            <PropertyRef Name="area" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="AdvanceExtID" />
+            <PropertyRef Name="AnswerExtID" />
+            <PropertyRef Name="CallDateTime" />
+            <PropertyRef Name="Ort" />
+          </Key>
+          <Property Name="AnswerExtension" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Extension" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CallDate" Type="String" MaxLength="11" Unicode="false" FixedLength="true" />
+          <Property Name="CallTime" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CallDuration" Type="Int32" Nullable="false" />
+          <Property Name="CallType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="area" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdvanceExtID" Type="Int32" Nullable="false" />
+          <Property Name="AnswerExtID" Type="Int32" Nullable="false" />
+          <Property Name="CallDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ort" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_AnswerExtension_AdvanceExtension">
+          <End Role="AdvanceExtension" Type="Self.AdvanceExtension" Multiplicity="1" />
+          <End Role="AnswerExtension" Type="Self.AnswerExtension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdvanceExtension">
+              <PropertyRef Name="AdvanceExtID" />
+            </Principal>
+            <Dependent Role="AnswerExtension">
+              <PropertyRef Name="AdvanceExtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallData_AnswerExtension">
+          <End Role="AnswerExtension" Type="Self.AnswerExtension" Multiplicity="1" />
+          <End Role="CallData" Type="Self.CallData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnswerExtension">
+              <PropertyRef Name="AnswerExtID" />
+            </Principal>
+            <Dependent Role="CallData">
+              <PropertyRef Name="AnswerExtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaCode_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="AreaCode" Type="Self.AreaCode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="AreaCode">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallData_CallType">
+          <End Role="CallType" Type="Self.CallType" Multiplicity="1" />
+          <End Role="CallData" Type="Self.CallData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CallType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CallData">
+              <PropertyRef Name="CallTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Webb_Users_Org_Webb_Users_Koncern">
+          <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="0..1" />
+          <End Role="CompanyInfo" Type="Self.CompanyInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupInfo">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="CompanyInfo">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdvanceWebbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdvanceExtension" EntityType="Self.AdvanceExtension" />
+          <EntitySet Name="AnswerExtension" EntityType="Self.AnswerExtension" />
+          <EntitySet Name="AreaCode" EntityType="Self.AreaCode" />
+          <EntitySet Name="CallType" EntityType="Self.CallType" />
+          <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" />
+          <EntitySet Name="Extension" EntityType="Self.Extension" />
+          <EntitySet Name="FictiveOrgNr" EntityType="Self.FictiveOrgNr" />
+          <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" />
+          <EntitySet Name="Interval" EntityType="Self.Interval" />
+          <EntitySet Name="Region" EntityType="Self.Region" />
+          <EntitySet Name="CallData" EntityType="Self.CallData" />
+          <EntitySet Name="vCallData" EntityType="Self.vCallData" />
+          <AssociationSet Name="FK_AnswerExtension_AdvanceExtension" Association="Self.FK_AnswerExtension_AdvanceExtension">
+            <End Role="AdvanceExtension" EntitySet="AdvanceExtension" />
+            <End Role="AnswerExtension" EntitySet="AnswerExtension" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallData_AnswerExtension" Association="Self.FK_CallData_AnswerExtension">
+            <End Role="AnswerExtension" EntitySet="AnswerExtension" />
+            <End Role="CallData" EntitySet="CallData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaCode_Region" Association="Self.FK_AreaCode_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="AreaCode" EntitySet="AreaCode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallData_CallType" Association="Self.FK_CallData_CallType">
+            <End Role="CallType" EntitySet="CallType" />
+            <End Role="CallData" EntitySet="CallData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Webb_Users_Org_Webb_Users_Koncern" Association="Self.FK_Webb_Users_Org_Webb_Users_Koncern">
+            <End Role="GroupInfo" EntitySet="GroupInfo" />
+            <End Role="CompanyInfo" EntitySet="CompanyInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdvanceWebbModelStoreContainer" CdmEntityContainer="AdvanceWebbEntities">
+          <EntitySetMapping Name="AdvanceExtension">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.AdvanceExtension">
+              <MappingFragment StoreEntitySet="AdvanceExtension">
+                <ScalarProperty Name="AdvanceExtID" ColumnName="AdvanceExtID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="IntervalLow" ColumnName="IntervalLow" />
+                <ScalarProperty Name="IntervalHigh" ColumnName="IntervalHigh" />
+                <ScalarProperty Name="Subscribed" ColumnName="Subscribed" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="AnalysisView" ColumnName="AnalysisView" />
+                <ScalarProperty Name="AnalysisRawdata" ColumnName="AnalysisRawdata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnswerExtension">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.AnswerExtension">
+              <MappingFragment StoreEntitySet="AnswerExtension">
+                <ScalarProperty Name="AnswerExtID" ColumnName="AnswerExtID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="AdvanceExtId" ColumnName="AdvanceExtId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaCode">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.AreaCode">
+              <MappingFragment StoreEntitySet="AreaCode">
+                <ScalarProperty Name="AreaCode1" ColumnName="AreaCode" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallType">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.CallType">
+              <MappingFragment StoreEntitySet="CallType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CallType1" ColumnName="CallType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyInfo">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.CompanyInfo">
+              <MappingFragment StoreEntitySet="CompanyInfo">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="OrgNr" ColumnName="OrgNr" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="EDI" ColumnName="EDI" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="SamRefKod" ColumnName="SamRefKod" />
+                <ScalarProperty Name="UnitNo" ColumnName="UnitNo" />
+                <ScalarProperty Name="OLD_ContactName" ColumnName="OLD ContactName" />
+                <ScalarProperty Name="OLD_ContactTelNo" ColumnName="OLD ContactTelNo" />
+                <ScalarProperty Name="OLD_ContactEmail" ColumnName="OLD ContactEmail" />
+                <ScalarProperty Name="OLD_ContactUserId" ColumnName="OLD ContactUserId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CustNo" ColumnName="CustNo" />
+                <ScalarProperty Name="ActiveVIP" ColumnName="ActiveVIP" />
+                <ScalarProperty Name="ActiveStat" ColumnName="ActiveStat" />
+                <ScalarProperty Name="ActiveCpa" ColumnName="ActiveCpa" />
+                <ScalarProperty Name="New" ColumnName="New" />
+                <ScalarProperty Name="PhoneKey" ColumnName="PhoneKey" />
+                <ScalarProperty Name="ExtendedMulti" ColumnName="ExtendedMulti" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="SystemChangedDate" ColumnName="SystemChangedDate" />
+                <ScalarProperty Name="UserIdA" ColumnName="UserIdA" />
+                <ScalarProperty Name="UserIdD" ColumnName="UserIdD" />
+                <ScalarProperty Name="UserIdCpa" ColumnName="UserIdCpa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Extension">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.Extension">
+              <MappingFragment StoreEntitySet="Extension">
+                <ScalarProperty Name="Extension1" ColumnName="Extension" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FictiveOrgNr">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.FictiveOrgNr">
+              <MappingFragment StoreEntitySet="FictiveOrgNr">
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+                <ScalarProperty Name="ForeignOrgNr" ColumnName="ForeignOrgNr" />
+                <ScalarProperty Name="FictiveOrgNr1" ColumnName="FictiveOrgNr" />
+                <ScalarProperty Name="SkapadDatum" ColumnName="SkapadDatum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupInfo">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.GroupInfo">
+              <MappingFragment StoreEntitySet="GroupInfo">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interval">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.Interval">
+              <MappingFragment StoreEntitySet="Interval">
+                <ScalarProperty Name="Interval1" ColumnName="Interval" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="IntervalId" ColumnName="IntervalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Region1" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallData">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.CallData">
+              <MappingFragment StoreEntitySet="CallData">
+                <ScalarProperty Name="AnswerExtId" ColumnName="AnswerExtId" />
+                <ScalarProperty Name="CallDateTime" ColumnName="CallDateTime" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="CallDuration" ColumnName="CallDuration" />
+                <ScalarProperty Name="CallTypeID" ColumnName="CallTypeID" />
+                <ScalarProperty Name="CallDataID" ColumnName="CallDataID" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+                <ScalarProperty Name="IntervalId" ColumnName="IntervalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vCallData">
+            <EntityTypeMapping TypeName="AdvanceWebbModel.vCallData">
+              <MappingFragment StoreEntitySet="vCallData">
+                <ScalarProperty Name="Ort" ColumnName="Ort" />
+                <ScalarProperty Name="CallDateTime" ColumnName="CallDateTime" />
+                <ScalarProperty Name="AnswerExtension" ColumnName="AnswerExtension" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="CallDate" ColumnName="CallDate" />
+                <ScalarProperty Name="CallTime" ColumnName="CallTime" />
+                <ScalarProperty Name="CallDuration" ColumnName="CallDuration" />
+                <ScalarProperty Name="CallType" ColumnName="CallType" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="AdvanceExtID" ColumnName="AdvanceExtID" />
+                <ScalarProperty Name="AnswerExtID" ColumnName="AnswerExtID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

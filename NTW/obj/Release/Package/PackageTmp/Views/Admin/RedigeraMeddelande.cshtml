@@ -1,0 +1,28 @@
+﻿@model Telia.NTW.Web.ViewModel.Admin.Meddelanden.MeddelandeViewModel
+
+@{
+	ViewBag.Title = "Redigera meddelande";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Meddelande", "Meddelande")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera meddelande</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginBottom">
+	<h1>Redigera meddelande</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+	@using (Html.BeginForm())
+	{
+		@Html.Partial("_MeddelandeField", Model)
+		<div class="tsMarginTop">
+			@Html.ActionLink("Avbryt", "Meddelande", "Admin", new { @class = "tsBtn--Regular" }) 
+			<input type="submit" class="tsBtn--Regular tsMarginLeft" value="Uppdatera" />
+		</div>
+	}
+</div>

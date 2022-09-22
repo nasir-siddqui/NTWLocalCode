@@ -1,0 +1,266 @@
+﻿@{
+    const string edit = "Redigera";
+    const string delete = "Ta bort";
+    const string addGeo = "Lägg till geografisk fördelning";
+    const string addTid = "Lägg till tidsfördelning";
+    const string addAnrop = "Lägg till anropsfördelning";
+    const string addSvarsstalle = "Lägg till svarsställe";
+}
+
+<div class="tree">
+	<div ng-repeat="geographicDistribution in styrningsalternativ.tree">
+		<!-- GEO ------------------------------------------------------------------------------------------------->
+		<div class="area" ntw-selectable="geographicDistribution">
+			<i class="tsIcon-Environment"></i>{{geographicDistribution.omrade}}
+
+			<!-- Buttons -->
+			<div class="buttonsContainer" ng-show="(geographicDistribution.hovered || geographicDistribution.selected) && !editing">
+				<a class="tsIcon-Edit" ng-click="geoService.edit(geographicDistribution)" title="@edit"></a>
+				<a class="tsIcon-Delete" ng-click="deleteConfirm.show(geographicDistribution)" title="@delete"></a>
+				<a ng-click="geoService.add($index)" title="@addGeo">
+					<i class="tsIcon-Add"></i><i class="tsIcon-Environment"></i>
+				</a>
+				<a ng-click="tidService.add($index, -1)" title="@addTid">
+					<i class="tsIcon-Add"></i><i class="tsIcon-Time"></i>
+				</a>
+				<a ng-click="anropService.add($index, -1, -1)" title="@addAnrop">
+					<i class="tsIcon-Add"></i><i class="tsIcon-ViewAsGraph"></i>
+				</a>
+				<a ng-click="svarsstalleService.add($index, -1, -1)" ng-show="svarsstalleService.shouldShowAdd($index, -1)" title="@addSvarsstalle">
+					<i class="tsIcon-Add"></i><i class="tsIcon-Telephone"></i>
+				</a>
+			</div>
+
+			<!-- GEO EDIT FORM START ------------------------------------------------------------------------------------->
+			<form ng-show="geographicDistribution.editing" class="tsMarginTop--halfGutter tsMarginBottom" name="editGeoForm">
+				<label for="geoDistribution" class="tscForm-label">Område: </label>
+				<input type="text" id="geoDistribution" name="geoDistribution" ng-model="geoDistributionEdit.omrade" class="tseInput tsMarginBottom--halfGutter" required />
+				<span ng-show="editGeoForm.geoDistribution.$error.required" class="field-validation-error">
+					Område är obligatoriskt
+				</span>
+				<br />
+				<input type="submit" class="tsBtn--Regular" value="Spara" ng-click="geoService.save(geographicDistribution, geoDistributionEdit)" ng-disabled="editGeoForm.$invalid">
+				<a class="tsBtn--Regular tsMarginLeft" ng-click="geoService.cancel(geographicDistribution)">Avbryt</a>
+			</form>
+			<!-- GEO EDIT FORM END ------------------------------------------------------------------------------------->
+		</div>
+
+		<!-- Delete confirm -->
+		<div class="tsAttention--Panic" ng-show="geographicDistribution.showDeleteConfirm">
+			<div class="tsAttention-Message area">
+				<i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+				<p class="tsAttention-Content">
+					<span class="tsMarginRight">Vill du verkligen ta bort den geografiska fördelningen?</span>
+					<a class="tsBtn--Normal--Internal--Regular--Animated tsMarginRight" ng-click="geoService.delete($index)">Ja</a>
+					<a class="tsBtn--Normal--Internal--Regular" ng-click="deleteConfirm.hide(geographicDistribution)">Nej</a>
+				</p>
+			</div>
+		</div>
+
+		<div class="area-level">
+			<!-- TID ------------------------------------------------------------------------------------------------->
+			<div ng-repeat="tidDistribution in geographicDistribution.tidDistributions" ng-init="tidDistributionEdit.baseElementId = 'tidDistribution[' + $parent.$index + '][' + $index + ']_edit_'">
+				<div class="time" ntw-selectable="tidDistribution">
+					<i class="tsIcon-Time"></i>{{tidService.toString(tidDistribution)}}
+					<!-- Buttons -->
+					<div class="buttonsContainer" ng-show="(tidDistribution.hovered || tidDistribution.selected) && !editing">
+						<a class="tsIcon-Edit" ng-click="tidService.edit(tidDistribution)" title="@edit"></a>
+						<a class="tsIcon-Delete" ng-click="deleteConfirm.show(tidDistribution)" title="@delete"></a>
+						<a ng-click="geoService.add($parent.$index)" title="@addGeo">
+							<i class="tsIcon-Add"></i><i class="tsIcon-Environment"></i>
+						</a>
+						<a ng-click="tidService.add($parent.$index, $index)" title="@addTid">
+							<i class="tsIcon-Add"></i><i class="tsIcon-Time"></i>
+						</a>
+						<a ng-click="anropService.add($parent.$index, $index, -1)" title="@addAnrop">
+							<i class="tsIcon-Add"></i><i class="tsIcon-ViewAsGraph"></i>
+						</a>
+						<a ng-click="svarsstalleService.add($parent.$index, $index, -1)" ng-show="svarsstalleService.shouldShowAdd($parent.$index, $index)" title="@addSvarsstalle">
+							<i class="tsIcon-Add"></i><i class="tsIcon-Telephone"></i>
+						</a>
+					</div>
+
+					<!-- TID EDIT FORM START ------------------------------------------------------------------------------------->
+					<form ng-show="tidDistribution.editing" class="tsMarginTop--halfGutter tsMarginBottom" name="editTidForm">
+						<input type="checkbox" ng-model="tidDistributionEdit.monday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.monday}" name="monday" id="monday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" ng-class="{bold: tidDistributionEdit.monday}" for="monday">Måndag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.tuesday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.tuesday}" name="tuesday" id="tuesday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="tuesday">Tisdag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.wednesday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.wednesday}" name="wednesday" id="wednesday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="wednesday">Onsdag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.thursday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.thursday}" name="thursday" id="thursday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="thursday">Torsdag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.friday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.friday}" name="friday" id="friday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="friday">Fredag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.saturday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.saturday}" name="saturday" id="saturday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="saturday">Lördag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.sunday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.sunday}" name="sunday" id="sunday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="sunday">Söndag</label>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.holyday" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.holyday}" name="holyday" id="holyday">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom--halfGutter" for="holyday">Helgdag</label>
+                        
+						<div class="tsMarginBottom--halfGutter">
+							<div>
+								<span class="tid-distribution-edit-time-labels">Från:</span>
+								<input ng-model="tidDistributionEdit.startTimeHours" class="tseInput" id="startTimeHours" name="startTimeHours" ng-disabled="tidDistributionEdit.otherHours" ng-required="!tidDistributionEdit.otherHours" type="text" ng-pattern="/^(([0-1]?[0-9])|(2[0-3]))$/">h 
+								<input ng-model="tidDistributionEdit.startTimeMinutes" class="tseInput" id="startTimeMinutes" name="startTimeMinutes" ng-disabled="tidDistributionEdit.otherHours" ng-required="!tidDistributionEdit.otherHours" type="text" ng-pattern="/^([0-5]?[0-9])$/">min
+							</div>
+							<div>
+								<span class="tid-distribution-edit-time-labels">Till:</span>
+								<input ng-model="tidDistributionEdit.endTimeHours" class="tseInput" id="endTimeHours" name="endTimeHours" ng-disabled="tidDistributionEdit.otherHours" ng-required="!tidDistributionEdit.otherHours" type="text" ng-pattern="/^(([0-1]?[0-9])|(2[0-4]))$/">h 
+								<input ng-model="tidDistributionEdit.endTimeMinutes" class="tseInput" id="endTimeMinutes" name="endTimeMinutes" ng-disabled="tidDistributionEdit.otherHours" ng-required="!tidDistributionEdit.otherHours" type="text" ng-pattern="/^([0-5]?[0-9])$/">min
+							</div>
+							<span ng-show="!editTidForm.startTimeHours.$valid || !editTidForm.startTimeMinutes.$valid || !editTidForm.endTimeHours.$valid || !editTidForm.endTimeMinutes.$valid" class="field-validation-error">
+								Start- och sluttid är obligatoriskt och får endast innehålla korrekta siffror för timme och minut.
+							</span>
+							@*                                <div style="display:block;">*@
+							@*                                    <label for="startTime" class="tscForm-label">Starttid</label>*@
+							@*                                    <input ng-model="tidDistributionEdit.startTime" class="tseInput" id="startTime" type="text" data-datepicker="date">*@
+							@*                                </div>*@
+							@*                                <div>*@
+							@*                                    <label for="endTime" class="tscForm-label">Sluttid</label>*@
+							@*                                    <input ng-model="tidDistributionEdit.endTime" class="tseInput" id="endTime" type="text" data-datepicker="date">*@
+							@*                                </div>*@
+						</div>
+
+						<input type="checkbox" ng-model="tidDistributionEdit.otherHours" class="tseCheckbox" ng-class="{'tseCheckbox--checked': tidDistributionEdit.otherHours}" name="otherHours" id="otherHours">
+						<label class="tseCheckbox-label tsMarginRight--halfGutter tsMarginBottom" for="otherHours">Övrig tid</label>
+
+						<div>
+							<input type="submit" class="tsBtn--Regular" ng-click="tidService.save(tidDistribution, tidDistributionEdit)" value="Spara" ng-disabled="editTidForm.$invalid">
+							<a class="tsBtn--Regular tsMarginLeft" ng-click="tidService.cancel(tidDistribution)">Avbryt</a>
+						</div>
+					</form>
+					<!-- TID EDIT FORM END ------------------------------------------------------------------------------------->
+
+				</div>
+
+				<!-- Delete confirm -->
+				<div class="tsAttention--Panic" ng-show="tidDistribution.showDeleteConfirm">
+					<div class="tsAttention-Message area">
+						<i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+						<p class="tsAttention-Content">
+							<span class="tsMarginRight">Vill du verkligen ta bort tidsfördelningen?</span>
+							<a class="tsBtn--Normal--Internal--Regular--Animated tsMarginRight" ng-click="tidService.delete(geographicDistribution, $index)">Ja</a>
+							<a class="tsBtn--Normal--Internal--Regular" ng-click="deleteConfirm.hide(tidDistribution)">Nej</a>
+						</p>
+					</div>
+				</div>
+
+				<div class='time-level'>
+					<!-- ANROP ------------------------------------------------------------------------------------------------->
+					<div ng-repeat="anropDistribution in tidDistribution.anropDistributions" ng-init="idSuffix = '[' + $parent.$parent.$index + '][' + $parent.$index + '][' + $index + ']_edit'">
+						<div class="distribution" ntw-selectable="anropDistribution">
+							<i class="tsIcon-ViewAsGraph"></i>{{anropDistribution.distribution + "%"}}
+
+							<!-- Buttons -->
+							<div class="buttonsContainer" ng-show="(anropDistribution.hovered || anropDistribution.selected) && !editing">
+								<a class="tsIcon-Edit" ng-click="anropService.edit(anropDistribution)" title="@edit"></a>
+								<a class="tsIcon-Delete" ng-click="deleteConfirm.show(anropDistribution)" title="@delete"></a>
+								<a ng-click="geoService.add($parent.$parent.$index)" title="@addGeo">
+									<i class="tsIcon-Add"></i><i class="tsIcon-Environment"></i>
+								</a>
+								<a ng-click="tidService.add($parent.$parent.$index, $parent.$index)" title="@addTid">
+									<i class="tsIcon-Add"></i><i class="tsIcon-Time"></i>
+								</a>
+								<a ng-click="anropService.add($parent.$parent.$index, $parent.$index, $index)" title="@addAnrop">
+									<i class="tsIcon-Add"></i><i class="tsIcon-ViewAsGraph"></i>
+								</a>
+								<a ng-click="svarsstalleService.add($parent.$parent.$index, $parent.$index, $index)" ng-show="!anropDistribution.svarsstalle" title="@addSvarsstalle">
+									<i class="tsIcon-Add"></i><i class="tsIcon-Telephone"></i>
+								</a>
+							</div>
+
+							<!-- ANROP EDIT FORM START ------------------------------------------------------------------------------------->
+							<form ng-show="anropDistribution.editing" class="tsMarginTop--halfGutter" name="editAnropForm">
+								<label for="anropDistribution{{idSuffix}}" class="tscForm-label">Anropsfördelning: </label>
+								<input class="tseInput tsMarginBottom--halfGutter" ng-model="anropDistributionEdit.distribution" id="anropDistribution" name="anropDistribution" type="number" min="1" max="100">%
+								<span ng-show="!editAnropForm.anropDistribution.$valid" class="field-validation-error">
+									Anropsfördelningen får endast innehålla siffror mellan 1 till 100
+								</span>
+
+								<div class="tsMarginBottom">
+									<input type="submit" class="tsBtn--Regular" ng-click="anropService.save(anropDistribution, anropDistributionEdit)" value="Spara" ng-disabled="editAnropForm.$invalid">
+									<a class="tsBtn--Regular tsMarginLeft" ng-click="anropService.cancel(anropDistribution)">Avbryt</a>
+								</div>
+							</form>
+							<!-- ANROP EDIT FORM END ------------------------------------------------------------------------------------->
+						</div>
+
+						<!-- Delete confirm -->
+						<div class="tsAttention--Panic" ng-show="anropDistribution.showDeleteConfirm">
+							<div class="tsAttention-Message area">
+								<i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+								<p class="tsAttention-Content">
+									<span class="tsMarginRight">Vill du verkligen ta bort anropsfördelningen?</span>
+									<a class="tsBtn--Normal--Internal--Regular--Animated tsMarginRight" ng-click="anropService.delete(tidDistribution, $index)">Ja</a>
+									<a class="tsBtn--Normal--Internal--Regular" ng-click="deleteConfirm.hide(anropDistribution)">Nej</a>
+								</p>
+							</div>
+						</div>
+
+						<div class='distribution-level'>
+							<!-- SVARSSTÄLLE ------------------------------------------------------------------------------------------------->
+							<div class="forwarding" ntw-selectable="anropDistribution.svarsstalle" ng-show="anropDistribution.svarsstalle">
+								<i class="tsIcon-Telephone"></i>{{anropDistribution.svarsstalle.svarsstalle}}
+
+								<!-- Buttons -->
+								<div class="buttonsContainer" ng-show="(anropDistribution.svarsstalle.hovered || anropDistribution.svarsstalle.selected) && !editing">
+									<a class="tsIcon-Edit" ng-click="svarsstalleService.edit(anropDistribution.svarsstalle)" title="@edit"></a>
+									<a class="tsIcon-Delete" ng-click="deleteConfirm.show(anropDistribution.svarsstalle)" title="@delete"></a>
+									<a ng-click="geoService.add($parent.$parent.$index)" title="@addGeo">
+										<i class="tsIcon-Add"></i><i class="tsIcon-Environment"></i>
+									</a>
+									<a ng-click="tidService.add($parent.$parent.$index, $parent.$index)" title="@addTid">
+										<i class="tsIcon-Add"></i><i class="tsIcon-Time"></i>
+									</a>
+									<a ng-click="anropService.add($parent.$parent.$index, $parent.$index, $index)" title="@addAnrop">
+										<i class="tsIcon-Add"></i><i class="tsIcon-ViewAsGraph"></i>
+									</a>
+								</div>
+
+								<!-- SVARSSTÄLLE EDIT FORM START ------------------------------------------------------------------------------------->
+								<form ng-show="anropDistribution.svarsstalle.editing" class="tsMarginTop--halfGutter" name="svarsstalleEditForm">
+									<label for="svarsstalle{{idSuffix}}" class="tscForm-label">Svarsställe: </label>
+									<input class="tseInput tsMarginBottom--halfGutter" ng-model="svarsstalleEdit.svarsstalle" id="svarsstalle" name="svarsstalle" type="text" required ng-pattern="/^[0-9 +-]*$/">
+									<span ng-show="!svarsstalleEditForm.svarsstalle.$valid" class="field-validation-error">
+										Svarsställe är obligatoriskt och får endast innehålla siffror, bindestreck och mellanslag
+									</span>
+                                    
+									<div class="tsMarginBottom">
+										<input type="submit" class="tsBtn--Regular" ng-click="svarsstalleService.save(anropDistribution.svarsstalle, svarsstalleEdit)" value="Spara" ng-disabled="svarsstalleEditForm.$invalid">
+										<a class="tsBtn--Regular tsMarginLeft" ng-click="svarsstalleService.cancel(anropDistribution.svarsstalle)">Avbryt</a>
+									</div>
+								</form>
+								<!-- SVARSSTÄLLE EDIT FORM END ------------------------------------------------------------------------------------->
+							</div>
+
+							<!-- Delete confirm -->
+							<div class="tsAttention--Panic" ng-show="anropDistribution.svarsstalle.showDeleteConfirm">
+								<div class="tsAttention-Message area">
+									<i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+									<p class="tsAttention-Content">
+										<span class="tsMarginRight">Vill du verkligen ta bort svarsstället?</span>
+										<a class="tsBtn--Normal--Internal--Regular--Animated tsMarginRight" ng-click="svarsstalleService.delete(anropDistribution, $index)">Ja</a>
+										<a class="tsBtn--Normal--Internal--Regular" ng-click="deleteConfirm.hide(anropDistribution.svarsstalle)">Nej</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-show="!treeValid" class="field-validation-error tsMarginTop">
+	Svarsställe är obligatoriskt för alla grenar i trädet.
+</div>

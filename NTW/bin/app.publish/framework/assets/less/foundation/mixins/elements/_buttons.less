@@ -1,0 +1,385 @@
+.btn(){
+	background-color: @purple;
+	border: none;
+	border-bottom: 4px solid darken(@purple, 8%);
+	padding: 14px 30px 10px;
+	color: @white;
+	font-weight: bold;
+	font-size: 13px;
+    line-height: 16px;
+    vertical-align: baseline;
+	border-radius: 2px;
+	display: inline;
+	display: inline-block;
+	margin: 0;
+	cursor: pointer;
+	white-space: nowrap;
+	.transition(none);
+
+	/*
+	 * Mozilla seems to have fixed this
+	 *
+	&::-moz-focus-inner{
+		margin: -1px;
+		padding: 0;
+	}
+	*/
+
+	&:hover{
+		color: @white;
+		text-decoration: none !important;
+		background: lighten(@purple, 4%);
+	}
+
+	&:active{
+		background: lighten(@purple, 4%);
+	}
+
+	&:focus{
+		outline: none;
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @purple;
+	}
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		cursor: default !important;
+		background-color: rgb(209, 190, 220) !important; /* purple + 70% white overlay */
+		border-bottom-color: darken(rgb(209, 190, 220), 5%);
+		color: @white !important;
+	}
+
+}
+
+.btn-resetstyling(){
+	font-weight: normal;
+}
+
+// with border
+.btn-with-border() {
+    .padding(all;6;11;6;11);
+    border-width: 2px;
+    border-style: solid;
+    background-color: @white;
+    color: @purple;
+}
+
+
+// Rounded corners
+.btn-rounded() {
+	.border-radius(2em);
+}
+
+
+// Smaller sized button
+.btn-smallsize() {
+	padding: 7px 12px 4px;
+	border-bottom-width: 3px;
+}
+
+// Smaller sized button
+.btn-largesize() {
+	.padding(all; 20; 40);
+}
+
+
+/* To be removed? is there really a need to have another button size? */
+// Medium sized button
+.btn-mediumsize() {
+	/*.padding(all;@gutter-half/2;@gutter-half;@gutter-half/2;@gutter-half;);
+	.font-size(14);
+	line-height: 1.5em;*/
+}
+
+// Default color
+.btn-default-color() {
+	background-color: @purple;
+	color: @white;
+
+	&:hover {
+		background-color: @darkestpurple;
+		color: @white;
+	}
+}
+
+
+// Primary color
+.btn-primary-color() {
+	background-color: @pink;
+	border-bottom-color: darken(@pink, 10%);
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		background-color: rgb(235, 187, 216) !important;
+		border-bottom-color: darken(rgb(235, 187, 216), 5%);
+	}
+	&:hover,
+	&:active{
+		background: lighten(@pink, 4%);
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @pink;
+	}
+}
+
+
+// Secondary color
+.btn-secondary-color() {
+	background-color: @blue;
+	border-bottom-color: darken(@blue, 10%);
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		background-color: rgb(196, 217, 237) !important;
+		border-bottom-color: darken(rgb(196, 217, 237), 5%);
+	}
+	&:hover,
+	&:active{
+		background: lighten(@blue, 4%);
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @blue;
+	}
+}
+
+// Secondary inverted color
+.btn-secondary-inverted-color() {
+	background-color: @white;
+	color: @blue;
+}
+
+
+// Internal color
+.btn-internal-color() {
+	background-color: @turq;
+	border-bottom-color: darken(@turq, 10%);
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		background-color: rgb(197, 233, 220) !important;
+		border-bottom-color: darken(rgb(197, 233, 220), 5%);
+	}
+	&:hover,
+	&:active{
+		background: lighten(@turq, 4%);
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @turq;
+	}
+}
+
+
+// Options color
+.btn-options-color() {
+	background-color: @grey;
+	border-bottom-color: darken(@grey, 10%);
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		background-color: rgb(217, 217, 217) !important;
+		border-bottom-color: darken(rgb(217, 217, 217), 5%);
+	}
+	&:hover,
+	&:active{
+		background: lighten(@grey, 4%);
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @grey;
+	}
+}
+
+.btn-critical-color() {
+	background-color: @orange;
+	border-bottom-color: darken(@orange, 10%);
+
+	&[disabled],
+	&[disabled]:hover,
+	&[class*="--Disabled"],
+	&[class*="--Disabled"]:hover,
+	&[aria-disabled=true],
+	&[aria-disabled=true]:hover{
+		background-color: rgb(244, 204, 172) !important;
+		border-bottom-color: darken(rgb(244, 204, 172), 5%);
+	}
+
+	&:hover,
+	&:active{
+		background: lighten(@orange, 4%);
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @orange;
+	}
+}
+
+
+// Light color
+.btn-light-color() {
+	border: 1px solid @turq;
+	background-color: @white;
+	color: @turq;
+
+	&:hover {
+		background-color: @white;
+    	color: @turq;
+	}
+
+	&.active {
+	    background-color: @turq;
+	    color: @white;
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @turq;
+	}
+}
+
+
+// Light inverted color
+.btn-lightinverted-color() {
+	//border: 1px solid @turq;
+	background-color: @turq;
+	color: @white;
+	border-bottom-color: darken(@turq, 10%);
+
+	&:hover {
+		background-color: @darkturq;
+		//border: 1px solid @darkturq;
+    	color: @white;
+
+		[class^="tsIcon"] {
+            // changed to white here instead of darkturq //nagorka
+			color: @white;
+		}
+	}
+
+	&:focus{
+		box-shadow: 0 0 0 1px @white, 0 0 0 2px @turq;
+	}
+
+
+	[class^="tsIcon"] {
+        // changed to white here instead of turq //nagorka
+		color: @white;
+		.font-size(10);
+	}
+}
+
+// Light primary color
+ .btn-lightprimary-color() {
+ 	border: 1px solid @purple;
+ 	background-color: @white;
+ 	color: @black;
+ 
+ 	&:hover {
+ 		background-color: @white;
+     	color: @black;
+ 	}
+ 
+ 	&.active {
+ 	    background-color: @darkestpurple;
+ 	    color: @white;
+ 	    border: 1px solid @white;
+ 	}
+ }
+ 
+ .btn-lightprimaryinverted-color() {
+ 	border: 1px solid @white;
+ 	background-color: @purple;
+ 	color: @white;
+ 
+ 	&:hover {
+ 		background-color: @darkestpurple;
+     	color: @white;
+     	[class^="tsIcon"] {
+ 			color: @darkestpurple;
+ 			.font-size(10);
+		}
+
+ 	}
+ 	[class^="tsIcon"] {
+ 		color: @purple;
+ 	}
+ 	
+
+}
+
+	
+	
+// Edit Button
+.btn-edit() {
+	.margin(left;5);
+	.padding(all;0;0;0;14);
+	border: 0;
+	background: transparent ~"url(@{gfxurl}gfx.png)" -30px 0 no-repeat;
+	color: @turq;
+	.font-size(12);
+
+	&:hover {
+		color: @darkturq;
+	}
+
+	&:focus{
+		box-shadow: none !important;
+		outline: 1px dotted @grey;
+		outline-offset: 1px;
+	}
+}
+
+// Justify Button
+.btn-justify() {
+	float: right;
+}
+
+// Delete Button
+.btn-delete() {
+	background-color: @turq;
+	.padding(all;4;8;4;8);
+	.btn-rounded();
+
+	&:before {
+		color: @white;
+		font-family: iconfont;
+		.font-size(12);
+		float: left;
+		width: 1em;
+		text-align: center;
+		content: "\e037";
+	}
+
+	&:hover {
+		background-color: @darkturq;
+	}
+}
+
+// Modifiers
+.btn-modifier-light() {
+	.btn-smallsize;
+	.btn-rounded;
+	.btn-light-color;
+	.font-size(14);
+	padding: 0.3rem 1rem 0.3rem 1rem;
+}

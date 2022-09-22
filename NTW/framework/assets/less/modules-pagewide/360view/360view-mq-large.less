@@ -1,0 +1,110 @@
+.ts360view-inner {
+    position: relative;
+    z-index: 1;
+}
+.ts360view-container {
+    position: relative;
+}
+.ts360view-category-list {
+    .l-inline-list;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.ts360view-category-item {
+    width: 50%;
+    min-height: 110px;
+    a, .ts360view-tag-item p {
+        width: 180px;
+        display: inline-block;
+        text-align: left;
+        &[data-title] {
+            position: relative;
+            i {
+                position: absolute;
+                left: 0;
+                top: 2px;
+                margin-left: 0;
+            }
+            span.title {
+                display: none;
+            }
+            &:before {
+                content: attr(data-title);
+            }
+        }
+    }
+    .container {
+        .padding(bottom;20);
+        .clearfix();
+        min-height: 100px;
+    }
+}
+.ts360view-category-item:nth-child(even) {
+    a, .ts360view-tag-list, .ts360view-tag-item {
+    } 
+}
+.ts360view-tag-list {
+    .l-list;
+    .padding(top;7);
+    .margin(top;7);
+    width: 100%;
+    border-top: 1px solid @lightergrey;
+    display: block;
+    .ts360view-tag-item {
+        p { 
+            margin: 0;
+            .padding(all;0;0;5;25);
+        }
+        p:before {
+            content: "";
+            width: 17px;
+            height: 17px;
+            background: #000;
+            position: absolute;
+            .margin(all;2;0;0;-25);
+        }
+    }
+} 
+.ts360view-pie-wrapper {
+    .padding(all;20);
+    max-width: 440px;
+}
+.ts360view-pie-background {
+    .margin(all;-20;0;0;-20);
+    border-radius: 220px; 
+}
+.lt-ie9 {
+    .ts360view-pie-wrapper {
+        max-width: 420px;
+    }
+    .ts360view-pie-background {
+        border: 0 none;
+    }
+}
+.ts360view-category-list--vertical {
+    .ts360view-category-item {
+        display: block;
+    }
+    .ts360view-category-item:nth-child(even) {
+        a, .ts360view-tag-item, .ts360view-tag-list {
+            float: none;
+        }
+    }
+    &.columns-2 {
+        .column-2 {
+            margin-left: 50%;
+            .h4, .ts360view-tag-item {
+                text-align: right;
+            }
+        }
+    }
+}
+
+.ts360view-category-item[data-column='2'] {
+    .h4, .ts360view-tag-item {
+        text-align: right;
+    }    
+}
+
+

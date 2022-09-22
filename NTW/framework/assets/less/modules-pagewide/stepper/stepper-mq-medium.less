@@ -1,0 +1,48 @@
+.tsStepper-container,
+.tsOrderStepper-container {	 
+	.padding(all;0;@gutter-double;0;@gutter-double);
+}
+.tsStepper-symbol,
+.tsOrderStepper-symbol {
+	width: 40px;
+	height: 40px;
+	line-height: 36px; //height - borders
+	
+	.total {
+		display: none;
+		&::before {
+			display: none;
+		}
+	}	
+
+}
+.tsStepper-container--threeSteps,
+.tsOrderStepper-container--threeSteps {
+    .padding(top;@gutter);
+}
+.tsStepper-container--fiveSteps,
+.tsOrderStepper-container--fiveSteps {
+    .padding(top;@gutter);
+    
+    .tsStepper-step--left,
+    .tsOrderStepper-step--left {
+        .tsStepper-label,
+        .tsOrderStepper-label {
+            .margin(left;-27);
+        }
+    }
+    .tsStepper-step--right,
+    .tsOrderStepper-step--right {
+        .tsStepper-label,
+        .tsOrderStepper-label {
+            .margin(left;27);
+        }
+    }
+}
+
+.tsStepper-vertical .tsStepper-step .tsStepper-label {
+    padding-left: 60px;
+}
+.tsStepper-vertical .tsStepper-symbol {
+    left:-20px
+}

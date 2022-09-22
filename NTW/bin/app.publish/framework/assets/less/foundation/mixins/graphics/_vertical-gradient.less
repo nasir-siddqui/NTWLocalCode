@@ -1,0 +1,39 @@
+
+
+// Vertical 2 color gradient, falling back to end (bottom) color for browsers with no css gradient support 
+.vertical-gradient (@startColor: @darkgrey, @endColor: @lightgrey) {
+	background-color: @endColor;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Konqueror */
+	background-image: -moz-linear-gradient(@startColor, @endColor); /* FF 3.6+ */
+	background-image: -ms-linear-gradient(@startColor, @endColor); /* IE10 */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+	background-image: -webkit-linear-gradient(@startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+	background-image: -o-linear-gradient(@startColor, @endColor); /* Opera 11.10 */
+//	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); /* IE6 & IE7 */
+//	-ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor); /* IE8+ */
+	background-image: linear-gradient(@startColor, @endColor); /* the standard */
+}
+
+
+.vertical-gradient-fade(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 50%, @bgColor: @white) {
+  @colorStop2: 100% - @colorStop;
+  background-color: @bgColor;
+  background-repeat: repeat-x;
+  background-image: -o-linear-gradient(     0deg, @startColor 0%, @midColor @colorStop, @midColor @colorStop2, @startColor 100%);
+  background-image: -moz-linear-gradient(   0deg, @startColor 0%, @midColor @colorStop, @midColor @colorStop2, @startColor 100%);
+  background-image: -webkit-linear-gradient(90deg, @startColor 0%, @midColor @colorStop, @midColor @colorStop2, @startColor 100%);
+  background-image: -ms-linear-gradient(    0deg, @startColor 0%, @midColor @colorStop, @midColor @colorStop2, @startColor 100%);
+  background-image: linear-gradient(        0deg, @startColor 0%, @midColor @colorStop, @midColor @colorStop2, @startColor 100%);
+}
+
+.vertical-gradient-bg(@startColor: #555, @endColor: #333, @bgColor: #333) {
+	background-color: @bgColor;
+	background-repeat: no-repeat, repeat-x;
+	background-image: -moz-linear-gradient(@startColor, @endColor); /* FF 3.6+ */
+	background-image: -ms-linear-gradient(@startColor, @endColor); /* IE10 */
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+	background-image: -webkit-linear-gradient(@startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+	background-image: -o-linear-gradient(@startColor, @endColor); /* Opera 11.10 */
+	background-image: linear-gradient(@startColor, @endColor); /* the standard */
+}

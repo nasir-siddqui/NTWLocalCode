@@ -1,0 +1,143 @@
+@path : "../../assets/less";
+
+/*------------------------------------*\
+    $FOUNDATION
+\*------------------------------------*/
+
+@import "@{path}/foundation/_variables";
+@width-innerwrap    : 1020px;
+@import "@{path}/foundation/_mixins";
+
+
+// @import "@{path}/foundation/normalize";
+
+@import "@{path}/foundation/_base";
+@import "@{path}/foundation/_typography";
+
+
+/*------------------------------------*\
+  $ELEMENTS
+\*------------------------------------*/
+
+@import "@{path}/elements/icons";
+@import "@{path}/elements/buttons";
+@import "@{path}/elements/table/ie-lte8";
+@import "@{path}/modules-sitewide/_chat/_ie-lte8";
+@import "@{path}/modules-sitewide/_feedback/_ie-lte8";
+
+
+/*------------------------------------*\
+  $DEFAULT
+\*------------------------------------*/
+
+@import "@{path}/modules-sitewide/_header/_ie-lte8";
+@import "@{path}/modules-sitewide/_footer/_ie-lte8";
+@import "@{path}/modules-sitewide/_search/_ie-lte8";
+@import "@{path}/modules-pagewide/transfer/all";
+@import "@{path}/modules-pagewide/productlist/ie-lte8";
+@import "@{path}/modules-sitewide/_subnavigation/_ie-lte8";
+@import "@{path}/modules-pagewide/collapse/ie-lte8";
+@import "@{path}/modules-pagewide/login/ie-lte8";
+@import "@{path}/modules-sitewide/_crumbtrail/_ie-lte8";
+//@import "@{path}/legacybrowsers/ie-specifics";
+@import "@{path}/modules-sitewide/_attention/ie-lte8";
+
+
+.tsHeader *,
+.tsFooter *,
+.tsSubnavigation *,
+.tsSearch-results-area * {
+  .box-sizing;
+}
+
+.tsHeader input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: none; /* 1 */
+  border-radius: 0;
+  margin: 0;
+}
+
+
+.tsHeader b,
+.tsFooter b,
+.tsSubnavigation b,
+.tsHeader i,
+.tsFooter i,
+.tsSubnavigation i {
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: -webkit-baseline-middle;
+
+}
+
+/*------------------------------------*\
+  $LAYOUT
+\*------------------------------------*/
+
+@import "@{path}/layout/ie-lte8";
+
+/*------------------------------------*\
+  $FIX
+\*------------------------------------*/
+
+a[href^="#"] {
+    font-weight: normal;
+}
+
+a {
+    .transition(none);
+}
+
+.tsNavPrimary li,
+.tsFooterNav-TopLevel li {
+    list-style: none;
+}
+.tsProductList *{
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+#header-login-ms-username,
+#header-login-ms-password {
+  width: 100%;
+}
+//fix for header in
+#tsMainContainer {
+  min-height:auto !important;
+}
+
+.pageContainer * {
+  box-sizing:content-box;
+-moz-box-sizing:content-box; /* Firefox */
+}
+
+a[href$="pdf"]:before,
+a[href$="pdf"]:before,
+a[href$="doc"]:before,
+a[href$="docx"]:before,
+a[href$="txt"]:before,
+a[href$="exe"]:before,
+a[href$="dmg"]:before,
+a[href$="xls"]:before,
+a[href$="ppt"]:before,
+a[href$="pptx"]:before,
+a[href$="zip"]:before {
+  display: none;
+}
+
+#tsFooterArea {
+    bottom: inherit;
+}
+
+.pageContainer {
+    padding-bottom: 0 !important;
+}
+
+.tsChat-offers{padding-right:20px;position:fixed;right:24px;width:370px;-webkit-transform-origin:50% 51%;margin-bottom:-92px;bottom:50%;z-index:100000}.tsChat-offers .tsChat-offer{background-color:#f0efed;cursor:default;border-radius:2px;padding:20px}.tsChat-offers .tsChat-offer:before{content:' ';position:absolute;width:0;height:0;right:10px;bottom:8px;border:25px;border-style:solid;border-width:10px 0 10px 10px;border-color:transparent #f0efed transparent #f0efed}.tsChat-offers .tsChat-offer input{width:100%}.tsChat-offers .tsChat-offer .tsBtn{background-color:#00b48c}.tsChat-offers .tsChat-offer .tsBtn:hover{background-color:#00d8a8}
+
+
+.tsFeedback,[class^="tsFeedback"][class*="--Chat"]{position:fixed;right:0;top:50%;overflow:visible;-webkit-transform:rotate(-90deg);-moz-transform:rotate(-90deg);-o-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg);-webkit-transform-origin:50% 51%;z-index:10;margin-top:-54px}[class^="tsFeedback"][class*="--Chat"]{margin-top:40px}.csstransforms [class^="tsFeedback"][class*="--Chat"]{right:-19px}.csstransforms .tsFeedback{right:-25px}.tsFeedback-label{background-image:url(/resources/templating-kit/themes/telia-se/css/gfx/feedback.png);background-color:transparent;background-repeat:no-repeat;background-position:right 50%;display:block;width:20px;height:95px;line-height:35px}.tsFeedback-label>span,.tsFeedback-label [class*=tsIcon-]{position:absolute;margin:-1px;padding:0;height:1px;width:1px;overflow:hidden;border:0;clip:rect(0 0 0 0)}[class^="tsFeedback"][class*="--Chat"] .tsFeedback-label{background-image:url(/resources/templating-kit/themes/telia-se/css/gfx/chat.png)}.csstransforms .tsFeedback-label{background-image:none !important;position:static;padding:0;margin:0;height:auto;float:none;background-color:#00b48c;color:#fff;width:auto;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0;-webkit-border-radius:5px 5px 0 0 5px 5px 0 0 5px 5px 0 0 5px 5px 0 0;-moz-border-radius:5px 5px 0 0 5px 5px 0 0 5px 5px 0 0 5px 5px 0 0;border-radius:5px 5px 0 0 5px 5px 0 0 5px 5px 0 0 5px 5px 0 0;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;display:inline-block;*display:inline;*zoom:1}.csstransforms .tsFeedback-label>span{position:static;margin:0;padding:0;height:auto;width:auto;overflow:hidden;border:0;clip:auto;padding:0 8px 0 29px;float:none;font-weight:normal}.csstransforms .tsFeedback .tsFeedback-label>span{padding:0 8px 0 8px}.csstransforms [class^="tsFeedback"][class*="--Chat"] [class*=tsIcon-],.csstransforms .tsFeedback [class*=tsIcon-]{position:static;margin:0;height:auto;width:auto;overflow:hidden;border:0;clip:auto;background-color:transparent;font-size:17px;font-size:1.7rem;line-height:20px;line-height:2rem;height:24px;width:24px;padding:0;margin:auto;position:absolute;bottom:50%;margin-bottom:-10px;left:0;-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}.tsChat-offers{padding-right:20px;position:fixed;right:24px;width:370px;-webkit-transform-origin:50% 51%;margin-bottom:-92px;bottom:50%;z-index:100000}.tsChat-offers .tsChat-offer{background-color:#f0efed;cursor:default;border-radius:2px;padding:20px}.tsChat-offers .tsChat-offer:before{content:' ';position:absolute;width:0;height:0;right:10px;bottom:8px;border:25px;border-style:solid;border-width:10px 0 10px 10px;border-color:transparent #f0efed transparent #f0efed}.tsChat-offers .tsChat-offer input{width:100%}.tsChat-offers .tsChat-offer .tsBtn{background-color:#00b48c}.tsChat-offers .tsChat-offer .tsBtn:hover{background-color:#00d8a8}
+
+/*------------------------------------*\
+  $THAT'S IT, SAYONARA MY FRIEND
+\*------------------------------------*/

@@ -1,0 +1,203 @@
+@import "../Framework/assets/less/foundation/_variables.less";
+
+@padding-base: 30px;
+@padding-level-0: 10px;
+@padding-level-1: @padding-level-0 + @padding-base;
+@padding-level-2: @padding-level-0 + @padding-base * 2;
+@padding-level-3: @padding-level-0 + @padding-base * 3;
+
+.tree {
+	max-width: 570px;
+
+	.area,
+	.time,
+	.distribution,
+	.forwarding {
+		padding: 5px 0;
+	}
+
+	/*.forwarding:extend(.tsIcon-Telephone) {
+		
+	}*/
+
+	
+	/*.area::before,
+	.time::before,
+	.distribution::before,
+	.forwarding::before {
+		content: "";
+		display: inline-block;
+		position: relative;
+		margin-right: 15px;
+	}*/
+
+	/*.area::before {
+		content: "U";
+	}
+
+	.time::before {
+		content: "T";
+	}
+
+	.distribution::before {
+		content: "%";
+	}*/
+
+	/*.forwarding::before {
+		content: "S";
+	}*/
+
+    .tsIcon-Environment,
+	.tsIcon-Time,
+	.tsIcon-Telephone,
+    .tsIcon-ViewAsGraph,
+    .tsIcon-Add,
+    .tsIcon-Edit,
+    .tsIcon-Delete{
+        &:before {
+            vertical-align: middle;
+        }
+	}
+
+    .tsIcon-Environment,
+	.tsIcon-Time,
+	.tsIcon-Telephone,
+    .tsIcon-ViewAsGraph {
+        margin-right: 9px;
+    }
+
+    .tsIcon-Telephone {
+        font-size: large;
+    }
+
+	.area {
+		padding-left: @padding-level-0;
+	}
+
+	.time {
+		padding-left: @padding-level-0;
+	}
+
+	.distribution {
+		padding-left: @padding-level-0;
+	}
+
+	.forwarding {
+		padding-left: @padding-level-0;
+	}
+
+	.area-level {
+		.time {
+			padding-left: @padding-level-1;
+		}
+
+		.distribution {
+			padding-left: @padding-level-1;
+		}
+
+		.forwarding {
+			padding-left: @padding-level-1;
+		}
+
+		.time-level {
+			.distribution {
+				padding-left: @padding-level-2;
+			}
+
+			.forwarding {
+				padding-left: @padding-level-2;
+			}
+
+			.distribution-level {
+				.forwarding {
+					padding-left: @padding-level-3;
+				}
+			}
+		}
+
+		.distribution-level {
+			.forwarding {
+				padding-left: @padding-level-2;
+			}
+		}
+	}
+
+	.time-level {
+		.distribution {
+			padding-left: @padding-level-1;
+		}
+
+		.forwarding {
+			padding-left: @padding-level-1;
+		}
+
+		.distribution-level {
+			.forwarding {
+				padding-left: @padding-level-2;
+			}
+		}
+	}
+
+	.distribution-level {
+		.forwarding {
+			padding-left: @padding-level-1;
+		}
+	}
+
+    /*.tsIcon-Edit {
+        margin-right: 10px;
+        float: right;
+        cursor: pointer;
+    }*/
+
+    .selected {
+        background-color: @lightergrey;
+    }
+
+    .addSpecificIcon {
+        color: black;
+    }
+
+	// Edit tidDistribution "Från" och "Till"
+	.tid-distribution-edit-time-labels {
+		display: inline-block;
+		width: 35px;
+	}
+
+    .buttonsContainer {
+        cursor: pointer;
+        float: right;
+
+       .tsIcon-Add:before {
+            font-size: x-small;
+            margin-right: 2px;
+            color: @linkcolor;
+        }
+
+        .tsIcon-Environment,
+	    .tsIcon-Time,
+	    .tsIcon-Telephone,
+        .tsIcon-ViewAsGraph,
+        .tsIcon-Edit,
+        .tsIcon-Delete{
+            margin-right: 5px;
+	    }
+
+        .tsIcon-Environment,
+	    .tsIcon-Time,
+	    .tsIcon-Telephone,
+        .tsIcon-ViewAsGraph{
+            &:before {
+                color: @black;
+            }
+	    }
+
+        [class*="tsIcon-"]:not(.tsIcon-Add):not(.tsIcon-Telephone):before {
+            font-size: medium;
+        }
+
+        .tsIcon-Telephone:before {
+            font-size: small;
+        }
+    }
+}

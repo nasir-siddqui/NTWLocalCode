@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CallType] (
+    [ID]       SMALLINT     NOT NULL,
+    [CallType] VARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_CallType] PRIMARY KEY NONCLUSTERED ([ID] ASC) WITH (FILLFACTOR = 90)
+);
+

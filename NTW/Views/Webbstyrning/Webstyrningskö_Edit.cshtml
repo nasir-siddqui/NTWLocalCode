@@ -1,0 +1,28 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning;
+@model KöEditViewModel
+
+@{
+    ViewBag.Title = "Webstyrningskö_Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1>Ändra schemalagd styrningsändring</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        <div class="tsMarginTop">
+            <div>
+                @Html.Partial("_Webbstyrningskö_Form", Model)
+
+            </div>
+            <div class="tsMarginTop">
+                @Html.ActionLink("Avbryt", "Index", "Webstyrning", new { @class = "tsBtn--Regular" })
+                <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Skapa" />
+            </div>
+
+        </div>
+    }
+</div>

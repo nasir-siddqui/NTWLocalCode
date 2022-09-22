@@ -1,0 +1,304 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS...............................You’re reading it!
+ * @FONT-FACE.............................Web fonts import
+ * HEADINGS...............................Default heading typography
+ * PARAGRAPHS.............................Default paragraphs settings
+ * CSS-CLASSES FOR CUSTOM LAYOUT..........CSS-classes for layout from cms 
+ * XSMALL.................................Typography for Xsmall
+ */
+
+
+
+/*
+base font size: 14px
+base line height: 1.5em
+baseline: 21px
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $@FONT-FACE
+\*------------------------------------*/
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('/dms/templating-kit/themes/telia-se/types/Telia-Icon-Glyphs-eot/Telia-Icon-Glyphs-eot.eot');
+    src: url('/dms/templating-kit/themes/telia-se/types/Telia-Icon-Glyphs-eot/Telia-Icon-Glyphs-eot.eot?#iefix') format('embedded-opentype'),
+         url('/dms/templating-kit/themes/telia-se/types/Telia-Icon-Glyphs-woff/Telia-Icon-Glyphs-woff.woff') format('woff'),
+         url('/dms/templating-kit/themes/telia-se/types/Telia-Icon-Glyphs-ttf/Telia-Icon-Glyphs-ttf.ttf') format('truetype'),
+         url('/dms/templating-kit/themes/telia-se/types/Telia-Icon-Glyphs-svg/Telia-Icon-Glyphs-svg.svg#Telia-Icon-GlyphsRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+
+//h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color : @headingcolor;
+  text-rendering : optimizelegibility;
+}
+
+//h1, h2, h3, h4,
+.h1, .h2, .h3, .h4, {
+  font-weight : bold;
+}
+
+//h1, h2, h3, h4,
+.h1-normal, .h2-normal, .h3-normal, .h4-normal {
+  font-weight : normal;
+}
+
+//h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+//a h1, a h2, a h3, a h4, a h5, a h6,
+.h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a,
+a .h1, a .h2, a .h3, a .h4, a .h5, a .h6 {
+  color : @linkcolor;
+  &:hover {
+//      color: @hoverlinkcolor;
+  }
+}
+
+//h1,
+.h1 {
+    .font-size(lineheight;30;33);       // 30px
+//    .line-height(33);                 // 33px / 30px = 1.1em
+}
+
+.tsBodyText h1,
+.tsBodyText .h1 {
+    .margin(bottom;7);                  // 33 + 7 = 40px
+}
+
+//h2,
+.h2 {
+   .font-size(lineheight;24;28);        // 24px
+//   .line-height(28);                  // 28px / 24px = 1.16666667em
+}
+
+.tsBodyText h2,
+.tsBodyText .h2 {
+    .margin(bottom;2);                  // 28 + 12 = 40px
+}
+
+//h3,
+.h3 {
+    .font-size(lineheight;18;24);       // 18px
+//    .line-height(24);                 // 24px / 18px = 1.33333333em
+}
+
+.tsBodyText h3,
+.tsBodyText .h3 {
+    .margin(bottom;6);                  // 24 + 6 = 30px
+}
+
+//h4,
+.h4 {
+    .font-size(lineheight;15;20);       // 15px
+//    .line-height(20);                 // 20px / 15px = 1.33333333em
+}
+
+.tsBodyText h4,
+.tsBodyText .h4 {
+    .margin(bottom;0);                  // 20 + 0 = 20px
+}
+
+//h5,
+.h5 {
+    .font-size(14);
+//    .line-height(20);                 // 20px / 14px = 1.42857142857em
+}
+
+//h6,
+.h6 {
+    .font-size(14);
+//    .line-height(20);                 // 20px / 14px = 1.42857142857em
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PARAGRAPHS AND TEXT ELEMENTS
+\*------------------------------------*/
+
+.tsBodyText {
+  color:@black;
+  .margin(bottom;@gutter);
+//  .padding(top;@gutter);
+}
+
+.tsBodyText p,
+.tsBodyText ul,
+.tsBodyText ol,
+.tsBodyText dl {
+	max-width: @text-area-maxwidth;
+}
+
+.tsBodyText dt {
+  font-weight: bold;
+}
+.tsBodyText dd {
+  .margin(bottom;@gutter-half);
+}
+
+.tsBodyText p {
+  color: @alttextcolor;
+}
+p {
+  .margin(bottom;@gutter;);
+}
+p.tsSmallText {
+  .font-size(12);
+}
+.tsBodyText ul,
+.tsBodyText ol {
+   .margin(bottom;30);
+}
+
+.tsIntroText {
+  //.font-size(20);
+  color: @darkgrey;
+  .font-size(lineheight;20;29);
+
+  a {
+    font-weight: normal;
+  }
+}
+.tsSubLine {
+  .font-size(12);
+  .margin(bottom;@gutter-double);
+  color: @darkgrey;
+}
+.tsSubHeading {
+  font-weight: bold;
+}
+.tsThinText{
+  font-weight: 300;
+}
+
+.highlighttext {
+  color: @texthighlightcolor;
+}
+/*
+.tsPaddingTop{
+  .padding(top;@gutter);
+} 
+.tsPaddingBottom {
+  .padding(bottom;@gutter);
+}*/
+
+
+
+
+/*------------------------------------*\
+    $LISTS
+\*------------------------------------*/
+
+ul.none {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }  
+}
+
+.tsStandAloneHeading {
+  .margin(topbottom;@gutter;@gutter);
+}
+
+
+
+
+
+/*------------------------------------*\
+    $CSS-CLASSES FOR CUSTOM LAYOUT
+	 IN MAGNOLIA
+\*------------------------------------*/
+
+.fontColor-black      { color:@black;  }
+.fontColor-grey       { color:@grey;  }
+.fontColor-lightgrey  { color:@lightgrey;  }
+.fontColor-white      { color:@white;  }
+
+.fontColor-purple     { color:@purple; }
+.fontColor-turq       { color:@turq;  }
+.fontColor-error      { color:@validationerror;  }
+.fontColor-blue       { color:@blue;  }
+
+.fontSize-xsmall      { .font-size(12); }
+.fontSize-small       { .font-size(14); }
+.fontSize-medium      { .font-size(16); }
+.fontSize-large       { .font-size(24); }
+.fontSize-xlarge      { .font-size(30); }
+.fontSize-huge        { .font-size(42); }
+
+.fontWeight-bold { font-weight: bold; }
+.no-margin { .margin(all;0)!important; }
+
+.tsFakeLink,
+[class*="tsFakeLink--"]{
+  color: @linkcolor;
+  cursor: pointer;
+  .transition(all 300ms ease-in-out);
+
+  &:hover{
+    color: @hoverlinkcolor;
+  }
+}
+[class*="tsFakeLink--"][class*="--Pdf"]{
+  position: relative;
+  padding-right: 26px;
+  .inline-block;
+
+  &:after{
+    content: "\e040";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -12px;
+    font-family: iconfont;
+    .font-size(lineheight;24;24);
+    font-weight: normal;
+  }
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+    $XSMALL
+\*------------------------------------*/
+
+
+@media only screen and (min-width: @mq-xsmall) and (max-width: @mq-lt-small) {
+	.h1 {
+	   .font-size(lineheight;24;28);                      // 24px
+	}
+
+	.tsBodyText .h1 {
+	    .margin(bottom;2);                  // 28 + 12 = 40px
+	}
+}

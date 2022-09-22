@@ -1,0 +1,186 @@
+/* 
+* ------------------------------------------------------------------------
+* List link
+*
+* A link that will have a bullet infront of it with some default margin
+* for use in tscList component
+* ------------------------------------------------------------------------
+*/
+
+.tscListLink {
+    &:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #333;
+        .border-radius(2px);
+        .margin(all;8;0;0;-@gutter-half);
+    }
+    color: @turq;
+    .padding(left;@gutter-half);
+    .margin(topbottom;3;3);
+    display: inline-block;
+    &:hover {
+        color: @turq;
+    }
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Step 
+*
+* This is a component to display a step. Place it inside a tscInlineList
+* and add a anchor or div with the class tscStep
+*
+* <ul class="tscInlineList">
+*     <li class="active">
+*         <a href class="tscStep">First step</a>
+*     </li>
+*     <li>
+*         <a href class="tscStep">Second step</a>
+*     </li>
+* </ul>
+* ------------------------------------------------------------------------
+*/
+
+[class^=tscList] {
+    .tscStep {
+        text-align: center;
+        position: relative;
+        display: block;
+        .padding(top;@gutter-double + @gutter);
+        color: @turq;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: @turq;
+            top: ~"@{gutter}px";
+            left: 0;
+        }
+        &::after {
+            content: counter(list-counter);
+            width: ~"@{gutter-double}px";
+            height: ~"@{gutter-double}px";
+            position: absolute;
+            line-height: ~"@{gutter-double}px";
+            border: 2px solid @turq;
+            .border-radius(40px);
+            left: 50%;
+            top: 0;
+            @var: @gutter + 2;
+            margin-left: ~"-@{var}px";
+            background: @white;
+        }
+        
+    }
+    li:first-child .tscStep::before {
+        width: 50%;
+        left: 50%;
+    }
+    li:last-child .tscStep::before {
+        width: 50%;
+    }
+    // target all steps after the active
+    li.active ~ li .tscStep {
+        color: @clay;
+        &::before {
+            background: @clay;
+        }
+        &::after {
+            border-color: @clay;
+        }
+    }
+}
+
+
+/* 
+* ------------------------------------------------------------------------
+* InfoRow 
+*
+* This is a component to display a row with a label and a description.
+* The label can also be transformed to an input using editable js plugin.
+*
+* <li class="tscInfoRow">
+*    <span>Account name</span>
+*    <span>01 Mobile subscriptions</span>
+* </li>
+* <li class="tscInfoRow--large">
+*    <span>Account name</span>
+*    <span>01 Mobile subscriptions</span>
+* </li>
+* ------------------------------------------------------------------------
+*/
+
+li[class^="tscInfoRow"] {
+    .margin(bottom; @gutter);
+    >span {
+        display: inline-block;
+        width: 100%;
+    }
+    >span:first-child {
+        color: @grey;
+    }
+    >input[type="text"]{
+        width: 100%;
+    }
+}
+
+li[class^="tscInfoRow"][class*="--Input"] {
+    .error{
+        .font-size(14);
+    }
+}
+
+[class^="tscInfoRow"][class*="--Large"] {
+    .font-size(18);
+}
+
+[class^="tscInfoRow"][class*="--XLarge"] {
+    .font-size(24);
+}
+
+.tscInfoRow-fluidContainer {
+    display: table;
+    width: 100%;
+    [class^="tscInfoRow-fluid"] {
+        display: table-cell;
+        >div {
+            width: 100%;
+            .tseDropdown-label{
+                word-break: break-all;
+            }
+            .tseDropdown-list{
+                width: 100%;
+            }
+            .tseDropdown-listItem{
+                white-space: normal;
+                word-break: break-all;
+            }
+            .tseDropdown-selected{
+                white-space: normal;
+            }
+        }
+    }
+    .tscInfoRow-fluidRight {
+        width: 48px;
+        .padding(left; @gutter-half);
+    }
+}
+
+.tscInfoRow-rightContainer {
+    .clearfix();
+}
+
+.tscInfoRow-break {
+    .margin(top; @gutter-half);
+}
+
+
+
+
+

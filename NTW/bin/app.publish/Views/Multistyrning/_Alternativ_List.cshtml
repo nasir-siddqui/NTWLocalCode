@@ -1,0 +1,24 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning
+@model List<MultistyrningsalternativRow>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+    <caption>Multistyrningsalternativ</caption>
+    <thead>
+        <tr>
+            <th>Namn</th>
+			<th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (MultistyrningsalternativRow altRow in Model)
+        {
+            <tr>
+                <td>@altRow.Namn</td>
+                <td>
+	                @Html.ActionLink(" ", "Alternativ_Edit", new { id = altRow.Id, namn = altRow.Namn }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+	                <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Multistyrning', 'Alternativ_Delete', 'multistyrningsalternativet', @altRow.Id)"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

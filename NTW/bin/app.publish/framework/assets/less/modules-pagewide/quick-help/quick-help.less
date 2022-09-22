@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * QUICK HELP..........A collection of links and info for some quick help for the user
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $QUICK HELP
+\*------------------------------------*/
+
+.tsQuickHelp-container {
+    position: relative;
+    .tsIconBackground {
+        position: absolute;
+        right: 0;
+        top: -15px;
+        z-index: 1;
+        cursor: pointer;
+        .icon-background(28;@turq);
+        i {
+            color: @white;
+            .font-size(14);
+        }
+        i.tsHidden {
+            display: none;
+        }
+    }
+    .tsIconBackground-wrapper {
+        position: relative;
+    }
+    border-top: 1px solid @lightergrey;
+    .margin(bottom;@gutter);
+    .tsQuickHelp {
+        border-top: none;
+        border-bottom: 1px solid @lightergrey;
+        .padding(topbottom;@gutter;@gutter);
+    }
+}
+
+.tsQuickHelp-heading {
+    .padding(bottom;@gutter);
+}
+
+.tsQuickHelp-list {
+    .padding(all;@gutter/4;@gutter;0;0;);
+    .margin(top;0);
+    list-style-type: none;
+    //.padding(top;@gutter/2);
+    li {
+        .padding(all;@gutter/4;0;@gutter/4;0);
+    }
+}
+
+.tsQuickHelp-list-item {
+    i {
+        display: table-cell;
+        position: relative;
+        top: 2px;
+        width: 30px;
+        .font-size(15);
+    }
+    span {
+        display: table-cell;
+
+    }
+}

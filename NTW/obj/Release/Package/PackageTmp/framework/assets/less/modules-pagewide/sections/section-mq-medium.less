@@ -1,0 +1,73 @@
+.tsSection {
+	&>div {
+		.l-inline-elements;	
+	}
+}
+.tsSection--Alt {
+	.clearfix;
+	&>div {
+
+		float: left;	
+		// display: inline-flex;
+		vertical-align: top;
+		text-align: left;
+		// &:first-child {
+		// 	float: right;
+		// 	text-align: center;
+		// }
+	}
+}
+
+
+
+// .tsSection-Item--Large:first-child {
+// 	text-align: left;
+// }
+.tsSection-Item--Large:last-child {
+	//text-align: right;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 0!important;
+}
+.tsSection-Item--Large:only-child {
+	text-align: left;
+}
+
+.tsSection-Item--Small {
+	width: 20%;
+}
+.tsSection-Item--Medium {
+	width: 25%;
+}
+.tsSection-Item--Large {
+	width: 33%;
+	text-align: center;
+}
+.tsSection-Item--XLarge  {
+	width: 50%;
+}
+.tsSection--Alt .tsSection-Item--Large {
+	width: 50%;
+	.padding(right;@gutter-double);
+	&:last-child {
+		padding-left: 0;
+	}
+	// &:first-child {
+	// 	padding-right: 0!important;
+	// }
+}
+
+
+.tsSection-Selection {
+	.clearfix;
+	max-width: none;
+}
+
+.tsSection-Table {
+ 	.tsSection-TableItem--Full {
+	    margin-right: 40px;
+    }
+}
+.tsSection-Table--Alt {
+	
+}

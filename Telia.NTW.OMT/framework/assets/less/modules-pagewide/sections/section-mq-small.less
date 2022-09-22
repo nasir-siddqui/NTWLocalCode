@@ -1,0 +1,58 @@
+/*Section Items  >> Move to layout*/
+.tsSection {
+	// &>div {
+	// 	.l-inline-elements;	
+	// }
+	
+	.tsSection-Item--Large {
+		width: 50%;
+	}
+	.tsSection-Item--Large:nth-child(odd) {
+		padding-right: 15px;
+		text-align: left;
+	} 
+	.tsSection-Item--Large:nth-child(even) {
+		text-align: right;
+		padding-left: 15px;
+	} 
+}
+
+.tsSection-Selection--Small {
+	width: 50%;
+	float: left;
+	min-height: 1px;
+	&:first-child {
+		padding-right: 5px;
+	}
+	&:last-child {
+		padding-left: 5px;
+	}
+	.clearfix;
+}
+.tsSection-Selection--Small:only-child {
+	width: 100%;
+}
+.tsSection-Table,
+.tsSection-Table--Alt {
+	//float: right;
+	//max-width: 600px;
+	//width: auto;
+	.tsSection-TableItem {
+		display: table-cell !important;
+		&>span:first-child
+		{
+			.font-size(lineheight;15;18);
+			display: block;
+			padding: 0;
+			text-align: left;
+		}
+	}
+	
+}
+
+.tsSection-Table--Alt .tsSection-Table-Hightlighted:last-child {
+			margin-bottom: 0px;
+}
+.tsSection-Table--Alt .tsSection-Label {
+	width: auto;
+}

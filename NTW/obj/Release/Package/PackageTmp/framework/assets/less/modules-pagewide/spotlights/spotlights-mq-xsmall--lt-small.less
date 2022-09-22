@@ -1,0 +1,21 @@
+.tsSpotlight {
+    .tsIconHeader {
+        .font-size(lineheight;20;40);    
+    }
+}
+
+.tsSpotlight-links {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    .tsSpotlight-link {
+        display: table-cell;
+        .padding(leftright;1;1);
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right:0;
+        }
+    }
+}

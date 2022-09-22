@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="18865d2cf8df43cba3922e42f7af7211" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="AdvanceWebbModel.CompanyInfo" PointX="12.75" PointY="7.25" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.GroupInfo" PointX="10.5" PointY="9.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.Role" PointX="3" PointY="9.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.User" PointX="8.25" PointY="8" Width="1.5" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="AdvanceWebbModel.FK_Webb_Users_Login_Webb_Users_Org" />
+        <AssociationConnector ManuallyRouted="false" Association="AdvanceWebbModel.FK_Webb_Users_Org_Webb_Users_Koncern" />
+        <AssociationConnector ManuallyRouted="false" Association="AdvanceWebbModel.CompanyInfosInRoles">
+        </AssociationConnector>
+        <AssociationConnector ManuallyRouted="false" Association="AdvanceWebbModel.UsersInRoles" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CompanyInfo_ContactAnalys" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CompanyInfo_ContactLeverantörsinformation" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CompanyInfo_ContactWebstyrning" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_CompanyInfo_ChangedByUser" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_User_ChangedByUser" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.AdvanceExtension" PointX="15" PointY="9.125" Width="1.5" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.UserAdvanceNumbers" PointX="10.5" PointY="5.625" Width="1.5" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_UserAdvanceNumbers_AdvanceExtension" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_UserAdvanceNumbers_Webb_Users_Login" />
+        <AssociationConnector ManuallyRouted="false" Association="AdvanceWebbModel.FK_AdvanceExtension_CompanyInfo">
+        </AssociationConnector>
+        <AssociationConnector Association="AdvanceWebbModel.FK_AdvanceExtension_ChangedBy" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.FictiveOrgNr" PointX="0.75" PointY="0.75" Width="1.5" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_UserAdvanceNumbers_ChangedByUser" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_GroupInfo_ChangedBy" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_Role_ParentRole" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.UserSettings" Width="1.5" PointX="9.75" PointY="1.5" />
+        <AssociationConnector Association="AdvanceWebbModel.FK_UserSettings_Webb_Users_Login" />
+        <AssociationConnector Association="AdvanceWebbModel.IncludedRole" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.Meddelandes" Width="1.5" PointX="3.375" PointY="0.875" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.RolesForMessage" Width="1.5" PointX="5.5" PointY="5.875" />
+        <AssociationConnector Association="AdvanceWebbModel.FK__RolesForM__Messa__5DA0D232" />
+        <AssociationConnector Association="AdvanceWebbModel.FK__RolesForM__RoleI__5E94F66B" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.SystemLog" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.ProcessTable" Width="1.5" PointX="14" PointY="0.75" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.ServiceLog" Width="1.5" PointX="15.625" PointY="0.75" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.STAFFlog" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.SupportLog" Width="1.5" PointX="9.125" PointY="0.75" />
+        <EntityTypeShape EntityType="AdvanceWebbModel.ProcessHeader" Width="1.5" PointX="7.5" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

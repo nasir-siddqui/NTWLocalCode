@@ -1,0 +1,59 @@
+.tsBlockList {
+	.l-inline-list;
+	.margin(bottom;@gutter-double);
+	
+	li {
+		.margin(bottom;@gutter-half);
+		width: 100%;
+	}
+}
+
+.tsBlockList-header {
+    background: @purple;
+    color: @white;
+    text-align: center;
+    .padding(all;@gutter-half);
+    border: 1px solid @purple;
+}
+
+.tsBlockList-title {
+    display: block;
+    font-weight: bold;
+    .font-size(lineheight;21;24);
+}
+
+.tsBlockList-body {
+    border: 1px solid @purple;
+    .padding(all;@gutter-half);
+    .font-size(13);
+    text-align: center;
+}
+
+.tsBlockList-image,
+.tsBlockList-image--alt {
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.tsBlockList-image--alt {
+    display: block;
+    img {
+        width: 100%;
+    }
+}
+
+.tsBlockList-image {
+    display: none;
+}
+
+.tsBlockList-tag {
+	height: 25px;
+	width: 100%;
+	text-align: center;
+    background: @turq;
+	color: @white;
+	.font-size(lineheight;13;25);
+	font-weight: bold;
+	overflow: hidden;
+}
+

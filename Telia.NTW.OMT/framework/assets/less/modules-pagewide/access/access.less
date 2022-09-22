@@ -1,0 +1,106 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * ACCESS..............Show access to for example a portal
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $ACCESS
+\*------------------------------------*/
+
+.tsAccess {
+    .padding(top;@gutter);
+    .tsIconBackground {
+        display: inline-block;
+        .margin(right;@gutter/2);
+        .icon-background(25;@lightgrey);
+        .border-radius(5px);
+        i {
+            color: @lightgrey;
+        }
+        &.checked {
+            background-color: @blue;
+            i {
+                color: @white;
+            }
+        }
+        &.semichecked {
+            i {
+                color: @blue;
+            }
+        }
+    }
+    .label {
+        float: left; 
+        .padding(left;34);
+        .font-size(13);
+        .margin(top;5);
+        color: @grey;
+    }
+}
+
+.tsAccess-columnContainer {
+    .l-inline-list();
+    .tsColumn-list-4 {
+        display: inline-block;
+        .font-size(14);
+        vertical-align: top;
+        float: none;
+        .margin(bottom;10);
+    }
+}
+
+.tsAccess-headline {
+    .padding(bottom;@gutter/2);
+}
+
+.tsAccess-list {
+    .l-list();
+    .tsAccess-listItem {
+        .padding(bottom;@gutter/4);
+        float: left;
+        width: 100%;
+    }
+}
+
+.tsAccess-listItem {
+    label {
+        float: left;
+        width: 100%;
+    }
+}
+
+.tsAccess-table {
+    tr {
+        td {
+            .padding(bottom;@gutter/2);
+            &:first-child {
+                .padding(right;@gutter);
+            }
+        }
+    }
+}
+
+.tsAccess-table--noIcons {
+    tr {
+        td {
+            .padding(bottom;16);
+        }
+    }
+}
+
+.tsAccess-hasAcess {
+    color: @blue;
+}
+
+.tsAccess-divider {
+    .padding(leftright;7;7);
+}

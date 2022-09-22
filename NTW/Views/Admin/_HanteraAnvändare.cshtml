@@ -1,0 +1,249 @@
+﻿@model Telia.NTW.Web.ViewModel.Admin.Hantera.RedigeraAnvändareViewModel
+
+@Html.AntiForgeryToken()
+
+<div class="tsMarginTop">
+	<div class="max-width">
+		<h3>Användardata</h3> <br />
+
+		@if (Model.ExistingUser)
+		{
+			<ul class="tscList">
+				<!-- Created -->
+				<li class="tscInfoRow tsBorderBottom--None">
+					<span>@Html.LabelFor(m => m.Skapad)</span>
+					<span>@Html.DisplayFor(m => m.Skapad)</span>
+				</li>
+
+				<!-- Changed -->
+				<li class="tscInfoRow tsBorderBottom--None">
+					<span>@Html.LabelFor(m => m.SenastÄndrad)</span>
+					<span>@Html.DisplayFor(m => m.SenastÄndrad)</span>
+				</li>
+
+				<!-- Latest login-->
+				<li class="tscInfoRow tsBorderBottom--None">
+					<span>@Html.LabelFor(m => m.SenastInloggad)</span>
+					<span>@Html.DisplayFor(m => m.SenastInloggad)</span>
+				</li>
+			</ul>
+		}
+
+		<!-- Användar ID -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			@Html.LabelFor(m => m.AnvändarID, new { @class = "tscForm-label" })
+			@{
+				RouteValueDictionary attributes = new RouteValueDictionary(new { @class = "tseInput", @type = "text" });
+
+				if (Model.AnvändarID != null)
+				{
+					attributes.Add("disabled", "");
+					@Html.HiddenFor(m => m.AnvändarID);
+				}
+			}
+			@Html.TextBoxFor(m => m.AnvändarID, attributes)
+			@Html.ValidationMessageFor(m => m.AnvändarID)
+		</div>
+
+		<!-- Namn -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			@Html.LabelFor(m => m.Namn, new { @class = "tscForm-label" })
+			@Html.TextBoxFor(m => m.Namn, new { @class = "tseInput", @type = "text" })
+			@Html.ValidationMessageFor(m => m.Namn)
+		</div>
+
+		<!-- OrgNr -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			@Html.HiddenFor(m => m.UserCompanyId)
+			@Html.LabelFor(m => Model.OrgNr, new { @class = "tscForm-label", @id = "orgNr" })
+			@Html.DropDownListFor(m => m.CompanyId, Model.BolagSelectList, "-- Välj bolag --", new
+					{
+						@class = "combobox-autocomplete",
+						@id = "OrgNr",
+						search_from_start = ""
+					})
+		</div>
+
+
+		<!-- Hämta bolag -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			<a class="tsBtn--Regular" onclick="getOrgNbr()">Hämta</a> <br />
+		</div>
+
+		<!-- Bolagsnamn -->
+		<div class="tseTextField--Normal--Full--Half tsMarginTop">
+			@Html.LabelFor(m => m.Bolagsnamn, new { @class = "tscForm-label" })
+			@Html.TextBoxFor(m => m.Bolagsnamn, new { @class = "tseInput", @type = "text", @disabled = "disabled" })
+			@Html.ValidationMessageFor(m => m.Bolagsnamn)
+		</div>
+
+		<!-- Telefonnummer -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			@Html.LabelFor(m => m.Telefon, new { @class = "tscForm-label" })
+			@Html.TextBoxFor(m => m.Telefon, new { @class = "tseInput", @type = "text" })
+			@Html.ValidationMessageFor(m => m.Telefon)
+		</div>
+
+		<!-- Email -->
+		<div class="tseTextField--Normal--Half--Inline tsMarginTop">
+			@Html.LabelFor(m => m.Email, new { @class = "tscForm-label" })
+			@Html.TextBoxFor(m => m.Email, new { @class = "tseInput", @type = "text" })
+			@Html.ValidationMessageFor(m => m.Email)
+		</div>
+
+		<!-- Notering -->
+		<div class="tscForm-row tsMarginTop">
+			@Html.LabelFor(m => m.Notering, new { @class = "tscForm-label" })
+			@Html.TextAreaFor(m => m.Notering, new { @class = "tseTextarea" })
+			@Html.ValidationMessageFor(m => m.Notering)
+		</div>
+		<div id="kundbolag">
+			<div class="tseRadioBox">
+				@{
+					bool selected = false;
+					if (Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Kund.ToString())
+					{
+						selected = true;
+					}
+
+					string id = String.Format("{0}{1}", Telia.NTW.Web.Enums.Användartyper.Kund.GetType().Name, 0);
+
+					var radiobuttonAttributes = Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Kund.ToString() ?
+					(object)new { @id = id, @checked = "checked", @value = 0 } :
+					(object)new { @id = id, @value = 0 };
+
+
+					@Html.RadioButton(Telia.NTW.Web.Enums.Användartyper.Kund.GetType().Name, "0", selected, radiobuttonAttributes)
+					@Html.Label("Kund", new { @for = id, @class = "tsMarginRight" })
+				}
+
+			</div>
+
+			<div class="col-md-12 tscForm-row">
+				<div class="tscForm-inputContainer tsMarginBottom--halfGutter">
+					Visa för roller:<br />
+					<div class="tscForm-inputContainer tsMarginBottom">
+						@* TODO: Fixa namn för dessa *@
+						@Html.EditorFor(m => m.AnalysActive, "Checkbox")
+						@Html.EditorFor(m => m.WebbstyrningLäsActive, "Checkbox")
+						@Html.EditorFor(m => m.WebbstyrningSkrivActive, "Checkbox")
+						@Html.EditorFor(m => m.WebbstyrningMultistyrning, "Checkbox")
+						@Html.EditorFor(m => m.LeverantörsinformationActive, "Checkbox")
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="adminbolag" hidden="hidden">
+			<div class="tseRadioBox">
+				@{
+					selected = false;
+					if (Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Administratör.ToString())
+					{
+						selected = true;
+					}
+					id = String.Format("{0}{1}", Telia.NTW.Web.Enums.Användartyper.Administratör.GetType().Name, 1);
+
+					radiobuttonAttributes = Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Administratör.ToString() ?
+					(object)new { @id = id, @checked = "checked", @value = 1 } :
+					(object)new { @id = id, @value = 2 };
+					@Html.RadioButton(Telia.NTW.Web.Enums.Användartyper.Administratör.GetType().Name, "1", selected, radiobuttonAttributes)
+					@Html.Label("Administratör", new { @for = id, @class = "tsMarginRight" })
+					<br />
+					<br />
+					//Säljare
+					selected = false;
+					if (Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Säljare.ToString())
+					{
+						selected = true;
+					}
+
+					id = String.Format("{0}{1}", Telia.NTW.Web.Enums.Användartyper.Säljare.GetType().Name, 2);
+
+					radiobuttonAttributes = Model.Användartyper.ToString() == Telia.NTW.Web.Enums.Användartyper.Säljare.ToString() ?
+					(object)new { @id = id, @checked = "checked", @value = 0 } :
+					(object)new { @id = id, @value = 0 };
+
+					@Html.RadioButton(Telia.NTW.Web.Enums.Användartyper.Säljare.GetType().Name, "2", selected, radiobuttonAttributes)
+					@Html.Label("Säljare", new { @for = id, @class = "tsMarginRight" })
+				}
+			</div>
+		</div>
+	</div>
+	<p class="clear-float">Fält markerade med * är obligatoriska.</p>
+</div>
+
+@{
+	// Startup
+	if (Model.OrgNr != "999999-9999")
+	{
+		<script>
+			document.getElementById("adminbolag").setAttribute("hidden", true);
+			document.getElementById("kundbolag").removeAttribute("hidden");
+		</script>
+	}
+	else if (Model.OrgNr == "999999-9999")
+	{
+		<script>
+			document.getElementById("kundbolag").setAttribute("hidden", true);
+			document.getElementById("adminbolag").removeAttribute("hidden");
+		</script>
+	}
+
+}
+
+<!-- TODO: init req för komboboxar-->
+<script src="/Framework/assets/js/external/libs/jquery/jquery-1.10.2.min.js"></script>
+
+<script>
+	function getOrgNbr() {
+		var orgNrId = $("#OrgNr").val();
+		var orgNr;
+
+		if (orgNrId.length == 0) {
+		    // Inget värde är angett
+		    return;
+		}
+
+		$.ajax({
+			url: '@Url.Content("Get_OrgNr")',
+			type: 'POST',
+			context: document.body,
+			data:
+                {
+                	orgNrId: orgNrId
+                },
+		}).done(function (data) {
+			$("#Bolagsnamn").val(data.orgNamn);
+			orgNr = data.orgNr;
+
+			CheckOrgRole(orgNr, data.companyId);
+		});
+	}
+
+	$("form").submit(function () {
+		$("input:checkbox").each(function () {
+			if (!$(this).hasClass("tseCheckbox--checked")) {
+				$(this).prop('checked', false);
+			}
+		});
+	});
+
+	function CheckOrgRole(orgNr, userCompanyId) {
+		// Kund
+		if (orgNr != "999999-9999") {
+			document.getElementById("adminbolag").setAttribute("hidden", true);
+			document.getElementById("kundbolag").removeAttribute("hidden");
+
+			console.log("Kund");
+		}
+			// Admin eller Säljare
+		else if (orgNr == "999999-9999" || orgNr == "9999999999") {
+			document.getElementById("kundbolag").setAttribute("hidden", true);
+			document.getElementById("adminbolag").removeAttribute("hidden");
+
+			console.log("Admin");
+		}
+
+		$("#UserCompanyId").val(userCompanyId);
+	}
+</script>

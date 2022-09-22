@@ -1,0 +1,27 @@
+﻿@model Telia.NTW.Web.ViewModel.Leverantörsinformation.InnehållsleverantörViewModel
+
+@{
+    ViewBag.Title = "Innehållsleverantör_Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Leverantörsinformation", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera innehållsleverantör</li>
+    </ul>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("_Innehållsleverantör")
+
+        <div class="tsMarginTop">
+            @Html.ActionLink("Avbryt", "Innehållsleverantörer", "Leverantörsinformation", new { @class = "tsBtn--Regular" })
+            @Html.ActionLink("Avsluta", "Innehållsleverantör_Inactivate", "Leverantörsinformation", new { id = @Model.ContentProviderId }, new { @class = "tsBtn--Regular tsMarginLeft" })
+            <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Spara" />
+        </div>
+
+    }
+</div>

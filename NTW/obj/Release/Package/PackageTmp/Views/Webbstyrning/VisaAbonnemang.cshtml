@@ -1,0 +1,24 @@
+﻿@using Sigma.Utils.Helpers
+@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.FlexibeltSvarsställeEditViewModel
+
+@{
+    ViewBag.Title = "Flexibelt svarsställe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Nummerstyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>@Html.ActionLink("020-202990", "Abonnemang")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Visa styrningsträd</li>
+    </ul>
+</div>
+
+<!-- Heading -->
+<div class="tsBodyText tsMarginTop tsWrapInner">
+    <h1>Visa styrningsträd</h1>
+</div>
+
+<p class="tsWrapInner">
+    Här kan du se styrningsträdet för 020-202990.
+</p>

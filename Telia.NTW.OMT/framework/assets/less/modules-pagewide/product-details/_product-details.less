@@ -1,0 +1,387 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCT-HIGHLIGHTS........
+ * PRODUCT-IMAGE.............
+ * LEAD-INS..................
+ * MOVIE.....................
+
+*/
+
+
+.clearfix:after{
+    clear: both;
+    content: '.';
+    display: block; 
+    visibility: hidden;
+    line-height: 0;
+    height: 0;    
+}
+
+
+/*------------------------------------*\
+    $PRODUCT-HIGHLIGHTS
+\*------------------------------------*/
+
+.tsProductHighlights,
+.tsProductHighlights--portrait,
+.tsProductHighlights--landscape {
+//    .margin(bottom; @gutter-double);
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-IMAGE
+\*------------------------------------*/
+
+.tsProductHighlights > .tsProductImage,
+.tsProductHighlights--portrait > .tsProductImage,
+.tsProductHighlights--landscape > .tsProductImage {
+    .margin(bottom; @gutter-double);
+    position: relative;
+}
+
+.tsProductImage img.hide {
+    .visuallyhidden;
+}
+
+.tsProductImage {
+    position: relative;
+    .tsProductItem-tag {
+        height: 65px;
+        width: 65px;
+    }
+}
+
+
+
+/*------------------------------------*\
+    $LEAD-INS
+\*------------------------------------*/
+
+[class^="tsProductLeadins"] {
+    .margin(bottom;40);
+}
+
+[class^="tsProductLeadins"] .tsProductList-Item,
+[class^="tsProductLeadins"] .tsProductList-Item--combo,
+[class^="tsProductLeadins"] .tsProductList-Item--single {
+	.margin(bottom;5);
+	border: 0;
+    &:hover{
+        background-image: none!important;
+    };
+}
+
+.tsProductList-Item--combo .tsProductItem--Leadin {
+    float: left;
+}
+
+.tsProductTop {
+    margin-bottom: 40px;
+    margin-bottom: 4rem;
+}
+
+.tsProductItem-tagWrapper{
+    left: 30%;
+}
+
+.tsIntroBullets{
+    padding-left: 20px;ß
+    padding-left: 2rem;
+}
+
+
+.tsProductItem--Leadin {
+    position: relative;
+    .tsProductItem;
+    .padding(all;0;0;@gutter;0);
+	background: rgb(245,245,245);
+    border: 1px solid @productleadinbordercolor;
+
+    &:hover{
+        border-bottom-color: transparent!important;
+
+    };
+}
+
+.tsProductItem--Leadin .tsProductItem-Desc {
+	.padding(all;15;10;20;10);
+}
+
+.tsProductItem--Leadin .tsProductItem-Price--Primary {
+    background: @white;
+}
+
+.tsProductItem-Text {
+	.font-size(lineheight;13;16);
+	color: @darkgrey; //eg #707070; 
+	.margin(top;5);
+    max-width: 700px!important;
+}
+
+.tsProductItem-Disclaimer {
+	color: @black;
+	.font-size(lineheight;12;15);
+	.padding(all;@gutter-half);
+}
+
+.tsProductItem-Offertext {
+    color: @pink;
+    .padding(topbottom;8;8);
+    margin: 0;
+    .font-size(14);
+}
+
+.tsProductList-Item--color .tsProductItem-Desc{
+    padding-top: 0;
+}
+
+.tsColorlist {
+    .l-inline-list;
+    .margin(bottom;@gutter-half);
+    color: @black;
+    font-weight: bold;
+    width: 100%;
+    li {
+        .padding(right;@gutter-half/2);
+    }
+    .tsInstock,
+    .h5,
+    .tsColorlist-header {
+        letter-spacing:normal;
+    }
+    .tsColorlist-header,
+    .tsInstock-Text,
+    .tsInstock-Label {
+        .font-size(10);
+        color: @grey;
+    }
+}
+.tsColorlist-selectedcolor{
+    float: left;
+    width: 100px;
+    padding-top: 5px;
+    word-wrap: break-word;
+    .font-size(15);
+    display: inline-block;
+    .margin(right;@gutter-half/2);
+}
+
+.tsColorlist-Title{
+    margin-bottom: 10px;
+}
+
+.tsProductItem-Includeslist {
+    .l-list;
+    .margin(topbottom;@gutter-half;@gutter);
+    .font-size(12);
+    color: @black;
+
+}
+
+.tsColorlist-Item {
+    width: 27px;
+    height: 27px;
+    display: block;
+    .border-radius(50%);
+    border: 3px solid @white;
+    border: 3px solid #ababab\9;
+    -webkit-box-shadow: @nearblack 0px 0px 3px inset;
+    -moz-box-shadow: @nearblack 0px 0px 3px inset;
+    -ms-box-shadow: @nearblack 0px 0px 3px inset;
+    -o-box-shadow: @nearblack 0px 0px 3px inset;
+    box-shadow: @nearblack 0px 0px 3px inset;
+    font-size: 0;
+    input{
+        visibility: hidden;
+    }
+}
+.tsColorlist-Item.is-selected {
+    font-weight: bold;
+    border: 3px solid @white;
+    border: 3px solid #0083be\9;
+    -webkit-box-shadow: 0px 0px 3px 0px @black, @darkgrey 0px 0px 3px inset;
+    -moz-box-shadow: 0px 0px 3px 0px @black, @darkgrey 0px 0px 3px inset;
+    -ms-box-shadow: 0px 0px 3px 0px @black, @darkgrey 0px 0px 3px inset;
+    -o-box-shadow: 0px 0px 3px 0px @black, @darkgrey 0px 0px 3px inset;
+    box-shadow: 0px 0px 3px 0px @black, @darkgrey 0px 0px 3px inset;
+}
+
+.tsColorlist-instockstatus,
+.tsColorlist-header i {
+    .font-size(10);
+    display: inline-block;
+    .margin(right;@gutter-half/2);
+   
+}
+.tsProductItem-Offer-text {
+    color:@pink;
+    .font-size(12);
+    .padding(leftright;@gutter;@gutter);
+    .margin(top;@gutter-half);
+}
+.no-js [class*='tsColorlist-Item--'] {
+    background-color: transparent;
+    font-size: 12px;
+    border:none;
+    width: auto;
+    height: auto;
+    input{
+        visibility: visible;
+    }
+}
+.tsInstock {
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    &>div {
+        .inline-block;
+    }
+}
+.tsInstock-title{
+    float: left;
+    padding-right: 10px;
+}
+.tsInstock-Label {
+    float: left;
+    line-height: 12px;
+}
+.tsInstock-Icon {
+    width: 8px;
+    height: 8px;
+    float: left;
+    margin-right: 5px;
+    margin-top: 2px;
+    .margin(all;2;5;0;0);
+}    
+.tsInstock-Icon.is-instock {
+    background-color: @turq;
+}
+.tsInstock-Icon.is-outofstock {
+    background-color: @validationerror;
+}
+
+/*------------------------------------*\
+    $MOVIE
+\*------------------------------------*/
+
+
+.tsMovieLoading-wrapper {
+    min-height: 200px;
+}
+
+.tsMovieImage {
+    img {
+        max-width: 100%;
+    }
+}
+
+.tsProductItem--movie {
+    .media-overflow();
+    min-height: 330px;
+
+    .tsMovieImage {
+        .padding(all; @gutter; @gutter; @gutter; @gutter);
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .tsMovieContent{
+        .padding(all; @gutter; @gutter; @gutter; 0);
+        display: inline-block;
+        .tsMovieHeader {
+            .padding(bottom;@gutter-half;);
+            .h2 {
+                display: inline-block;
+            }
+        }
+        .tsMovieInfo {
+            .font-size(14);
+            .tsMovieInfo--description {
+                display: inline-block;
+                vertical-align: top;
+                max-width: 50%;
+            }
+            .tsMovieInfo--data {
+                .margin(left;@gutter);
+                display: inline-block;
+                vertical-align: top;
+                max-width: 45%;
+                .tsTable--alt {
+                    width: 100%;
+                    margin-top: 0;
+                    padding-top: 0;
+                    tr {
+                        background-color: transparent;
+                        td {
+                            .font-size(14);
+                            vertical-align: top;
+                            padding-top: 0;
+                            background-color: transparent;
+                            ul {
+                                .padding(left;0);
+                                .margin(topbottom;0;@gutter-half);
+                                list-style-type: none;
+                            }
+                            &.tsMovieInfo--logo {
+                                
+                                vertical-align: middle;
+                                img {
+                                    .margin(all;0);
+                                    &.tsHidden {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            .tsProductItem-Price--Primary {
+                                .padding(topbottom;@gutter-half/2;@gutter-half/2);
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.tsMovieSimilar {
+    .h3 {
+        .padding(topbottom;@gutter-half;@gutter-half);
+        background-color: @turq;
+        color: @white;
+        text-align: center;
+    }
+    .tsMovieList {
+        .margin(top;@gutter);
+        padding: 0;
+        text-align: center;
+        list-style-type: none;
+        .tsMovieList-Item {
+            .padding(leftright;@gutter-half;@gutter-half;);
+            display: inline-block;
+            width: 45%;
+            vertical-align: top;
+            .tsMovieItem-Img {
+                margin: 0 auto;
+            }
+            .tsMovieItem-Desc {
+                .margin(top;@gutter-half/2);
+                .tsMovieItem-Name {
+                    min-height: 50px;
+                }
+                .tsHidden {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+

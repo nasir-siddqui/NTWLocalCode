@@ -1,0 +1,91 @@
+<!-- Need a wrapper here for compile purpse. The wrapper will be removed in the wrapper directive link function -->
+<div ts-dcf-fields-wrapper>
+
+    <h4 ng-repeat-start="field in fields" class="h4 title" ng-if="field.type === 'label'" ng-show="show({field:field})">{{ model.attributes[field.index].attributeValue }}</h4>
+
+    <fieldset class="tscFormSection--Sub--Inline" ng-if="field.type === 'radio'" ng-show="show({field:field})">
+        <legend>{{ field.title }}</legend>
+        <div class="tscFormSection-inner">
+            <div class="tseRadioBox--Normal{{ field.opt.style }}{{ $last ? '--Inline' : '--InlineSmall' }}" ng-repeat="item in field.opt.options">
+                <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}" value="{{ item.value }}" ng-model="model.attributes[field.index].attributeValue">
+                <label for="{{ field.id }}-{{ item.value }}">{{ item.label }}</label>
+            </div>
+            
+            <!-- <div ts-dcf-fields data-fields="field.extra" data-model="model"></div> -->
+
+        </div>
+    </fieldset>
+
+    <fieldset class="tscFormSection--Sub--Inline" ng-if="field.type === 'checkbox'" ng-show="show({field:field})">
+        <legend>{{ field.title }}</legend>
+        <div class="tscFormSection-inner">
+            <div class="tseRadioBox--Normal--ColorNavigation{{ field.opt.style }}--Inline">
+                <input type="checkbox" name="{{ field.id }}" id="{{ field.id }}" value="true" ng-true-value="Ja" ng-false-value="Nej" ng-model="model.attributes[field.index].attributeValue">
+                <label for="{{ field.id }}" data-checked="{{ field.opt.checked }}">{{ field.opt.unchecked }}</label>
+            </div>
+
+            <!-- <div ts-dcf-fields data-fields="field.extra" data-model="model"></div> -->
+
+        </div>
+    </fieldset>
+
+    <fieldset class="tscFormSection--Sub--Inline" ng-if="field.type === 'radiospot'" ng-show="show({field:field})">
+        <legend>{{ field.title }}</legend>
+        <div class="tscFormSection-inner">
+            
+            <div class="tseRadioBox--Normal--Spot--Inline" ng-if="field.single" ng-repeat="item in field.single">
+                <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}" value="{{ item.value }}" ng-model="model.attributes[field.index].attributeValue">
+                <label for="{{ field.id }}-{{ item.value }}">
+                    <h4>{{ item.label }}</h4>
+                    <span>{{ item.unit }}</span>
+                    <p>{{ item.price }}</p>
+                </label>
+            </div>
+
+            <div class="tscFormGroup--Inline" ng-if="field.groups" ng-repeat="group in field.groups">
+                <label>{{ group.title }}</label>
+                <div class="tseRadioBox--Normal--Spot--Inline" ng-repeat="item in group.options">
+                    <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}"value="{{ item.value }}" ng-model="model.attributes[field.index].attributeValue">
+                    <label for="{{ field.id }}-{{ item.value }}">
+                        <h4>{{ item.label }}</h4>
+                        <span>{{ item.unit }}</span>
+                        <p>{{ item.price }}</p>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+
+    <fieldset class="tscFormSection--Sub--Inline" ng-if="field.type === 'text'" ng-show="show({field:field})">
+        <legend>{{ field.title }}</legend>
+        <div class="tscFormSection-inner">
+            <div class="tseTextField--Normal{{ field.opt.width }}{{ field.opt.inline ? '--Inline' : '' }}">
+                <label for="{{ field.id }}">{{ field.title }}</label>
+                <input type="text" name="{{ field.id }}" id="{{ field.id }}" ng-model="model.attributes[field.index].attributeValue">
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="tscFormSection--Sub--Inline" ng-if="field.type === 'select'" ng-show="show({field:field})">
+        <legend>{{ field.title }}</legend>
+        <div class="tscFormSection-inner">
+            <div class="tseSelect--Normal{{ field.opt.width }}">
+                <select name="{{ field.id }}" id="{{ field.id }}" ng-model="model.attributes[field.index].attributeValue">
+                    <option ng-repeat="item in field.opt.options" value="{{ item.value }}">{{ item.label }}</option>
+                </select>
+            </div>
+
+            <!-- <div ts-dcf-fields data-fields="field.extra" data-model="model"></div> -->
+
+        </div>
+    </fieldset>
+
+    <div class="tseTextArea" ng-if="field.type === 'textarea'" ng-show="show({field:field})">
+        <label for="{{ field.id }}">{{ field.title }}</label>
+        <textarea name="{{ field.id }}" id="{{ field.id }}" rows="{{ field.opt.rows }}" ng-model="model.attributes[field.index].attributeValue"></textarea>
+    </div>
+
+    <a ng-repeat-end ng-if="field.type === 'link'" href="{{ field.opt.url }}" ng-show="show({field:field})"><i class="{{ field.opt.icon }}"></i> {{ field.opt.title }}</a>
+
+</div>

@@ -1,0 +1,160 @@
+.tsHighlight-box,
+[class*="tsHighlight-box--"]{
+	max-width: @text-area-maxwidth;
+	border-top: 1px solid @borderGrey;
+	border-bottom: 1px solid @borderGrey;
+}
+[class*="tsHighlight-box--"][class*="--Full"]{
+	max-width: none;
+}
+[class*="tsHighlight-box--"][class*="--Sides"]{
+	border-left: 1px solid @borderGrey;
+	border-right: 1px solid @borderGrey;
+}
+[class*="tsHighlight-box"][class*="--Stacked"].is-disabled{
+	[class*="tsHighlight-box-inner"]{
+		padding-top: 0;
+	}
+}
+
+/* If placed in highlighted wrap */
+[class*="tsBackdrop"]{
+	.tsHighlight-box,
+	[class*="tsHighlight-box--"]{
+		border-top: 0;
+		border-bottom: 0;
+
+		& + .tsHighlight-box,
+		& + [class*="tsHighlight-box--"]{
+			border-top: 1px solid @borderGrey;
+		}
+		& + .tsIncludeRepeater{
+			border-top: 1px solid @borderGrey;
+		}
+	}
+}
+
+
+.tsHighlight-box + .tsHighlight-box,
+[class*="tsHighlight-box--"] + [class*="tsHighlight-box--"]
+{
+	border-top: 0;
+}
+
+[class*="tsHighlight-box--"][class*="--NoPadding"] .tsHighlight-box-inner{
+	padding: 0;
+}
+
+[class*="tsHighlight-box"][class*="--DisabledSpacing"].is-disabled{
+    .margin(bottom;@gutter);
+}
+
+.tsHighlight-box-heading{
+	.padding(all; 16; 10);
+	background: @darknearwhite;
+
+	&[data-widget-collapse="trigger"]:hover{
+		background: @white;
+	}
+
+	&.h1,
+	&.h2,
+	&.h3,
+	&.h4,
+	&.h5,
+	&[class*="tsTableList-Row"]{
+		background: @darknearwhite;
+	}
+
+	[class*=tsIcon-ArrowDown]{
+		font-size: 10px;
+		line-height: 20px;
+		float: right;
+	}
+	[class*="tsHighlight-box-TriggerIcon"]{
+		float: left;
+		display: block;
+		margin-right: 10px;
+		position: absolute;
+		margin-left: -37px;
+
+		&:after{
+			content: "\e620";
+			font-size: 24px;
+			display: block;
+    		font-family: iconfont;
+    		text-align: center;
+		    font-style: normal;
+		    font-weight: normal;
+		    font-variant: normal;
+			color: @purple;
+		}
+	}
+}
+
+.is-disabled .tsHighlight-box-heading:hover{
+	background: @darknearwhite;
+}
+
+[class*="tsHighlight-box-inner"]{
+	.padding(all;10);
+	border-top: 1px solid @borderGrey;
+	background: @white;
+
+	&[class*="--NoBorder"]{
+		border: 0;
+	}
+
+	& > *:first-child{
+		margin-top: 0;
+	}
+	& > *:last-child{
+		margin-bottom: 0;
+	}
+
+	.removeSideMargin{
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+}
+[class*="tsHighlight-box-inner"][class*="--Compact"]{
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+/*
+ *  Highlight box in combination with collapse
+ */
+[class*="tsHighlight-box"][data-widget="collapse"].is-expanded > .tsHighlight-box-heading [class*=tsIcon-ArrowDown]{
+	.transform(rotate(180deg));	
+}
+[class*="tsHighlight-box"][data-widget="collapse"].is-expanded > .tsHighlight-box-heading{
+	background: #fdfdfd;
+
+	[class*="tsHighlight-box-TriggerIcon"]:after{
+		content: "\e621";
+	}
+}
+[class*="tsHighlight-box"][data-widget="collapse"].is-expanded > .tsHighlight-box-heading + .tsHighlight-box-inner,
+[class*="tsHighlight-box"][data-widget="collapse"].is-expanded > .tsHighlight-box-heading + * > .tsHighlight-box-inner:first-child{
+	border-top: none;	
+}
+
+[class*="tsHighlight-box"][data-widget="collapse"].is-disabled{
+	[data-widget-collapse=trigger]{
+		cursor: default;
+	}
+}
+
+[class*="tsHighlight-box"][data-widget-collapse=trigger]{
+	.unselectable;
+}
+
+[class*="tsHighlight-box"][class*="--Faded"]{
+	[class*="tsHighlight-box-heading"]{
+		background: fade(@darknearwhite, 30);
+	}
+	[class*="tsHighlight-box-inner"]{
+		background: fade(@darknearwhite, 30);
+	}
+}

@@ -1,0 +1,39 @@
+<div class="tsShortCuts">
+    <div class="tsShortCuts-container">
+        <h2 class="h2 inline inverted">{{ texts.header }}</h2>
+        <div class='tscLoading--Full' ng-show="!savedOrganizations"><div class='tsLoading-icon-large--White'></div></div>
+        <a ng-hide="!savedOrganizations" class="tsShortCuts-manage tsToggleDropdown" ts-animate-toggle="manageOrganizations"><span ng-show="!manageOrganizations">{{ texts.manage }}</span><span ng-show="manageOrganizations">{{ texts.close }}</span><i class="tsIcon-Configure"></i></a>
+        <ul class="tsShortCuts-links">
+            <li ng-repeat="organization in savedOrganizations">
+                <a class="tsBookmark-item" ng-click="goOrganizationUrl(organization.organizationTscid, manageOrganizations)">{{ organization.name }}<i ng-show="manageOrganizations" class="tsIcon-Delete tsHandleShortCut-icon" ng-click="removeOrganization(organization)"></i></a>
+            </li>
+            <li id="toggle-add" class="tsShortCuts-add-link pin" ts-animate-toggle="search" ng-show="manageOrganizations">
+                <span>{{ texts.add }}<i class="tsIcon-Add"></i></span>
+            </li>
+        </ul>
+        <div class="tsShortCuts-arrow-up tsShortCuts-hide"></div>
+    </div>
+    <div class="tsShortCuts-add-url tsHidden" ts-animate="search && manageOrganizations" data-animate-type="slide" data-animate-duration="200">
+        <div class="search header-search" style="display: block;">
+            <div class="search-inner">
+                <form class="search-form">
+                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="search" class="search-field ui-autocomplete-input" name="search" placeholder="Sök på organistionsnummer (Exempel: 212000-1355)" autocomplete="off" ng-model="organiziationId" ng-pattern="orgIdRegex" ng-disabled="isSearching" ts-trigger-focus="search && manageOrganizations">
+                    <i class="tsIcon-Search" ts-animate-toggle="searchResult"></i>
+                    <input type="submit" class="search-submit" value="Sök" ts-animate-toggle="searchResult" ng-click="getOrganization(organisiationId)" ng-disabled="isSearching">
+                </form>
+            </div>
+        </div>
+    </div>
+    <ul class="tsAccordion-list tsAccordion-list--striped tsShortCuts-list tsHidden" ts-animate="searchResult && search && manageOrganizations" data-animate-type="slide" data-animate-duration="200">
+        <li ng-show="newOrganization" class="tsAccordion-list-item" ng-click="toggleOrganization(newOrganization, newOrganization.$selected)">
+            <h2 class="h4">{{ newOrganization.name }}</h2><i ng-show="!newOrganization.$selected" class="tsIcon-Add tsShortCuts-add-btn"></i><i ng-show="newOrganization.$selected" class="tsIcon-Delete tsShortCuts-add-btn"></i>
+        </li>
+        <li ng-show="!newOrganization && isSearching" style="list-style-type: none;">
+            <div class='tscLoading--Full--PaddingHalfGutter--BackgroundWhite'><div class='tsLoading-icon-large'></div></div>
+        </li>
+        <li ng-show="notFound" class="tsAccordion-list-item">
+            <h2 class="h4">{{ texts.noResult }}</h2> 
+        </li>
+    </ul>
+        
+</div>

@@ -1,0 +1,79 @@
+[class*="tsCampaignList"] {
+    padding: 0;
+    margin: 0;
+}
+
+[class*="tsCampaignList"] > li { 
+    clear:both;
+    display: block;
+    //.margin(bottom;@gutter-double);
+    .margin(bottom;60);
+    .clearfix;
+}
+
+[class*="tsCampaignList"][class*="--product"] > li {
+    border-top: 1px solid @lightergrey;
+}
+
+.tsCampaignList {
+    text-align: center;
+}
+
+.tsCampaignList-text { 
+    position: relative;
+    z-index: 1;
+    display: block;
+    p {
+        margin-bottom: 0;
+    }
+    p + a {
+        .margin(top;@gutter);
+    }
+}
+
+
+
+// image style
+
+[class*="tsCampaignList"] .tsCampaign-img {
+    position: relative;  
+    display: block;
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    .margin(bottom;@gutter);
+}
+
+.tsCampaignList .tsCampaign-img {
+    max-height: 250px;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+.tsCampaignList--alt .tsCampaign-img img {
+    max-width: 100%;
+}
+
+
+
+// price list
+
+.tsCampaignList-price {
+    .margin(top;@gutter);
+}
+
+.tsCampaignList-price--primary {
+    color: @blue;
+    border-bottom: 2px solid @blue;
+    border-top: 2px solid @blue;
+    font-weight: bold;
+    .padding(topbottom;@gutter-half;@gutter-half);
+}
+
+.tsCampaignList-price--secondary {
+    font-weight: bold;
+    .padding(topbottom;@gutter-half;@gutter-half);
+    .margin(bottom;@gutter);
+}

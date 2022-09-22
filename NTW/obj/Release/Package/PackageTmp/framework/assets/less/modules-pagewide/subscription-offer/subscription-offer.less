@@ -1,0 +1,252 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * SUBSCRIPTION-OFFER........
+ * SUBSCRIPTION-OFFERCOMBO...
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $SUBSCRIPTION-OFFER
+\*------------------------------------*/
+
+.tsSubscriptionOffer,
+.tsSubscriptionOffer--alt{
+	.l-inline-list;
+	.margin(bottom;@gutter-double);
+	
+	li {
+		.margin(bottom;@gutter-half);
+		width: 49%;
+		margin-left:1%; 
+		&:nth-child(odd) {
+			margin-left: 0;
+		}
+	}
+}
+
+
+.tsSubscriptionOffer-tag {
+	height: 25px;
+	width: 100%;
+	text-align: center;
+	color: @white;
+	.font-size(lineheight;12;25);
+	font-weight: bold;
+	overflow: hidden;
+	background: @white;
+	border: 3px solid @white;
+	border-bottom: 0;
+}
+
+.tsSubscriptionOffer-info {
+	background: @blue;
+	border: 3px solid @blue;
+	border-bottom: 0;
+}
+
+.tsSubscriptionOffer-info-alt {
+	background: @green;
+	border: 3px solid @green;
+	border-bottom: 0;
+}
+
+
+.tsSubscriptionOffer .tsItem--selected,
+.tsSubscriptionOffer--alt .tsItem--selected{
+	.tsSubscriptionOffer-tag {
+		border: 3px solid @blue;
+		border-bottom: 0;
+	}
+	.tsSubscriptionOffer-item {
+		border: 3px solid @blue;
+		border-top: 0;
+	}
+}
+
+.tsSubscriptionOffer-item {
+	background: @white;
+	width: 100%;
+	.padding(topbottom;@gutter-half;@gutter);
+	min-height: 177px;
+	text-align: center;
+	cursor: pointer;
+	border: 3px solid @white;
+	border-top: 0;
+	
+	.tsIcon-Locked {
+		.font-size(34);
+		color: @lightgrey;
+		.margin(topbottom;15;@gutter-half);
+	}
+	
+	/*&.tsItem--selected {
+		border: 3px solid @blue;
+	}*/
+
+}
+
+.tsSubscriptionOffer-image {
+    max-width: 70px;
+    .inline-block;
+    .margin(topbottom;@gutter;@gutter);
+}
+
+.tsSubscriptionOffer-speed {
+	.font-size(lineheight;65;70);
+}
+
+.tsSubscriptionOffer-text,
+.tsSubscriptionOffer-speed,
+.tsSubscriptionOffer-label,
+.tsSubscriptionOffer-price {
+	display: block;
+}
+
+.tsSubscriptionOffer-label {
+	color: @grey;
+	.font-size(18);
+	.margin(topbottom;5;15);
+}
+
+.tsSubscriptionOffer-price {
+	color: @blue;
+	.font-size(16);
+	font-weight: bold;
+	.margin(topbottom;@gutter-half;@gutter-half);
+}
+
+.tsProductLeadins .tsSubscriptionOffer-label {
+	.font-size(15);
+	.margin(topbottom;0;15);
+}
+
+.tsProductLeadins .tsSubscriptionOffer-price {
+	font-weight: normal;
+	.margin(topbottom;13;23);
+	padding: 0;
+}
+
+.tsSubscriptionOffer-text {
+	color: @grey;
+	.font-size(17);
+}
+
+.cssanimations .tsSubscriptionOffer-loading {
+	cursor: default;
+	position: relative;
+	span:first-child::before {
+		content: '';
+		display: block;
+		opacity: 0.7;
+		background: #ffffff;
+		position: absolute;
+		border: 3px solid #ffffff;
+		z-index: 4;
+		width: 100%;
+		height: 100%;
+		margin-top: -13px;
+		margin-left: -3px;
+	}
+	span:first-child::after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 4;
+		left: 38.5%;
+		top: 42%;
+
+		width: 24px; // 48 * 0.5
+		height: 24px; // 48 * 0.5
+		background: ~"url(@{gfxurl}loading.png)";
+		background-size: 720px 24px; //48 * 0.5 1440 * 0.5
+		
+		-webkit-animation: play .8s steps(30) infinite;
+		 -moz-animation: play .8s steps(30) infinite;
+		  -ms-animation: play .8s steps(30) infinite;
+		   -o-animation: play .8s steps(30) infinite;
+		      animation: play .8s steps(30) infinite;		
+	}
+}
+
+.no-cssanimations .tsSubscriptionOffer-loading {
+	cursor: default;
+	position: relative;
+
+	span:first-child:before {
+		content: '';
+		display: block;
+		opacity: 0.7;
+		-ms-filter: "alpha(opacity=70)";
+		filter: alpha(opacity=70);
+		background: #ffffff;
+		position: absolute;
+		border: 3px solid #ffffff;
+		z-index: 4;
+		width: 100%;
+		height: 100%;
+		margin-top: -13px;
+		margin-left: -3px;
+	}
+	span:first-child:after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 4;
+		left: 40%;
+		top: 42%;
+
+		width: 24px;
+		height: 24px;
+		background: ~"url(@{gfxurl}loading.gif)";
+	}
+}
+
+.tsSubscriptionOffer--disabled {
+    cursor: default;
+    position: relative;
+    
+    .tsSubscriptionOffer-speed:before {
+	    content: '';
+	    display: block;
+	    -moz-opacity: 0.70;
+		opacity:.70;
+		filter: alpha(opacity=70);
+	    background: @white;
+	    border: 3px solid @white;
+	    position: absolute;
+	    z-index: 4;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    margin-top: -3px;
+	    margin-left: -3px;
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    $SUBSCRIPTION-OFFERCOMBO
+\*------------------------------------*/
+
+.tsSubscriptionCombo {
+    background-color: @nearwhite;
+    font-size: 16px;
+    text-align: center;
+}
+
+.tsSubscriptionCombo-List {
+    .l-list;
+}
+

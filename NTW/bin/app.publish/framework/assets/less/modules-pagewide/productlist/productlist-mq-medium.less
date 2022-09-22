@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCTLIST-ITEMS........
+ * PRODUCTLIST-FILTER.......
+*/
+
+
+/*------------------------------------*\
+  $PRODUCTLIST-ITEMS
+\*------------------------------------*/
+
+.tsProductList > .tsProductList-Item,
+[class*="tsProductList--Alt"] > .tsProductList-Item,
+.tsProductList--Gallery > .tsProductList-Item,
+.no-js .tsProductList > .tsProductList-Item,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign {
+    width: 25%;
+    &:hover{
+    	background-color: @lightnearwhite;
+    };
+}
+
+[class*="tsProductList--Alt"][class*="--Large"] > .tsProductList-Item {
+    width: 33.3333333%;
+}
+
+
+[class*="tsProductList--Alt"] > .tsProductList-Item--double,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign--double {
+    width: 50%;
+}
+
+.tsProductList > .tsProductList-Item {
+	&:hover{
+		//OBS Check gradient on hover
+//    	background: @lightnearwhite url(../gfx/gfx/ds-effect) 50% top repeat-x;
+		background-color: @lightnearwhite;
+		.background-image(ds-effect);
+    	background-position: 50% top;
+    	background-repeat: repeat-x;
+    }
+}    
+
+.tsProductList > .tsProductList-Item:nth-child(3n+3) {
+    border-right: none;
+}
+.tsProductList > .tsProductList-Item:last-child{
+    border-right: 1px solid @lightergrey;
+}
+
+
+[class*="tsProductList--Alt"][class*="--Large"],
+[class*="tsProductList--Alt"][class*="--XLarge"]{
+    .tsProductItem-Desc,
+    .tsProductItem-Price,
+    .tsProductItem-Price--Secondary { 
+        .font-size(lineheight;18;28);
+    }
+    
+    .tsProductItem-Name { 
+        .font-size(lineheight;30;40);
+    }
+}
+
+[class*="tsProductList--Alt"][class*="--Large"]{
+    .tsProductItem-Desc,
+    .tsProductItem-Price,
+    .tsProductItem-Price--Secondary { 
+        .font-size(lineheight;16;24);
+    }
+    
+    .tsProductItem-Name { 
+        .font-size(lineheight;24;30);
+    }
+}
+
+
+/*------------------------------------*\
+  $PRODUCTLIST-GALLERY
+\*------------------------------------*/
+
+.tsProductList--Gallery > li.tsFoldout {
+    //.margin(leftright;-@gutter-double;-@gutter-double);
+    //.padding(leftright;@gutter-double;@gutter-double);
+}
+
+
+/*------------------------------------*\
+    $PRODUCT-COMPARE
+\*------------------------------------*/
+
+
+.tsProductItem-Compare-Button {
+	display: none;
+}
+

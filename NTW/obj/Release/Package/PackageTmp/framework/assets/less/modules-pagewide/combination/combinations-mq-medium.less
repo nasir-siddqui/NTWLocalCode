@@ -1,0 +1,94 @@
+
+
+
+.tsCombination-Product {
+    width: 25%;
+}
+
+.tsCombination-Parts {
+    width: 70%;
+}
+
+
+.tsCombination-PartsItems {
+    position: relative;
+    float: right;
+    .l-inline-list;
+    .margin(bottom;@gutter);    
+    border: 1px solid @lightergrey;
+}
+
+.tsCombination.tsCombinateTwo .tsCombination-PartsItems {
+    width: 66.6666%;
+}
+
+.tsCombination-PartsItems > .tsCombination-PartsItem {
+    .padding(bottom;@gutter*2);
+    text-align: center;
+}
+
+.tsCombination.tsCombinateTwo .tsCombination-PartsItem {
+    width: 50%;    
+}
+
+.tsCombination.tsCombinateThree .tsCombination-PartsItem {
+    width: 33.3333%;
+}
+
+.tsCombination-PartsItem * {
+    .margin(leftright;@gutter/2;@gutter/2);
+}
+
+.tsCombination-PartsItem:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    border-right: 1px solid @lightergrey;    
+}
+
+.tsCombination.tsCombinateTwo .tsCombination-PartsItem:after {
+    left: 50%;
+}
+
+.tsCombination.tsCombinateThree .tsCombination-PartsItem:after {
+    left: 33.3333%;
+}
+
+.tsCombination.tsCombinateThree .tsCombination-PartsItem:nth-child(2):after {
+    left: 66.6666%;
+}
+
+.tsCombination-PartsItem:last-child:after {
+    display: none;
+    border: none;
+}
+
+.tsCombination-MoreInfo {
+    position: absolute;
+    bottom: @gutter*1px;
+    left: 0;
+    .margin(leftright;0;0);
+    text-align: center;
+}
+
+.tsCombination.tsCombinateTwo .tsCombination-MoreInfo {
+    width: 50%;
+}
+
+.tsCombination.tsCombinateThree .tsCombination-MoreInfo {
+    width: 33.3333%;
+}
+
+.tsCombination.tsCombinateTwo .tsCombination-PartsItem:nth-child(2) .tsCombination-MoreInfo {
+    left: 50%;
+}
+
+.tsCombination.tsCombinateThree .tsCombination-PartsItem:nth-child(2) .tsCombination-MoreInfo {
+    left: 33.3333%;
+}
+.tsCombination.tsCombinateThree .tsCombination-PartsItem:nth-child(3) .tsCombination-MoreInfo {
+    left: 66.6666%;
+}
+

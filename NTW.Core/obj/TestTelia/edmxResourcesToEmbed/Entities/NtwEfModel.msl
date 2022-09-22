@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdvanceWebbModelStoreContainer" CdmEntityContainer="NtwEfModel">
+    <EntitySetMapping Name="CompanyInfo">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.CompanyInfo">
+        <MappingFragment StoreEntitySet="CompanyInfo">
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="OrgNr" ColumnName="OrgNr" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="EDI" ColumnName="EDI" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="SamRefKod" ColumnName="SamRefKod" />
+          <ScalarProperty Name="UnitNo" ColumnName="UnitNo" />
+          <ScalarProperty Name="OLD_ContactName" ColumnName="OLD ContactName" />
+          <ScalarProperty Name="OLD_ContactTelNo" ColumnName="OLD ContactTelNo" />
+          <ScalarProperty Name="OLD_ContactEmail" ColumnName="OLD ContactEmail" />
+          <ScalarProperty Name="OLD_ContactUserId" ColumnName="OLD ContactUserId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="CustNo" ColumnName="CustNo" />
+          <ScalarProperty Name="ActiveVIP" ColumnName="ActiveVIP" />
+          <ScalarProperty Name="ActiveStat" ColumnName="ActiveStat" />
+          <ScalarProperty Name="ActiveCpa" ColumnName="ActiveCpa" />
+          <ScalarProperty Name="New" ColumnName="New" />
+          <ScalarProperty Name="PhoneKey" ColumnName="PhoneKey" />
+          <ScalarProperty Name="ExtendedMulti" ColumnName="ExtendedMulti" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="SystemChangedDate" ColumnName="SystemChangedDate" />
+          <ScalarProperty Name="UserIdA" ColumnName="UserIdA" />
+          <ScalarProperty Name="UserIdD" ColumnName="UserIdD" />
+          <ScalarProperty Name="UserIdCpa" ColumnName="UserIdCpa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupInfo">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.GroupInfo">
+        <MappingFragment StoreEntitySet="GroupInfo">
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ApplicationRole" ColumnName="ApplicationRole" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="LogonDate" ColumnName="LogonDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Security" ColumnName="Security" />
+          <ScalarProperty Name="CustNo" ColumnName="CustNo" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="Eno" ColumnName="Eno" />
+          <ScalarProperty Name="SalesUnitsAllowed" ColumnName="SalesUnitsAllowed" />
+          <ScalarProperty Name="ProdStod" ColumnName="ProdStod" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CompanyInfosInRoles" TypeName="AdvanceWebbModel.CompanyInfosInRoles" StoreEntitySet="CompanyInfosInRoles">
+      <EndProperty Name="CompanyInfo">
+        <ScalarProperty Name="CompanyId" ColumnName="CompanyInfoId" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UsersInRoles" TypeName="AdvanceWebbModel.UsersInRoles" StoreEntitySet="UsersInRoles">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserID" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="AdvanceExtension">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.AdvanceExtension">
+        <MappingFragment StoreEntitySet="AdvanceExtension">
+          <ScalarProperty Name="AnalysisRawdata" ColumnName="AnalysisRawdata" />
+          <ScalarProperty Name="AnalysisView" ColumnName="AnalysisView" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="Subscribed" ColumnName="Subscribed" />
+          <ScalarProperty Name="IntervalHigh" ColumnName="IntervalHigh" />
+          <ScalarProperty Name="IntervalLow" ColumnName="IntervalLow" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AdvanceExtID" ColumnName="AdvanceExtID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAdvanceNumbers">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.UserAdvanceNumbers">
+        <MappingFragment StoreEntitySet="UserAdvanceNumbers">
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="ChangedDate" ColumnName="ChangedDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AnalysisRawData" ColumnName="AnalysisRawData" />
+          <ScalarProperty Name="AnalysisView" ColumnName="AnalysisView" />
+          <ScalarProperty Name="AdvanceExtId" ColumnName="AdvanceExtId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FictiveOrgNr">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.FictiveOrgNr">
+        <MappingFragment StoreEntitySet="FictiveOrgNr">
+          <ScalarProperty Name="SkapadDatum" ColumnName="SkapadDatum" />
+          <ScalarProperty Name="FictiveOrgNr1" ColumnName="FictiveOrgNr" />
+          <ScalarProperty Name="ForeignOrgNr" ColumnName="ForeignOrgNr" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="IncludedRole" TypeName="AdvanceWebbModel.IncludedRole" StoreEntitySet="IncludedRole">
+      <EndProperty Name="Role1">
+        <ScalarProperty Name="Id" ColumnName="IncludedRoleId" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="BaseRoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Meddelandes">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.Meddelandes">
+        <MappingFragment StoreEntitySet="Meddelandes">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolesForMessage">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.RolesForMessage">
+        <MappingFragment StoreEntitySet="RolesForMessage">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemLog">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.SystemLog">
+        <MappingFragment StoreEntitySet="SystemLog">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessTable">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.ProcessTable">
+        <MappingFragment StoreEntitySet="ProcessTable">
+          <ScalarProperty Name="DeleteLimit" ColumnName="DeleteLimit" />
+          <ScalarProperty Name="NoOfExec" ColumnName="NoOfExec" />
+          <ScalarProperty Name="ProcessType" ColumnName="ProcessType" />
+          <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceLog">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.ServiceLog">
+        <MappingFragment StoreEntitySet="ServiceLog">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="DetailDescription" ColumnName="DetailDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ErrNoHex" ColumnName="ErrNoHex" />
+          <ScalarProperty Name="ErrNo" ColumnName="ErrNo" />
+          <ScalarProperty Name="InternalFunction" ColumnName="InternalFunction" />
+          <ScalarProperty Name="Component" ColumnName="Component" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STAFFlog">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.STAFFlog">
+        <MappingFragment StoreEntitySet="STAFFlog">
+          <ScalarProperty Name="effectDate" ColumnName="effectDate" />
+          <ScalarProperty Name="cmdSQL" ColumnName="cmdSQL" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupportLog">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.SupportLog">
+        <MappingFragment StoreEntitySet="SupportLog">
+          <ScalarProperty Name="EffectDate" ColumnName="EffectDate" />
+          <ScalarProperty Name="cmdSQL" ColumnName="cmdSQL" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessHeader">
+      <EntityTypeMapping TypeName="AdvanceWebbModel.ProcessHeader">
+        <MappingFragment StoreEntitySet="ProcessHeader">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ProcessOwner" ColumnName="ProcessOwner" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

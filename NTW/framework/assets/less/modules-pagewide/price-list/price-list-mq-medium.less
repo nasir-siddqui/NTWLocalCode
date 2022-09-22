@@ -1,0 +1,136 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ *
+ */
+
+/*------------------------------------*\
+    $PRICELIST
+\*------------------------------------*/
+.tsPriceListIntro{
+	.margin(bottom;@gutter-double);
+}
+.tsPriceList {
+	.tsPriceList-Section{
+		margin: auto;
+	}
+}
+.tsPriceList-Section{
+	width: 100%/3;
+	float: left;
+	height: 100%;
+	
+	.padding(right;@gutter);
+	&.active{
+		.tsPriceList-Section-inner{
+			border: 0;
+			padding: 9px;
+			&:hover{
+				border: 0;
+			}
+		}
+		.tsPriceList-Section-outer{
+			background-color: @lightestblack;
+			.border(all;2;2;0;2;@lightgrey);
+		}
+	}
+}
+.tsPriceList-Section-outer{
+	background: transparent;
+	position: relative;
+	.padding(bottom;@gutter);
+	margin-right: 1px;
+	margin-top: 1px;
+	margin-left: 1px;
+	.margin(bottom;-2);
+	.tsPriceList-Mobile-Content{
+		display: none !important;
+	}
+}
+#tsPriceList-Content-Placeholder{
+	.padding(all;@gutter-double);
+}
+.tsPriceList-Section-inner{
+	height: 100%;
+	text-align: center;
+	border: 1px solid @lightgrey;
+	padding: 10px; //unable to use mixin because of rems on border..
+	
+	&:hover{
+		padding: 9px;
+		border-width: 2px;
+	}
+	.tsResponsiveTabs-Panel {
+		display: block;
+		&.visuallyhidden{
+			//Ugly hack to view collapsed content on larger medias
+			.visuallyvisible; 
+			.margin(top;@gutter-half);
+		}
+	}
+}
+
+.tsPriceList-Content{
+	display: block;
+	.margin(leftright;-@gutter-double;-@gutter-double);
+	.tsClear();
+	.tsPriceList-Content-Inner{
+		display: none;
+		.tsClear();
+		float: left;
+		width: 100%;
+		background-color: @lightestblack;
+		.border(all;2;0;2;0;@lightgrey);
+		.padding(topbottom;@gutter;@gutter);
+		.tsPriceList-Content-Section{
+			display: none;
+		}
+		h3{
+			.margin(bottom;@gutter-half);
+			.font-size(18);
+			font-weight: normal;
+		}
+		ul {
+			.padding(left;@gutter);
+			.margin(top;0);
+			.margin(bottom;@gutter);
+			list-style-type: disc;
+			a:before {
+				content: none;
+			}
+		}
+	}
+}
+.tsPriceList-Content-middle{
+	.margin(bottom;@gutter);
+}
+.tsPriceListBigHeader {
+	& > i {
+		color: @purple;
+		.font-size(65);
+		.margin(topbottom;@gutter;@gutter);
+	}
+	display: block;
+}
+.tsPriceList .tsResponsiveTabs-Anchor{
+	display: none!important;
+}
+.tsPriceList.tsResponsiveTabs {
+	background: transparent;
+	border-width: 0px;
+}
+.tsPriceList .tsResponsiveTabs-Title{
+	display: block;
+	cursor: auto;
+	background-color: transparent;
+
+	&:before {
+		display: none;
+	}
+}
+.tsPriceList .tsResponsiveTabs {
+	border: 0px !important;
+}

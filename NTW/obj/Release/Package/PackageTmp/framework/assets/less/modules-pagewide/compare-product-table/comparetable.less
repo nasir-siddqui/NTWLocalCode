@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * COMPARE-TABLE................
+
+*/
+
+
+.tsCompareIntro {
+	text-align: center;
+}
+
+
+/*------------------------------------*\
+    $COMPARE-TABLE
+\*------------------------------------*/
+.tsValidation-error.tsCompareProducts .tsValidation-msg{
+	width: 100%;
+	text-align: center;
+}
+.tsCompareContainer{
+  	background-color: @white;
+  	width: 100%;
+}
+.tsCompareTable {
+	max-width: 100%;
+}
+.tsCompareTable ul {
+	.l-inline-list;
+	li{
+		width: 100%;
+	}
+}
+.tsCompareTable tr {
+	border-bottom: none;
+}
+.tsCompareTable th {
+	display: none;
+}
+.tsCompareTable th, 
+.tsCompareTable td {
+	width: 50%;
+}
+
+.tsCompareTable td {
+	display: table-cell;
+	text-align: center;
+	.padding(all;10;10;0;10);
+	.font-size(lineheight;14;17);
+}
+.tsCompareTable tr:first-child td {
+	.padding(all;10;10;10;10);
+	border-right: none;
+	vertical-align: top;
+}
+.tsCompareTable  td:nth-child(2){
+	border-right: solid 1px @lightergrey;
+}
+
+.tsCompareTable td p {
+	font-weight: bold;
+	.margin(bottom;0);
+}
+.tsCompareTable td:nth-child(4),
+.tsCompareTable td:nth-child(5),
+.tsCompareTable img,
+.tsCompareTable th {
+	display: none;
+}
+
+.tsCompareTable--Link {
+	display: block;
+	.font-size(lineheight;17;17);
+	.margin(top;10);
+}
+
+.tsCompareTable .tsBtn{
+	.margin(all;10;0;10;0);
+}
+
+.tsBodyText .tsCompareTable-header {
+	.margin(topbottom;@gutter;0);
+	&:first-of-type {
+		.margin(top;0);	
+	}
+}

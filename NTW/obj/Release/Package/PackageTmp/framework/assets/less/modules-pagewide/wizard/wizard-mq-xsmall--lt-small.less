@@ -1,0 +1,26 @@
+
+.tsWizard--Horizontal {
+	position: relative;
+	.padding(leftright;@gutter*2.5;@gutter*2.5);
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"] {
+	list-style: none;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"] {
+	.padding(top;@gutter*1.5);
+}
+
+.tsWizard--Horizontal:after {
+	content: counter(wizard-counter);
+	position: absolute;
+	top: -6px;
+	left: 50%;
+	margin-left: 7px;
+	color: @turq;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:before {
+	content: counter(wizard-counter) "\00A0\002F\00A0\00A0\00A0";
+}

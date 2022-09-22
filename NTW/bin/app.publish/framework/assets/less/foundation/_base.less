@@ -1,0 +1,273 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * ROOT................Root styles for html and body tags
+ * LINKS...............Basic link styling
+
+
+
+ * HELPERS.............Helper classes
+ * AMPERSANDS..........Alternative font for ampersands
+ */
+
+
+
+
+
+/*------------------------------------*\
+   $ROOT
+\*------------------------------------*/
+
+html {
+    background-color : @bodycolor;
+    font-family: @basefont;
+    font-size: 62.5%; /* To make an rem unit equal to 10px in most browsers */
+    position: relative; // causes layout problems in IE7, thus removed in ie-specifics.less
+    height: 100%; // for the footer to be able to stick to the bottom of the page on short pages
+    min-height: 100%;
+
+/*
+  -webkit-overflow-scrolling : touch;
+  -webkit-tap-highlight-color : lighten(@basecolor, 75%);
+  -webkit-text-size-adjust : 100%;
+  -ms-text-size-adjust : 100%;
+*/
+
+}
+
+body {
+//    position: relative; // causes layout problems in IE7, thus removed in ie-specifics.less
+    height: 100%; 
+    display: table; // fixed footer fix! http://galengidman.com/2014/03/25/responsive-flexible-height-sticky-footers-in-css/
+    width: 100%; // fixed footer fix! 
+    table-layout: fixed; // footer fix - added to make it work with the carousel
+}
+
+body, button, input, select, textarea {
+    color: @textcolor;
+    font-family: @basefont;
+    .font-size;
+    .line-height;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*------------------------------------*\
+   $LINKS
+\*------------------------------------*/
+
+a {
+    color: @linkcolor;
+    text-decoration: none;
+    .transition(all 300ms ease-in-out);
+    &:visited {
+        text-decoration: none;
+    }
+    &:hover {
+        color: @hoverlinkcolor;
+//        text-decoration: underline; // Not globally, use the declaration where it is needed
+    }
+    &:active {
+        text-decoration: none;
+    }
+}
+
+// Internal anchor links starting with #
+[role=main] a[href^="#"] {
+    color: @linkcolorinternal;
+    //font-weight: bold; // ???
+/*    &:hover,
+    &:active {
+        color: @hoverlinkcolorinternal;
+    }
+
+*/
+    &[class^="tsBtn"] {
+        color: @white;
+    }
+}
+
+
+.tsBodyText a:hover {
+    text-decoration: underline;
+}
+
+.tsSecondaryLink {
+    color: @turq;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        color: @darkturq;
+    }
+}
+
+
+
+// Shows a document icon before links to files
+
+a[href$="pdf"]:before,
+a[href$="doc"]:before,
+a[href$="docx"]:before,
+a[href$="txt"]:before,
+a[href$="exe"]:before,
+a[href$="dmg"]:before,
+a[href$="xls"]:before,
+a[href$="ppt"]:before,
+a[href$="pptx"]:before,
+a[href$="zip"]:before {
+	content: "\e041";
+	.inline-block;
+	margin-right: 7px;
+	vertical-align: middle;
+	font-family: iconfont;
+	.font-size(lineheight;30;30);
+	font-weight: normal;
+}
+
+a[href$="pdf"]:before {
+	content: "\e040";
+}
+
+.tsBodyText a[href$="pdf"]:before,
+.tsBodyText a[href$="doc"]:before,
+.tsBodyText a[href$="docx"]:before,
+.tsBodyText a[href$="txt"]:before,
+.tsBodyText a[href$="exe"]:before,
+.tsBodyText a[href$="dmg"]:before,
+.tsBodyText a[href$="xls"]:before,
+.tsBodyText a[href$="ppt"]:before,
+.tsBodyText a[href$="pptx"]:before,
+.tsBodyText a[href$="zip"]:before {
+  display: none;
+}
+
+
+
+
+// ***
+
+.tsBodyText img {
+	margin: 0 auto;
+	display: block;
+}
+
+.tsCaption {
+	display: block;
+	.margin(top;@gutter/2);
+	text-align: center;
+	.font-size(13);
+	font-style: italic;
+}
+
+
+
+
+/*------------------------------------*\
+   $LINKS-PRIMARYACTION
+\*------------------------------------*/
+
+//.tsBodyText a[href*="login"],
+/*
+.tsBodyText a[href*="minasidor"] {
+    .padding(all;4;8;4;8);
+    border-radius: 1em;
+    white-space: nowrap;
+    background-color: @pink;
+    color: rgb(255, 255, 255);
+    &:hover {
+        background-color: @darkpink;
+        text-decoration: none;
+    }
+    &:active {
+        background-color: @darkpink;
+        text-decoration: none;
+    }
+}*/
+
+
+/*------------------------------------*\
+   $HELPERS
+\*------------------------------------*/
+
+/* moved to Layout
+.tsHidden {
+    display: none;
+}
+*/
+
+.tsBorderTop {
+    border-top: 1px solid @lightergrey;
+}
+
+.tsBorderBottom {
+    border-bottom: 1px solid @lightergrey;
+}
+.tsBorderTop--darker {
+    border-top: 1px solid @lightgrey;
+}
+
+.tsBorderBottom--darker {
+    border-bottom: 1px solid @lightgrey;
+}
+
+.tsPaddingTop {
+    .padding(top;@gutter) !important;
+}
+
+.tsPaddingTop--doubleGutter {
+    .padding(top;@gutter*2) !important;
+}
+
+.tsPaddingBottom {
+    .padding(bottom;@gutter) !important;
+}
+
+.tsPaddingBottom--doubleGutter {
+    .padding(bottom;@gutter*2) !important;
+}
+
+.tsMarginTop {
+    .margin(top;@gutter) !important;
+}
+
+.tsMarginTop--doubleGutter {
+    .margin(top;@gutter*2) !important;
+}
+
+.tsMarginBottom {
+    .margin(bottom;@gutter) !important;
+}
+
+.tsMarginBottom--doubleGutter {
+    .margin(bottom;@gutter*2) !important;
+}
+
+
+.tsPurple {
+    color: @purple !important;
+}
+
+.tsTurq {
+    color: @turq !important;
+}
+
+.tsClose {
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+.tsNoScreen {
+	display: none;
+}
+
+
+.tsSizeZero {
+    width: 0;
+    height: 0;
+}
+

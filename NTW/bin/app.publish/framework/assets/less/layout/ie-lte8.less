@@ -1,0 +1,66 @@
+@import "layout";
+@import "layout-mq-small";
+@import "layout-mq-medium";
+@import "layout-mq-large";
+
+
+
+body.lt-ie9 {
+    position: static;
+}
+
+body.lt-ie8 {
+    position: static;
+}
+
+.lt-ie9 .tsWrapInner,
+.lt-ie9 [class*="tsWrapInner"] {
+    width: @width-innerwrap;
+}
+
+.tsBackdrop {
+    .tsWrapInner,
+    [class*="tsWrapInner--"]{
+      width: @width-innerwrap - @gutter-double;
+    }
+}
+
+.ie7 [class*='tsIcon-'],
+.ie8 [class*='tsIcon-'] {
+    font-weight: bold;
+   // line-height: 40px!important;
+}
+
+.lt-ie9 .tsColumnBlock-block--alt {
+    margin-right:2%;
+}
+.lt-ie9 .tsColumnBlock-block--alt + .lt-ie9 .tsColumnBlock-block--alt + .lt-ie9 .tsColumnBlock-block--alt,
+.lt-ie9 .tsColumnBlock-block--alt + .lt-ie9 .tsColumnBlock-block--alt + .lt-ie9 .tsColumnBlock-block--alt + .lt-ie9 .tsColumnBlock-block--alt{
+    margin-right:0;
+    width: 50%;
+}
+.lt-ie9 .tsColumnBlock > div:first-child {
+    width: 64.666%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+.lt-ie9  .tsColumnBlock:first-child > div +  .lt-ie9 .tsColumnBlock > div {
+    width: 31.333%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+/*.lt-ie9  .tsColumnBlock > div + .tsColumnBlock > div +.tsColumnBlock > div {
+    width: 33.333%;
+}*/
+.lt-ie8 .tsColumnBlock-block--alt {
+    margin-right: 1%;
+    width: 42%;
+}
+
+
+.lt-ie9 .tsContentSplit > div + div {
+    width: 32%;
+    float: right;
+}
+

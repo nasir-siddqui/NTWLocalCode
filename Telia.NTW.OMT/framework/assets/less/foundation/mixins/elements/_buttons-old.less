@@ -1,0 +1,331 @@
+// In the basic mode:
+// Plain button, with browser styles. Link button presented just as a link
+
+// Default styling 
+/*
+.btn() {
+    .inline-block;
+    vertical-align: middle;
+    .padding(all;8;11;8;11);
+    border: none;
+    .font-size(18);
+    text-decoration: none;
+    
+    // prevent rounded corners and additional style in iOS
+    -webkit-appearance: none; 
+    -webkit-border-radius:0; 
+    border-radius:0;
+
+    &:hover {
+    }
+    //&:focus {
+    //    outline: 2px dotted @pink; // Mathias requested to remove this
+    //}
+}
+*/
+
+
+
+
+// Default button style
+.btn() {
+    position: relative;
+	.inline-block;
+	.padding(all;8;11;8;11);
+    border: none;
+    vertical-align: middle;
+    .font-size(lineheight;18;20);
+    text-decoration: none;
+	.btn-default-color;
+    cursor: pointer;
+
+    // prevent rounded corners and additional style in iOS
+    -webkit-appearance: none; 
+    -webkit-border-radius: 0; 
+    border-radius: 0;
+
+    // prevent line break //nagorka
+    white-space: nowrap;
+
+	// Smooth hover transition
+	.transition;
+	
+	&:hover {
+		text-decoration: none !important;
+	}
+
+	&:focus {
+	}    
+}
+
+// with border
+.btn-with-border() {
+    .padding(all;6;11;6;11);
+    border-width: 2px;
+    border-style: solid;
+    background-color: @white;
+    color: @purple;
+}
+
+
+// Rounded corners
+.btn-rounded() {
+	.border-radius(2em);
+}
+
+
+// Smaller sized button
+.btn-smallsize() {
+	.padding(all;@gutter-half/2;@gutter-half;@gutter-half/2;@gutter-half;);
+	.font-size(12);
+	line-height: 1.5em;
+}
+
+
+/* To be removed? is there really a need to have another button size? */
+// Medium sized button
+.btn-mediumsize() {
+	.padding(all;@gutter-half/2;@gutter-half;@gutter-half/2;@gutter-half;);
+	.font-size(14);
+	line-height: 1.5em;
+}
+
+// Default color
+.btn-default-color() {
+	background-color: @purple;
+	color: @white;
+
+	&:hover {
+		background-color: @darkestpurple;
+		color: @white;
+	}
+}
+
+
+// Primary color
+.btn-primary-color() {
+	background-color: @pink;
+    border-color: @pink;
+
+	&:hover {
+		background-color: @darkpink;
+	}
+
+	&:focus {
+    	outline-color: @purple;
+	}
+}
+
+
+// Secondary color
+.btn-secondary-color() {
+	background-color: @blue;
+    border-color: @blue;
+
+	&:hover {
+		background-color: @darkblue;
+	}
+
+    &:focus {
+        outline-color: @blue;
+    }
+
+    &.active{
+        background-color: @darkblue;
+        color:@black;
+    }
+}
+
+
+// Internal color
+.btn-internal-color() {
+	background-color: @turq;
+    border-color: @turq;
+
+	&:hover {
+		background-color: @darkturq;
+	}
+
+	&:focus {
+    	outline-color: @turq;
+	}
+}
+
+
+// Options color
+.btn-options-color() {
+	background-color: @grey;
+    border-color: @grey;
+
+	&:hover {
+		background-color: @darkgrey;
+	}
+
+	&:focus {
+    	outline-color: @grey;
+	}
+}
+
+.btn-critical-color() {
+	background-color: @orange;
+    border-color: @orange;
+
+	&:hover {
+		background-color: @darkorange;
+	}
+
+	&:focus {
+    	outline-color: @orange;
+	}
+}
+
+
+// Light color
+.btn-light-color() {
+	border: 1px solid @turq;
+	background-color: @white;
+	color: @turq;
+
+	&:hover {
+		background-color: @white;
+    	color: @turq;
+	}
+
+	&.active {
+	    background-color: @turq;
+	    color: @white;
+	}
+}
+
+
+// Light inverted color
+.btn-lightinverted-color() {
+	//border: 1px solid @turq;
+	background-color: @turq;
+	color: @white;
+
+	&:hover {
+		background-color: @darkturq;
+		//border: 1px solid @darkturq;
+    	color: @white;
+
+		[class^="tsIcon"] {
+			color: @white;;
+		}
+	}
+	
+	[class^="tsIcon"] {
+		color: @white;
+		.font-size(lineheight;10;25);
+	}
+}
+
+// Light primary color
+ .btn-lightprimary-color() {
+ 	border: 1px solid @purple;
+ 	background-color: @white;
+ 	color: @black;
+ 
+ 	&:hover {
+ 		background-color: @white;
+     	color: @black;
+ 	}
+ 
+ 	&.active {
+ 	    background-color: @darkestpurple;
+ 	    color: @white;
+ 	    border: 1px solid @white;
+ 	}
+ }
+ 
+ .btn-lightprimaryinverted-color() {
+ 	border: 1px solid @white;
+ 	background-color: @purple;
+ 	color: @white;
+ 
+ 	&:hover {
+ 		background-color: @darkestpurple;
+     	color: @white;
+     	[class^="tsIcon"] {
+ 			color: @white;
+ 			background-color: @darkestpurple;
+ 			.font-size(10);
+		}
+
+ 	}
+ 	[class^="tsIcon"] {
+ 		color: @white;
+ 		background-color: @purple;
+ 	}
+ 	
+
+}
+
+.btn-resetstyling(){
+	box-shadow: none;
+	font-weight: normal;
+	background-color: transparent;
+	color: @purple;
+	&:hover,
+	&:active{
+		box-shadow: none;
+		background-color: transparent;
+		color: @purple;
+	}
+}
+	
+// Edit Button
+.btn-edit() {
+	.margin(left;5);
+	.padding(all;0;0;0;14);
+	border: 0;
+	background: transparent ~"url(@{gfxurl}gfx.png)" -30px 0 no-repeat;
+	color: @turq;
+	.font-size(12);
+
+	&:hover {
+		color: @darkturq;
+	}
+}
+
+// Justify Button
+.btn-justify() {
+	float: right;
+}
+
+// Full with button
+.btn-fullwidth() {
+	width: 100%;
+	text-align: center;
+	white-space: normal;
+}
+
+// Delete Button
+.btn-delete() {
+	background-color: @turq;
+	.padding(all;4;8;4;8);
+	.btn-rounded();
+
+	&:before {
+		color: @white;
+		font-family: iconfont;
+		.font-size(12);
+		float: left;
+		width: 1em;
+		text-align: center;
+		content: "\e037";
+	}
+
+	&:hover {
+		background-color: @darkturq;
+	}
+}
+
+// Modifiers
+.btn-modifier-light() {
+	.btn-smallsize;
+	.btn-rounded;
+	.btn-light-color;
+	.font-size(14);
+	padding: 0.2rem 1rem 0.3rem 1rem;
+}

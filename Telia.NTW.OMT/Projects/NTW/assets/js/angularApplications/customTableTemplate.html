@@ -1,0 +1,222 @@
+﻿<div ts-cloak ng-cloak class="ng-cloak">
+    <div class="tsCollapse-button-wrapper">
+        <button class="tsCollapse-trigger tsTable-toggle-button">
+            <i class="tsIcon-Menu" ng-click="showMenu = !showMenu"></i>
+        </button>
+    </div>
+    <div class="tsTable-menu tsTable-menu-select" ng-class="{tsHidden: !showMenu}">
+        <div class="tsTable-menu-inner">
+            <div ng-if="customization.search.enabled" class="tseTextField--Normal tsTable-datatable-search">
+                <input type="text" ng-model="filter.$" placeholder="{{customization.search.placeholderText}}"><i class="tsIcon-Search"></i>
+            </div>
+
+            <div ng-show="customization.dropdown.enabled" class="tseSelect--Normal--Narrow--Inline">
+                <select ts-select ng-model="customization.dropdown.value" ng-change="dropdownChange()" ng-options="item.value as item.label for item in customization.dropdown.options">
+                </select>
+            </div>
+
+            <div ng-show="customization.hardFilter.enabled" class="tsTable-datatable-filterTabs">
+                <div class="tseRadioBox--Normal--Button--ColorNavigation--InlineSmall" ng-repeat="filterValue in customization.hardFilter.values">
+                    <input id="hardFilter{{$index}}" type="radio" ng-model="$parent.selectedHardFilter" value="{{filterValue.value}}">
+                    <label class="ng-binding" for="hardFilter{{$index}}" isSelected="{{$parent.selectedHardFilter == filterValue.value }}">{{filterValue.name}}</label>
+                </div>
+            </div>
+
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div class="tsTable-datatable-wrapper" ng-class="{ 'tsTable-carousel': customization.carousel.enabled }" role="grid">
+        <div ng-if="customization.multipleSelection.enabled" ts-animate="multipleSelection.active"
+             class="tsAttention--Info" ts-full-container>
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p>
+                    <span>
+                        {{customization.openLink.batchInfoText}}
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div ng-if="customization.columnFilter.enabled" ts-animate="columnFilter.active && columnFilter.informationText !== undefined"
+             class="tsAttention--Info" ts-full-container>
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p>
+                    <span>
+                        {{columnFilter.informationText}}
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div ts-animate="customization.initialInformationTemplate && !initialInformationSeen"
+             class="tsAttention--Info" ts-full-container>
+            <div class="tsAttention-Message tsWrapInner">
+                <i class="tsIcon-Information"></i>
+                <p>
+                    <span ng-include="'templates/initialInformation.html'"></span>
+                </p>
+            </div>
+        </div>
+        <div class="tsTable-wrapper">
+            <form method="POST" action="{{customization.openLink.batchUrl}}" class="{{customization.formClass}}">
+                <div ts-animate="multipleSelection.active" class="tscArea--Center">
+                    <button class="tsBtn--Normal--Regular" type="submit" ng-click="openBatch()">{{customization.openLink.batchText}}</button>
+                </div>
+                <div ng-if="isLoading" class='tscLoading--Full'><div class='tsLoading-icon-large'></div></div>
+                <div ng-hide="isLoading" ng-if="customization.columnFilter.enabled" class="tsListFilter-collapse">
+                    <div class="tsListFilter-trigger">
+                            <a data-widget-control="collapse-trigger" ng-class="{'active' : columnFilter.active}" ng-click="toggleColumnFiltering()" data-toggle="collapse" data-target=".tsListFilter-outer"><span>{{customization.columnFilter.editColumnsText}}</span> <i class="tsIcon-Filter"></i></a>
+                    </div>
+                    <div class="tsListFilter-outer" ts-animate="columnFilter.active">
+                        <div class="tsListFilter tsWrapInner tsPaddingTop tsPaddingBottom">
+                            <ul class="tscList--Inline--SpaceHalf">
+                                <li ng-repeat="c in customization.dataDefinitions.columns">
+                                    <a class="tsBtn--Light" ng-class="{ '--Inverted': c.displayed }" ng-click="toggleColumn(c)">{{c.name}}<i ng-show="c.displayed === true" class="tsIcon-Close"></i></a>   
+                                </li>
+                            </ul>
+                            <div class="tscInline--Middle--GutterHalf tsMarginTop">
+                                <a class="tsSecondaryLink" ng-click="cancelColumnFiltering()">{{customization.columnFilter.cancelText}}</a>
+                                <button ts-loading-button type="button" ng-click="saveColumnFiltering()" class="tsBtn--Internal--Normal--Regular--Animated"
+                                x-progress-text="{{customization.columnFilter.saveProgressText}}"
+                                x-status="columnFilter.status"
+                                x-click-enabled="false"
+                                x-finish-text="{{customization.columnFilter.saveFinishedText}}"
+                                x-failure-text="{{customization.columnFilter.saveFailedText}}"
+                                >{{customization.columnFilter.saveText}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tsTable-inner" ng-class="{ 'tsTable-carousel-fixed': carousel.active && customization.multipleSelection.enabled }">
+
+                    <div class="tsTable-inner-wrapper">
+                        <table ng-hide="isLoading" ng-table="tableParams" class="tsTable tsTable-horizontal tsTable-datatable tsTable-hiddenRows ng-table-rowselected ng-table" template-pagination="custom/pager" ts-custom-table-inner>
+                            <thead>
+                                <tr>
+                                    <th ng-if="customization.multipleSelection.enabled" ng-class="{ 'fixed': carousel.active }" width="40">
+                                        <div class="tseRadioBox--CheckButton--ColorNavigation" ng-class="{semichecked : multipleSelection.isSemiChecked}">
+                                            <input type="checkbox" id="multipleSelectionActive" ng-model="multipleSelection.active" ng-change="setAllCheckboxes()">
+                                            <label for="multipleSelectionActive"></label>
+                                        </div>
+                                    </th>
+                                    <th ng-repeat="c in customization.dataDefinitions.columns | filter: { displayed:true }" ng-click="setSortColumn(c)">
+                                        {{c.name}} <i ng-if="isSortedOn(c)" ng-class="getSortClass(c)"></i>
+                                    </th>
+                                    <th ng-if="customization.rowDetails.enabled">{{customization.rowDetails.headerText}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat-start="p in $data" id="tr{{getIdentity(p)}}" ng-class-odd="'odd'" ng-class-even="'even'" ng-class="{'tsTable-linkedRow': customization.openLink.enabled && !p.$openLinkDisabled}" ts-table-row>
+                                    <td ng-if="customization.multipleSelection.enabled" class="tsTable-checkbox" width="40" ng-class="{ 'fixed': carousel.active }">
+                                        <div class="tseRadioBox--CheckButton--ColorNavigation">
+                                            <input type="checkbox" id="multipleSelection{{getIdentity(p)}}" ng-model="p.$selected" ng-change="onCheckedEvent()">
+                                            <label for="multipleSelection{{getIdentity(p)}}"></label>
+                                        </div>
+                                    </td>
+                                    <td ng-repeat="c in customization.dataDefinitions.columns | filter: { displayed:true }" data-title="'{{c.name}}'" sortable="'{{c.fieldName}}'" ng-click="openLink(p)" data-label="{{c.name}}">
+                                        <span>
+                                            <div ng-include="'templates/columnDetails' + $index + '.html'" ts-table-template></div>
+                                        </span>
+                                    </td>
+                        
+                                    <td ng-class="{centeredButton: !$eval(customization.rowDetails.buttonDisabledExpression) }" ng-if="customization.rowDetails.enabled">
+                                        <span ng-if="$eval(customization.rowDetails.buttonDisabledExpression)" class="grey">{{customization.rowDetails.buttonDisabledText}}</span>
+                                        <a ng-if="!$eval(customization.rowDetails.buttonDisabledExpression) && (!customization.api.deleteRowAfterAction || customization.rowDelete.enabled)" class="tsBtn--Normal--Internal--Regular" id="displayRowDetails{{getIdentity(p)}}" ng-click="displayRowDetails(p)" href="">{{getDetailsButtonText(p)}}<i ng-if="expandedRowId!==getIdentity(p)" class="tsIcon-ArrowDown"></i><i ng-if="expandedRowId===getIdentity(p)" class="tsIcon-ArrowUp"></i></a>
+                                        <a ng-if="!$eval(customization.rowDetails.buttonDisabledExpression) && customization.api.deleteRowAfterAction && !customization.rowDelete.enabled && !p.$rowDetailsButtonDisabled" class="tsBtn--Delete" id="displayRowDetails{{getIdentity(p)}}" ng-click="displayRowDetails(p)"></a> 
+                                    </td>
+                                    <td ng-if="customization.rowDelete.enabled">
+                                        <span ng-if="$eval(customization.rowDelete.buttonDisabledExpression)" class="grey">{{customization.rowDelete.buttonDisabledText}}</span>
+                                        <a ng-if="!$eval(customization.rowDelete.buttonDisabledExpression)" class="tsBtn--Delete" id="displayRowDetails{{getIdentity(p)}}" ng-click="displayRowDelete(p)"></a>
+                                    </td>
+                                </tr>
+                                <tr ng-repeat-end="" ng-if="expandedRowId === getIdentity(p) || expandedRowDeleteId === getIdentity(p)">
+                                    <td class="tsTable-hiddenContainer" colspan="{{(customization.dataDefinitions.columns | filter: {displayed:true}).length + 2}}">
+                                        <div ng-if="!p.$details && !p.$deleteData">
+                                            <div class='tscLoading--Full'><div class='tsLoading-icon-large'></div></div>
+                                        </div>
+                                        <div ng-if="p.$details && expandedRowId === getIdentity(p)" class="tsComponent--inset tsClear" ts-full-container>
+                                            <div ng-if="customization.rowDetails.breakFree" ng-include="'templates/rowDetails.html'"></div>
+                                            <div ng-if="!customization.rowDetails.breakFree" class="tsWrapInner">
+                                                <div class="tsPaddingLeft tsPaddingBottom tsPaddingTop">
+                                                    <div ng-include="'templates/rowDetails.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-if="p.$deleteData && expandedRowDeleteId === getIdentity(p)" class="tsComponent--inset tsClear" ts-full-container>
+                                            <div ng-if="customization.rowDelete.breakFree" ng-include="'templates/rowDelete.html'"></div>
+                                            <div ng-if="!customization.rowDelete.breakFree" class="tsWrapInner">
+                                                <div class="tsPaddingLeft tsPaddingBottom tsPaddingTop">
+                                                    <div ng-include="'templates/rowDelete.html'"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tsTable-carosuel-link-wrapper" ng-if="carousel.active">
+                        <div ng-if="carousel.page > 0" class="tsTable-carousel-link tsTable-carousel-link-prev">  
+                            <div class="tsTable-carousel-link-outer">
+                                <div class="tsTable-carousel-link-inner">
+                                    <a href ng-click="setPage(carousel.page - 1)" class="fallback"><i class="tsIcon-Previous"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="carousel.page < carousel.total - 1" class="tsTable-carousel-link tsTable-carousel-link-next">
+                            <div class="tsTable-carousel-link-outer">
+                                <div class="tsTable-carousel-link-inner">
+                                    <a href ng-click="setPage(carousel.page + 1)" class="fallback"><i class="tsIcon-Next"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tsTable-datatable-bottom">
+                    <div ts-animate="multipleSelection.active" class="tscArea--Center">
+                        <button class="tsBtn--Normal--Regular" type="submit" ng-click="openBatch()">{{customization.openLink.batchText}}</button>
+                    </div>
+                    <div class="dataTables_paginate paging_tsPagination tsPaging">
+                        <ul class="tsPaging-list">
+                            <li ng-switch="page.type" ng-repeat="page in pages" ng-class="{'selected': !page.active, 'tsPaging-list-item': page.type!='prev' && page.type!='next'}">
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="prev" class="tsPaging-arrow-prev"><i class="tsPaging-icon tsIcon-Previous"></i></a>
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="first"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="page"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="more">...</a>
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="last"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="tableParams.page(page.number)" ng-switch-when="next" class="tsPaging-arrow-next"><i class="tsPaging-icon tsIcon-Next"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <input type="hidden" name="{{customization.dataDefinitions.identityFieldName}}" value="{{openBatchPostData}}" />
+            </form>
+
+            <!--<script type="text/ng-template" id="custom/pager">
+                <div class="tsTable-datatable-bottom">
+                    <div ts-animate="multipleSelection.active" class="tscArea--Center">
+                        <button class="tsBtn--Normal--Regular" type="submit" ng-click="openBatch()">{{customization.openLink.batchText}}</button>
+                    </div>
+                    <div class="dataTables_paginate paging_tsPagination tsPaging">
+                        <ul class="tsPaging-list">
+                            <li ng-switch="page.type" ng-repeat="page in pages" ng-class="{'selected': !page.active, 'tsPaging-list-item': page.type!='prev' && page.type!='next'}">
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="prev" class="tsPaging-arrow-prev"><i class="tsPaging-icon tsIcon-Previous"></i></a>
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="first"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="page"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="more">...</a>
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="last"><span ng-bind="page.number"></span></a>
+                                <a href="" ng-click="params.page(page.number)" ng-switch-when="next" class="tsPaging-arrow-next"><i class="tsPaging-icon tsIcon-Next"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </script>-->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+/* note: add a left margin, of minimum 20px, to the outer container */
+.tsCampaign{
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  color: @white;
+  background: @pink;
+  padding: 10px;
+  padding-left: 20px;
+  margin-right: 20px;
+  margin-left: -20px;
+}
+
+/* the 'arrow' on the right side of campaign*/
+.tsCampaign:after{
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  border-color: transparent;
+  border-left-color: @pink;
+  border-width: 20px;
+  margin-top: -20px;
+  border-left-width: 10px;
+}
+
+
+/* the 'flerp' under campaign, on the left side*/
+.tsCampaign:before{
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid @darkerpink;
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: 100%;
+  top: 100%;
+  margin-right: -10px !important; 
+}
+
+.tsCampaign .tsCampaign-Extra{
+  font-weight: lighter;
+}

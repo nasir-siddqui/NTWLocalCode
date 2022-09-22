@@ -1,0 +1,61 @@
+﻿@using Telia.NTW.Core.Helpers
+@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model AbonnemangViewModel
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+	<caption>Styrningsalternativ</caption>
+	<thead>
+		<tr>
+			<th>Löpnr</th>
+			<th>Styrning</th>
+			<th>Status</th>
+			<th>Alt nr</th>
+		    <th>Index</th>
+            @if (User.IsInRole(RoleHelper.Administratör))
+            {
+                <th>@*Edit och deleteknappar*@</th>
+            }
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (StyrningsalternativRow styrningsalternativ in Model.Styrningsalternativ)
+		{
+			<tr>
+                <td>@styrningsalternativ.Löpnr</td>
+                <td>
+	                @Html.ActionLink(@styrningsalternativ.Styrning ?? " ", "Alternativ_View", new
+	                {
+		                connectLinkId = styrningsalternativ.ConnectLinkId,
+		                lopnummer = styrningsalternativ.Löpnr,
+		                alternativnummer = styrningsalternativ.AltNr,
+		                namn = styrningsalternativ.Styrning,
+		                index = styrningsalternativ.Index,
+		                status = styrningsalternativ.Status,
+		                abonnemang = Model.Abonnemang,
+		                serviceId = Model.ServiceId
+	                })
+                </td>
+				<td>@styrningsalternativ.Status</td>
+				<td>@styrningsalternativ.AltNr</td>
+			    <td>@styrningsalternativ.Index</td>
+                @if (User.IsInRole(RoleHelper.Administratör))
+                {
+			        <td>
+				        @Html.ActionLink(" ", "Alternativ_Edit", new
+				        {
+					        connectLinkId = styrningsalternativ.ConnectLinkId,
+					        lopnummer = styrningsalternativ.Löpnr,
+					        alternativnummer = styrningsalternativ.AltNr,
+					        namn = styrningsalternativ.Styrning,
+					        index = styrningsalternativ.Index,
+					        status = styrningsalternativ.Status,
+					        abonnemang = Model.Abonnemang,
+					        serviceId = Model.ServiceId
+				        }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+				        <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Webbstyrning', 'Alternativ_Delete', 'styrningen', @styrningsalternativ.ConnectLinkId, '@styrningsalternativ.Status.ToString()', @Model.ServiceId, '@Model.Abonnemang')"></a>
+			        </td>
+                }
+			</tr>
+		}
+	</tbody>
+</table>

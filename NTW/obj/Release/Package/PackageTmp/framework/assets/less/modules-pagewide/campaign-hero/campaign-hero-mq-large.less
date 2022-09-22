@@ -1,0 +1,57 @@
+[class*="tsCampaignHero"],
+[class*="tsCampaignHero"][class*="--alt"]{
+    .margin(topbottom;60;60);
+}
+
+[class*="tsCampaignHero"][class*="--alt"] {
+     .padding(all;@gutter-double);
+}
+
+[class*="tsCampaignHero"] [class*="tsBtn"] {
+    .margin(top;@gutter);
+}
+
+.tsCampaignHero .tsCampaignText {
+    .padding(leftright;150;150);
+}
+
+
+// --right aligns image to the right
+[class*="tsCampaignHero"][class*="--right"] {
+    text-align: left;
+    .tsCampaign-video,
+    .tsCampaign-img {
+        max-width: 50%;
+        float: right;
+        .margin(bottom;0);
+        .margin(left;@gutter-double);
+    }
+    .tsCampaign-img{
+        max-width: 45%;
+        .margin(left;100);
+    }
+
+}
+
+
+// --left aligns image to the left
+[class*="tsCampaignHero"][class*="--left"] {
+    text-align: left;
+    .tsCampaign-video,
+    .tsCampaign-img {
+        max-width: 50%;
+        float: left;
+        .margin(bottom;0);
+        .margin(right;@gutter-double);
+    }
+    .tsCampaign-img {
+        max-width: 45%;
+        .margin(right;100);
+    }
+}
+
+
+// for video on top
+.tsCampaign-video {
+    .margin(bottom;@gutter-double);
+}

@@ -1,0 +1,2 @@
+﻿CREATE USER [advance] WITHOUT LOGIN;
+

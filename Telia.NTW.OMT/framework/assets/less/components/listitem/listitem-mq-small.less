@@ -1,0 +1,84 @@
+/* 
+* ------------------------------------------------------------------------
+* InfoRow xsmall
+* ------------------------------------------------------------------------
+*/
+
+li[class^="tscInfoRow"] {
+    .margin(bottom; 0);
+    >span {
+        float: left;
+        display: inline-block;
+        .margin(top;(@gutter-half));
+        .margin(bottom;(@gutter-half));
+        width:auto;
+    }
+    >span:first-child{
+        width: 150px;
+    }
+    >input[type="text"], >select, >div {
+        float: left;
+        .margin(bottom;@gutter-half);
+    }
+    .clearfix;
+    /* This clearfix does not seem to work for ie8 in this scenario, hence the following */
+    &:after { /* FF, IE8, O, S, etc. */
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+li[class^="tscInfoRow"][class*="--Input"] {
+    >span {
+        .margin(top;(@gutter-half)+3);
+        .margin(bottom;(@gutter-half)-3);
+    }
+    >input[type="text"] {
+        width: 300px;
+    }
+    .error {
+        .margin(top;0);
+        position: relative;
+        .padding(left;150);
+        top: -10px;
+        width: 100%;
+    }
+}
+
+
+li[class^="tscInfoRow"][class*="--Table"] {
+    display: table;
+    width: auto;
+    >span {
+        display: table-cell;
+    }
+
+    .tscInfoRow-rightContainer {
+        display: table-cell;
+        float: none;
+        vertical-align: top;
+    }
+    .tscInfoRow-rightContainer.tsHidden {
+        display: none;
+    }
+}
+
+.tscInfoRow-fluidContainer {
+    float: left;
+    .margin(bottom; @gutter-half);
+    width: auto;
+}
+
+.tscInfoRow-break {
+    float: left;
+    .margin(topbottom; 0; @gutter-half);
+}
+
+.touch {
+    .tscInfoRow-break {
+        .margin(top; 0);
+    }
+}

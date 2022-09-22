@@ -1,0 +1,30 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning.MultistyrningsköEditViewModel
+
+@{
+    ViewBag.Title = "Redigera en schemalagd multistyrning";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Multistyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera en schemalagd multistyrning</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1>Redigera en schemalagd multistyrning</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("_Kö_EditForm", Model);
+
+        <div class="tsMarginTop">
+            <input type="submit" class="tsBtn--Regular" value="Spara" />
+	        @Html.ActionLink("Avbryt", "Index", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+        </div>
+    }
+</div>
+

@@ -1,0 +1,49 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model List<SAGeografiskDistribution>
+
+<div class="tree">
+    @foreach (SAGeografiskDistribution geografiskFördelning in Model)
+    {
+        <div class="area"><i class="tsIcon-Environment"></i>@geografiskFördelning.omrade</div>
+        <div class="area-level">
+            
+        @foreach (SATidDistribution tidsfördelning in geografiskFördelning.tidDistributions)
+        {
+            if (geografiskFördelning.tidDistributions.Count > 1)
+            {
+                <div class="time"><i class="tsIcon-Time"></i>@tidsfördelning.ToString()</div>
+                @Html.Raw("<div class='time-level'>")
+            }
+                    
+            foreach (SAAnropDistribution anropsfördelning in tidsfördelning.anropDistributions)
+            {
+                if (tidsfördelning.anropDistributions.Count > 1)
+                {
+                    <div class="distribution"><i class="tsIcon-ViewAsGraph"></i>@anropsfördelning.distribution%</div>
+
+                    if (geografiskFördelning.tidDistributions.Count > 1)
+                    {
+                        @Html.Raw("<div class='distribution-level'>")
+                    }
+                    else
+                    {
+                        @Html.Raw("<div class='time-level'>")
+                    }
+                }
+                
+                <div class="forwarding"><i class="tsIcon-Telephone"></i>@anropsfördelning.svarsstalle.ToString()</div>
+                
+                if (tidsfördelning.anropDistributions.Count > 1)
+                {
+                    @Html.Raw("</div>")
+                }
+            }
+                    
+            if (geografiskFördelning.tidDistributions.Count > 1)
+            {
+                @Html.Raw("</div>")
+            }
+        }
+        </div>
+    }
+</div>

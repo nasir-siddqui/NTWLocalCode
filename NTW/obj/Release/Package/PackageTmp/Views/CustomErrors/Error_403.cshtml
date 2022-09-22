@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "403 - Obehörig";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Response.StatusCode = 403;
+}
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1 class="h1">Automatiskt utloggad, ej inloggad eller obehörig</h1>
+    <p class="tsIntroText">
+        Behörighet saknas för innehållet. Möjliga anledningar är att du blivit automatiskt utloggad, att du inte är inloggad eller att du inte har behörighet till den angivna webbadressen.
+    </p>
+</div>

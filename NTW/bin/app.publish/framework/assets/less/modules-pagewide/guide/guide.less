@@ -1,0 +1,88 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * GUIDE...............Guide used inside other modules
+**/
+
+
+
+
+
+/*------------------------------------*\
+    $GUIDE
+\*------------------------------------*/
+
+.tsGuide {
+    position: relative;
+    width: 100% !important;
+    border-bottom: 1px solid @lightergrey;
+    border-right: 1px solid @lightergrey;
+    line-height: 26px !important;
+    background-color: @white;
+    p {
+        max-width: 700px;
+    }
+    .tseDropdown {
+        .margin(bottom;@gutter);
+    }
+    .tsWizard {
+        img {
+            max-height: 560px;
+        }
+    }
+}
+
+.tsGuideContainer {
+    .padding(all;@gutter;@gutter;@gutter;@gutter;);
+}
+
+.tsGuide-headline {
+    max-width: 700px;
+    .margin(bottom;@gutter);
+}
+
+.tsGuide-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.tsGuide-ingress {
+
+}
+
+.tsGuide-nonStep {
+    .padding(all;0;0;@gutter/2;0);
+    //font-style: italic;
+}
+
+/* Move this to a seperate */
+
+.tsVideoContainer {
+    position: relative;
+    padding-bottom: 56.25%;
+    .padding(top;30);
+    height: 0; 
+    overflow: hidden;
+    .tsLoading-icon-large {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        .margin(left;-24);
+        .margin(top;-24);
+    }
+}
+ 
+.tsVideoContainer iframe,
+.tsVideoContainer object,
+.tsVideoContainer embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

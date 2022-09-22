@@ -1,0 +1,65 @@
+
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+textarea {
+	.padding(all;12;11;13;11);	
+	border: 1px solid @clay;
+	.border-radius(0);
+
+	-webkit-appearance: none;
+
+	&[disabled='disabled'] {
+		opacity: 0.5;
+	}
+
+	&.tsInput--Error {
+		border: 1px solid @validationerror;
+	}
+
+	// Deprecated, should be changed and removed
+	&.tsInput-error {
+		border: 1px solid @validationerror;
+	}
+	
+	
+}
+
+.tsInput {
+	display: block;
+}
+
+.tsInput--Inline {
+	.inline-block;
+}
+
+.tsInput > label {
+	display: block;
+}
+
+.tsInput input[type="text"],
+.tsInput input[type="number"],
+.tsInput input[type="email"],
+.tsInput input[type="search"],
+.tsInput input[type="password"],
+.tsInput textarea {
+	display: block;
+	width: 100%;
+}
+
+.tsInput-Error {
+	display: block;
+}
+
+
+
+
+
+// RadioBox
+
+[class^="tseRadioBox"] > label {
+	.inline-block;
+}

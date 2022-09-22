@@ -1,0 +1,158 @@
+
+[class^="tsSection-Item--"]{
+	width: 100%;
+	.margin(bottom;@gutter);
+}
+.tsSection-Container {
+	.h4 {
+		font-size: 22px;
+		font-weight: normal;
+		margin-bottom: 10px;
+	}
+}
+.tsSection-Selection {
+	//max-width: 260px;
+	.clearfix;
+	position: relative;
+	margin-bottom: 20px;
+
+	.tsInfoPopup {
+		text-align: left;		
+		position: absolute;
+		top: 10px;
+		right: 0;
+		
+		&>span, p{
+			margin: 0;
+		}
+	}
+}
+.tsSection-Selection:last-child {
+	margin-bottom: 0;
+}
+
+
+.tsSection-Selection--Splited {
+	padding-right: 25px;
+	.clearfix;
+}
+
+
+.tsSection-Selection .selectboxit-container.tsSelectBox-container {
+	float: left;
+}
+.tsSection-Selection {
+	//max-width: 260px;
+}
+.tsSection-Table,
+.tsSection-Table--Alt{
+	width: 100%;
+	display: table;
+	.tsSection-TableItem {
+		.font-size(lineheight;20;25);
+		padding-left: 20px;
+		//line-height: 25px;
+		display: table-row!important;
+		&>span
+		{
+			line-height: 32px;
+			color: @grey;
+			display: table-cell;;
+		}
+		&>span:last-child {
+			color: @blue;
+			text-align: right;
+			
+		}    
+	}
+	.tsSection-TableItem--Right{
+	   text-align: right;
+	   a {
+	   	margin-top: 10px;	
+	   }
+	   
+	}
+}
+.tsSection-Selection--Right {
+	text-align: right;
+}
+.tsSection-Table--Alt {
+	width: 100%;
+	display: table;
+		.tsSection-Label {
+			display: table-cell;
+			vertical-align: baseline;
+			.font-size(12);
+			color: @grey;
+			padding: 5px 0;
+			width: 50%;
+			text-align: left;
+		}
+		.tsSection-Table-Hightlighted {
+			color: @blue;
+			text-align: right;
+			.font-size(22);
+			display: block;
+			padding: 5px 0;
+		}
+		.tsSection-Table-Hightlighted:last-child {
+			margin-bottom: 10px;
+		}
+		.tsSection-Table-AlignBottom {
+			vertical-align: bottom;
+			padding-bottom: 50px;
+			display: block;
+		}
+		.tsBtn--Internal {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+		
+}
+.tsSection-Divider {
+	margin-top: 20px;
+	border-bottom: 1px solid @lightgrey;
+	margin-right: -20px;
+	margin-left: -20px;
+	padding: 0 20px 20px;
+	margin-bottom: 20px;
+}
+.tsSection-Text {
+	margin-bottom: 20px;
+}
+.tsSection-Label {
+  font-size: 12px;
+  color: @grey;
+}
+.tsSection-Wrapper {
+	background-color: @nearwhite;
+	.padding(topbottom;@gutter-double;@gutter-double);
+}
+
+.tsSection-Wrapper .h3 {
+	.margin(bottom;@gutter);
+}
+.tsSection--Alt .tsHighlight-box {
+	.padding(leftright;@gutter-half;@gutter-half);
+	border: 1px solid @lightgrey;
+}
+.tsSection--Alt .tsHighlight-box .h1{
+	.margin(topbottom;@gutter-half;@gutter-half);
+}
+.tsSection--Alt .tsHighlight-box [class*='tsIcon-']{
+	color: @purple;
+	.font-size(50);
+	.margin(topbottom;@gutter-half;@gutter);
+}
+
+// .tsSection--Alt {
+// 	&>div {
+// 		&:first-child {
+// 			text-align: center;
+// 		}
+// 	}
+// }
+.tsSection--Alt [class^="tsSection-Item--"]{
+	.margin(bottom;@gutter);
+}

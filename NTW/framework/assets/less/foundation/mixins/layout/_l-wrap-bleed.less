@@ -1,0 +1,10 @@
+
+// Inner wrap bleed
+
+.l-wrap-bleed(@value) {
+    @value-rem: (@value / 10) * -1;
+    margin-left: ~"@{value}px";
+    margin-left: ~"@{value-rem}rem";
+    margin-right: ~"@{value}px";
+    margin-right: ~"@{value-rem}rem";
+}

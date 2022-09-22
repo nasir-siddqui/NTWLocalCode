@@ -1,0 +1,106 @@
+<div>
+    <div class="tsBodyText tsWrapInner">
+        <h1 class="h1">{{ translation.translate("CONFIRM_HEADLINE") }}</h1>
+        <p class="tsIntroText">{{ translation.translate("CONFIRM_INGRESS") }}</p>
+    </div>
+    <div class="tscArea--Large--NearWhitetsMarginTop">
+        <div class="tsWrapInner">
+            <div class="tscArea--White--Full--Border tsMarginTop tsMarginBottom">
+                <div class="tscArea tsBorderTop tsBorderBottom tsMarginTop">
+                    <div class="tscInlineRow">
+                        <div>
+                            <i class="tsIcon-Profile"></i>
+                        </div>
+                        <div class="tscInlineRow-main">
+                            <h4 class="h4 normal grey">{{ translation.translate("PERSONAL_INFO") }}</h4>
+                            <h1 class="h1">{{ user.firstName }} {{ user.lastName }}</h1>
+                        </div>
+
+                        <div >
+                            <button class="tsBtn--Normal--Regular" ng-click="save()">{{ translation.translate("SAVE") }}</button>
+                            <p class="tsMarginTop--halfGutter center"><a ng-click="abort()"><strong>{{ translation.translate("CANCEL") }}</strong></a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tscArea">
+                    <ul class="tscList">
+                        <li class="tscInfoRow">
+                            <span>{{ translation.translate("MOBILE") }}</span>
+                            <span>{{ user.mobileNumber }}</span>
+                        </li>
+                        <li class="tscInfoRow">
+                            <span>{{ translation.translate("EMAIL") }}</span>
+                            <span>{{ user.emailAddress }}</span>
+                        </li>
+                        <li class="tscInfoRow">
+                            <span>{{ translation.translate("LANGUAGE") }}</span>
+                            <span>Svenska</span>
+                            <!-- TODO: Display selected value -->
+                        </li>
+                    </ul>
+                </div>
+                <div class="tsComponent--light tsComponent--negativeMargin">
+                    <h2 class="h2">{{ translation.translate("ROLES_IN_USE") }}</h2>
+                    <ul class="tscList tsMarginTop--halfGutter">
+                        <li class="tscInfoRow" ng-repeat="role in currentRoles | orderBy:'roleName'">
+
+                            <div class="tseRadioBox--CheckButton--ColorNavigation tsPullLeft readOnly semichecked noBackground">
+                                <input type="checkbox" disabled="disabled">
+                                <label for="" class="ng-binding">{{ role.roleName }}</label>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tsMarginTop" ng-if="managePuiAttributes">
+                    <h2 class="h2">{{ translation.translate("ATTRIBUTE_PUIS_HEADER") }}</h2>
+    
+                    <div ng-if="!attributePuis" class='tscLoading--Full'>
+                        <div class='tsLoading-icon-large'></div>
+                    </div>
+
+                    <div ng-if="attributePuis">
+                        <ul class="tscList tsMarginTop">
+                            <li ng-repeat="pui in attributePuis" class="tscInfoRow">
+                                <span>{{ pui.displayName }}</span>
+                                <span>
+                                    <div class="tseTextField--Normal--Narrow--Inline" ng-repeat="attr in pui.attributes">
+                                        <label>{{ translationPUI.translate("ATTR_" + attr.name) }}</label>
+                                        <input type="text" ng-model="attr.value" ng-change="attr.changed = true">
+                                    </div>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+    
+                </div>
+
+                <div class="tsMarginTop">
+                    <h2 class="h2">{{ translation.translate("PORTAL_ACCESS") }}</h2>
+                    <div ts-access-list="" data-read-only="true" data-full-access-text='FULL_ACCESS' data-partial-access-text='PARTIAL_ACCESS' data-no-access-text='NO_ACCESS'></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="tsAttention--Info tsMarginBottom" ng-if="saveRedirect">
+        <div class="tsAttention-Message tsWrapInner">
+            <p class="tscInline--Middle">
+                <i class="tsIcon-Information tscInline-Element"></i>
+                <span ts-redirect data-url="{{ saveRedirect }}" data-timeout="5" ng-bind-html="$eval(texts.redirectExpr)"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="tsWrapInner">
+        <div class="tscButtonContainer--Full tsMarginTop">
+            <button class="tsBtn--Normal--Regular" ng-click="save()">{{ translation.translate("SAVE") }}</button>
+            <p class="tsMarginTop--halfGutter center"><a href ng-click="abort()"><strong>{{ translation.translate("CANCEL") }}</strong></a></p>
+        </div>
+    </div>
+
+</div>

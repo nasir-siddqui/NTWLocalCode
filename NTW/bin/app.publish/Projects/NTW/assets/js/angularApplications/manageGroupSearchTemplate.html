@@ -1,0 +1,51 @@
+<div class="tsWrapInner">
+    <div class="search header-search">
+        <div class="search-inner">
+            <form class="search-form" ng-submit="search(searchText)">
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <!-- Style input field to highlight that it is disabled --> 
+                <input type="search" class="search-field ui-autocomplete-input" name="search" placeholder='{{ translationGroup.translate("SEARCH_PLACEHOLDER") }}' autocomplete="off" ng-model="searchText" ng-disabled="searching">
+                <i class="tsIcon-Search"></i>
+                <input type="submit" ng-disabled="!searchText || searching" class="search-submit" value="Sök">
+            </form>
+        </div>
+
+        
+
+        <ul ng-if="searchPerformed || searching || searchResult.length">
+        	<li ng-if="!searchResult.length && searchPerformed">Inga resultat</li>
+        	<li ng-if="!searchPerformed && searching">
+        		<div class="tscLoading--Full--PaddingHalfGutter--BackgroundWhite">
+        			<div class="tsLoading-icon-large"></div>
+        		</div>
+        	</li>
+        	<li class="tsPaddingTop--halfGutter tsPaddingBottom--halfGutter" ng-repeat="organization in searchResult" style="position: relative;">
+                <h2>{{ organization.name }} {{organization.organizationNumber}} <span class="tsPullRight fontSize-small tsMarginLeft--halfGutter" ng-show="organization.alreadyInMainGroup">Finns i huvudgrupp</span></h2>
+                <i ng-show="!organization.listed && !organization.alreadyInMainGroup" ng-click="addOrganization(organization); (organization.listed = true)" class="tsIcon-Add"></i>
+                <i ng-show="organization.listed && !organization.alreadyInMainGroup" ng-click="deleteOrganization(organization); (organization.listed = false)" class="tsIcon-Delete"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-show="isError && !hideGroupAttention" class="tsAttention--Panic tsMarginTop">
+    <div class="tsAttention-Message tsAttention-MessageClosable tsWrapInner">
+        <i class="tsIcon-Panic"></i>
+        <p>
+            <strong class="tsAttention-heading">Error:</strong>
+            <a class="tsAttention-closeMessage" ng-click="hideGroupAttention = true"><span>Close</span> <i class="tsIcon-Close"></i></a>
+            <span>{{ errorMessage }}</span>
+        </p>
+    </div>
+</div>
+
+<div ng-show="isSuccess && !hideGroupAttention" class="tsAttention--Info tsMarginTop">
+    <div class="tsAttention-Message tsAttention-MessageClosable tsWrapInner">
+        <i class="tsIcon-Information"></i>
+        <p>
+            <strong class="tsAttention-heading">Success:</strong>
+            <a class="tsAttention-closeMessage" ng-click="hideGroupAttention = true"><span>Close</span> <i class="tsIcon-Close"></i></a>
+            <span>Du har sparat dina preferenser</span>
+        </p>
+    </div>
+</div>

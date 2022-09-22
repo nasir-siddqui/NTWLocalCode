@@ -1,0 +1,32 @@
+// Inputs pixel based font size and calculates rem equals, with px fallback
+// i.e. .font-size(16) to get a font size of 14px in em/rem
+
+.font-size(@font-size: @basefontsize) {
+  @rem: (@font-size / 10);
+  font-size: @font-size * 1px;
+  font-size: ~"@{rem}rem";
+}
+
+.font-size(important;@font-size: @basefontsize) {
+  @rem: (@font-size / 10);
+  font-size: ~"@{font-size}px!important";
+  font-size: ~"@{rem}rem!important";
+}
+
+.font-size(lineheight;@font-size: @basefontsize; @line-height: @baselineheight) {
+  @rem-size: (@font-size / 10);
+  @rem-height: (@line-height / 10);
+  font-size: @font-size * 1px;
+  font-size: ~"@{rem-size}rem";
+  line-height: @line-height * 1px;
+  line-height: ~"@{rem-height}rem";
+}
+
+.font-size(importantlineheight;@font-size: @basefontsize; @line-height: @baselineheight) {
+  @rem-size: (@font-size / 10);
+  @rem-height: (@line-height / 10);
+  font-size: ~"@{font-size}px!important";
+  font-size: ~"@{rem-size}rem!important";
+  line-height: ~"@{line-height}px!important";
+  line-height: ~"@{rem-height}rem!important";
+}

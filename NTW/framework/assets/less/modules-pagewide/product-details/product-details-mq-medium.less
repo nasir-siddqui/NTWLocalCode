@@ -1,0 +1,172 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCT-HIGHLIGHTS........
+ * PRODUCT-INTRO.............
+ * PRODUCT-IMAGE.............
+ * PRODUCT-LEADINS...........
+ * PRODUCT-ATTRIBUTES........
+ * MOVIE.....................
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-HIGHLIGHTS
+\*------------------------------------*/
+
+.tsProductHighlights--portrait,
+.tsProductHighlights--landscape {
+    .clearfix;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-INTRO
+\*------------------------------------*/
+
+.tsProductHighlights--portrait .tsProductIntro,
+.tsProductHighlights--landscape .tsProductIntro {
+    float: right;
+    .padding(left; @gutter);
+    width: 68%; // 640px / 940px
+    .margin(top;@gutter-double);
+}
+
+.tsProductHighlights--landscape .tsProductIntro {
+    width: 60%; // 560px / 940px
+}
+
+.tsProductHighlights--swapped .tsProductIntro {
+    float: left;
+    .padding(right; @gutter);
+    width: 50%; // 470px / 940px
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-IMAGE
+\*------------------------------------*/
+
+.tsProductHighlights--portrait .tsProductImage,
+.tsProductHighlights--landscape .tsProductImage {
+    float: left;
+    .padding(left; @gutter-half);
+    width: 32%; // 300px / 940px
+    .margin(top;@gutter-double);
+}
+
+.tsProductHighlights--landscape .tsProductImage {
+    width: 40%; // 380px / 940px
+}
+
+.tsProductHighlights--swapped .tsProductImage {
+    float: right;
+    width: 50%; // 470px / 940px
+}
+
+.tsProductImage {
+    .tsProductItem-tagWrapper {
+        right: 0;
+        .tsProductItem-tag {
+            height: 65px;
+            width: 65px;
+        }
+        .tsProductItem-tag--Small {
+            .font-size(12);
+        }
+        .tsProductItem-tag--Medium {
+            .font-size(20);
+        }
+        .tsProductItem-tag--Large {
+            .font-size(28);
+        }
+    }
+}
+
+
+
+/*------------------------------------*\
+    $PRODUCT-LEADINS
+\*------------------------------------*/
+
+[class^="tsProductLeadins"] .tsProductList > .tsProductList-Item {
+    width: 20%;
+}
+
+[class^="tsProductLeadins"] .tsProductList-Item--combo  {
+    width: 40%;
+}
+
+.tsProductHighlights--portrait [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item,
+.tsProductHighlights--landscape [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item,
+.tsProductHighlights--portrait [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item--color,
+.tsProductHighlights--landscape [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item--color {
+    width: 33.3333%;
+    
+}
+.tsProductHighlights--portrait [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item,
+.tsProductHighlights--landscape [class^="tsProductLeadins"] .tsProductList > .tsProductList-Item {
+    max-width: 172px;
+}
+.tsProductHighlights--portrait [class^="tsProductLeadins"] .tsProductList-Item--combo,
+.tsProductHighlights--landscape [class^="tsProductLeadins"] .tsProductList-Item--combo  {
+    width: 66.6666%;
+    max-width: 349px;
+}
+
+.tsProductHighlights--portrait [class^="tsProductLeadins"],
+.tsProductHighlights--landscape [class^="tsProductLeadins"] {
+    float: right;
+    .padding(left; @gutter);
+    width: 68%; // 640px / 940px
+}
+
+.tsProductHighlights--landscape [class^="tsProductLeadins"] {
+    width: 60%; // 560px / 940px
+}
+
+.tsProductHighlights [class^="tsProductLeadins"] > .tsProductList {
+    text-align: center;
+}
+
+.tsProductLeadins [class^="tsProductList-Item"]:last-child {
+    padding-right: 0;
+}
+
+
+
+.tsProductHighlights .tsColorlist {
+    text-align: center;
+}
+.tsInstock {
+    text-align: left;
+}
+
+/*------------------------------------*\
+    $MOVIE
+\*------------------------------------*/
+.tsMovieSimilar {
+    img {
+        max-width: 100px;
+    }
+    .tsMovieList {
+        .padding(bottom;@gutter);
+        .tsMovieList-Item {
+            width: 20%;
+        }
+    }
+}

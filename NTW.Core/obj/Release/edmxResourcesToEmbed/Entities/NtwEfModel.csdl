@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdvanceWebbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CompanyInfo">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+    </Key>
+    <Property Name="CompanyId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="OrgNr" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CompanyName" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="EDI" MaxLength="15" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Country" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="SamRefKod" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="UnitNo" MaxLength="4" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OLD_ContactName" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OLD_ContactTelNo" MaxLength="30" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OLD_ContactEmail" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OLD_ContactUserId" Type="Int32" />
+    <Property Name="Date" MaxLength="12" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CustNo" MaxLength="5" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ActiveVIP" Type="Boolean" />
+    <Property Name="ActiveStat" Type="Boolean" />
+    <Property Name="ActiveCpa" Type="Boolean" />
+    <Property Name="New" Type="Boolean" />
+    <Property Name="PhoneKey" MaxLength="200" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ExtendedMulti" Type="Boolean" />
+    <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="ChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="SystemChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="UserIdA" Type="Int32" />
+    <Property Name="UserIdD" Type="Int32" />
+    <Property Name="UserIdCpa" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Webb_Users_Login_Webb_Users_Org" FromRole="CompanyInfo" ToRole="User" />
+    <NavigationProperty Name="GroupInfo" Relationship="Self.FK_Webb_Users_Org_Webb_Users_Koncern" FromRole="CompanyInfo" ToRole="GroupInfo" />
+    <NavigationProperty Name="Roles" Relationship="Self.CompanyInfosInRoles" FromRole="CompanyInfo" ToRole="Role" />
+    <NavigationProperty Name="AnalysContact" Relationship="AdvanceWebbModel.FK_CompanyInfo_ContactAnalys" FromRole="CompanyInfo" ToRole="User" />
+    <NavigationProperty Name="LevInfoContact" Relationship="AdvanceWebbModel.FK_CompanyInfo_ContactLeverantörsinformation" FromRole="CompanyInfo" ToRole="User" />
+    <NavigationProperty Name="WebstyrningContact" Relationship="AdvanceWebbModel.FK_CompanyInfo_ContactWebstyrning" FromRole="CompanyInfo" ToRole="User" />
+    <NavigationProperty Name="ChangedByUser" Relationship="AdvanceWebbModel.FK_CompanyInfo_ChangedByUser" FromRole="CompanyInfo" ToRole="User" />
+    <NavigationProperty Name="AdvanceExtensions" Relationship="AdvanceWebbModel.FK_AdvanceExtension_CompanyInfo" FromRole="CompanyInfo" ToRole="AdvanceExtension" />
+  </EntityType>
+  <EntityType Name="GroupInfo">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="GroupCode" MaxLength="25" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="GroupName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="ChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <NavigationProperty Name="CompanyInfo" Relationship="Self.FK_Webb_Users_Org_Webb_Users_Koncern" FromRole="GroupInfo" ToRole="CompanyInfo" />
+    <NavigationProperty Name="ChangedByUser" Relationship="AdvanceWebbModel.FK_GroupInfo_ChangedBy" FromRole="GroupInfo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" Type="Int32" />
+    <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Description" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="Companies" Relationship="Self.CompanyInfosInRoles" FromRole="Role" ToRole="CompanyInfo" />
+    <NavigationProperty Name="Users" Relationship="Self.UsersInRoles" FromRole="Role" ToRole="User" />
+    <Property Name="ApplicationRole" Type="Boolean" />
+    <NavigationProperty Name="IncludedRoles" Relationship="AdvanceWebbModel.IncludedRole" FromRole="Role" ToRole="Role1" />
+    <NavigationProperty Name="IncludedByRoles" Relationship="AdvanceWebbModel.IncludedRole" FromRole="Role1" ToRole="Role" />
+    <NavigationProperty Name="RolesForMessage" Relationship="AdvanceWebbModel.FK__RolesForM__RoleI__5E94F66B" FromRole="Role" ToRole="RolesForMessage" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="LoginName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Password" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Note" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Security" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CustNo" MaxLength="5" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Parent" Nullable="false" Type="Boolean" />
+    <Property Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="TelNo" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="Eno" MaxLength="10" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="SalesUnitsAllowed" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ProdStod" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="ChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK_Webb_Users_Login_Webb_Users_Org" FromRole="User" ToRole="CompanyInfo" />
+    <NavigationProperty Name="Roles" Relationship="Self.UsersInRoles" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="ChangedCompanyInfos" Relationship="AdvanceWebbModel.FK_CompanyInfo_ChangedByUser" FromRole="User" ToRole="CompanyInfo" />
+    <NavigationProperty Name="ChangedUsers" Relationship="AdvanceWebbModel.FK_User_ChangedByUser" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="ChangedByUser" Relationship="AdvanceWebbModel.FK_User_ChangedByUser" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="UserAdvanceNumbers" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_Webb_Users_Login" FromRole="User" ToRole="UserAdvanceNumbers" />
+    <NavigationProperty Name="ChangedAdvanceExtensions" Relationship="AdvanceWebbModel.FK_AdvanceExtension_ChangedBy" FromRole="User" ToRole="AdvanceExtension" />
+    <NavigationProperty Name="ChangedUserAdvanceNumbers" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_ChangedByUser" FromRole="User" ToRole="UserAdvanceNumbers" />
+    <NavigationProperty Name="ChangedGroupInfos" Relationship="AdvanceWebbModel.FK_GroupInfo_ChangedBy" FromRole="User" ToRole="GroupInfo" />
+    <Property Name="LogonDate" Precision="3" Type="DateTime" />
+  </EntityType>
+  <Association Name="FK_Webb_Users_Login_Webb_Users_Org">
+    <End Type="Self.CompanyInfo" Multiplicity="0..1" Role="CompanyInfo" />
+    <End Type="Self.User" Multiplicity="*" Role="User" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyInfo">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Webb_Users_Org_Webb_Users_Koncern">
+    <End Type="Self.GroupInfo" Multiplicity="0..1" Role="GroupInfo" />
+    <End Type="Self.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <ReferentialConstraint>
+      <Principal Role="GroupInfo">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyInfosInRoles">
+    <End Type="Self.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <End Type="Self.Role" Multiplicity="*" Role="Role" />
+  </Association>
+  <Association Name="UsersInRoles">
+    <End Type="Self.Role" Multiplicity="*" Role="Role" />
+    <End Type="Self.User" Multiplicity="*" Role="User" />
+  </Association>
+  <EntityContainer Name="NtwEfModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CompanyInfo" EntityType="Self.CompanyInfo" />
+    <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Webb_Users_Login_Webb_Users_Org" Association="Self.FK_Webb_Users_Login_Webb_Users_Org">
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+      <End EntitySet="User" Role="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Webb_Users_Org_Webb_Users_Koncern" Association="Self.FK_Webb_Users_Org_Webb_Users_Koncern">
+      <End EntitySet="GroupInfo" Role="GroupInfo" />
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyInfosInRoles" Association="Self.CompanyInfosInRoles">
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+      <End EntitySet="Role" Role="Role" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoles" Association="Self.UsersInRoles">
+      <End EntitySet="Role" Role="Role" />
+      <End EntitySet="User" Role="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactAnalys" Association="AdvanceWebbModel.FK_CompanyInfo_ContactAnalys">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactLeverantörsinformation" Association="AdvanceWebbModel.FK_CompanyInfo_ContactLeverantörsinformation">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ContactWebstyrning" Association="AdvanceWebbModel.FK_CompanyInfo_ContactWebstyrning">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyInfo_ChangedByUser" Association="AdvanceWebbModel.FK_CompanyInfo_ChangedByUser">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_ChangedByUser" Association="AdvanceWebbModel.FK_User_ChangedByUser">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="User" Role="User1" />
+    </AssociationSet>
+    <EntitySet Name="AdvanceExtension" EntityType="AdvanceWebbModel.AdvanceExtension" />
+    <EntitySet Name="UserAdvanceNumbers" EntityType="AdvanceWebbModel.UserAdvanceNumbers" />
+    <AssociationSet Name="FK_UserAdvanceNumbers_AdvanceExtension" Association="AdvanceWebbModel.FK_UserAdvanceNumbers_AdvanceExtension">
+      <End EntitySet="AdvanceExtension" Role="AdvanceExtension" />
+      <End EntitySet="UserAdvanceNumbers" Role="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAdvanceNumbers_Webb_Users_Login" Association="AdvanceWebbModel.FK_UserAdvanceNumbers_Webb_Users_Login">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="UserAdvanceNumbers" Role="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdvanceExtension_CompanyInfo" Association="AdvanceWebbModel.FK_AdvanceExtension_CompanyInfo">
+      <End EntitySet="CompanyInfo" Role="CompanyInfo" />
+      <End EntitySet="AdvanceExtension" Role="AdvanceExtension" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdvanceExtension_ChangedBy" Association="AdvanceWebbModel.FK_AdvanceExtension_ChangedBy">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="AdvanceExtension" Role="AdvanceExtension" />
+    </AssociationSet>
+    <EntitySet Name="FictiveOrgNr" EntityType="AdvanceWebbModel.FictiveOrgNr" />
+    <AssociationSet Name="FK_UserAdvanceNumbers_ChangedByUser" Association="AdvanceWebbModel.FK_UserAdvanceNumbers_ChangedByUser">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="UserAdvanceNumbers" Role="UserAdvanceNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupInfo_ChangedBy" Association="AdvanceWebbModel.FK_GroupInfo_ChangedBy">
+      <End EntitySet="User" Role="User" />
+      <End EntitySet="GroupInfo" Role="GroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="IncludedRole" Association="AdvanceWebbModel.IncludedRole">
+      <End EntitySet="Role" Role="Role" />
+      <End EntitySet="Role" Role="Role1" />
+    </AssociationSet>
+    <EntitySet Name="Meddelandes" EntityType="AdvanceWebbModel.Meddelandes" />
+    <EntitySet Name="RolesForMessage" EntityType="AdvanceWebbModel.RolesForMessage" />
+    <AssociationSet Name="FK__RolesForM__Messa__5DA0D232" Association="AdvanceWebbModel.FK__RolesForM__Messa__5DA0D232">
+      <End Role="Meddelandes" EntitySet="Meddelandes" />
+      <End Role="RolesForMessage" EntitySet="RolesForMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolesForM__RoleI__5E94F66B" Association="AdvanceWebbModel.FK__RolesForM__RoleI__5E94F66B">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolesForMessage" EntitySet="RolesForMessage" />
+    </AssociationSet>
+    <EntitySet Name="SystemLog" EntityType="AdvanceWebbModel.SystemLog" />
+    <EntitySet Name="ProcessTable" EntityType="AdvanceWebbModel.ProcessTable" />
+    <EntitySet Name="ServiceLog" EntityType="AdvanceWebbModel.ServiceLog" />
+    <EntitySet Name="STAFFlog" EntityType="AdvanceWebbModel.STAFFlog" />
+    <EntitySet Name="SupportLog" EntityType="AdvanceWebbModel.SupportLog" />
+    <EntitySet Name="ProcessHeader" EntityType="AdvanceWebbModel.ProcessHeader" />
+  </EntityContainer>
+  <Association Name="FK_CompanyInfo_ContactAnalys">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ContactLeverantörsinformation">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdCpa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ContactWebstyrning">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="UserIdD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyInfo_ChangedByUser">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.CompanyInfo" Multiplicity="*" Role="CompanyInfo" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyInfo">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_ChangedByUser">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.User" Multiplicity="*" Role="User1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AdvanceExtension">
+    <Key>
+      <PropertyRef Name="AdvanceExtID" />
+    </Key>
+    <Property Name="AdvanceExtID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Active" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="Number" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="IntervalLow" Nullable="false" Type="Int32" />
+    <Property Name="IntervalHigh" Nullable="false" Type="Int32" />
+    <Property Name="Subscribed" Nullable="false" Type="Boolean" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="ChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="AnalysisView" Nullable="false" Type="Int16" />
+    <Property Name="AnalysisRawdata" Nullable="false" Type="Boolean" />
+    <NavigationProperty Name="UserAdvanceNumbers" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_AdvanceExtension" FromRole="AdvanceExtension" ToRole="UserAdvanceNumbers" />
+    <NavigationProperty Name="CompanyInfo" Relationship="AdvanceWebbModel.FK_AdvanceExtension_CompanyInfo" FromRole="AdvanceExtension" ToRole="CompanyInfo" />
+    <NavigationProperty Name="ChangedByUser" Relationship="AdvanceWebbModel.FK_AdvanceExtension_ChangedBy" FromRole="AdvanceExtension" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserAdvanceNumbers">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="AdvanceExtId" />
+    </Key>
+    <Property Name="UserID" Nullable="false" Type="Int32" />
+    <Property Name="AdvanceExtId" Nullable="false" Type="Int32" />
+    <Property Name="AnalysisView" Nullable="false" Type="Int16" />
+    <Property Name="AnalysisRawData" Nullable="false" Type="Boolean" />
+    <Property Name="CreationDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="ChangedDate" Precision="3" Type="DateTime" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <NavigationProperty Name="AdvanceExtension" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_AdvanceExtension" FromRole="UserAdvanceNumbers" ToRole="AdvanceExtension" />
+    <NavigationProperty Name="User" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_Webb_Users_Login" FromRole="UserAdvanceNumbers" ToRole="User" />
+    <NavigationProperty Name="ChangedByUser" Relationship="AdvanceWebbModel.FK_UserAdvanceNumbers_ChangedByUser" FromRole="UserAdvanceNumbers" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_UserAdvanceNumbers_AdvanceExtension">
+    <End Type="AdvanceWebbModel.AdvanceExtension" Multiplicity="1" Role="AdvanceExtension" />
+    <End Type="AdvanceWebbModel.UserAdvanceNumbers" Multiplicity="*" Role="UserAdvanceNumbers" />
+    <ReferentialConstraint>
+      <Principal Role="AdvanceExtension">
+        <PropertyRef Name="AdvanceExtID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="AdvanceExtId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAdvanceNumbers_Webb_Users_Login">
+    <End Type="AdvanceWebbModel.User" Multiplicity="1" Role="User">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AdvanceWebbModel.UserAdvanceNumbers" Multiplicity="*" Role="UserAdvanceNumbers" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdvanceExtension_CompanyInfo">
+    <End Type="AdvanceWebbModel.CompanyInfo" Multiplicity="0..1" Role="CompanyInfo" />
+    <End Type="AdvanceWebbModel.AdvanceExtension" Multiplicity="*" Role="AdvanceExtension" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyInfo">
+        <PropertyRef Name="CompanyId" />
+      </Principal>
+      <Dependent Role="AdvanceExtension">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdvanceExtension_ChangedBy">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.AdvanceExtension" Multiplicity="*" Role="AdvanceExtension" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="AdvanceExtension">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAdvanceNumbers_ChangedByUser">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.UserAdvanceNumbers" Multiplicity="*" Role="UserAdvanceNumbers" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserAdvanceNumbers">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FictiveOrgNr">
+    <Key>
+      <PropertyRef Name="Counter" />
+    </Key>
+    <Property Name="Counter" Nullable="false" Type="Int32" />
+    <Property Name="ForeignOrgNr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="FictiveOrgNr1" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="SkapadDatum" Nullable="false" Precision="3" Type="DateTime" />
+  </EntityType>
+  <Association Name="FK_GroupInfo_ChangedBy">
+    <End Type="AdvanceWebbModel.User" Multiplicity="0..1" Role="User" />
+    <End Type="AdvanceWebbModel.GroupInfo" Multiplicity="*" Role="GroupInfo" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="GroupInfo">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IncludedRole">
+    <End Type="AdvanceWebbModel.Role" Multiplicity="*" Role="Role" />
+    <End Type="AdvanceWebbModel.Role" Multiplicity="*" Role="Role1" />
+  </Association>
+  <EntityType Name="Meddelandes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="From" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="To" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RolesForMessage" Relationship="AdvanceWebbModel.FK__RolesForM__Messa__5DA0D232" FromRole="Meddelandes" ToRole="RolesForMessage" />
+  </EntityType>
+  <EntityType Name="RolesForMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MessageId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Meddelandes" Relationship="AdvanceWebbModel.FK__RolesForM__Messa__5DA0D232" FromRole="RolesForMessage" ToRole="Meddelandes" />
+    <NavigationProperty Name="Role" Relationship="AdvanceWebbModel.FK__RolesForM__RoleI__5E94F66B" FromRole="RolesForMessage" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK__RolesForM__Messa__5DA0D232">
+    <End Type="AdvanceWebbModel.Meddelandes" Role="Meddelandes" Multiplicity="1" />
+    <End Type="AdvanceWebbModel.RolesForMessage" Role="RolesForMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meddelandes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolesForMessage">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolesForM__RoleI__5E94F66B">
+    <End Type="AdvanceWebbModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="AdvanceWebbModel.RolesForMessage" Role="RolesForMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolesForMessage">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SystemLog">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="DateTime" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Process" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Process" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Body" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProcessTable">
+    <Key>
+      <PropertyRef Name="ProcessID" />
+    </Key>
+    <Property Name="ProcessID" Type="Int32" Nullable="false" />
+    <Property Name="ProcessName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProcessType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfExec" Type="Int32" />
+    <Property Name="DeleteLimit" Type="Int16" />
+  </EntityType>
+  <EntityType Name="ServiceLog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TimeStamp" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Component" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InternalFunction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ErrNo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ErrNoHex" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DetailDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Severity" Type="Int16" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="STAFFlog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="effectDate" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="cmdSQL" Type="String" MaxLength="1000" FixedLength="true" Unicode="false" />
+    <Property Name="effectDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SupportLog">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="cmdSQL" />
+      <PropertyRef Name="EffectDate" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="cmdSQL" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="EffectDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProcessHeader">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="ProcessID" Type="Int32" Nullable="false" />
+    <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Success" Type="Boolean" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ProcessOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,387 @@
+// fix footer padding
+
+html, body {
+    height: 100%;
+}
+
+#mybusiness-wrapper {
+
+    position: relative;
+    min-height: 100%;
+
+    .flexcontainer {
+        padding-bottom: 50px;
+    }
+    
+    .tsFooter {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+}
+
+.full-page #mybusiness-wrapper {
+    
+    display: table;
+    height: 100%;
+    width: 100%;
+
+    > #mybusiness-header-wrapper, > #mybusiness-footer-wrapper, > .flexcontainer {
+        display: table-row;
+    }
+
+    .flexcontainer {
+        padding-bottom: 0;
+    }
+    
+    .flexcontainer, .flexwrap, .main {
+        height: 100%;
+    }
+    .flexwrap {
+        display: table-cell;
+    }
+
+    .tsFooter {
+        position: static;
+    }
+
+}
+
+.js [class^="tsPageSection tsPreview"] > [data-widget-collapse=inner] {
+    overflow: hidden;
+}
+.js .tsPreview--initialized > [data-widget-collapse=inner] {
+    max-height: none;
+}
+
+
+.tsNavSite-item {
+    text-align: center;
+    font-weight: bold;
+}
+.tsNavSite-list-login .tsNavSite-item {
+    font-weight: normal;
+}
+
+.tsNavSite-item.current {
+    border-left: 1px solid @bordercolor-light;
+    border-right: 1px solid @bordercolor-light;
+    border-bottom: 1px solid @white;
+    background-color: @bodycolor;
+}
+
+.tsNavSite-item a,
+.tsNavSite-item span {
+    display: block;
+    position: relative;
+    top: 1px;
+   //padding: 0.65em 1em 0.65em 1em;
+    .padding(all;6.5;10;6.5;10);
+}
+
+.tsNavSite-item a:hover {
+    text-decoration: underline;
+}
+
+.tsNavSite-item {
+     &:last-child {
+        a {
+            //padding-right: 0; //
+           // margin-right: 2.8em;
+        }
+    };
+}
+
+.header {
+    position: relative;
+    .navigation-trigger {
+        display: none;
+    }
+    .search {
+        display: none;
+        float: right;
+        clear: right;
+        width: 350px;
+    }
+    // full search - start
+    .search {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 122px;
+        background: @lightclay;
+        .search-inner {
+            .tsWrapInner;
+            .padding(topbottom;@gutter;@gutter);
+            .padding(leftright;@gutter;@gutter);
+        }
+    }
+    .has-subnavigation .search {
+        top: 168px;        
+    }
+    // full search - end
+    .logo { 
+        position: relative;
+        .padding(top;34);        
+        .tsWrapInner;
+        a {
+            .padding(topbottom;20;24);
+            width: 118px;
+            position: absolute;
+            z-index: 1;
+            left: ~"@{gutter-double}px";
+        }
+    }
+    .tsCollapse-trigger {
+        float: right;
+        position: relative;
+        z-index: 1;
+        .margin(left;15);
+        .margin(topbottom;21;22);
+    }
+    .search-trigger {
+        margin-left: 0;
+    }
+    .header-inner {
+        display: block !important;     
+    }
+    .header-inner.has-subnavigation {
+        border-bottom: 46px solid @purple;
+    }
+    .navigation-wrapper {
+        .tsWrapInner;
+        .padding(leftright;@gutter*2;@gutter*2);
+    }
+    .primary-navigation {
+        position: relative;
+        height: 88px;
+        .toplevel {
+            position: absolute;
+            width: 100%;
+            .clearfix;
+            .toplevel-item {
+                float: left;
+                .toplevel-link {
+                    .padding(all;8;10;4;10);
+                    .font-size(lineheight;20;76);
+                    display: inline-block;
+                }
+                &:first-child {
+                    margin-left: 140px;
+                }
+            }
+            .toplevel-item.open .toplevel-link, .toplevel-link:hover, .toplevel-link.active {
+                background: @purple;
+                color: @white;
+                text-decoration: none;
+            }
+        }
+        .sublevel {
+            position: absolute;
+            left: 0;
+            .clearfix;
+            .sublevel-item {
+                float: left;
+                .padding(all;5;10;5;0);
+            }
+            .sublevel-link {
+                display: inline-block;;
+                color: @white;
+                .font-size(15);
+                .padding(all;8;10;8;10);
+            }
+            .sublevel-item.selected .sublevel-link, .sublevel-link:hover {
+                color: @extralightpurple;
+            }
+        }
+    }
+    .secondary-navigation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        background: ~"url(@{gfxurl}utility-xrep-background.png)";
+        height: 34px;
+        border-bottom: 1px solid @bordercolor-light;
+        .secondary-navigation-inner {
+            .tsWrapInner;
+            .padding(leftright;@gutter*2;@gutter*2);
+            .clearfix;
+            .site {
+                float: left;
+                .site-link {
+				    .font-size(13);
+					.padding(all;7;13;8;13);
+					font-weight: bold;
+					color: @purple;
+				}
+			    .active .site-link {
+            		background: @white;
+            		border-left: 1px solid @bordercolor-light;
+            		border-right: 1px solid @bordercolor-light;
+            		color: #000;	
+				}
+            }
+            .nav {
+                float: right;
+                .nav-item {
+                    border-right: 1px solid @lightgrey;
+                    .margin(all;7;0;7;0);
+                    .padding(all;0;5;0;5);
+                    &:last-child {
+                        border-right: 0 none;
+                    }
+                }
+                .nav-link {
+                    .font-size(10);
+                    color: @grey;
+                }
+                .nav-link-blue {
+                    color: @blue;
+                }
+            }
+            ul {
+                .clearfix;
+                li {
+                    float: left;
+                    a {
+                        display: inline-block;
+                    }
+                }
+            }
+            
+        }
+    }
+    .pusher {
+        background: @purple;   
+        position: relative;
+        z-index: -1;
+    }
+    .search-pusher {
+        background: @lightclay;
+    }
+
+    .menu-search {
+        .padding(top;@gutter-half);
+        width: auto;
+        position: static;
+        background: none;
+        display: block;
+        float: none;
+        form {
+            position: relative;
+        }
+    }    
+}
+
+/*
+.lt-ie9 .header {
+    .header-inner, .logo, .secondary-navigation-inner {
+        max-width: 960px;
+    }
+}
+*/
+
+.header-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 600;
+    background: @white;
+}
+
+.sticky-header {
+    .ui-autocomplete {
+        z-index: 600;
+    }
+    .header {
+       border-bottom: 1px solid @lightergrey;
+    }
+    .pusher {
+        .margin(top;-1); 
+    }
+}
+
+.simple-header {
+    .logo a {
+        background: @white;
+        .padding(leftright;@gutter;@gutter);
+        width: (@gutter*2 + 118px);
+        .margin(top;@gutter/2);
+        border-radius: 0 0 20px 0;
+    }
+}
+
+
+.subnav-fixed {
+    .subnav-pusher {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: @purple;
+        z-index: 99;
+        .margin(top;-2);
+        .sublevel {
+            .sublevel-item {
+                float: left;
+                .padding(all;5;10;5;0);
+            }
+            .sublevel-link {
+                display: inline-block;;
+                color: @white;
+                .font-size(15);
+                .padding(all;8;10;8;10);
+            }
+            .sublevel-item.selected .sublevel-link, .sublevel-link:hover {
+                color: @extralightpurple;
+            }
+        }
+    }
+}
+
+
+
+/* 
+* ------------------------------------------------------------------------
+* Application header
+*
+* Special header for pages with a iframe. Used when you want the customer
+* to get the feeling that he/she hasn't left the domain.
+* ------------------------------------------------------------------------
+*/
+
+.tsApplicationHeader {
+    background-color: @purple;
+    .logo {
+        padding-top: 0px;
+        a {
+            .padding(top;25);
+        }
+    }
+    .header-inner {
+        .navigation-wrapper {
+            a {
+                z-index: 10;
+                float: right;
+                .margin(top;25);
+                .margin(bottom;18);
+                line-height: 45px; 
+                color: @white;
+                span {
+                    position: relative; 
+                    top:-2px;
+                    .font-size(18);
+                     .margin(right;10);
+                }
+                i {
+                    .font-size(18);
+                    .margin(right;5);
+                }
+            }
+        }
+    }
+}
+
+

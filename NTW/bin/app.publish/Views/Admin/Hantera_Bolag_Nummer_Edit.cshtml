@@ -1,0 +1,124 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model NummerEditViewModel
+
+@{
+    ViewBag.Title = "Redigera Nummer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-non-bindable data-$injector>
+    <div data-angular="editAnalysNummerApp" ng-controller="editAnalysNummerCtrl" ng-cloak class="tsWrapInner tsMarginBottom tsMarginTop"
+         ng-init="init(@Model.AdvanceExtId)">
+        <div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+            <ul class="tsCrumbtrail-links" role="navigation">
+                <li>@Html.ActionLink("Hantera", "Hantera")<i class="tsIcon-Breadcrumb"></i></li>
+                <li>@Html.ActionLink("Redigera bolag " + Model.Bolagsnamn, "Hantera_Bolag_Edit", new { companyId = @Model.CompanyId })<i class="tsIcon-Breadcrumb"></i></li>
+                <li>Redigera Nummer</li>
+            </ul>
+        </div>
+
+        <div class="tsBodyText">
+            <h1 class="h1">Redigera Nummer {{nummerData.nummer}}</h1>
+        </div>
+
+        <ul class="tscList">
+            <!-- Created -->
+            <li class="tscInfoRow">
+                <span>Skapad:</span>
+                <span>{{nummerData.created}}</span>
+            </li>
+
+            <!-- Changed -->
+            <li class="tscInfoRow">
+                <span>Ändrad:</span>
+                <span>{{nummerData.changed}} {{nummerData.changedBy}}</span>
+            </li>
+        </ul>
+
+        <!-- OrgNr -->
+        <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+            <label for="orgNr" class="tscForm-label">OrgNr</label>
+            <input ng-model="nummerData.orgNr" id="orgNr" name="orgNr" type="text" class="tseInput" disabled />
+        </div>
+
+        <!-- Bolagsnamn -->
+        <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+            <label for="bolagsnamn" class="tscForm-label">Bolagsnamn</label>
+            <input ng-model="nummerData.bolagsnamn" id="bolagsnamn" name="bolagsnamn" type="text" class="tseInput" disabled />
+        </div>
+
+        <!-- Prenumereras -->
+        <div class="tseTextField--Normal--Full--Half tsMarginTop">
+            Prenumereras:
+            <div class="tseRadioBox--Normal--CheckSwitch--Inline--ColorNavigation">
+                <input ng-model="nummerData.prenumereras" type="checkbox" name="prenumereras" id="prenumereras" />
+                <label for="prenumereras" data-checked="Ja">Nej</label>
+            </div>
+        </div>
+
+        <div class="tsMarginTop">
+            <!-- View level -->
+            <span ng-repeat="viewLevel in nummerData.viewLevels" ng-init="radioId = 'bolagViewLevel[' + $index + ']'" class="tseRadioBox">
+                <input ng-model="nummerData.bolagViewLevel" id="{{radioId}}" name="{{radioId}}" type="radio" value="{{viewLevel.Key}}" />
+                <label for="{{radioId}}" class="tsMarginRight">{{viewLevel.Value}}</label>
+            </span>
+
+            <!-- Rådata -->
+            <input ng-model="nummerData.radata" type="checkbox" class="tseCheckbox" ng-class="{'tseCheckbox--checked': nummerData.radata}" name="radata" id="radata">
+            <label class="tseCheckbox-label" for="radata">Rådata</label>
+        </div>
+
+        <!-- Användare -->
+        <h2 class="h2 tsBorderTop tsMarginTop tsPaddingTop">
+            Behörighet per användare
+        </h2>
+
+		<div class="tscLoading--PaddingGutter" ng-hide="true">
+			<div class="tsLoading-icon-large tsMarginTop"></div>
+		</div>
+
+		<table class="tsTable tsTable-horizontal tsMarginTop" ng-cloak>
+			<thead>
+				<tr>
+					<th>Namn</th>
+					<th>Åtkomstnivå</th>
+					<th>Aktiv</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="anvandare in nummerData.anvandare" ng-init="anvandareId = 'anvandare[' + $index + ']'">
+					<td>{{anvandare.name}}</td>
+					<td>
+						<div class="tsMarginTop">
+							<!-- View level -->
+							<span ng-repeat="viewLevel in nummerData.viewLevels" ng-init="radioId = anvandareId + '.ViewLevel[' + $index + ']'" class="tseRadioBox">
+								<input ng-model="anvandare.viewLevel" id="{{radioId}}" name="{{radioId}}" type="radio" value="{{viewLevel.Key}}"
+									   ng-disabled="nummerData.bolagViewLevel < viewLevel.Key || !anvandare.active" />
+								<label for="{{radioId}}" class="tsMarginRight">{{viewLevel.Value}}</label>
+							</span>
+
+							<!-- Rådata -->
+							<input ng-model="anvandare.radata" type="checkbox" class="tseCheckbox"
+								   ng-class="{'tseCheckbox--checked': anvandare.radata}" name="{{anvandareId + '.radata'}}" id="{{anvandareId + '.radata'}}"
+								   ng-disabled="!nummerData.radata || !anvandare.active">
+							<label class="tseCheckbox-label" for="{{anvandareId + '.radata'}}">Rådata</label>
+						</div>
+					</td>
+					<td>
+						<!-- Aktiv -->
+						<div class="tseRadioBox--Normal--CheckSwitch--Inline--ColorNavigation">
+							<input ng-model="anvandare.active" type="checkbox" name="{{anvandareId + '.active'}}" id="{{anvandareId + '.active'}}" />
+							<label for="{{anvandareId + '.active'}}" data-checked="Aktiv">Inaktiv</label>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+        <!-- Spara, Avbryt -->
+        <div class="tsMarginTop tsMarginBottom--doubleGutter">
+            @Html.ActionLink("Avbryt", "Hantera_Bolag_Edit", "Admin", new { companyId = Model.CompanyId }, new { @class = "tsBtn--Regular" })
+            <input ng-click="save()" type="submit" class="tsBtn--Regular tsMarginLeft" value="Spara" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+﻿@model Telia.NTW.Web.ViewModel.Analys.AnalysDataViewModel
+
+@if (!Model.HideResult)
+{
+	<style>
+		.tsTable.tsTable-horizontal td.data {
+			text-align: right;
+		}
+
+		.tsTable.tsTable-horizontal th.data {
+			text-align: right;
+		}
+	</style>
+	<div class="tsWrapInner">
+
+		<div class="tscLoading--PaddingGutter" ng-hide="true">
+			<div class="tsLoading-icon-large tsMarginTop"></div>
+		</div>
+
+		<div class="tsTable-select tsComponent" id="dataTable" ng-cloak>
+			<h2 class="h2 float">Resultat</h2>
+
+			@foreach (var cube in Model.CubeList)
+			{
+				<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true" id="tableTid">
+					<caption>@Html.Label(cube.AggregationLevel.ToString())</caption>
+					<thead>
+						<tr>
+							<th>@Html.Label(cube.AggregationLevel.ToString())</th>
+							<th class="data">Andel av samtal</th>
+							<th class="data">Antal samtal</th>
+							<th class="data">Kort</th>
+							<th class="data">Mellan</th>
+							<th class="data">Lång</th>
+							<th class="data">Medel</th>
+							<th class="data">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var data in cube.AggregationList)
+						{
+							<tr>
+								<td>@Html.Label(data.Värde)</td>
+								<td class="data">@Html.Label(data.SamtalTotalLevelPercentage)</td>
+								<td class="data">@Html.Label(data.SamtalTotal.ToString())</td>
+								<td class="data">@Html.Label(data.SamtalKortPercentage)</td>
+								<td class="data">@Html.Label(data.SamtalMediumPercentage)</td>
+								<td class="data">@Html.Label(data.SamtalLångPercentage)</td>
+								<td class="data">@Html.Label(data.SamtalstidMedel.ToString())</td>
+								<td class="data">@Html.Label(data.SamtalstidTotal.ToString())</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			@if (Model.SamtalList.Any())
+			{
+				<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+					<caption>Rådata</caption>
+					<thead>
+						<tr>
+							<th>Svarsställe</th>
+							<th>Datum</th>
+							<th>Tidpunkt</th>
+							<th class="data">Längd</th>
+							<th>Samtalstyp</th>
+							<th>Region</th>
+							<th>Ort</th>
+							<th>Nummergrupp</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var samtal in Model.SamtalList)
+						{
+							<tr>
+								<td>@Html.Label(samtal.Svarsställe)</td>
+								<td>@Html.Label(samtal.Datum)</td>
+								<td>@Html.Label(samtal.Tidpunkt.ToString())</td>
+								<td class="data">@Html.Label(samtal.Längd.ToString())</td>
+								<td>@Html.Label(samtal.Samtalstyp)</td>
+								<td>@Html.Label(samtal.Region)</td>
+								<td>@Html.Label(samtal.Ort)</td>
+								<td>@Html.Label(samtal.Nummergrupp)</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+		</div>
+
+	</div>
+}

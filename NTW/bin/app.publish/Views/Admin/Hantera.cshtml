@@ -1,0 +1,58 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model HanteraViewModel
+
+@{
+	ViewBag.Title = "Hantera";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@Html.Partial("_QuickHelp")*@
+
+<div class="tsBodyText tsWrapInner tsMarginBottom--None">
+	<h1>Hantera</h1>
+	<p>
+		Hantera användare, bolag, koncern och nummer som finns i Nummertjänster.
+	</p>
+</div>
+
+<div class="tsSearchResults">
+	<div class="search">
+		<div class="search-inner">
+			@using (Html.BeginForm("Hantera", "Admin", FormMethod.Post, new { @class = "search-form" }))
+			{
+				<input type="search" class="search-field" name="search" placeholder="Sök..." value="@Model.Search" autocomplete="off" />
+				<i class="tsIcon-Search"></i>
+				<input type="submit" class="search-submit" value="Sök" />
+			}
+		</div>
+	</div>
+</div>
+
+<!-- Skapa-knappar -->
+<div class="tsComponent--20px tsComponent--light tsMarginTop">
+	<div class="tsWrapInner">
+		@Html.ActionLink("Skapa Användare", "Hantera_Användare_Create", new { }, new { @class = "tsBtn--Regular" })
+		@Html.ActionLink("Skapa Bolag", "Hantera_Bolag_Create", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+		@Html.ActionLink("Skapa Koncern", "Hantera_Koncern_Create", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+
+		@if (!Model.HideResult)
+		{
+			@Html.ActionLink("Exportera", "Hantera_ExportToExcel", new { search = Model.Search }, new { @class = "tsBtn--Regular tsMarginLeft" })
+		}
+	</div>
+</div>
+
+@if (!Model.HideResult)
+{
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	<div class="tsTable-select tsComponent tsWrapInner" ng-cloak>
+		@Html.Partial("_Hantera_Användare_List", Model.Användare)
+
+		@Html.Partial("_Hantera_Bolag_List", Model.Bolag)
+
+		@Html.Partial("_Hantera_Koncern_List", Model.Koncerner)
+	</div>
+}

@@ -1,0 +1,53 @@
+.tsTable tr{
+	display: block !important;
+	margin-bottom: 4rem;
+}
+
+.tsTable tr:nth-child(odd){
+	background-color: @lighterclay !important;
+	td {
+		border-bottom: 1px solid @lightgrey;
+	}
+}
+
+.tsTable td{
+	display: block !important;
+	text-align: right;
+	border-bottom: 1px solid @lightergrey;
+	overflow: initial !important;
+}
+
+.tsTable td:first-child{
+	margin-top: 0px;
+	border-top: none !important;
+}
+
+.tsTable td:before{
+	content: attr(data-label);
+	text-align: left;
+	float: left;
+	position: initial !important;
+	color: @nearblack;
+	font-weight: bold;	
+}
+
+.tsTable td:after{
+	display: block;
+	content: '';
+	height: 0px;
+	clear: both;
+}
+
+/*------------------------------------*\
+    $CAROUSEL TABLE
+\*------------------------------------*/
+
+.tsTable-carousel {
+    .tsTable {
+        margin-left: 0!important;
+        th.fixed, td.fixed {
+            padding-top: 5px!important;
+            height: auto!important;
+        }
+    }
+}

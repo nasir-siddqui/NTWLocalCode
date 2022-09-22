@@ -1,0 +1,26 @@
+@import "login";
+@import "login-mq-xsmall";
+@import "login-mq-small";
+@import "login-mq-medium";
+
+.lt-ie9 .tsLogin-linklist-loginlinks li {
+   list-style-type:disc!important;
+   overflow: visible;
+    &>div {
+        float: none;
+        &:before{
+            display: none;
+        }
+    }
+}
+
+.lt-ie8  .tsLogin--alt,
+.lt-ie8 .tsLogin-container {
+    .padding(all;0);
+    .margin(all;0);
+    width: 48%;
+}
+.lt-ie8  .tsLogin--alt {
+    float: right;
+}
+

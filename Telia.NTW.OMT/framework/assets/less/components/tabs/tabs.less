@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * TABS................Tabs list
+ */
+
+
+
+
+/*------------------------------------*\
+   $TABS
+\*------------------------------------*/
+.tsTabs {
+    width: 100%;
+}
+
+.tsTabs-list{
+    background: @darkerturq;
+    .l-list();
+    .padding(all;10);
+    li {
+        .margin(bottom;2);
+    }
+    li a {
+        background: @turq;
+        color: @white;
+        .padding(all;9;10;9;10);
+
+        display: block;
+    }
+    li.active a {
+        background: @darkturq;
+    }
+    li a.disabled {
+        background-color: @lightergrey;
+        color: @lightgrey;
+        cursor: default;
+    }
+}

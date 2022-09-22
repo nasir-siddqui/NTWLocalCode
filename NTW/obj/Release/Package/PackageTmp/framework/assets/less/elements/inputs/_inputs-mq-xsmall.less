@@ -1,0 +1,642 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * RADIOBOX............Radiobuttons and checkboxes
+
+*/
+
+
+
+/*------------------------------------*\
+    $RADIOBOX
+\*------------------------------------*/
+
+
+/* Use like this:
+<fieldset>
+	<div class="tseRadioBox--Switch--Navigation">
+		<input type="radio" name="radio" id="radio10" checked="checked" />
+		<label for="radio10">
+			<b>Fast telefoni</b>
+		</label>
+	</div>
+	<div class="tseRadioBox--Switch--Navigation">
+		<input type="radio" name="radio" id="radio20"/>
+		<label for="radio20">
+			<b>Mobil telefoni</b>
+		</label>
+	</div>
+	<div class="tseRadioBox--Switch--Navigation">
+		<input type="radio" name="radio" id="radio30"/>
+		<label for="radio30">
+			<b>Bredband</b>
+		</label>
+	</div>
+	<div class="tseRadioBox--Switch--Navigation">
+		<input type="radio" name="radio" id="radio40"/>
+		<label for="radio40">
+			<b>Digital-tv</b>
+		</label>
+	</div>
+</fieldset>
+*/
+
+
+// Default RadioBox, pimped radiobutton and checkbox styles, IE lower than version 9 gets browser defaults
+[class^="tseRadioBox"] {
+  .radio-box-default;
+}
+
+[class^="tsrRadioBox"] {
+    //Maybe change this to its own..
+    
+  .radio-box-default(@purple;20px;20px;10px;10px;5px;6px;10;14px;0);
+}
+[class^="tseRadioBox--Primary"] {
+  .radio-box-default(@purple);
+}
+
+
+// Use --Inline to position the inputs inline
+[class^="tsrRadioBox"][class*="--Inline"],
+[class^="tseRadioBox"][class*="--Inline"] {
+  .inline-block;
+  .margin(right;@gutter);
+  &:last-child {
+    .margin(right;0);
+  }
+}
+[class^="tseRadioBox"][class*="--InlineHalf"] {
+    .margin(right;@gutter-half);
+    &:last-child {
+    .margin(right;0);
+    }
+}
+
+[class^="tseRadioBox"][class*="--InlineSmall"] {
+    .margin(right;1);
+}
+
+// The --Button modifier presents the inputs with button styles, defaults to purple color
+[class^="tseRadioBox"][class*="--Button"] {
+  .radio-box-button;
+}
+
+
+// Change the --Button color to Fresh turquoise
+[class^="tseRadioBox"][class*="--Button"][class*="--ColorNavigation"] {
+  .radio-box-button(@background-color:@turq;@selectedcolor:@darkturq);
+}
+
+// Change the --Button color to Fresh turquoise
+[class^="tseRadioBox"][class*="--Button"][class*="--ColorNavInverted"] {
+  .radio-box-button(@background-color:@white;@selectedcolor:@turq);
+}
+
+// Change the --Button color to Blushing Pink
+[class^="tseRadioBox"][class*="--Button"][class*="--ColorPrimary"] {
+  .radio-box-button(@background-color:@pink;@selectedcolor:@darkpink);
+}
+
+
+// a grey button with blue border when checked
+[class^="tseRadioBox"][class*="--Button"][class*="--ColorGrey"] { 
+    position: relative;
+    label {
+        background-color: @lightergrey;
+        color: @textcolor;
+        border: 1px solid @lightgrey;
+        .padding(all;15;27;15;27);
+        strong {
+            .font-size(lineheight;14;19);
+            vertical-align: top;
+        }
+    }
+    input[type=radio]:checked + label { 
+        border: 2px solid @blue;
+        .padding(all;14;26;14;26);
+    }
+}
+
+
+// a checkswith button purple color
+[class^="tseRadioBox"][class*="--CheckSwitch"] {
+    .unselectable;
+    label {
+        //.transition(all 300ms linear);
+        //.transitionProperty(background-color, color);
+        background-color: @lightergrey;
+        .padding(all;5;5;5;30);
+        .border-radius(15px);
+        color: @grey;
+        width: 87px;
+        text-align: center;
+        &::before {
+            .padding(all;5;30;5;5);
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: 0 none;
+            .box-sizing;
+            top: 0;
+            left: 0;
+            margin: 0;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            .border-radius(24px);
+            background-color: @lightgrey;
+            left: 3px; 
+            top: 3px;
+            margin-top: 0;
+            //.transition(right 300ms linear);
+        }
+    }
+    input[type=checkbox]:checked + label {
+        background-color: @purple;
+        .padding(all;5;30;5;5);
+        color: transparent;
+        //text-indent: -1000px;
+        &::after {
+            content: "";
+            top: 3px; // override
+            left: 60px; // use left to make a transition
+            width: 24px; // override
+            height: 24px; // override
+            margin-top: 0;
+        }
+        &::before {
+            content: attr(data-checked);
+            color: @white;
+        }
+    }
+}
+
+
+// switch button turquoise color
+[class^="tseRadioBox"][class*="--CheckSwitch"][class*="--ColorNavigation"] {
+    input[type=checkbox]:checked + label {
+        background-color: @turq;
+    }
+}
+
+// switch button inverted turquoise color
+[class^="tseRadioBox"][class*="--CheckSwitch"][class*="--ColorNavInverted"] {
+    input[type=checkbox]:checked + label {
+        background-color: @white;
+    }
+}
+
+// a larger checkbox Use with --CheckButton, purple color
+[class^="tseRadioBox"][class*="--CheckButton"] {
+    input[type=checkbox] + label {
+        .padding(left;34);
+        display: block;
+    }
+    input[type=checkbox] + label::before {
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        margin-top: -12px;
+        border: 0 none;
+        background-color: @lightgrey;
+        .border-radius(3px);
+    }
+    input[type=checkbox]:checked + label::before {
+        background-color: @purple;
+    }
+    input[type=checkbox]:checked + label::after {
+        content: "\e005";
+        color: @white;
+        background-color: transparent;
+        left: 5px;
+        font-size: 12px;
+        margin-top: -4px;
+        top: 50%;
+    }
+
+    /* IE8 fixes */
+    .lt-ie9 & input[type=checkbox] {
+        vertical-align: middle;
+    }
+    .lt-ie9 & input[type=checkbox] + label{
+        .padding(left; 0);
+        display: inline-block;
+        position: static;
+    }
+    /* IE8 end */
+
+}
+
+// green color
+[class^="tseRadioBox"][class*="--CheckButton"][class*="--ColorNavigation"] {
+    input[type=checkbox]:checked + label::before {
+        background-color: @turq;
+    }
+    &.readOnly {
+        input[type=checkbox] + label::before {
+            .border-radius(12px);
+        }
+        input[type=checkbox]:checked + label::before {
+            background-color: @blue;
+        }
+    }
+    /* special fix for ie8 with readonly checkboxes, use single colon here since ie8 doesn't support double colon */
+    .lt-ie9 &.readOnly {
+        input[type=checkbox] {
+            display: none;
+        }
+        input[type=checkbox] + label {
+            .padding(left;34);
+            position: relative;
+        }
+        input[type=checkbox] + label:before {
+            background: ~"url(@{gfxurl}checkboxes.png)" no-repeat left top;
+            display: block;
+            border: 0 none;
+            width: 24px;
+            height: 24px;
+            top: -2px;
+            position: absolute;
+        }
+    }
+    .lt-ie9 &.readOnly.checked input[type=checkbox] + label:before {
+        background-position: 0px -24px;
+    }
+
+}
+
+// inverted green version
+[class^="tseRadioBox"][class*="--CheckButton"][class*="--ColorNavInverted"] {
+    input[type=checkbox] + label::before {
+        background-color: @lightgrey;
+    }
+    input[type=checkbox] + label::after {
+        color: @lightgrey;
+    }
+
+    input[type=checkbox]:checked + label::before {
+        background-color: @white;
+    }
+    input[type=checkbox]:checked + label::after {
+        color: @turq;
+    }
+    &.readOnly {
+        input[type=checkbox]:checked + label::after {
+            color: @blue;
+        }
+    }
+}
+
+// Semichecked
+[class^="tseRadioBox"][class*="--CheckButton"][class*="--ColorNavigation"].semichecked {
+    input[type=checkbox] + label::before {
+        background-color: @lightgrey;
+    }
+    input[type=checkbox] + label::after {
+        content: "\e005";
+        color: @turq;
+        background-color: transparent;
+        left: 5px;
+        font-size: 12px;
+        position: absolute;
+        font-family: iconfont;
+    }
+    &.readOnly {
+        input[type=checkbox] + label::after {
+            color: @blue;
+        }
+    }
+    &.noBackground {
+        input[type=checkbox] + label {
+            .padding(left;27);
+        }
+        input[type=checkbox] + label::before {
+            background: none;
+        } 
+    }
+
+    .lt-ie9 &.readOnly {
+        input[type=checkbox] + label:before {
+            background-position: 0px -48px;
+        }
+    }
+    .lt-ie9 &.readOnly.noBackground {
+        input[type=checkbox] + label:before {
+            background-position: 0px -72px;
+        }
+    }
+
+}
+
+[class^="tseRadioBox"][class*="--CheckButton"][class*="--ColorNavInverted"].semichecked {
+    input[type=checkbox] + label::before {
+        background-color: @lightgrey;
+    }
+    input[type=checkbox] + label::after {
+        content: "\e005";
+        color: @turq;
+        background-color: transparent;
+        .margin(right;-5);
+        font-size: 12px;
+        position: absolute;
+        font-family: iconfont;
+    }
+    &.readOnly {
+        input[type=checkbox] + label::after {
+            color: @blue;
+        } 
+    }
+}
+
+.readOnly {
+    label {
+        cursor:default;
+    }
+}
+
+// A spotlight
+/* Use like this:
+<div class="tseRadioBox--Spot">
+    <input type="radio" name="radio" id="radio10" checked="checked" />
+    <label for="radio10">
+        <h4>10</h4>
+        <span>Mbit/s</span>
+        <p>499 kr/mån</p>
+    </label>
+</div>
+*/
+[class^="tseRadioBox"][class*="--Spot"] {
+    width: 140px;
+    .padding(topbottom;0;0);
+    .margin(bottom;@gutter);
+    input[type=radio], input[type=checkbox] {
+        .visuallyhidden;
+    }
+    label {
+        background: @lightergrey;
+        display: block;
+        border: 1px solid @lightgrey;
+        .padding(all;@gutter;@gutter-half;@gutter;@gutter-half);
+        text-align: center;
+        h1, h2, h3, h4, h5, h6 {
+            .font-size(lineheight;60;60);
+            font-weight: normal;
+        }
+        p {
+            border-top: 2px solid @blue;
+            border-bottom: 2px solid @blue;
+            color: @blue;           
+            .padding(all;5;10;5;10); 
+            .margin(bottom;@gutter-half);
+            .margin(top;@gutter-half);
+        }
+        &::before, &::after {
+            display: none;
+        }
+
+    }
+    input[type=radio]:checked + label,
+    input[type=checkbox]:checked + label {
+        border: 2px solid @blue;
+        .padding(all;@gutter - 1;@gutter-half - 1;@gutter - 1;@gutter-half - 1);
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    $TEXTFIELD
+\*------------------------------------*/
+
+/* Use like this:
+<div class="tseTextField">
+    <label for="firstname">First name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="First name" />
+</div>
+*/
+
+// a regular textfield with the label above. Default to 100% width
+[class^="tseTextField"] {
+    input[type=text], input[type=number], input[type=search], input[type=email], input[type=date], input[type=password]  {
+        .padding(all;15;15;15;15);  
+        width: 100%;
+        &:focus {
+            border: 1px solid @blue;
+            outline: none;
+        }
+        vertical-align: baseline;
+    }
+    label {
+        .margin(bottom;@gutter-half);
+        display: block;
+        color: @lightgrey;
+    }
+}
+[class^="tseTextField"][class*="--NoBorder"] {
+    input[type=text], input[type=number], input[type=search], input[type=email], input[type=date], input[type=password] {
+        border-color: @white;
+        &:focus {
+            border-color: @blue;
+        }
+    }
+}
+[class^="tseTextField"][class*="--Inline"] {
+    .inline-block;
+    .margin(right;@gutter);
+}
+[class^="tseTextField"][class*="--InlineHalf"] {
+    .margin(right;@gutter-half);
+}
+// With the label inline 
+[class^="tseTextField"][class*="--InlineLabel"] {
+    vertical-align: middle;
+    .l-inline-elements(@basefontsize;baseline);
+    label {
+        .margin(all;0;1;0;0);
+        .padding(all;16;@gutter;16;@gutter);
+        &.nearwhite {
+            background-color: @nearwhite;
+        }
+    }
+}
+
+
+/*------------------------------------*\
+    $SELECT
+\*------------------------------------*/
+
+/* Use like this:
+<div class="tseSelect">
+    <label for="firstname">First name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="First name" />
+</div>
+*/
+
+[class^="tseSelect"] {
+    position: relative;
+    select {
+        width: 100%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: 1px solid @clay;
+        .padding(all;15;35;15;15);  
+        .border-radius(0);
+        &:focus {
+            &, & + .select-placeholder {
+                border: 1px solid @blue;
+                outline: none;
+            }
+        }
+        &.hidden {
+            .opacity(0);
+            position: absolute;
+        }
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 8px solid @black; 
+        border-left: 8px solid transparent; 
+        border-right: 8px solid transparent;
+        right: 10px;
+        top: 22px;
+    }
+    .select-placeholder {
+        .padding(all;15;35;15;15);  
+        border: 1px solid @clay;
+        width: 100%;
+    }
+}
+[class^="tseSelect"][class*="--Inline"] {
+    .inline-block;
+    .margin(right;@gutter);
+}
+[class^="tseSelect"][class*="--InlineHalf"] {
+    .margin(right;@gutter-half);
+}
+
+
+/*------------------------------------*\
+    $TextArea
+\*------------------------------------*/
+
+/* Use like this:
+<div class="tseTextArea">
+    <label for="message">Message</label>
+    <textarea rows="20"></textarea>
+</div>
+*/
+
+[class^="tseTextArea"] {
+    textarea {
+        width: 100%;
+        &:focus {
+            border: 1px solid @blue;
+            outline: none;
+        }
+    }
+    label {
+        .margin(bottom;@gutter-half);
+        display: block;
+        color: @lightgrey;
+    }
+}
+
+
+
+/*------------------------------------*\
+    SIZES
+\*------------------------------------*/
+// normal height added by the b2b project //nagorka
+.inputHeight(Normal;45;20);
+
+// small height added by the b2b project //nagorka
+.inputHeight(Small;38;20);
+
+
+// diffent widths added by the b2b project //nagorka
+// Moved larger widths to mq-small //Wintzell
+.inputWidth(Narrow;220);
+
+
+
+
+/*------------------------------------*\
+    Radio Switch
+\*------------------------------------*/
+.tsRadioSwitch{
+    height: 26px;
+    line-height: 26px;
+
+    input[type="checkbox"],
+    input[type="radio"]{
+        .visuallyhidden;
+    }
+
+    label{
+        .inline-block;
+        position: relative;
+        padding-left: 74px;
+
+        &:before,
+        &:after{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            .box-sizing();
+        }
+        &:before{
+            width: 64px;
+            height: 30px;
+            background: @white;
+            border: 1px solid @inputbordercolor;
+            .border-radius(2px);
+        }
+        &:after{
+            width: 26px;
+            height: 22px;
+            top: 4px;
+            left: 4px;
+            background-color: @lightergrey;
+            color: @grey;
+            text-align: center;
+            line-height: 24px;
+            font-size: 9px;
+            .transition(left 150ms);
+            .border-radius(2px);
+        }
+
+        .true{
+            display: none;
+        }
+    }
+
+    input:checked{
+        & + label{
+            &:after{
+                left: 34px;
+                background-color: @purple;
+                color: @white;
+                content: "\e005";
+                font-family: 'iconfont';
+            }
+            .true{
+                display: block;
+            }
+            .false{
+                display: none;
+            }
+        }
+    }
+}

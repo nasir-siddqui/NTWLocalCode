@@ -1,0 +1,39 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning.MultistyrningViewModel
+
+@{
+	ViewBag.Title = "Multistyrning";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+	<h1>Multistyrning</h1>
+	<p>
+		Administrera dina multistyrningar
+	</p>
+</div>
+
+<div class="tsComponent--20px tsComponent--light tsMarginTop">
+        <div class="tsWrapInner">
+	        @Html.ActionLink("Ny schemaläggning av multistyrning", "Kö_Create", null, new { @class = "tsBtn--Regular" })
+	        @Html.ActionLink("Skapa nytt multistyrningsalternativ", "Alternativ_Create", null, new { @class = "tsBtn--Regular tsMarginLeft" })
+			@Html.ActionLink("Exportera", "Index_ExportToExcel", null, new { @class = "tsBtn--Regular tsMarginLeft" })
+        </div>
+    </div>
+
+<div class="tsWrapInner tsMarginBottom">
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	<div class="tsTable-select tsComponent" ng-cloak>
+		@Html.Partial("_Kö_List", Model.Multistyrningskö)
+
+		@Html.Partial("_Historik", Model.Multistyrningshistorik)
+
+		@Html.Partial("_Alternativ_List", Model.Multistyrningsalternativ)
+	</div>
+
+	@*<div class="tscButtonContainer tsWrapInner">
+		<button class="tsBtn--Regular">Exportera</button>
+	</div>*@
+</div>

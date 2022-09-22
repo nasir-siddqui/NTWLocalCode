@@ -1,0 +1,50 @@
+﻿@using Telia.NTW.Web.ViewModel.Leverantörsinformation
+@model InnehållsleverantörViewModel
+
+@{
+    ViewBag.Title = "Innehållsleverantörer";
+}
+
+
+<div class="tscLoading--PaddingGutter" ng-hide="true">
+    <div class="tsLoading-icon-large tsMarginTop"></div>
+</div>
+
+<!-- Skapa-knappar -->
+<div class="tsComponent--20px tsComponent--light tsMarginTop">
+    <div class="tsWrapInner">
+        @Html.ActionLink("Skapa innehållsleverantör", "Innehållsleverantör_Create", new { }, new { @class = "tsBtn--Regular" })
+    </div>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    <div class="tsComponent" ng-cloak>
+        <table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+            <thead>
+                <tr>
+                    <th>Orginisationsummer</th>
+                    <th>Bolagsnamn</th>
+                    <th>@* redigera/ta bort *@</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (InnehållsleverantörRow leverantör in Model.Innehållsleverantörer)
+                {
+                    <tr>
+                        <td>@leverantör.OrgNr</td>
+                        <td>@leverantör.Bolagsnamn</td>
+                        <td>
+                            @Html.ActionLink(" ", "Innehållsleverantör_Edit", "Leverantörsinformation", new { orgNr = leverantör.OrgNr, id = leverantör.Id }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+    @*<div class="tscButtonContainer tsWrapInner">
+            <button class="tsBtn--Regular">Exportera</button>
+        </div>*@
+</div>

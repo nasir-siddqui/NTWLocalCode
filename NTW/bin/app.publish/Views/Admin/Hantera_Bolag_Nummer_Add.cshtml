@@ -1,0 +1,60 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model BolagNummerAddViewModel
+
+@{
+    ViewBag.Title = "Lägg till nummer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Hantera", "Hantera")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>@Html.ActionLink("Redigera bolag " + Model.Bolagsnamn, "Hantera_Bolag_Edit", new { companyId = @Model.CompanyId })<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Lägg till nummer</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1 class="h1">Lägg till nummer</h1>
+</div>
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	
+    @Html.HiddenFor(m => m.Bolagsnamn)
+
+    <div class="tsWrapInner">
+        <!-- CompanyId -->
+        @Html.HiddenFor(m => m.CompanyId)
+
+        <!-- Nummer -->
+        <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+            @Html.LabelFor(m => m.Nummer, new { @class = "tscForm-label" })
+            @Html.TextBoxFor(m => m.Nummer, new { @class = "tseInput", @type = "text", id = "number" })
+            @Html.ValidationMessageFor(m => m.Nummer)
+        </div>
+
+        <!-- Spara, Avbryt -->
+        <div class="tsMarginTop tsMarginBottom--doubleGutter">
+            @Html.ActionLink("Avbryt", "Hantera_Bolag_Edit", new { companyId = Model.CompanyId }, new { @class = "tsBtn--Regular" })
+            <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Lägg till" />
+        </div>
+
+        @if (Model.NumberExists)
+        {
+            @Html.HiddenFor(m => m.AcceptMoveNumber)
+            <!-- Delete confirm -->
+            <div class="tsAttention--Panic" id="moveNumberConfirmation">
+                <div class="tsAttention-Message area">
+                    <i class="tsIcon-Information tsMarginTop--halfGutter"></i>
+                    <p class="tsAttention-Content">
+                        <span class="tsMarginRight">Detta nummer är redan registrerat på "@Model.ExistsOnCurrentCompany", vill du flytta numret till detta bolag?</span>
+                        <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Ja" />
+                        @Html.ActionLink("Avbryt", "Hantera_Bolag_Edit", new { companyId = Model.CompanyId }, new { @class = "tsBtn--Regular" })
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+}

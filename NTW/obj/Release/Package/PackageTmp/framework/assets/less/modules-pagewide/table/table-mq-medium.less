@@ -1,0 +1,279 @@
+.tsTable-toggle-button {
+	display: none;
+}
+
+.tsTable {
+	thead {
+		display: table-header-group;
+		th {
+			.border(all;0;1;2;1;@lighterclay);
+			.padding(all;10);
+			cursor: pointer;
+			&:nth-child(even) {
+				background: @darknearwhite;
+			}
+			&:first-child {
+				border-left: 0 none;
+			}
+			&:last-child {
+				border-right: 0 none;
+			}
+			i {
+				font-size: 5px;
+				line-height: 20px;
+				vertical-align: top;
+				.margin(left;10);
+			}
+		}
+	}
+	tbody {
+		td {
+			display: table-cell;
+			.border(all;1;1;1;1;@lighterclay);
+			.padding(all;0;10);
+            height: 60px;
+			text-align: center;		
+			&:nth-child(even) {
+				background: @darknearwhite;
+			}
+			&:first-child {
+				border-left: 0 none;
+			}
+			&:last-child {
+				border-right: 0 none;
+			}
+			&:before {
+				content: none;
+			}
+		}
+		tr:last-child td {
+			border-bottom: 0 none;
+		}
+	}
+	&.tsTable-horizontal {	
+        table-layout: auto;
+        white-space: nowrap;
+		thead th {
+			background: @white;
+		}
+        td {
+            background: none;
+        }
+        tbody tr:nth-child(even) td.details {
+            background: none;
+        }
+        tbody tr:nth-child(odd) td.details {
+            background: @darknearwhite;
+        }
+        tbody tr.even:hover td, tbody tr.odd:hover td {
+        	background: @lightergrey;
+        }
+		tbody tr.even td {
+			background: @darknearwhite;
+		}
+		tbody tr.odd td {
+			background: @white;
+		}
+        th, td {
+            text-align: left;
+            &.center {
+                text-align: center;
+            }
+        }
+        tbody td:first-child {
+            // override
+            .padding(all;15;10);
+        }
+        .tsTable-detailedTable-row {
+            td {
+                background-color: transparent;
+            }
+        }
+	}
+}
+
+.tsTable-select-title {
+	float: left;
+}
+
+.tsTable-menu {
+	display: block!important;
+	.padding(all;0;0;@gutter;0);
+	background: none;
+	.tsTable-menu-inner {
+	    .clearfix();
+		.padding(all;0);
+		background: none;
+	}
+	ul {
+		padding: 0;
+		display: table;
+	}
+	ul li { 
+		display: table-cell;
+		.padding(right;1);
+		&:last-child {
+			.padding(right;0);
+		} 
+	}
+	.tsTable-datatable-search {
+		.margin(all;0);
+		float: right;
+		i {
+            color: @turq;
+		}
+	}
+}
+
+.tsTable-datatable-filters {
+	display: none;
+}
+.tsTable-datatable-wrapper .tsTable-datatable-filters {
+	display: block;
+}
+
+.tsTable-menu-select ul {
+	float: right;
+}
+
+
+//Table with hidden rows
+
+.tsTable-hiddenRows {
+    tbody {
+        tr {
+            .details {
+                .tsTable-detailedTable-row {
+                    td {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tsTable {
+    tbody {
+        td.tsTable-hiddenContainer {
+            height: auto;
+            .tscIconHeadline {
+                .tscIconBackground {
+                    .margin(bottom;@gutter);
+                }
+            }
+        }
+    }
+}
+
+
+//Alternative table 
+.tsTable--alt thead th:nth-child(odd),
+.tsTable--alt tbody td:nth-child(odd){ 
+	background-color: @nearwhite;
+
+}
+.tsTable--alt thead th:nth-child(even),
+.tsTable--alt tbody td:nth-child(even) {
+	background-color: @white;
+}
+.tsTable--alt thead th,
+.tsTable--alt tbody td {
+	border-left: none;
+	border-right: none;
+}
+.tsTable--alt thead th:first-child,
+.tsTable--alt tbody td:first-child {
+	text-align: left;
+	background-color: @white;
+}
+.tsTable--alt thead th:last-child,
+.tsTable--alt tbody td:last-child {
+	display: table-cell;
+}
+.tsTable--alt thead th {
+	border-bottom: none;
+}
+
+
+/*------------------------------------*\
+    $CAROUSEL TABLE
+\*------------------------------------*/
+
+.tsTable-inner {
+    .margin(bottom;@gutter);
+    table {
+        margin-bottom: 0;
+    }
+}
+
+.tsTable-carousel {
+    position: relative;
+    .tsTable-wrapper {
+        .tsTable-inner {
+            overflow: hidden;
+            position: relative;
+            .tsTable-inner-wrapper {
+                width: 10000px;
+            }
+            .tsTable {
+                width: auto;
+                th.fixed, td.fixed {
+                    position: absolute;
+                    z-index: 1;
+                    left: 0;
+                    margin: 0;
+                    width: 40px!important;
+                    padding-bottom: 0;
+                }
+            }
+        }
+        .tsTable-carousel-link {
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            z-index: 2;
+            a.fallback {
+                display: inline-block;
+                background: @turq;
+                .padding(topbottom;5;2);
+                width: 30px;
+                i {
+                    color: @white;
+                }
+            }
+        }
+        .tsTable-carousel-link-prev {
+            left: 0;
+            background: -webkit-linear-gradient(left, @white, rgba(255, 255, 255, 0)); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, @white, rgba(255, 255, 255, 0)); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, @white, rgba(255, 255, 255, 0)); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, @white, rgba(255, 255, 255, 0)); /* Standard syntax */
+        }
+        .tsTable-carousel-fixed {
+            .tsTable-carousel-link-prev {
+                left: 40px;
+            }               
+        }
+        .tsTable-carousel-link-next {
+            right: 0;
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), @white); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, rgba(255, 255, 255, 0), @white); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, rgba(255, 255, 255, 0), @white); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), @white); /* Standard syntax */
+        }
+        .tsTable-carousel-link-outer {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .tsTable-carousel-link-inner {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+    }
+}
+
+

@@ -1,0 +1,484 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCTLIST-CONTAINER....
+ * PRODUCTLIST-ITEMS........
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCTLIST-CONTAINER
+\*------------------------------------*/
+
+.tsProductListContainer {
+    background-color: @nearwhite;
+    .background-image(ds-effect);
+    background-position: 50% top;
+    background-repeat: repeat-x;
+    position: relative;
+    border-bottom: 1px solid @lightergrey;
+}
+
+/*
+// Places the dropshadow above the product item grid
+.tsProductListContainer::after {
+    content: "";
+    background: transparent url(../gfx/gfx/ds-effect) 50% top repeat-x;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 82px;
+}
+*/ 
+
+.tsProductListContainer--alt {
+    background-color: @nearwhite;
+    border-top: 1px solid @lightergrey;
+    border-bottom: 1px solid @lightergrey;
+}
+
+.tsProductListContainer--transp {
+    background-color: transparent;
+    border: 0;
+    padding: 0 !important;
+}
+
+.tsProductList,
+[class*="tsProductList--Alt"] {
+    .l-list;
+}
+
+
+/*
+.csstransforms .tsProductListContainer::before,
+.csstransforms .tsProductListContainer::after {
+		content: "";
+		position: absolute;
+		left: 2%;
+		top: -23%;
+//		z-index: -1;
+		width: 48%;
+		height: 20%;
+		.transform(rotate(-1deg));
+		.box-shadow(0 15px 10px rgba(0,0,0,0.03));
+
+//		.box-shadow(0 15px 10px rgba(0,0,0,0.8));
+		background-color: #9ff;
+	}
+
+.csstransforms .tsProductListContainer:after {
+		left: auto;
+		right: 2%;
+		.transform(rotate(1deg));
+	}
+*/
+
+
+
+/*------------------------------------*\
+  $PRODUCT-LIST-ITEMS
+\*------------------------------------*/
+
+.tsProductItem {
+    display: block;
+    clear: both;
+    .padding(all;@gutter-half);
+    color: @productleadincolor;
+    text-align: center;    
+    .font-size(16);
+    //border-bottom: 9px transparent solid;
+    word-break: break-word;
+    &:hover {
+        color: @textcolor;
+        //border-bottom-color:@productitemhoverborder;
+        .tsProductItem-Name{
+             color: @hoverlinkcolor;
+        }
+    }
+}
+
+.tsProductList-Item > div {
+	border-bottom: 9px transparent solid;
+	&:hover {
+		border-bottom-color:@productitemhoverborder;
+	}
+}
+
+/*
+.tsProductList-Item {
+	border-bottom: 9px transparent solid;
+    &:hover{
+        border-bottom-color:@productitemhoverborder;
+    }
+}
+*/
+
+.tsProductItem-Img {
+    .margin(bottom;@gutter-half);
+    position: relative;
+}
+
+[class*="tsProductList--Alt"] .tsProductItem-Img {
+    img {
+        max-height: 100%;
+    }
+}
+.tsProductItem-Desc {
+    .padding(bottom;15);
+    p {
+        margin-bottom: 0;
+    }   
+}    
+
+.tsProductItem-Name {
+    .margin(bottom;@gutter-half);
+    color: @linkcolor;
+    .font-size(22);
+    .font-size(lineheight;22;24);
+    font-weight: normal;
+}
+
+.tsProductItem-Name.tsNoLink {
+    color: @textcolor;
+}
+
+.tsProductItem-Desc ul,
+.tsProductItem-Desc ol {
+    .l-list;
+}
+
+.tsProductItem-Price--Primary {
+    display: block;
+    padding: 0.5em 0;
+    border-top: 2px solid @pricecolor;
+    border-bottom: 2px solid @pricecolor;
+    color: @pricecolor;
+    font-weight: bold;
+    margin: 0 -1px;
+}
+
+.tsProductItem-Price--Secondary {
+    display: block;
+    padding: 0.5em 0;
+    .font-size(14);
+    font-weight: bold;
+    color:@productleadinpricecolor ;
+}
+
+.tsProductItem-Desc .tsProductItem-List {
+    margin: auto;
+    .padding(all;@gutter);
+    list-style: bullet;
+    text-align: left;
+    & > li {
+        margin: auto;
+        list-style: disc;
+    }
+}
+
+[class*="tsProductList--Alt"] .tsProductItem-Name {
+    .font-size(18);
+}
+
+[class*="tsProductList--Alt"] .tsProductItem-Desc {
+    .font-size(13);
+}
+
+[class*="tsProductList--Alt"] .tsProductItem-Price {
+    .font-size(14);
+}
+
+
+[class*="tsProductList--Alt"] > .tsProductList-Item,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign,
+[class*="tsProductList--Alt"] > .tsProductList-Item--tsCampaign--double {
+    border-right: 1px solid @lightergrey;
+    border-bottom: 1px solid @lightergrey;
+   // &:hover{
+     //   border-bottom-color:@productitemhoverborder;
+    //}
+}
+
+.tsProductList--Alt--XLarge  > .tsProductList-Item {
+    border:0;
+    border-top: 1px solid @lightergrey; 
+    //.padding(topbottom;@gutter;@gutter);
+    .padding(top;@gutter);
+}
+
+.tsProductList--Alt--XLarge .tsProductItem-Purchase {
+    text-align: center;
+    .padding(bottom;@gutter);
+}
+
+
+.js [data-widget=filter] .tsProductList-Item,  
+.js [data-widget=filter] .tsProductList-Item--tsCampaign,
+.js [data-widget=filter] .tsProductList-Item--tsCampaign--double {
+    display: none;
+//      overflow: hidden;    
+//     .transition(all 700ms);
+//     .transform(scale(0,0));
+//     height: 0;
+//     width: 0;
+//     margin: 0;
+ }
+
+.js [data-widget=filter] .tsProductList-Item.show, 
+.js [data-widget=filter] .tsProductList-Item--tsCampaign.show,
+.js [data-widget=filter] .tsProductList-Item--tsCampaign--double.show {
+    .inline-block;
+   // .transform(scale(1,1));
+   //  height: auto;
+   //  // width: auto;
+   //  // margin: 15px 15px 0 0;
+   //  opacity: 1;
+}
+
+.tsProductItem-Text {
+    margin-bottom: 0;
+}
+
+//Campaign items
+.tsProductList-Item--tsCampaign,
+.tsProductList-Item--tsCampaign--double {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.tsProductList-Item--tsCampaign,
+.tsProductList-Item--tsCampaign--double {
+    .tsProductItem {
+        position: relative;
+        z-index:2;
+        .padding(all;5;)
+    }
+    .tsProductItem-Info {
+        background-color: @nearwhite;
+        .padding(all;10;5;5;5);
+    }
+    
+    .tsProductItem-Img {
+        .padding(all;15;15;0;15);
+
+    }
+    .tsProductItem-Desc {
+        .padding(all;0;10;);
+    }
+    &:hover{
+        .tsProductItem-Info {
+            background-color: @white;
+        }
+    }
+}
+
+.tsProductItem--tsCampaign-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+.tsProductItem-tagWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: table-row;
+    z-index: 1;
+    +.tsProductItem-tagWrapper {
+        top: 30%;
+    }
+}
+
+.tsProductItem-tag {
+    .border-radius(50%);
+    color: @white;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.2rem;
+    height: 56px;
+    width: 56px;
+    position: absolute;
+    &.tsProductItem-tag--benefit {
+        background-color: @pink;
+        position: relative;
+    }
+    &.tsProductItem-tag--featured {
+        background-color: @blue;
+        position: relative;
+    }
+    .tsProductItem-tag--Small {
+        .font-size(10);
+        line-height: 100%;
+        b {
+            .font-size(18);
+        }
+    }
+    .tsProductItem-tag--Medium {
+        .font-size(18);
+        line-height: 100%;
+        b {
+            .font-size(26);
+        }
+
+    }
+    .tsProductItem-tag--Large {
+        .font-size(26);
+        line-height: 100%;
+    }
+}
+
+.tsProductList-Item--double .tsProductItem-tag {
+    width: 22%;
+}
+
+.tsProductList-Item--tsCampaign .tsProductItem-tag {
+    width: 45%;
+}
+
+.tsProductList-Item--tsCampaign--double .tsProductItem-tag {
+    width: 22%;
+    top: 2px;
+}
+
+.tsProductList-Item--double .tsProductItem-tag + .tsProductItem-tag {
+    bottom: 29px;
+}
+
+.tsProductList-Item--tsCampaign--double .tsProductItem-tag + .tsProductItem-tag {
+    bottom: 6px;
+}
+
+.tsProductList-Item--tsCampaign,
+.tsProductList-Item--tsCampaign--double .tsProductItem-tag,
+.tsProductList-Item--double .tsProductItem-tag {
+    .tsProductItem-tag {
+        top: 5px;
+        right: 5px;    
+    }
+    .tsProductItem-tag + .tsProductItem-tag {
+        top: auto;
+        bottom:-5px;
+    }
+}
+
+.tsProductList-Item--tsCampaign .tsProductItem-tag + .tsProductItem-tag {
+    bottom: 5px;
+}
+
+
+
+.tsProductList .tsProductList-Item {
+   border-bottom: 1px solid @lightergrey;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $LARGE PRODUCTLIST
+\*------------------------------------*/
+
+
+[class*="tsProductList--Alt"][class*="--Large"] .tsProductItem-Desc {
+    .font-size(lineheight;13;20);
+}
+
+[class*="tsProductList--Alt"][class*="--XLarge"] .tsProductItem-Desc {
+    .font-size(lineheight;13;20);
+}
+
+
+    
+
+/*------------------------------------*\
+    $PRODUCT-COMPARE
+\*------------------------------------*/
+
+
+.tsProductItem-Compare {
+	.padding(left;@gutter-half);
+	.margin(bottom;@gutter-half);
+	//.margin(top;-10);
+	.margin(top;-5);
+}
+
+.tsProductItem-Compare:before {
+	content: '';
+	display: block;
+	float: left;
+	position: relative;
+	width: 35%;
+	min-height: 50px;
+}
+
+.tsProductItem-Compare-Button {
+	//.margin(top;@gutter-half);	
+	.margin(top;15);	
+	.margin(bottom;@gutter-half);
+}
+
+.tsCompare-Tooltip {
+	max-width: 170px;
+	.padding(all;@gutter-half) !important;
+	.margin(left;-156);
+	.margin(top;-150);
+	p {
+		.font-size(13);
+		color: @darkergrey;
+		.margin(bottom;0);
+	}
+	&:before,
+	&:after{
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 0%;
+		margin-left: 0;
+		border: 12px solid transparent;
+		.transform(rotate(-90deg));
+	}
+	&:before{
+		border-top-color: lighten(@black, 80%);
+		margin-top: -12px;
+		left: -1px;
+		border-width: 13px;
+	}
+	&:after{
+		left: 0px;
+		margin-top: -13px;
+		border-top-color: @white;
+	}
+}
+
+.tsCompare-Close {
+	background: none;
+	border: 0;
+	padding: 0;
+	max-height: 16px;
+	max-width: 16px;
+	float: right;
+}
+
+.tsCompare-Close-Icon {
+	color: darken(@lightgrey,5%);
+	font-size: 16px;
+	float: right;
+	.margin(all;0;0;@gutter;@gutter);
+	&:hover {
+		color: @grey;
+	}
+}

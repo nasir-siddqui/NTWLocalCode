@@ -1,0 +1,21 @@
+.gfx-background-size() {
+  background-size: @gfx-background-size-left @gfx-background-size-top;
+}
+
+.background-image(@img: gfx; @ext: png;) {
+    background-image: ~"url(@{gfxurl}@{img}.@{ext})";
+}
+
+.background-image(important;@img: gfx; @ext: png;) {
+    background-image: ~"url(@{gfxurl}@{img}.@{ext}) !important";
+}
+
+
+.highLighted() {
+    .padding(topbottom;@gutter;@gutter);
+    background-color: @nearwhite;
+    border-top: 1px solid @lightergrey;
+}
+.highLighted-inverted() {
+    background-color: @white;
+}

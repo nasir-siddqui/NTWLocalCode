@@ -1,0 +1,110 @@
+﻿@model Telia.NTW.Web.ViewModel.Leverantörsinformation.InnehållsleverantörViewModel
+
+@Html.AntiForgeryToken()
+
+<div class="max-width">
+    <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+        @Html.LabelFor(m => m.Bolagsnamn, new { @class = "tscForm-label tsMarginTop--halfGutter " })
+        @Html.TextBoxFor(m => m.Bolagsnamn, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Bolagsnamn)
+    </div>
+
+    <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+        @Html.LabelFor(m => m.Adress, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.Adress, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Adress)
+    </div>
+
+
+    @{
+        if (Model.IsEditForm)
+        {
+            //Båda dessa ska vara disabled om vi är i edit form
+            <div class="tseTextField--Normal--Half--Inline">
+                @Html.LabelFor(m => m.OrgNr, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+                @Html.TextBoxFor(m => m.OrgNr, new { @disabled = "disabled", @class = "tseInput", @type = "text" })
+            </div>
+            <div class="tseTextField--Normal--Half--Inline">
+                @Html.LabelFor(m => m.UtländsktOrgNr, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+                @Html.TextBoxFor(m => m.UtländsktOrgNr, new { @disabled = "disabled", @class = "tseInput", @type = "text" })
+            </div>
+        }
+        else
+        {
+            <div class="tseTextField--Normal--Half--Inline">
+                @Html.LabelFor(m => m.OrgNr, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+                @Html.TextBoxFor(m => m.OrgNr, new { @class = "tseInput", @type = "text", @id = "sweOrgNr" })
+                @Html.ValidationMessageFor(m => m.OrgNr)
+            </div>
+
+            <div class="tseTextField--Normal">
+                @Html.EditorFor(m => m.OrgNrTyp, "Checkbox", new { onclick = "changeOrgType()", @class = "tseCheckbox" })
+            </div>
+            <div class="tseTextField--Normal--Full--Half">
+                @Html.TextBoxFor(m => m.UtländsktOrgNr, new { @disabled = "disabled", @class = "tseInput", @type = "text", @id = "forOrgNr" })
+                @Html.ValidationMessageFor(m => m.UtländsktOrgNr)
+            </div>
+        }
+    }
+
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.CoAdress, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.CoAdress, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.CoAdress)
+    </div>
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.PostNr, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.PostNr, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.PostNr)
+    </div>
+    <br />
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.Ort, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.Ort, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Ort)
+    </div>
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.Land, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.Land, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Land)
+    </div>
+    <br />
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.Epost, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.Epost, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Epost)
+    </div>
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.Webadress, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.Webadress, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.Webadress)
+    </div>
+    <br />
+    <div class="tseTextField--Normal--Half--Inline">
+        @Html.LabelFor(m => m.VATNR, new { @class = "tscForm-label tsMarginTop--halfGutter" })
+        @Html.TextBoxFor(m => m.VATNR, new { @class = "tseInput", @type = "text" })
+        @Html.ValidationMessageFor(m => m.VATNR)
+    </div>
+</div>
+<script>
+    var orgNr = 0; // Svenskt
+    function changeOrgType() {
+        // enable Utländskt org nr
+        if (orgNr == 0) {
+            orgNr = 1;
+            document.getElementById("sweOrgNr").disabled = true;
+            document.getElementById("forOrgNr").disabled = false;
+
+            document.getElementById("sweOrgNr").value = "";
+        }
+
+            // enable Svenskt org nr
+        else if (orgNr == 1) {
+            orgNr = 0;
+            document.getElementById("forOrgNr").disabled = true;
+            document.getElementById("sweOrgNr").disabled = false;
+
+            document.getElementById("forOrgNr").value = "";
+        }
+    }
+</script>

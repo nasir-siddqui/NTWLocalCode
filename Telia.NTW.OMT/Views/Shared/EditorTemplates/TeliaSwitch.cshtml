@@ -1,0 +1,24 @@
+﻿@using Sigma.Utils.Helpers
+@model bool
+
+@{
+    var additionalValues = ViewData.ModelMetadata.AdditionalValues;
+    string onValue = "Aktiv";
+    string offValue = "Inaktiv";
+    if (additionalValues.ContainsKey("OnValue"))
+    {
+        onValue = (string)additionalValues["OnValue"];
+    }
+    if (additionalValues.ContainsKey("OffValue"))
+    {
+        offValue = (string)additionalValues["OffValue"];
+    }
+
+    ViewData["OnValue"] = onValue;
+    ViewData["OffValue"] = offValue;
+}
+
+<div class="tsMarginTop">
+	@ViewData.ModelMetadata.DisplayName:
+	@Html.Partial("EditorTemplates/SwitchBase", Model)
+</div>

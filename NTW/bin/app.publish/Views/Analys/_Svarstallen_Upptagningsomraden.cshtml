@@ -1,0 +1,30 @@
+﻿@model Telia.NTW.Web.ViewModel.Analys.AnalysFilterViewModel
+@{
+    string noSvarsstalleHidden = Model.SvarsstalleList.Count() == 0 ? "hidden" : null;
+    var checkedSvarsstalleAll = Model.SvarsstalleAlla ? "checked" : null;
+    var checkedSvarsstalleAllClass = Model.SvarsstalleAlla ? "tseCheckbox tseCheckbox--checked" : "tseCheckbox";
+    string noUpptagningsomradeHidden = Model.UpptagningsomradeList.Count() == 0 ? "hidden" : null;
+    var checkedUpptagningsomradeAll = Model.UpptagningsomradeAlla ? "checked" : null;
+    var checkedUpptagningsomradeAllClass = Model.UpptagningsomradeAlla ? "tseCheckbox tseCheckbox--checked" : "tseCheckbox";
+}
+Svarsställe:
+<div class="tscForm-inputContainer tsMarginBottom">
+    <span class=@noSvarsstalleHidden>
+        <input type="checkbox" class="@checkedSvarsstalleAllClass" id="checkboxAllaSvarstallen" name="SvarsstalleAlla" value="true" @checkedSvarsstalleAll />
+        <label class="tseCheckbox-label" for="checkboxAllaSvarstallen">Alla</label>
+    </span>
+    @Html.EditorFor(m => m.SvarsstalleList,"Svarstallen")
+</div>
+Upptagningsområde:
+<div class="tscForm-inputContainer tsMarginBottom">
+    <span class=@noUpptagningsomradeHidden>
+        <input type="checkbox" class="@checkedUpptagningsomradeAllClass" id="checkboxAllaUpptagningsomraden" name="UpptagningsomradeAlla" value="true" @checkedUpptagningsomradeAll />
+      <label class="tseCheckbox-label" for="checkboxAllaUpptagningsomraden">Alla</label>
+    </span> 
+    @Html.EditorFor(m => m.UpptagningsomradeList, "Upptagningsomraden")
+</div>
+<div class="tscForm-inputContainer tsMarginBottom">
+    <div class="tseRadioBox">
+        @Html.EditorFor(m => m, "FilterTyp")
+    </div>
+</div>

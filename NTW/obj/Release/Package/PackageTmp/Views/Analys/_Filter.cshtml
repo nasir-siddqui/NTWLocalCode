@@ -1,0 +1,44 @@
+﻿@model Telia.NTW.Web.ViewModel.Analys.AnalysFilterViewModel
+
+<div class="tscArea--LighterGrey--Border">
+	@using (Html.BeginForm())
+	{
+		<div class="tsWrapInner">
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                @Html.LabelFor(m => m.FrånDatum, new { @class = "tscForm-label" })
+                @Html.TextBoxFor(m => m.FrånDatum, "{0:yyyy-MM-dd}", new { @class = "tseInput", @type = "text", data_datepicker = "date", analys_datepicker = "" })
+            </div>
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                @Html.LabelFor(m => m.TillDatum, new { @class = "tscForm-label" })
+                @Html.TextBoxFor(m => m.TillDatum, "{0:yyyy-MM-dd}", new { @class = "tseInput", @type = "text", data_datepicker = "date", analys_datepicker = "" })
+            </div>
+			<div class="tseTextField--Normal--Full--Half tsMarginTop">
+				@Html.LabelFor(m => m.SelectedAbonnemangId, new { @class = "tscForm-label" })
+				@Html.DropDownListFor(m => m.SelectedAbonnemangId, Model.AbonnemangItems,
+				new
+					{
+						id = "SelectedAbonnemangId",
+						@class = "combobox-autocomplete",
+						search_from_start = ""
+					})
+			</div>	
+			<div class="tscLoading--PaddingGutter hidden ajax-loader">
+				<div class="tsLoading-icon-large tsMarginTop"></div>
+			</div>
+			<div id="svarstallen-upptagningsomraden">
+				@Html.Partial("_Svarstallen_Upptagningsomraden", Model)
+			</div>
+			<div>
+                <div class="tscLoading--PaddingGutter hidden submit-loader">
+                    <div class="tsLoading-icon-large tsMarginTop"></div>
+                </div>
+			</div>
+			<div class="tsPaddingTop">
+				<input type="reset" class="tsBtn--Regular--Options" name="button" value="Rensa" />
+				<input type="submit" class="tsBtn--Regular tsMarginLeft" name="button" id="btnSearch" value="Sök" />
+				<input type="submit" class="tsBtn--Regular tsMarginLeft hidden" name="button" id="btnExportRawData" value="Exportera rådata" />
+				<input type="submit" class="tsBtn--Regular tsMarginLeft" name="button" id="btnExportTidUrsprung" value="Exportera till Excel" />
+			</div>
+		</div>
+	}
+</div>

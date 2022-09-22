@@ -1,0 +1,151 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * CAROUSEL NAVIGATION.........Navigation of carousel
+  * HERO ITEMS................Item/Item content
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $CAROUSEL NAVIGATION
+\*------------------------------------*/
+
+// .tsCarousel-nav {
+//     bottom: 0%;
+// }
+
+.tsCarousel {
+	margin-bottom: 0;
+}
+
+
+
+/*------------------------------------*\
+    $HERO ITEMS
+\*------------------------------------*/
+
+.tsHero {
+    text-align: left;
+}
+
+.tsHero-inner-item {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  .padding(all;@gutter;@gutter*2;@gutter;@gutter*2;);
+  height: auto;
+  text-align: left; 
+}
+
+.tsHero-inner-inner-item {
+	bottom: -50%;
+}
+
+
+.tsHero-inner-image--alt {
+	float: right;
+}
+
+.tsHero-textbox-width-40 {
+	max-width: 40%;
+}
+
+.tsHero-textbox-width-60 {
+	max-width: 60%;
+}
+
+.tsHero-textbox-coloured-right {
+ 	right: 0;	
+	.border-radius(30px 0 0 0);
+ 	.tsHero-textbox-standard(@pink);
+ 	text-align: left;
+}
+
+.tsHero-textbox-coloured-left {
+	left: 0;
+	.border-radius(0 30px 0 0);
+	.tsHero-textbox-standard(@pink);
+}
+
+.tsHero-textbox-right {
+ 	right: 0;	
+ 	text-align: right;
+}
+
+.tsHero-textbox-left {
+	left: 0;
+}
+
+
+
+//New Hero 3 items in row
+ .tsCarousel--alt .tsCarousel-inner > div {
+	display: block;
+	width: 33.33%;
+	position: static;
+
+}
+.tsCarousel--alt .tsHero-imagecontainer--alt .tsWrapInner {
+			padding: 0;
+}
+
+.tsCarousel--alt .tsHero-inner-item .h3, 
+.tsCarousel--alt .tsHero-inner-item p{
+	text-align: center;
+	margin: 0px;
+}
+
+ .tsCarousel--alt-wrapper {
+	//position: relative;
+	//background-color: @carouselhero-wrapper-bg;
+}	
+/*.tsCarousel--alt-wrapper-first,
+.tsCarousel--alt-wrapper-last {
+	position: absolute;
+	width: 50%;
+	top: 0;
+	height: 100%;
+	display: block;
+}
+.tsCarousel--alt-wrapper-first {
+	left:0;
+}
+.tsCarousel--alt-wrapper-last {
+	right: 0;
+}*/
+ 
+.tsCarousel--alt {
+	 	.margin(leftright;0;0);
+}
+.tsCarousel--alt .tsHero-inner-item {
+	margin: 0;
+	padding: 10px 20px;
+	position: static;
+	//background-color: @lightergrey; 
+}
+.tsCarousel--alt  .tsHero-inner-item {
+	.h3, p{
+		font-weight: normal;
+	}
+	p{
+		.font-size(lineheight;16;20);
+	}
+	.h3 {
+		.font-size(20);	
+	}
+}
+
+
+.tsHero-splash--alt {
+	top:-70px;
+	left: -70px;
+	height: 124px;
+	width: 124px;
+	.font-size(lineheight;20;20);
+	
+}

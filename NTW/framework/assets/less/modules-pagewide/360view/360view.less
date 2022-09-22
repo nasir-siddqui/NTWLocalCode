@@ -1,0 +1,97 @@
+.ts360view-inner {
+    .padding(topbottom;@gutter;@gutter);
+    .padding(leftright;@gutter-double;@gutter-double);
+    background: @nearwhite;
+    // the path stuff isn't used by giving the parent element the class color1, but the styles are necessary since they are read using javascript 
+    .color-1 { path { fill: @purple; color: @purple; } circle { stroke: @purple; } i, li span, a.active, a:hover { color: @purple; } li p:before { background: @purple; } }
+    .color-2 { path { fill: @pink; color: @pink; } circle { stroke: @pink; } i, li span, a.active, a:hover { color: @pink; } li p:before { background: @pink; } }
+    .color-3 { path { fill: @orange; color: @orange; } circle { stroke: @orange; } i, li span, a.active, a:hover { color: @orange; } li p:before { background: @orange; } }
+    .color-4 { path { fill: @yellow; color: @yellow; } circle { stroke: @yellow; } i, li span, a.active, a:hover { color: @yellow; } li p:before { background: @yellow; } }
+    .color-5 { path { fill: @turq; color: @turq; } circle { stroke: @turq; } i, li span, a.active, a:hover { color: @turq; } li p:before { background: @turq; } }
+    .color-6 { path { fill: @blue; color: @blue; } circle { stroke: @blue; } i, li span, a.active, a:hover { color: @blue; } li p:before { background: @blue; } }
+    .color-7 { path { fill: @green; color: @green; } circle { stroke: @green; } i, li span, a.active, a:hover { color: @green; } li p:before { background: @green; } }
+    .color-8 { path { fill: @clay; color: @clay; } circle { stroke: @clay; } i, li span, a.active, a:hover { color: @clay; } li p:before { background: @clay; } }
+
+    .ts360view-pie-wrapper {
+        path, .rvml { cursor: pointer; }
+    }
+
+    .color-disabled { path { cursor: default; fill: #ccc; color: #ccc; } }
+    .is-disabled { cursor: default!important; i, li span, a, li p { cursor: default; color: #ccc; } li p:before { background: #ccc; } }
+
+}
+.ts360view-headline {
+    font-weight: bold;
+    .margin(topbottom;5;10);
+}
+.js {
+    .ts360view {
+        display: none;
+    }
+    .ts360view-initialized {
+        display: block;
+    }
+}
+.ts360view-pie-wrapper {
+    margin: 0 auto;
+    position: relative;
+    .clearfix;
+    z-index: 2;
+    svg {
+        float: left;
+        position: relative;
+    }
+}
+.ts360view-pie-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid @lightergrey;
+    background: @nearwhite;
+}
+.ts360view-pie-info {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.ts360view-pie-info-inner {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    i {
+        .font-size(lineheight;36;48);
+        display: block;
+    }
+    span {
+        display: block;
+        color: @purple;
+    }
+}
+.lt-ie8 .ts360view-pie-info {
+    top: 50%;
+    position: relative;
+    height: auto;
+}
+.lt-ie8 .ts360view-pie-info-inner {
+    top: -50%;
+    position: relative;
+}
+
+.ts360view-category-list {
+    .l-list;
+}
+.ts360view-category-item {
+    a {
+        color: #333;
+        display: inline-block;
+        .padding(all;2;10;3;22);
+        i {
+            position: absolute;
+            .margin(all;2;0;0;-21);
+            .font-size(16);
+        }
+        span.amount {
+            font-weight: normal;
+        }
+    }
+}

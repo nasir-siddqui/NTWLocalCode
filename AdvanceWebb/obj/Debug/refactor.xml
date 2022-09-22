@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="06ee1a5f-6132-477a-9c5b-5aa0f870480e" ChangeDateTime="05/21/2015 11:35:01" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[GETDATEHOUR]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetDateHour]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c97902f0-aa37-474a-9f49-5abc9faab521" ChangeDateTime="05/21/2015 11:35:14" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[GETDATETIME]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetDateTime]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="22396a69-952b-437d-b386-c3e40b902804" ChangeDateTime="05/21/2015 11:35:29" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[GETDATETIME]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetDateTime]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="880fea6d-a252-457d-a401-6e4ff578a1c0" ChangeDateTime="05/21/2015 11:36:00" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[GETTIMEINTERVALL]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetTimeInterval]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c51ca281-167b-4603-9263-07de5c1842c7" ChangeDateTime="05/21/2015 11:36:15" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[GETTIMETOSEK]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetTimeToSek]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4d6ca843-031f-432a-817f-5303c2486be2" ChangeDateTime="05/21/2015 11:36:27" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[TRIM]" />
+    <Property Name="ElementType" Value="SqlScalarFunction" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="Trim" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="22069249-beaa-4cfd-a44e-573c151b24e7" ChangeDateTime="05/21/2015 11:37:55" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spCheckNumbers]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[CheckNumbers]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="38d01041-e865-4c39-b1ac-d54d1b652d95" ChangeDateTime="05/21/2015 11:38:08" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spCheckNumbers]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[CheckNumbers]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4cd5c506-6195-4acb-bbaa-061b3d32af7c" ChangeDateTime="05/21/2015 11:38:17" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spCreateExportData]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[CreateExportData]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d8e19f7-4cf5-4146-bb45-c64212830318" ChangeDateTime="05/21/2015 11:38:27" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spFinishTransaction]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[FinishTransaction]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0288ce40-3bb3-4d05-95cc-f950eb25619d" ChangeDateTime="05/21/2015 11:38:35" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spFinishTransaction]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[FinishTransaction]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="81d9e55d-676c-47ee-9fc1-eca80666d585" ChangeDateTime="05/21/2015 11:38:42" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spGet7zipFileName]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[Get7zipFileName]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fe69cfee-cda9-46a6-a00e-f654a90fb81d" ChangeDateTime="05/21/2015 11:38:51" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spGetLatestSerialNumber]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[GetLatestSerialNumber]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5efb1462-c31a-41ff-933d-fcaf0e74e26a" ChangeDateTime="05/21/2015 11:39:04" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spLogMessageBySerialNumber]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[LogMessageBySerialNumber]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="df207d81-f11e-4beb-91f9-c3eae90c6530" ChangeDateTime="05/21/2015 11:39:13" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spLogMessageBySerialNumber]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[LogMessageBySerialNumber]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="48c80aae-04e8-487f-b6aa-2eae08aa5485" ChangeDateTime="05/21/2015 11:39:20" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[importCallStatistics].[spUpdateAreaCodes]" />
+    <Property Name="ElementType" Value="SqlProcedure" />
+    <Property Name="ParentElementName" Value="[importCallStatistics]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[UpdateAreaCodes]" />
+  </Operation>
+</Operations>

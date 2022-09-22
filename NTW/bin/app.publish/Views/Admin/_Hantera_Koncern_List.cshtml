@@ -1,0 +1,24 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model List<Koncern>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable">
+    <caption>Koncern</caption>
+    <thead>
+        <tr>
+            <th>Koncern</th>
+            <th><!-- Edit & Delete --></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Koncern koncern in Model)
+        {
+            <tr>
+                <td>@koncern.Koncernnamn</td>
+                <td>
+                    @Html.ActionLink(" ", "Hantera_Koncern_Edit", "Admin", new { groupId = koncern.GroupId }, new { @class = "tsIcon-Edit tsMarginLeft", @title = "Redigera" })
+                    <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Admin', 'Hantera_Koncern_Delete', 'koncernen', @koncern.GroupId)"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,124 @@
+/* 
+** This is the main IE LESS file for further development of the new responsive layout
+** However, it is not used in the W34 release, since the older hover menu was used in the release
+*/
+
+
+
+// IE<=8 gets a fix-sized full view web page
+// The IE stylesheet imports the cascade from x-small through large
+// On top of that, there are certain IE specific browser styles
+
+
+@path : "../../../../framework/assets/less";
+
+
+/*------------------------------------*\
+    $FOUNDATION
+\*------------------------------------*/
+
+// Variables and Mixins are imported for the compilation of this file
+@import "@{path}/_foundation";
+@import "typography/typography";
+
+/*------------------------------------*\
+    $ELEMENTS
+\*------------------------------------*/
+@import "@{path}/elements/icons";
+@import "@{path}/elements/tags/all";
+@import "@{path}/elements/buttons";
+@import "@{path}/elements/table/ie-lte8";
+@import "@{path}/elements/dropdown/ie-lte8";
+@import "@{path}/elements/inputs/_ie-lte8";
+@import "@{path}/elements/inputs";
+@import "@{path}/elements/inputs-ie-lte8";
+
+
+/*------------------------------------*\
+    $COMPONENTS
+\*------------------------------------*/
+
+@import "@{path}/components/form/ie-lte8";
+@import "@{path}/components/info/info";
+@import "@{path}/components/expandable/expandable";
+@import "@{path}/components/tabs/tabs";
+@import "@{path}/components/list/list";
+@import "@{path}/components/misc/misc";
+@import "@{path}/components/listitem/ie-lte8";
+
+
+/*------------------------------------*\
+  $MODULES-SITEWIDE
+\*------------------------------------*/
+
+
+// Crumbtrail
+@import "@{path}/modules-sitewide/_crumbtrail/_ie-lte8.less";
+
+// Feedback
+@import "@{path}/modules-sitewide/_feedback/_ie-lte8.less";
+
+// Footer
+@import "@{path}/modules-sitewide/_footer/_ie-lte8.less";
+
+// Attention
+@import "@{path}/modules-sitewide/_attention/ie-lte8.less";
+
+
+/*------------------------------------*\
+    $MEDIAQUERIES
+\*------------------------------------*/
+
+@import "@{path}/modules-pagewide/easytofind/ie-lte8";
+@import "@{path}/modules-pagewide/hero/ie-lte8";
+@import "@{path}/modules-pagewide/product-details/ie-lte8";
+@import "@{path}/modules-pagewide/media-block/ie-lte8";
+@import "@{path}/modules-pagewide/page-section/ie-lte8";
+@import "@{path}/modules-pagewide/productlist/ie-lte8";
+@import "@{path}/modules-pagewide/library-view/ie-lte8";
+@import "@{path}/modules-pagewide/fluid-grid/ie-lte8";
+@import "@{path}/modules-pagewide/collapse/ie-lte8";
+
+@import "@{path}/modules-pagewide/paging/ie-lte8";
+@import "@{path}/modules-pagewide/filter/ie-lte8";
+@import "@{path}/modules-pagewide/operatinginformation/ie-lte8";
+@import "@{path}/modules-pagewide/login/ie-lte8";
+
+@import "@{path}/modules-pagewide/table/ie-lte8";
+
+@import "../modules/header/ie-lte8";
+
+@import "@{path}/modules-pagewide/access/ie-lte8";
+@import "@{path}/modules-pagewide/accordion/ie-lte8";
+@import "@{path}/modules-pagewide/accountinformation/ie-lte8";
+@import "@{path}/modules-pagewide/operatinginformation/ie-lte8";
+@import "@{path}/modules-pagewide/list/ie-lte8";
+@import "@{path}/modules-pagewide/configure/ie-lte8";
+@import "@{path}/modules-pagewide/settings/ie-lte8";
+@import "@{path}/modules-pagewide/notifications/notifications";
+@import "@{path}/modules-pagewide/shortcuts/ie-lte8";
+@import "@{path}/modules-pagewide/360view/ie-lte8";
+@import "@{path}/modules-pagewide/spotlights/ie-lte8";
+@import "@{path}/modules-pagewide/search-results/ie-lte8";
+@import "@{path}/modules-pagewide/settings/ie-lte8";
+@import "@{path}/modules-pagewide/configure/ie-lte8";
+@import "@{path}/modules-pagewide/quick-help/quick-help";
+@import "@{path}/modules-pagewide/wizard/ie-lte8";
+@import "@{path}/modules-pagewide/guide/ie-lte8";
+@import "@{path}/modules-pagewide/dynamic-customer-forms/ie-lte8";
+
+
+/*------------------------------------*\
+  $LAYOUT
+\*------------------------------------*/
+
+@import "@{path}/layout/ie-lte8";
+@import "layout/ie-lte8";
+
+
+
+/*------------------------------------*\
+    $IE-SPECIFICS
+\*------------------------------------*/
+
+@import "@{path}/elements/icons-ie7";

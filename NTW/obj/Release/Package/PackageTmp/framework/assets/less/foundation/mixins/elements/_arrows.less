@@ -1,0 +1,173 @@
+.arrow(up;@size;@col;) {
+    width: 0;
+    height: 0;
+    border-left: ~"@{size}px" solid transparent;
+    border-right: ~"@{size}px" solid transparent;
+    border-bottom: ~"@{size}px" solid @col;
+}
+
+.arrow(down;@size;@col;) {
+    width: 0;
+    height: 0;    
+    border-top: ~"@{size}px" solid @col;
+    border-left: ~"@{size}px" solid transparent;
+    border-right: ~"@{size}px" solid transparent;
+}
+
+
+
+.pointing-arrow(right;@height;@bg-color;@font-color;) {
+  color: @font-color;
+  vertical-align: top;
+  height: @height;
+  position: relative;
+  background: @bg-color;
+  &:after {
+      left: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-color: transparent;
+      border-left-color: @bg-color;
+      border-width: @height/2;
+      margin-top: -@height/2;
+      border-left-width: @height/4;
+  }
+}
+
+
+
+// trigger arrow - used in filter
+
+.triggerArrow(@background:@darkturq){
+  cursor: pointer;
+  &:after, 
+  &:before {
+    bottom: -4px;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  &:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: @white;
+    border-width: 6px;
+    margin-left: -6px;
+  }
+  &:before {
+    border-color: rgba(0, 180, 140, 0);
+    border-bottom-color:@background;
+    border-width: 7px;
+    margin-left: -7px;
+  }
+}
+
+
+
+
+// Pointer arrows
+
+.pointer-pseudo() {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    pointer-events: none;    
+}
+
+.pointer-position( top;    outside; @point; ) { top: -2*@point; }
+.pointer-position( bottom; outside; @point; ) { top: 10px; }
+.pointer-position( right;  outside; @point; ) { top: -30px; }
+.pointer-position( left;   outside; @point; ) { top: -30px; }
+.pointer-position( top;    inside;  @point; ) { top: -30px; }
+.pointer-position( bottom; inside;  @point; ) { top: 10px; }
+.pointer-position( right;  inside;  @point; ) { top: -30px; }
+.pointer-position( left;   inside;  @point; ) { top: -30px; }
+
+.pointer-arrow-after-double(@col) {
+    margin-left: -7px;
+    border: 15px solid transparent;
+    border-bottom-width: 15px;
+    border-bottom-color: @col;        
+}
+
+.pointer-arrow-before-double(@col;@bcol) {
+    margin-left: -9px;
+    border: 17px solid transparent;
+    border-bottom-width: 17px;
+    border-bottom-color: @bcol;
+}
+
+.pointer (  @posmode: relative; 
+            @position: top; 
+            @boxside: outside;
+            @base: 10px; 
+            @point: 10px; 
+            @offset: 0;
+            @col: #777;
+            ) {
+
+    position: @posmode;
+    &:after {
+        .pointer-pseudo;
+        .pointer-position(@position;@boxside;@point;);
+    }
+    &:after {
+        .pointer-arrow-after-double(@col);
+    }
+}
+
+.speech-bubble (@background-color: @lightergrey, @wrapper-color:@white,@color:@textcolor) {
+    position: relative;
+    .padding(all;@gutter);
+    .margin(all;@gutter-half;0;30;0);
+    text-align: left;
+    background-color: @background-color;
+    .border-radius(20px);
+    color: @color;
+    
+	&:before {
+       content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 60px;
+        border: 0;
+        border-right-width: 30px;
+        border-bottom-width: 20px;
+        border-style: solid;
+        border-color: transparent @background-color;
+        display: block;
+        width: 0;
+    }
+	
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 80px;
+        border: 0;
+        border-right-width: 10px;
+        border-bottom-width: 20px;
+        border-style: solid;
+        border-color: transparent @wrapper-color;
+        display: block;
+        width: 0;
+    }
+	
+    h2 {
+      .margin(bottom;@gutter-half/2);
+    }
+	
+    p {
+      .margin(all;0);
+    }
+}

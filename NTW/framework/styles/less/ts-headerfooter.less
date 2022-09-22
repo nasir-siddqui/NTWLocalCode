@@ -1,0 +1,141 @@
+@path : "../../assets/less";
+
+/*------------------------------------*\
+    $FOUNDATION
+\*------------------------------------*/
+
+@import "@{path}/foundation/_variables";
+@width-innerwrap    : 1020px;
+@import "@{path}/foundation/_mixins.less";
+
+
+// @import "@{path}/foundation/normalize";
+
+@import "@{path}/foundation/_base";
+
+@import "@{path}/foundation/_typography";
+
+
+/*------------------------------------*\
+  $ELEMENTS
+\*------------------------------------*/
+
+@import "@{path}/elements/icons";
+@import "@{path}/elements/buttons";
+@import "@{path}/elements/table/table";
+@import "@{path}/elements/radiobutton-checkbox/all";
+@import "@{path}/modules-sitewide/_chat/_all";
+@import "@{path}/modules-sitewide/_feedback/_all.less";
+
+
+
+/*------------------------------------*\
+  $DEFAULT
+\*------------------------------------*/
+
+@import "@{path}/modules-sitewide/_header/_all";
+@import "@{path}/modules-sitewide/_footer/_all";
+@import "@{path}/modules-sitewide/_search/_all";
+@import "@{path}/modules-pagewide/transfer/all";
+@import "@{path}/modules-pagewide/productlist/all";
+@import "@{path}/modules-sitewide/_subnavigation/_all";
+@import "@{path}/modules-pagewide/collapse/collapse";
+@import "@{path}/modules-pagewide/login/login";
+@import "@{path}/modules-sitewide/_crumbtrail/_all";
+@import "@{path}/modules-sitewide/_attention/all";
+
+
+.tsHeader *,
+.tsFooter *,
+.tsSubnavigation *,
+.tsSearch-results-area * {
+  .box-sizing;
+}
+
+.tsHeader input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: none; /* 1 */
+  border-radius: 0;
+  margin: 0;
+}
+
+
+.tsHeader b,
+.tsFooter b,
+.tsSubnavigation b,
+.tsHeader i,
+.tsFooter i,
+.tsSubnavigation i {
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: -webkit-baseline-middle;
+
+}
+
+/*------------------------------------*\
+  $LAYOUT
+\*------------------------------------*/
+
+@import "@{path}/layout/all";
+
+
+/*------------------------------------*\
+  $FIX
+\*------------------------------------*/
+
+a[href^="#"] {
+    font-weight: normal;
+}
+
+a {
+    .transition(none);
+}
+
+.tsNavPrimary li,
+.tsFooterNav-TopLevel li {
+    list-style: none;
+}
+.tsProductList *{
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+#header-login-ms-username,
+#header-login-ms-password {
+  width: 100%;
+}
+//fix for header in
+#tsMainContainer {
+  min-height:auto !important;
+}
+
+.pageContainer * {
+  box-sizing:content-box;
+-moz-box-sizing:content-box; /* Firefox */
+}
+
+a[href$="pdf"]:before,
+a[href$="pdf"]:before,
+a[href$="doc"]:before,
+a[href$="docx"]:before,
+a[href$="txt"]:before,
+a[href$="exe"]:before,
+a[href$="dmg"]:before,
+a[href$="xls"]:before,
+a[href$="ppt"]:before,
+a[href$="pptx"]:before,
+a[href$="zip"]:before {
+  display: none;
+}
+
+#tsFooterArea {
+    bottom: inherit;
+}
+
+.pageContainer {
+    padding-bottom: 0 !important;
+}
+
+/*------------------------------------*\
+  $THAT'S IT, SAYONARA MY FRIEND
+\*------------------------------------*/

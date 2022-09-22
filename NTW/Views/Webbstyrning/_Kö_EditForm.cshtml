@@ -1,0 +1,41 @@
+﻿@using Sigma.Utils.Helpers
+@using Telia.NTW.Core.Enums
+@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model KöEditViewModel
+
+@Html.AntiForgeryToken()
+
+@Html.HiddenFor(m => m.CreatingNew)
+
+<div class="tsMarginBottom">
+    <div class="tseTextField--Normal--Full--Half tsMarginBottom">
+        @Html.DropDownListFor(m => m.AlternativId, Model.StyrningsalternativList, "",
+        Model.CreatingNew
+        ? (object)new { @class = "combobox-autocomplete" }
+        : (object)new { @class = "combobox-autocomplete", @disabled = "disabled" })
+        @Html.ValidationMessageFor(m => m.AlternativId)
+    </div>
+
+    @if (User.IsInRole("Administratör"))
+    {
+        <div class="tseRadioBox">
+            @Html.RadioButtonFor(m => m.Inkopplingstyp, Inkopplingstyp.Manuell, new { @id = "InkopplingstypManuell" })
+            @Html.LabelFor(m => m.Inkopplingstyp, StringHelper.EnumToDisplay(Inkopplingstyp.Manuell), new { @for = "InkopplingstypManuell" })
+        </div>
+    }
+
+    <div class="tseRadioBox tseTextField--Normal--Half--Inline">
+        @Html.RadioButtonFor(m => m.Inkopplingstyp, Inkopplingstyp.BegärtDatum, new { @id = "InkopplingstypBegartDatum" })
+        @Html.LabelFor(m => m.Inkopplingstyp, StringHelper.EnumToDisplay(Inkopplingstyp.BegärtDatum) + ": ", new { @for = "InkopplingstypBegartDatum" })
+
+        <div class="tseTextField--Normal--Half--Inline">
+            @Html.TextBoxFor(m => m.BegärtDatum, new { @class = "tseInput", @type = "text", data_datepicker = "datetime" })
+			@Html.ValidationMessageFor(m => m.BegärtDatum)
+        </div>
+    </div>
+
+    <div class="tseRadioBox">
+        @Html.RadioButtonFor(m => m.Inkopplingstyp, Inkopplingstyp.SåSnartSomMöjligt, new { @id = "InkopplingstypSaFortSomMojligt" })
+        @Html.LabelFor(m => m.Inkopplingstyp, StringHelper.EnumToDisplay(Inkopplingstyp.SåSnartSomMöjligt), new { @for = "InkopplingstypSaFortSomMojligt" })
+    </div>
+</div>

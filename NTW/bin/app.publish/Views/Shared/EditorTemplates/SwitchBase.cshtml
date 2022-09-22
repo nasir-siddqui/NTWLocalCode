@@ -1,0 +1,12 @@
+﻿@{
+    var fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var checkedValue = Model ? "checked" : "";
+    string onValue = ViewData["OnValue"].ToString();
+    string offValue = ViewData["OffValue"].ToString();
+}
+
+<div class="tseRadioBox--Normal--CheckSwitch--Inline--ColorNavigation">
+    <input type="checkbox" name="@fieldName" id="@fieldName" @checkedValue value="true" />
+    <label for="@fieldName" data-checked=@onValue>@offValue</label>
+</div>
+<input type="hidden" name="@fieldName" value="false" />

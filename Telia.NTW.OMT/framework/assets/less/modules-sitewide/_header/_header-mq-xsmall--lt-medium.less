@@ -1,0 +1,860 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * HEADER..............
+ * LOGO................Logotype
+ * SITE-NAVIGATION.....
+ * PRIMARY-NAVIGATION..
+ * SEARCH..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.tsHeader[role=banner] {
+    .vertical-space(top);
+}
+
+
+.tsHeader.is-loggedin{
+    .padding(bottom;20);
+}
+
+
+
+/*------------------------------------*\
+    $LOGO
+\*------------------------------------*/
+
+
+/* ----- menu V4 ---- */
+
+.tsHeader.is-loggedin .tsHeader-LogoWrapper {
+    padding-bottom: 55px;
+}
+
+.tsLogo {
+    .margin(bottom,@gutter-half);
+}
+
+.tsLogo img {
+    width: 100px;
+}
+
+/* ----- END: menu V4 ---- */
+
+
+
+
+/* ----- menu V5 overrides ---- * /
+
+.menu-v5 .tsHeader.is-loggedin .tsHeader-LogoWrapper {
+    padding-bottom: 0;
+}
+
+.js .menu-v5 .tsLogo {
+    left: 50%;
+    .margin(bottom,@gutter-half);
+    margin-left: -50px;
+    margin-right: 0;
+}
+
+.menu-v5 .tsLogo img {
+    width: 95px;
+}
+
+/* ----- END: menu V5 overrides ---- */
+
+
+
+/* ----- ONLY menu V5 ---- * /
+
+.tsHeader.is-loggedin .tsHeader-LogoWrapper {
+    padding-bottom: 0;
+}
+
+.js .tsLogo {
+    left: 50%;
+    .margin(bottom,@gutter-half);
+    margin-left: -50px;
+    margin-right: 0;
+}
+
+.tsLogo img {
+    width: 95px;
+}
+
+/* ----- END: ONLY menu V5 ---- */
+
+
+
+
+
+/*------------------------------------*\
+    $SITE-NAVIGATION
+\*------------------------------------*/
+
+.tsNavSite > .tsWrapInner {
+    position: absolute;
+    width: 100%;
+    height: 0;
+}
+
+.tsNavSite-list {
+    display: none;
+}
+
+.tsNavSite-item {
+    display: none;
+    color: @linkcolor;
+}
+
+.tsNavSite-item-link {
+    margin-left: 3px;
+    color: @blue;
+}
+
+.tsHeader.is-loggedin .tsNavSite-list-login {
+    position: absolute;
+    left: 0;
+    top: 36px;
+    width: 100%;
+    .padding(leftright;15;15);
+}
+
+.tsHeader.is-loggedin .tsNavSite-list-login > .tsNavSite-item:first-child {
+    display: block;
+    position: relative;
+    .padding(topbottom;@gutter/2;@gutter/2);
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tsHeader.is-loggedin .tsNavSite-list-login > .tsNavSite-item :first-child::before,
+.tsHeader.is-loggedin .tsNavSite-list-login > .tsNavSite-item :last-child::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1px solid @purple;    
+}
+
+.tsHeader.is-loggedin .tsNavSite-list-login > .tsNavSite-item :last-child::after {
+    top: auto;
+    bottom: 0;
+    border-top: none;  
+    border-bottom: 1px solid @purple;        
+}
+
+
+// implemnented or not?
+/*
+.tsHeader.is-loggedin .tsNavSite {
+    display: none;
+}
+*/
+
+
+
+
+/*------------------------------------*\
+    $PRIMARY-NAVIGATION
+\*------------------------------------*/
+
+
+/* --- menu v4 --- */
+
+.tsNavPrimary {
+//    .l-wrap-bleed(@gutter-half);
+}
+
+.tsNavPrimary-Inner {
+    border: 10px solid @darkestpurple;
+    border-top-width: 20px;
+    background-color: @darkestpurple;
+}
+
+.tsNavPrimary [class*='tsIcon-'],
+.tsNavPrimary [class^='tsIcon-'] {
+    position: absolute;
+    right: 5px;
+    top: 2px;    
+}
+
+.tsNavPrimary .tsIcon-Menu {
+    position: absolute;
+    right: 0;
+    top: 0;    
+}
+
+
+// *** Top level
+
+.tsNavPrimary-TopLevelItem {
+    position: relative;
+    .menu-vertical-topitem;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(20);
+}
+
+.tsNavPrimary-TopLevelItem [data-widget-control=collapse-trigger],
+.tsNavPrimary-TopLevel a,
+.tsNavPrimary-TopLevelLabel {
+    .menu-vertical-anchor;
+}
+
+.tsNavPrimary .tsIcon-ArrowDown2 {
+    .margin(right;@gutter-half);
+    width: 19px;
+    height: 40px;
+    overflow: hidden;
+    color: @white;
+    .font-size(lineheight;10;40);
+}
+
+.tsNavPrimary-TopLevelItem.is-expanded .tsIcon-ArrowDown2:before,
+.tsFooterNav-TopLevel .is-expanded .tsIcon-ArrowDown2:before{
+    content: "\e031";
+}
+//TODO, fix this in script?
+
+
+.tsNavPrimary-TopLevelItem.is-collapsed .tsNavPrimary-SubLevelItem {
+    display: none !important;
+}
+
+
+// *** Sub level
+
+.tsNavPrimary-SubLevelItem,
+.tsNavPrimary-SubLevelItem--Related {
+    .menu-vertical-subitem;
+}
+
+.tsNavPrimary-SubLevelLabel,
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    .font-size(16);
+}
+
+.tsNavPrimary-SubLevelItem--Related {
+    border-top: 1px solid @darkpurple;
+}
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    display: none;
+//    font-style: italic;
+//    text-indent: 1.5em;
+}
+
+.js .tsNavPrimary-EndLevel {
+//    .visuallyhidden;
+    display: none; // to keep those links from getting focus on keyboard navigation
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    display: block;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    font-style: normal;
+}
+
+// *** Cross site links
+
+.tsNavPrimary-CrossSite {
+    border-top: 1px solid @darkestpurple;
+    border-bottom: none;
+}
+
+/* --- END: menu v4 --- */
+
+
+
+
+
+
+
+
+/* --- menu v5 overrides --- * /
+
+.menu-v5 .tsNavPrimary.is-expanded [data-widget-collapse="trigger"]:after {
+    content: "\e031";
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: -1px;
+	padding-bottom: 1px;
+    width: 12px;
+    height: 6px;
+    margin-left: -6px;
+    background-color: @bodycolor;
+    color: @lightgrey;
+    font-family: iconfont;
+    font-size: 6px;
+    line-height: 6px;
+}
+
+.menu-v5 .tsNavPrimary-Inner {
+    .padding(all;5);
+//    border: 10px solid @darkestpurple;
+    border: 1px solid @lightergrey;
+// Remove:
+    border-top-width: 20px;
+    border-top-width: 1px;
+// --
+
+//    background-color: @darkestpurple;
+    background-color: @white;
+    .box-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+.js .menu-v5 .tsNavPrimary-Inner {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    width: 90%;    
+}
+
+.tsNavPrimary [class*='tsIcon-'],
+.tsNavPrimary [class^='tsIcon-'] {
+    position: absolute;
+    right: 5px;
+    top: 2px;    
+}
+
+.tsNavPrimary .tsIcon-Menu {
+    position: absolute;
+    right: 0;
+    top: 0;    
+}
+
+
+// *** Top level
+
+.menu-v5 .tsNavPrimary-TopLevelItem {
+    position: relative;
+
+//    .menu-vertical-topitem;
+// ->
+        border-bottom: 1px solid @darkestpurple;
+        background-color: @purple;
+        &:last-child {
+            border-bottom: none;        
+        }
+
+        a:hover {
+    //        background-color: darken(@purple, 5%);
+            background-color: @darkerpurple;
+        }
+// <-
+}
+
+.menu-v5 .tsNavPrimary-TopLevelItem {
+    border-bottom: none;
+}
+
+.menu-v5 .tsNavPrimary-TopLevelItem:first-child {
+    border-bottom: 1px solid @lightgrey;
+}
+
+.menu-v5 .tsNavPrimary-TopLevel + .tsNavPrimary-TopLevel > .tsNavPrimary-TopLevelItem:first-child {
+    border-top: 1px solid @lightgrey;
+    border-bottom: none; 
+} 
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(20);
+}
+
+.menu-v5 .tsNavPrimary-TopLevelItem [data-widget-control=collapse-trigger],
+.menu-v5 .tsNavPrimary-TopLevel a,
+.menu-v5 .tsNavPrimary-TopLevelLabel {
+
+// Remove:
+    .menu-vertical-anchor;
+// --
+
+    display: block;
+    .padding(all;5;5);
+    color: @darkgrey;
+    .font-size(15);    
+}
+
+.tsNavPrimary .tsIcon-ArrowDown2 {
+    .margin(right;@gutter-half);
+    width: 19px;
+    height: 40px;
+    overflow: hidden;
+    color: @white;
+    .font-size(lineheight;10;40);
+}
+
+// Remove
+// TODO, fix this in script? - why in script? /@pekkos
+.tsNavPrimary-TopLevelItem.is-expanded .tsIcon-ArrowDown2:before,
+.tsFooterNav-TopLevel .is-expanded .tsIcon-ArrowDown2:before{
+    content: "\e031";
+}
+// --
+
+.tsNavPrimary-TopLevelItem.is-collapsed .tsNavPrimary-SubLevelItem {
+    display: none !important;
+}
+
+
+// *** Sub level
+
+// Remove
+//.menu-v5 .tsNavPrimary-SubLevelItem,
+//.menu-v5 .tsNavPrimary-SubLevelItem--Related {
+.menu-v5 .tsNavPrimary-SubLevelItem {
+    .menu-vertical-subitem;
+    background-color: transparent;
+    a:hover {
+        background-color: @lightergrey;
+    }
+}
+// --
+
+// Remove
+.menu-v5 .tsNavPrimary-TopLevelItem,
+.menu-v5 .tsNavPrimary-SubLevelItem,
+.menu-v5 .tsNavPrimary-SubLevelItem--Related {
+    background-color: transparent;    
+    a:hover {
+        background-color: @lightergrey;    
+    }
+}
+// --
+
+.menu-v5 .tsNavPrimary-SubLevelItem {
+    .margin(bottom;10);
+}
+
+
+// .tsNavPrimary-SubLevelLabel,
+// .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+.tsNavPrimary-SubLevelLabel {
+    .font-size(16);
+}
+
+
+//.tsNavPrimary-SubLevelItem--Related {
+//    border-top: 1px solid @darkpurple;
+//}
+
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related {
+    display: none;
+}
+
+
+// *** End level
+
+.js .menu-v5 .tsNavPrimary-EndLevel {
+// Remove:
+//    .visuallyhidden;
+    display: none; // to keep those links from getting focus on keyboard navigation
+    display: block;
+// --
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    display: block;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    font-style: normal;
+}
+
+.menu-v5 .tsNavPrimary-EndLevelItem a {
+    .padding(left; 15);
+}
+
+
+
+// *** Cross site links
+
+.menu-v5 .tsNavPrimary-CrossSite {
+// Remove:
+//    border-top: 1px solid @darkestpurple;
+// --
+
+    border-top: none;    
+    border-bottom: none;
+}
+
+/* --- END: menu v5 overrides --- */
+
+
+
+
+
+
+
+/* --- ONLY menu v5 --- * /
+
+.tsNavPrimary.is-expanded [data-widget-collapse="trigger"]:after {
+    content: "\e031";
+    display: block;
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: -1px;
+	padding-bottom: 1px;
+    width: 12px;
+    height: 6px;
+    margin-left: -6px;
+    background-color: @bodycolor;
+    color: @lightgrey;
+    font-family: iconfont;
+    font-size: 6px;
+    line-height: 6px;
+}
+
+.tsNavPrimary-Inner {
+    .padding(all;5);
+    border: 1px solid @lightergrey;
+    background-color: @white;
+    .box-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+.js .tsNavPrimary-Inner {
+    position: absolute;
+    z-index: 3;
+    left: 10px;
+    width: 90%;    
+}
+
+
+// .tsNavPrimary [class*='tsIcon-'],
+// .tsNavPrimary [class^='tsIcon-'] {
+//     position: absolute;
+//     right: 5px;
+//     top: 2px;    
+// }
+
+
+.tsNavPrimary .tsIcon-Menu {
+    position: absolute;
+    right: 0;
+    top: 0;    
+}
+
+
+// *** Top level
+
+.tsNavPrimary-TopLevelItem {
+    position: relative;
+}
+
+.tsNavPrimary-TopLevelItem {
+    border-bottom: none;
+}
+
+.tsNavPrimary-TopLevelItem:first-child {
+    border-bottom: 1px solid @lightgrey;
+}
+
+.tsNavPrimary-TopLevel + .tsNavPrimary-TopLevel > .tsNavPrimary-TopLevelItem:first-child {
+    border-top: 1px solid @lightgrey;
+    border-bottom: none; 
+} 
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(20);
+}
+
+.tsNavPrimary-TopLevelItem [data-widget-control=collapse-trigger],
+.tsNavPrimary-TopLevel a,
+.tsNavPrimary-TopLevelLabel {
+    display: block;
+    .padding(all;5;5);
+    color: @darkgrey;
+    .font-size(15);    
+}
+
+.tsNavPrimary .tsIcon-ArrowDown2 {
+    .margin(right;@gutter-half);
+    width: 19px;
+    height: 40px;
+    overflow: hidden;
+    color: @white;
+    .font-size(lineheight;10;40);
+}
+
+.tsNavPrimary-TopLevelItem.is-collapsed .tsNavPrimary-SubLevelItem {
+    display: none !important;
+}
+
+
+// *** Sub level
+
+.tsNavPrimary-SubLevel {
+	display: block !important;
+}
+
+.tsNavPrimary-SubLevelItem {
+    .margin(bottom;10);
+}
+
+.tsNavPrimary-SubLevelLabel {
+    .font-size(16);
+}
+
+.tsNavPrimary-SubLevelItem--Related {
+    display: none;
+}
+
+
+// *** End level
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    display: block;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    font-style: normal;
+}
+
+.tsNavPrimary-EndLevelItem a {
+    .padding(left; 15);
+}
+
+
+
+// *** Cross site links
+
+.tsNavPrimary-CrossSite {
+    border-top: none;    
+    border-bottom: none;
+}
+
+/* --- END: ONLY menu v5 --- */
+
+
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+
+/* --- menu V4 --- */
+
+.tsHeader-Search {
+    margin-bottom: 5px;
+}
+
+.tsHeader-Search input[type=search],
+.tsHeader-Search input[type=text] {
+    margin: 0;
+    width: 100%;
+    min-width: 180px;
+}
+
+.tsHeader-Search .tsSearch-form .tsIcon-Search {
+    background-color: transparent;
+    color: @clay;
+}
+
+.js .tsHeader-Search label {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    line-height: 2em;
+    color: @lightgrey;
+    overflow: hidden; // tillagt för ab-test
+    height: 2em; // tillagt för ab-test
+}
+
+.js .tsHeader-Search input[type=search]:focus + label {
+    .visuallyhidden;
+}
+
+/* --- END: menu V4 --- */
+
+
+
+
+
+/* --- menu V5 overrides --- * /
+
+// container
+
+.menu-v5 .tsHeader-Search {
+    position: absolute;
+    top: 20px;
+    right: 0;
+// Remove
+    margin-bottom: 5px;
+// --
+    padding: 0 10px;
+    width: 100%;
+    height: 40px;
+}
+
+
+// form
+
+.menu-v5 .tsSearch-form {
+    width: 100%;
+    height: 40px;
+    padding: 0;  
+    background-color: transparent;  
+}
+
+
+// label
+
+// Remove
+.js .menu-v5 .tsHeader-Search label {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    line-height: 2em;
+    color: @lightgrey;
+    overflow: hidden; // tillagt för ab-test
+    height: 2em; // tillagt för ab-test
+}
+
+.js .tsHeader-Search input[type=search]:focus + label {
+    .visuallyhidden;
+}
+// --
+
+// input field 
+
+.menu-v5 .tsSearch-form-input {
+    .transition(width 300ms ease-in-out, background-color 300ms ease-in-out);
+}
+
+.menu-v5 .tsSearch-form-input:not(:focus) {
+    padding: 10px 0;    
+    background-color: transparent;    
+}
+
+.menu-v5 .tsHeader-Search input[type=search]:focus,
+.menu-v5 .tsHeader-Search input[type=text]:focus {
+    width: 100%;
+}
+
+
+// input field placeholder
+
+
+
+// submit icon 
+
+.menu-v5 .tsHeader-Search .tsSearch-form .tsIcon-Search {
+    background-color: transparent;
+//    color: @clay;
+}
+
+.menu-v5 .tsSearch-form-input:not(:focus) ~ .tsIcon-Search {
+    z-index: 1;
+    color: @purple;
+}
+
+
+.menu-v5 .tsSearch-form-input:focus ~ .tsIcon-Search {
+//    right: 100%;
+//    margin-right: -40px;
+}
+
+
+/* --- END: menu V5 overrides --- */
+
+
+
+
+
+
+/* --- ONLY menu V5 --- * /
+
+// container
+
+.tsHeader-Search {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 0 10px;
+    width: 100%;
+    height: 40px;
+}
+
+
+// form
+
+.tsSearch-form {
+    width: 100%;
+    height: 40px;
+    padding: 0;  
+    background-color: transparent;  
+}
+
+
+// label
+
+
+// input field 
+
+.tsSearch-form-input {
+    .transition(width 300ms ease-in-out, background-color 300ms ease-in-out);
+}
+
+.tsSearch-form-input:not(:focus) {
+    padding: 10px 0;    
+    background-color: transparent;    
+}
+
+.tsHeader-Search input[type=search]:focus,
+.tsHeader-Search input[type=text]:focus {
+    width: 100%;
+}
+
+
+// input field placeholder
+
+
+
+// submit icon 
+
+.tsHeader-Search .tsSearch-form .tsIcon-Search {
+    background-color: transparent;
+}
+
+.tsSearch-form-input:not(:focus) ~ .tsIcon-Search {
+    z-index: 1;
+    color: @purple;
+}
+
+
+/* --- END: ONLY menu V5 --- */
+
+
+
+
+
+
+
+
+

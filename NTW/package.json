@@ -1,0 +1,12 @@
+{
+  "name": "telia-rebound",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-less": "~0.8.3",
+    "grunt-bless": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-html2js": "*"
+  }
+}

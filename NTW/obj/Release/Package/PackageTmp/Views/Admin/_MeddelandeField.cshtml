@@ -1,0 +1,70 @@
+﻿@model Telia.NTW.Web.ViewModel.Admin.Meddelanden.MeddelandeViewModel
+
+@Html.AntiForgeryToken()
+
+@section Scripts {
+	<Script src="@Url.Content("~/Scripts/validation.isdatatimeafter.js")"></Script>
+}
+
+@Html.HiddenFor(m => m.Id)
+
+<div class="tsMarginBottom">
+	@*<div class="tseRadioBox">
+		Typ:
+		@Html.EditorFor(m => m.Type, "EnumRadio")
+		@*<input type="radio" name="type" id="Info" checked /> <label class="tsMarginRight" for="type_info">Information</label>
+		<input type="radio" name="type" id="Panic" /> <label for="type_panic">Kritiskt fel</label>*
+	</div>*@
+
+	<div class="tseRadioBox">
+		Typ:
+		@Html.EditorFor(m => m.Type, "EnumRadio")
+	</div>
+</div>
+
+<div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+    <label class="tscForm-label">Från (åååå-mm-dd eller åååå-mm-dd HH:mm)</label>
+	@*@Html.LabelFor(m => m.From, new { @class = "tscForm-label" })*@
+	@Html.TextBoxFor(m => m.From, new { @class = "tseInput", @type = "text", data_datepicker = "datetime" })
+	@*@Html.ValidationMessageFor(m => m.From)*@
+    @Html.ValidationMessage("FrånDatumValidation1")
+    @Html.ValidationMessage("FrånDatumValidation2")
+</div>
+<div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+    <label class="tscForm-label">Till (åååå-mm-dd eller åååå-mm-dd HH:mm)</label>
+	@*@Html.LabelFor(m => m.To, new { @class = "tscForm-label" })*@
+	@Html.TextBoxFor(m => m.To, new { @class = "tseInput", @type = "text", data_datepicker = "datetime" })
+	@*@Html.ValidationMessageFor(m => m.To)*@
+    @Html.ValidationMessage("TillDatumValidation1")
+    @Html.ValidationMessage("TillDatumValidation2")
+</div>
+<div class="row">
+	<div class="col-md-8 tscForm-row">
+		@Html.LabelFor(x => x.Text, new { @class = "tscForm-label" })
+		@Html.TextAreaFor(x => x.Text, new { @class = "tseTextarea" })
+		@Html.ValidationMessageFor(m => m.Text)
+	</div>
+    <div class="col-md-12 tscForm-row">
+        <div class="tscForm-inputContainer tsMarginBottom--halfGutter">
+            Visa för roller:<br />
+            <div class="tscForm-inputContainer tsMarginBottom">
+                @* TODO: Fixa namn för dessa *@
+                @Html.EditorFor(m => m.AnalysActive, "Checkbox")
+                @Html.EditorFor(m => m.WebbstyrningActive, "Checkbox")
+                @Html.EditorFor(m => m.WebbstyrningMultistyrning, "Checkbox")
+                @Html.EditorFor(m => m.LeverantörsinformationActive, "Checkbox")
+                @Html.EditorFor(m => m.AdminActive, "Checkbox")
+            </div>
+        </div>
+    </div>
+@*	<div class="col-md-8 tscForm-row">*@
+@*		<div class="tscForm-inputContainer tsMarginBottom--doubleGutter">*@
+@*			Visa för roller:*@
+@*			<input type="checkbox" class="tseCheckbox" name="display" id="display_analys" /> <label class="tseCheckbox-label" for="display_analys">Analys</label>*@
+@*			<input type="checkbox" class="tseCheckbox" name="display" id="display_direktstyrning" /> <label class="tseCheckbox-label" for="display_direktstyrning">Direktstyrning</label>*@
+@*			<input type="checkbox" class="tseCheckbox" name="display" id="display_leverantörsinformation" /> <label class="tseCheckbox-label" for="display_leverantörsinformation">Leverantörsinformation</label>*@
+@*			<input type="checkbox" class="tseCheckbox" name="display" id="display_admin" /> <label class="tseCheckbox-label" for="display_admin">Admin</label>*@
+@*			<br />(Stödet för roller dröjer tills användarhanteringen är på plats) $1$TODO: ta bort#1#*@
+@*		</div>*@
+@*	</div>*@
+</div>

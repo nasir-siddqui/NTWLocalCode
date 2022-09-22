@@ -1,0 +1,257 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * URL.................Switch between dev and production url:s
+ * BREAKPOINTS.........Breakpoints in em to be used by media queries
+ * LAYOUT..............Layout variables
+ * COLORS..............Colors
+ * TYPOGRAPHY..........Variables for font stacks and @font-face
+ * GRAPHICS............Graphics and icons
+ */
+
+
+
+/*------------------------------------*\
+   $URL
+\*------------------------------------*/
+
+
+
+
+
+//@gfxurl : "/framework/assets/gfx/";
+@gfxurl : "/resources/teliasonera/telia-se/css/gfx/";
+@xmlurl : "/resources/teliasonera/telia-se/css/";
+
+// A/B tests
+//@gfxurl : "/tse/img/responsive/abTest/";
+
+
+
+/*------------------------------------*\
+  $BREAKPOINTS
+\*------------------------------------*/
+
+// Major breakpoints
+//@mq-xsmall : 17em;  /* 270px / 16 */
+@mq-xsmall : 13em;    /* 208px / 16 */
+@mq-small  : 31em;    /* 496px / 16 */
+@mq-medium : 44em;    /* 704px / 16 */
+@mq-large  : 56em;    /* 894px / 16 */
+@mq-xlarge : 64em;    /* 1024px / 16 */
+
+// To use as max-width values
+@mq-lt-small  : (@mq-small  - 0.01em); /* Lower than Small */
+@mq-lt-medium : (@mq-medium - 0.01em); /* Lower than Medium */
+@mq-lt-large  : (@mq-large  - 0.01em); /* Lower than Large */
+@mq-lt-xlarge : (@mq-xlarge - 0.01em); /* Lower than XLarge */
+
+
+
+
+
+/*------------------------------------*\
+  $LAYOUT
+\*------------------------------------*/
+
+//@width-innerwrap    : 1020px;
+@width-innerwrap    : 1170px;
+@gutter             : 20;       // 20px
+@gutter-half        : 10;       // 10px
+@gutter-plus        : 30;       // 30px
+@gutter-double      : 40;       // 40px
+
+@text-area-maxwidth : 700px;
+@refill-maxwidth    : 620px;
+
+/*------------------------------------*\
+  $COLORS
+\*------------------------------------*/
+
+// Root colors
+@bodycolor                  : @white;
+@headingcolor               : @black;
+@alttextcolor               : @darkergrey;
+@textcolor                  : @black;
+@texthighlightcolor			    : @blue;
+
+@linkcolor                  : @purple;
+@linkcolorinverted          : @white;
+@hoverlinkcolor             : @lightpurple;
+
+@linkcolorinternal          : @purple;
+@hoverlinkcolorinternal     : @darkturq;
+
+@foldoutbgcolor             : @nearwhite;
+@filterbg             		  : rgb(240,240,240);
+
+//oldvalidationerror        :rgb(237, 28, 36);
+@validationerror            : rgb(255, 99, 25);
+@validationerrorbackground  : lighten(@validationerror,42%);
+@validationinfo             : @blue;
+@validationok          		: @turq;
+
+@verification				: rgb(109, 189, 39);
+@verificationbackground		: rgb(234, 246, 218);
+
+@info 						: @blue;
+@infobackground				: lighten(@blue, 54%);
+
+
+// Grey scale
+@black 			        : rgb(0,0,0);
+@nearblack          : lighten(@black, 13%); /* rgb(33,33,33) */
+@darkergrey 	      : lighten(@black, 17.9%); /* rgb(45,45,45) */
+@darkgrey 		      : lighten(@black, 35%); /* rgb(89,89,89) */
+@grey 			        : lighten(@black, 50%);
+@lightgrey          : lighten(@black, 75%);
+@lightergrey 	      : lighten(@black, 92%); /* rgb(235,235,235) */
+@nearwhite          : rgb(250,250,250);
+@transparentwhite   : rgba(255,255,255,0.7);
+
+@darknearwhite     	: darken(@nearwhite, 2%); /* rgb(245,245,245) */
+@lightnearwhite     : lighten(@nearwhite, 4%);
+@white 			        : rgb(255,255,255);
+
+
+@borderGrey			    : lighten(@black, 85%);
+// Brand colors
+
+/* Rich Purple */
+@purple             : rgb(101,45,134);          // rgb(101,45,134)
+
+
+@darkestpurple  : darken(@purple, 13%);     // rgb(63/29/84)
+@darkerpurple   : darken(@purple, 8.5%);    // rgb(76/35/103)
+@darkpurple     : darken(@purple, 5%);    // rgb(91/42/122)
+
+@lightpurple    : lighten(@purple, 6.5%);   // rgb(118,54,158)
+@lighterpurple  : lighten(@purple, 10%);    // rgb(126,57,168)
+@lightestpurple : lighten(@purple, 12%);    // rgb(132,68,172)
+
+@extralightpurple : rgb(208, 158, 238);
+
+/* Yellow */
+@yellow         : #eac907;
+
+/* Sky Blue */
+@blue           : rgb(0,131,190);
+@darkblue       : darken(@blue, 5%);
+@darkerblue     : darken(@blue, 15%);
+@lightblue      : lighten(@blue, 5%);
+@lighterblue    : lighten(@blue, 15%);
+
+/* Fresh Turquoise */
+@turq           : rgb(0,180,140);
+@semidarkturq   : darken(@turq, 2%);
+@darkturq       : darken(@turq, 7%);
+@darkerturq     : darken(@turq, 15%);
+@lightturq      : lighten(@turq, 7%);
+@lighterturq    : lighten(@turq, 15%);
+
+/* Blushing Pink */
+@pink           : rgb(198,27,121);
+@darkpink       : darken(@pink, 8.5%);
+@darkerpink     : darken(@pink, 15%);
+@lightpink      : lighten(@pink, 8.5%);
+@lighterpink    : lighten(@pink, 15%);
+
+/* Warm Orange */
+@orange         : rgb(255,99,25);   
+@darkorange     : darken(@orange, 5%);
+@darkerorange   : darken(@orange, 15%);
+@lightorange    : lighten(@orange, 5%);
+@lighterorange  : lighten(@orange, 15%);
+
+/* Clay */
+@clay           : rgb(199,194,186);
+@darkclay       : darken(@clay, 5%);
+@darkerclay     : darken(@clay, 15%);
+@lightclay      : lighten(@clay, 10%);
+@lighterclay    : lighten(@clay, 18%);
+@lightestclay   : lighten(@clay, 22%);
+
+/* Spring green */
+@green			: rgb(190,214,0);
+@darkgreen		: darken(@green, 5%);
+@darkergreen	: darken(@green, 15%);
+@lightgreen		: lighten(@green, 5%);
+@lightergreen	: lighten(@green, 15%);
+
+
+// Contextual colors
+@bordercolor-light          : @lightergrey;
+@pricecolor                 : @blue;
+@lightestblack  	        : lighten(@black, 97%);
+
+
+
+//Carousel bullets
+@carousel-bullet-color      : @lightgrey;
+@carousel-bullet-color-on   : @purple;
+
+@carouselhero-wrapper-bg    : rgb(226,226,226);
+@carouselhero-item-bg		: rgb(234,234,234); // Why? THere's an @lightergrey that is rgb(235,235,235)
+
+//Filter Remove
+@filter-remove-buttons-color            : rgb(174, 174, 174);
+@filter-remove-buttons-color-trigged    : rgb(224, 224, 224);
+@filter-remove-buttons-color-hover      : rgb(199, 199, 199);
+
+//Search
+@searchtextboxcolor			: rgb(195,180,205);
+@searchtextboxcolor-focus	: rgb(160,205,229);
+@searchareabordercolor 		: @lightclay;
+@searchareabgcolor 			: @lightergrey;
+@searchtagcolor 			: @grey;
+
+//input
+@inputbordercolor           : rgb(219,219,219);
+
+//ProductLeadin
+@productleadinbordercolor	: @lighterclay;
+@productitemhoverborder		: @lightpurple;
+@productleadincolor         : @darkergrey;
+@productleadinpricecolor    : @nearblack;
+
+//rating
+@ratingbgcolor 				: @lighterclay;
+@ratingfillbgcolor 			: @blue;
+@ratingtextcolor 			: @grey;
+
+//Easy to find
+@easytofindhovercolor		: rgb(81,35,107);
+
+//Footer 
+@footerbgcolor 				: rgb(110,50,148);
+@footersocialbgcolor 		: rgb(181,104,229);
+
+@darkbuttonbgcolor			: rgb(41,19,55);
+
+
+
+
+/*------------------------------------*\
+  $TYPOGRAPHY
+\*------------------------------------*/
+
+
+// Base font stack and settings
+@basefont           : "Helvetica Neue", Helvetica, Arial, sans-serif;
+@basefontsize       : 14;
+@baselineheight     : 20;
+@headingfont        : @basefont;
+@headingfontweight  : bold;
+
+
+
+
+/*------------------------------------*\
+  $GRAPHICS
+\*------------------------------------*/
+// Sprites image size, used for retina graphics
+@gfx-background-size-left : 100px;
+@gfx-background-size-top  : 100px;

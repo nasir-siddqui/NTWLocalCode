@@ -1,0 +1,16 @@
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\AutoMapper.Net4.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\NTW.Data.Analys.dll.config
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\NTW.Data.Analys.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\AutoMapper.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\EntityFramework.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\EntityFramework.SqlServer.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\log4net.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\Microsoft.AnalysisServices.AdomdClient.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\AutoMapper.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\EntityFramework.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\EntityFramework.SqlServer.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\bin\Test - Telia\log4net.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\obj\TestTelia\Telia.NTW.Analys.csproj.AssemblyReference.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\obj\TestTelia\Telia.NTW.Analys.csproj.CoreCompileInputs.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\obj\TestTelia\Telia.NTW.Analys.csproj.CopyComplete
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Data.AS\obj\TestTelia\NTW.Data.Analys.dll

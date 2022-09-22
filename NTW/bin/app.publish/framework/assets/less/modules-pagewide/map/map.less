@@ -1,0 +1,139 @@
+
+
+
+.tsMap { 
+	position: relative;
+//	width: 100%;
+	height: 0;
+	padding-bottom: 50%;
+}
+
+.tsMap-Legend {
+	.l-list;
+	.l-inline-list;
+	.margin(bottom;@gutter);
+}
+
+[class^="tsMap-LegendItem"] + [class^="tsMap-LegendItem"]:before {
+	.margin(left;@gutter);
+}
+
+[class^="tsMap-LegendItem"]:before {
+	content: "";
+	.inline-block;
+	.margin(right;5);
+	.margin(top;-3);
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+//	border: 1px solid @lightgrey;
+	.border-radius(50%);
+	background-color: @purple;
+}
+
+.tsMap-LegendItem--Retail:before {
+	background-color: @turq;
+}
+
+.tsMap-LegendItem--Business:before {
+	background-color: @blue;
+}
+
+.tsMap-Content {
+	position: absolute; 
+	width: 100%;
+	height: 100%;
+}
+
+.tsMap-Details {
+	position: absolute;
+	bottom: 0;
+	right:0;	
+	.padding(all;0;@gutter*2;@gutter*2);
+	width: 100%;
+	max-width: 400px;
+	background-color: @darknearwhite;
+	.transparency.background(@darknearwhite; 0.8);
+	color: @darkergrey;
+}
+
+
+.tsMap-Header {
+	.font-size(lineheight;15;20);
+	font-weight: bold; 
+	margin-bottom: @gutter/2*1px;
+	.margin(top;@gutter);
+}
+.tsMap-Header h3{
+	padding-right: 23px;
+}
+
+.tsMap-Details p {
+	margin-bottom: 0;
+	.font-size(12);
+}
+
+.tsMap-Details dl {
+	.l-inline-elements;
+	margin-bottom: 0;
+	.font-size(12);
+}
+
+.tsMap-Details dt {
+	font-weight: bold;
+}
+
+
+.tsMap-Details > :last-child {
+	.margin(bottom;@gutter);
+}
+
+.tsMap-Close {
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	cursor: pointer;
+}
+
+.tsMap-Close > b {
+	.visuallyhidden;
+}
+
+.tsMap-Close:before {
+	content: "\e019";
+	font-family: iconfont;
+	color: @turq;
+	background-color: @white;
+	.font-size(lineheight;14;@gutter-half);
+	//font-size: 14px;
+	.padding(all;6);
+	//padding: 6px;
+	//line-height: 10px;
+	border-radius: 50%;
+	text-align: center;
+	font-weight: normal;
+}
+
+.tsMap-Close:hover:before {
+	color: @white;
+	background-color: @turq;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);	
+}
+
+
+// Fix for Google Maps Info Window styles
+img[src*="gstatic.com/"],
+img[src*="googleapis.com/"] {
+	max-width: none;
+}
+
+
+.tsMap-Result {
+	position: absolute;
+	top:0;
+	left: 25%;
+	background-color: @transparentwhite;
+}
+
+
+.google-map{width:600px; height:400px;}

@@ -1,0 +1,45 @@
+.menu-vertical-triggerarea() {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+}
+
+.menu-vertical-triggericon() {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -8px 0 0 -8px;
+}
+
+.menu-vertical-topitem() {
+    border-bottom: 1px solid @darkestpurple;
+    background-color: @purple;
+    &:last-child {
+        border-bottom: none;        
+    }
+    
+    a:hover {
+//        background-color: darken(@purple, 5%);
+        background-color: @darkerpurple;
+    }
+}
+
+.menu-vertical-anchor() {
+    display: block;
+    .padding(all;12;10);
+    color: @linkcolorinverted;
+}
+
+.menu-vertical-topanchorarea() {
+    padding-right: 60px;    
+}
+
+.menu-vertical-subitem() {
+    background-color: @darkestpurple;
+
+    a:hover { 
+        background-color: darken(@darkestpurple, 5%);
+    }
+}

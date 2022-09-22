@@ -1,0 +1,56 @@
+.tsStepper-container,
+.tsOrderStepper-container {	 
+	li {
+		&.inactive {
+			display: none;
+		}
+	}	
+}
+.tsStepper--highway,
+.tsOrderStepper--highway {
+	.tsStepper-step, 
+	.tsStepper-step--left,
+	.tsStepper-step--right,
+	.tsOrderStepper-step, 
+	.tsOrderStepper-step--left,
+	.tsOrderStepper-step--right {
+		width: 100%;
+	}
+}
+.tsStepper-step,
+.tsStepper-step--left,
+.tsStepper-step--right,
+.tsOrderStepper-step,
+.tsOrderStepper-step--left,
+.tsOrderStepper-step--right {
+	width: 100%;
+	.tsStepper-label,
+	.tsOrderStepper-label {
+		margin: 0;
+	}
+	
+	display:none;
+}
+.tsStepper-current,
+.tsOrderStepper-current {
+ 	display: block;
+}
+
+.step-inactive {
+	display: none;
+}
+.tsStepper-container--threeSteps, 
+.tsStepper-container--fiveSteps,
+.tsOrderStepper-container--threeSteps, 
+.tsOrderStepper-container--fiveSteps {  
+    .tsStepper-step,
+    .tsOrderStepper-step {
+        width: 100%;
+    }
+    .tsStepper-step--left,
+    .tsStepper-step--right,
+    .tsOrderStepper-step--left,
+    .tsOrderStepper-step--right {
+        width: 100%;
+    }
+}

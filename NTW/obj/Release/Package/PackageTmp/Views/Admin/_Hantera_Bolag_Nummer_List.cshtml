@@ -1,0 +1,42 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model BolagEditViewModel
+
+@if (Model.EditMode)
+{
+    <!-- Nummer -->
+    <h3 class="h3 tsBorderTop tsMarginTop tsPaddingTop">
+        Nummer
+    </h3>
+
+    <!-- Lägg till nummer -->
+    <div class="tsMarginTop">
+        @Html.ActionLink("Lägg till nummer", "Hantera_Bolag_Nummer_Add", "Admin", new { companyId = Model.CompanyId, bolagsnamn = Model.Bolagsnamn }, new { @class = "tsBtn--Regular" })
+    </div>
+
+    <!-- Tabell med nummer -->
+    <table class="tsTable tsTable-horizontal tsMarginTop">
+        <thead>
+            <tr>
+                <th>Nummer</th>
+                <th>Antal knutna anv</th>
+                <th>@* Edit & Delete *@</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.nummerList != null)
+            {
+                foreach (NummerListRowModel nummer in Model.nummerList)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(nummer.Nummer, "Hantera_Bolag_Nummer_Edit", new { advanceExtId = nummer.Id, companyId = Model.CompanyId, bolagsnamn = Model.Bolagsnamn })</td>
+                        <td>@nummer.ConnectedAnvändareCount</td>
+                        <td>
+                            @Html.ActionLink(" ", "Hantera_Bolag_Nummer_Edit", new { advanceExtId = nummer.Id, companyId = Model.CompanyId }, new { @class = "tsIcon-Edit tsMarginLeft", @title = "Redigera" })
+                            <a class="tsIcon-Delete tsMarginLeft--halfGutter" onclick="deleteConfirmation.showConfirmation(event, 'Admin', 'Hantera_Bolag_Nummer_Delete', 'numret', @nummer.Id, @Model.CompanyId)" href=""></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

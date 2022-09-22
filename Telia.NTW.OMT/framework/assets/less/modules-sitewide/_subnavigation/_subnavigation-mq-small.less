@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * SUB-NAVIGATION........
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $SUB-NAVIGATION
+\*------------------------------------*/
+
+
+.tsSubNavigation {
+    .vertical-space(bottomhalf);
+//    .margin(top;25);
+}
+
+.tsSubNavigation-Items {
+.tsSubNavigation > ul {
+    .l-inline-list;
+	border-top: 2px solid @lightergrey;
+	border-bottom: 2px solid @lightergrey;
+	padding: 6px 0;
+	}
+}
+
+.tsSubNavigation > ul >li {
+//.tsSubNavigation-Item {
+	.inline-block;
+	.margin(right; @gutter-plus);
+	width: auto;
+	border-bottom: none;
+}
+
+.tsSubNavigation a {
+//.tsSubNavigation-Item > a {
+	.font-size(15);
+	&:hover {
+	    text-decoration: underline;
+	}
+}
+
+.tsSubNavigation-current {
+//.tsSubNavigation-Item--Current {
+	color: @black;
+	text-decoration: underline;
+}
+
+.tsSubNavigation {
+    // This moves the sub navigation below main content
+    .flexbox-order(1);
+}
+

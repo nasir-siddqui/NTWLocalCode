@@ -1,0 +1,112 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * FEEDBACK............
+
+*/
+
+
+
+/*------------------------------------*\
+    $FEEDBACK
+\*------------------------------------*/
+
+ [class^="tsFeedback"] {
+	/*display: block;
+	overflow: auto;
+	z-index: 500;
+	cursor: pointer;
+	position: static;*/
+
+}
+
+.tsFeedback-button {
+	/*display: list-item;
+	overflow: hidden;
+	white-space:nowrap;
+	cursor: pointer;*/
+}
+
+// .tsFeedback--chat {
+// 	background-color: @darkerpurple;
+// }
+
+// .tsFeedback--support {
+// 	background-color: @purple;
+// }
+
+.tsFeedback--feedback {
+	background-color: @turq;
+	float: left;
+	width: 100%;
+	.font-size(28);
+	.padding(top;15);
+}
+
+.tsFeedback-label {
+	//height: 80px;
+	line-height: 40px;
+	font-weight: bold;
+	float: right;
+	width: 100%;
+	/*margin-right: -100%!important;*/
+    background-color: @turq;
+    color:@white;
+    .padding(leftright;@gutter-half;@gutter-half);
+    /*.transition(margin-right 0.5s);*/
+    text-align: center;
+	&:hover{
+		color:@white;
+	}
+	& > span {
+		float: left;
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	
+}
+
+.tsFeedback-label.show {
+	/*margin-right: 0%!important;*/
+}
+
+.no-js [class^="tsFeedback"] {
+	position: static;
+}
+
+
+[class^="tsFeedback"] [class*=tsIcon-] {
+    width: 100%;
+    //height: 40px;
+    overflow: hidden;
+  	line-height: 25px;
+    color: @white;
+}
+
+[class^="tsFeedback"] [class*=tsIcon-]:before {
+    position: relative;
+}
+
+[class^="tsFeedback"] .tsIcon-mobile {
+    top: -4px;
+}
+
+.tsFeedback .tsIcon-chat {
+    top: -6px;
+}
+
+@-moz-document url-prefix() {
+	.tsFeedback [class*=tsIcon-] {
+			line-height: 40px;
+	}
+}
+
+.touch .tsFeedback--Chat {
+	display: none !important;
+}
+
+

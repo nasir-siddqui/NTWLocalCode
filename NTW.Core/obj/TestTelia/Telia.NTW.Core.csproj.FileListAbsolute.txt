@@ -1,0 +1,43 @@
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\AutoMapper.Net4.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\NTW.Core.dll.config
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\NTW.Core.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\AutoMapper.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EntityFramework.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EntityFramework.SqlServer.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\log4net.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\NTW.Data.Analys.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\PropertyUtils.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Collections.Immutable.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\Microsoft.AnalysisServices.AdomdClient.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.Mvc.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EPPlus.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\UCDArch.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.Razor.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.Razor.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\Microsoft.Web.Infrastructure.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.Deployment.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\Newtonsoft.Json.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\NTW.Data.Analys.dll.config
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\PropertyUtils.pdb
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\PropertyUtils.dll.config
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\AutoMapper.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EntityFramework.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EntityFramework.SqlServer.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\log4net.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Collections.Immutable.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.Mvc.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\EPPlus.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.Razor.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.Razor.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\bin\Test - Telia\System.Web.WebPages.Deployment.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.csproj.AssemblyReference.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.Migrations.Initial.resources
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.Migrations.AddKoncernBolagAnvändare.resources
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.Migrations.RemovedAnvändareBolagKoncern.resources
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.csproj.GenerateResource.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.csproj.CoreCompileInputs.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\Telia.NTW.Core.csproj.CopyComplete
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\NTW.Core\obj\TestTelia\NTW.Core.dll

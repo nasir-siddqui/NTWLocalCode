@@ -1,0 +1,19 @@
+<button class="tsBtn--Border" ng-click="toggle()" ng-disabled="disabled || share.status">{{ texts.shareDialogButton }}</button>
+
+<div class="wrapper tsClear" ts-animate="opened">
+
+    <div ts-validator="{{ name }}">
+
+        <div class="tseTextField--Small ui-front">
+            <input type="text" name="user" data-rules="required" data-value="" ts-dcf-users ng-disabled="!share.users">
+        </div>
+
+        <div class="tseTextArea--Small tsMarginTop">
+            <textarea rows="5" ng-model="assign.message"></textarea>
+        </div>
+
+        <button type="submit" ts-loading-button="share" class="tsBtn--Border--Animated tsPullRight tsMarginTop" ng-click="submit()" ng-disabled="disabled || share.status" data-status="share.status" data-reset-after-complete="true">{{ texts.shareButton }}</button>
+
+    </form>
+
+</div>

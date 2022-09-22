@@ -1,0 +1,375 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * ACCORDION...........Fold out content regarding a topic
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $ACCORDION
+\*------------------------------------*/
+
+
+.tsAccordion {
+	display: block;
+    .clearfix;
+}
+
+.tsAccordion-list {
+	float: left;
+	width: 100%;
+	.margin(all;0);
+	.padding(all;0);
+    .tsPageSection-heading {
+        .tsIconWrapper {
+            float: right;
+            position: relative;
+        }
+        .tsIconBackground {
+            top: 2px;
+            .margin(right;@gutter);
+            &.checked {
+                background-color: @white;
+                i {
+                    color: @turq;
+                }
+            }
+        }
+    }
+    .tscLabel {
+        top: 10px;
+        margin-left: 0;
+    }
+}
+
+.tsAccordion-list > li {
+	cursor: pointer;
+    &.is-disabled {
+        cursor: default;
+    }
+    &.tsAccordion-configContainer {
+        cursor: auto;
+        background-color: @white;
+    }
+}
+
+
+.tsAccordion-list-item {
+	background-color: @turq;
+	.l-list;
+	float: left;
+    position: relative;
+	width: 100%;
+	margin-left: 0;
+	padding-left: 0;
+    border-bottom: 4px solid white;
+	&:hover {
+		background-color: @darkturq;	
+        &.is-disabled {
+            background-color: @turq;
+        }        
+	}
+    &:last-child {
+        border-bottom: none;
+    }
+    .arrowDown.showArrow, .arrowUp.showArrow {
+        display: inline-block;
+    }
+	.arrowDown, .arrowUp, &.is-disabled .arrowDown, &.is-disabled .arrowUp  {
+		display: none;
+	}
+    .tsHiddenLabel {
+        position: absolute; 
+        top: 0;
+        height: 25px;
+        width: 25px;
+    }
+    .tsIcon-Minus {
+        color: @pink;
+    }
+}
+
+
+
+/*.tsAccordion-list-item > i {
+	float: left;
+	.padding(all;10);
+	color: @white;
+}*/
+
+.tsAccordion-list-item > h2 {
+	float: left;
+	padding: 15px 20px;
+	color: @white;
+	p {
+		float: right;
+		color: @white;
+		margin-bottom: 0px;
+	}
+}
+
+.tsAccordion-label {
+    float: left;
+    padding: 15px 10px;
+}
+
+.tsAccordion-list-item > ul {
+	float: left;
+	width: 100%;
+	background-color: @white;
+	display: none;
+}
+.tsAccordion-list-item {
+    .tsWrapInner {
+        float: none;
+    }
+}
+.tsAccordion-list-item.is-disabled > ul {
+    display: block;
+}
+
+.tsAccordion-show-more {
+	float: right;
+	padding: 14px 10px;
+	color: @white;
+	margin-bottom: 0px;
+}
+
+.tsAccordion-show-more [class*=tsIcon-] {
+	.font-size(8);
+	height: 10px;
+	width: 30px;
+	line-height: 15px;
+}
+
+.tsAccordionContainer {
+    display: none;
+    border-top: 1px solid @lightergrey;
+    float: left;
+    width: 100%;
+    background: @white;
+}
+.is-disabled .tsAccordionContainer {
+    display: block;
+}
+
+
+// .tsAccordion-list-item.toggled {
+//     > ul, .tsAccordionContainer {
+//         display: block;
+//     }
+// }
+// 
+
+
+/*------------------------------------*\
+    $ACCORDION TRANSPARENT
+\*------------------------------------*/
+
+.tsAccordion-list--transparent {
+    .tsAccordion-list-item {
+        border-bottom: 0 none;
+        margin-bottom: 4px;
+    }
+}
+
+/*------------------------------------*\
+    $ACCORDION ALTERNATIVE
+\*------------------------------------*/
+
+.tsAccordion-alt-list {
+	.tsAccordion-list();
+    border-left: 1px solid @lightgrey;
+    border-right: 1px solid @lightgrey;
+}
+
+.lastChild {
+    .tsAccordion-alt-list {
+        border: none;
+    }
+}
+
+.toggled.lastChild {
+    .tsAccordion-alt-list {
+        border: 1px solid @lightgrey;
+    }
+}
+
+.tsAccordion-alt-list-item {
+	.tsAccordion-list-item();
+	background-color: @white;
+	border-bottom: 1px solid @lightergrey;
+	&:hover {
+		background-color: @darknearwhite;
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+	.tsAccordion-show-more {
+		float: left;
+		.padding(right; 0);
+		.padding(left;10);
+        color: @lightgrey;
+	}
+
+	.tsAccordian-show-more i {
+		color: @lightgrey;
+    }
+
+}
+
+.tsAccordion-alt2-list-item {
+	.tsAccordion-alt-list-item();
+	cursor: default;
+	i {
+        float: right;
+        color: @turq;
+        .font-size(14);
+        display: inline-block;
+        .padding(all; 5);
+        .margin(top; 15);
+        .margin(right; 10);
+        background-color: @lightergrey;
+        border-radius: 20px;
+        cursor: pointer;
+	}
+	h2 {
+		color: black;
+		.padding(left; 45);
+	}
+}
+
+.tsAccordion-alt-list-item > h2 {
+	float: left;
+	padding: 15px 20px;
+	.padding(left; 5);
+	color: black;
+	p {
+		float: right;
+		color: @grey;
+		margin-bottom: 0px;
+	}
+}
+
+.tsAccordion-nestled-alt-list {
+	.tsAccordion-list();
+	cursor: default;
+	display: none;
+	border-top: 1px solid @lightergrey;
+	li {
+		.tsAccordion-alt-list-item();
+	}
+	li > h2 {
+		float: left;
+		padding: 15px 65px;
+		color: @grey;
+		font-weight: normal;
+		p {
+			float: right;
+			color: @grey;
+			margin-bottom: 0px;
+		}
+	}
+}
+
+
+/*------------------------------------*\
+    $ACCORDION STRIPED
+\*------------------------------------*/
+
+.tsAccordion-list--striped {
+    .tsAccordion-list-item {
+        background-color: @white;
+        border-bottom: none;
+        &:nth-child(even) {
+            background-color: @darknearwhite;
+        }
+        &:hover {
+            background: @lightergrey;
+        }
+    }
+    .tsAccordion-list-item > h2 {
+        color: black;
+    }
+    .tsAccordion-show-more {
+        color: @lightgrey;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    $ACCORDION WITH CHECKBOXES
+\*------------------------------------*/
+
+.tsConfigure {
+    .tsAccordion-list-item {
+        label.empty {
+            height: 20px;
+        }
+    }
+    .tsAccordion-alt-list {
+        border: none;
+        border-top: 1px solid @lightergrey;
+        border-bottom: 1px solid @lightergrey;
+        .tsIconBackground {
+            left: 40px;
+        }
+        .tsAccordion-label {
+            .margin(left;40);
+        }
+        .tsAccordion-alt-list-item>h2 {
+            .padding(leftright;52;0);
+        }
+        .tsAccordion-alt-list-item {
+            .tsAccordion-show-more {
+                float: right;
+                .padding(leftright; 0;10);
+            }
+        }
+        .tsAccordion-nestled-alt-list {
+            .tsIconBackground {
+                left: 70px;
+                cursor: pointer;
+            }
+            li>h2 {
+                .padding(left;82);
+            }
+        }
+    }
+}
+
+
+/*------------------------------------*\
+    $LIST WITH INPUT FIELDS
+\*------------------------------------*/
+
+.tsInputList {
+    .tsAccordion-list-item {
+        cursor: auto;
+        //.padding(topbottom;@gutter/4;@gutter/4);
+        .tscForm-inputContainer {
+            .margin(left;250);
+            .margin(top;6);
+            .tseInput {
+                float: left;
+            }
+            .tsBtn {
+                float: left;
+                .margin(left;4);
+            }
+        }
+        .tsIconBackground {
+            cursor: pointer;
+        }
+    }
+}

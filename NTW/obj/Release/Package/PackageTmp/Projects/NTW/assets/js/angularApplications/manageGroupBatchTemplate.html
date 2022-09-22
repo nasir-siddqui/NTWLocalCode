@@ -1,0 +1,29 @@
+<div ng-if="getOrganisationsSuccess" class="tsAttention--Info tsAttention--tableLayout">
+    <div class="tsAttention-Message tsWrapInner">
+        <i class="tsIcon-Information"></i>
+        <p class="tsAttention-Content">
+            <span>{{ getOrganisationsSuccess }}</span>
+        </p>
+        <a ng-click="resetError('getOrganisationsSuccess')"><span>Stäng</span><i class="tsIcon-Close"></i></a>
+    </div>
+</div> <!-- END: div.tsAttention -->
+
+<div ng-if="getOrganisationsError" class="tsAttention--Panic tsAttention--tableLayout">
+    <div class="tsAttention-Message tsWrapInner">
+        <i class="tsIcon-Panic"></i>
+        <p class="tsAttention-Content">
+            <span>{{ getOrganisationsError }}</span>
+        </p>
+        <a ng-click="resetError('getOrganisationsError')"><span>Stäng</span><i class="tsIcon-Close"></i></a>
+    </div>
+</div> <!-- END: div.tsAttention -->
+
+<div class="tsWrapInner tsMarginTop">
+
+    <div class="tseTextArea">
+        <label>{{ translationGroup.translate("GET_ORGANISATIONS_CSV") }}</label>
+        <textarea ng-model="organisationsText" rows="5"></textarea>
+    </div>
+    <button class="tsBtn--Animated tsMarginTop" ts-loading-button data-status="getOrganisationsStatus" data-reset-after-complete="true" ng-click="getOrganisations(organisationsText)" ng-disabled="!organisationsText">{{ translationGroup.translate("GET_ORGANISATIONS_BUTTON") }}</button>
+
+</div>

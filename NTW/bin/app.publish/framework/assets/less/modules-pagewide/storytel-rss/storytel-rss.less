@@ -1,0 +1,46 @@
+  .tsLibrary-rss{
+    .l-inline-list;
+  }
+  .tsLibrary-rss > .tsLibrary-rss-Li{
+    max-width: @text-area-maxwidth;
+    width: 100%;
+    .padding(bottom; @gutter-half);
+  }
+  .tsLibrary-rss-Li .tsLibrary-bd{
+    position: relative;
+    height: 100px;
+    .padding(left; @gutter-half);
+  }
+  .tsLibrary-rss-Li .tsLibrary-bd p{
+    .margin(top;5);
+    .margin(bottom;0);
+  }
+  .tsLibrary-rss-Li img{
+    height: 100px;
+  }
+  .tsLibrary-rss .tsLibrary-rssText {
+    display:block;
+    height: 57px;
+    height: 5.7rem;
+    .font-size(lineheight;14;19);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .tsLibrary-rss-Li .tsLibrary-bd p:last-child{
+    .margin(top;@gutter-half);
+    .margin(bottom;0);
+  }
+  .tsLibrary-bd .rssLastRow{
+    .font-size(13);
+    width:100%;
+  }
+  .rssLastRow a{
+    float:right;
+
+  }
+  .tsLibrary-rss-title {
+    .font-size(lineheight;16;16);
+  }

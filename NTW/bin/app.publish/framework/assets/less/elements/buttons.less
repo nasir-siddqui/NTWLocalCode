@@ -1,0 +1,200 @@
+@import "buttons/_buttons.less";
+// Multi select buttons, to be finished
+.tsBtnMulti--Primary {
+    .btn;
+}
+.tsBtn--Primary {
+    overflow: hidden;
+    i {
+        .font-size(18);
+        .margin(left;
+        6);
+        .padding(top;
+        1);
+        //float: right;
+
+    }
+}
+.tsPushdown .tsBtn.is-active, .tsPushdown.is-expanded .tsBtn-trigger {
+    background-color: @darkestpurple;
+
+}
+//.tsBtnMulti--filter .tsIcon-ShowMore,
+//.tsBtnMulti--select .tsIcon-ShowMore
+.tsBtnMulti--Primary .caret {
+    .inline-block;
+    position: relative;
+    top: -1px;
+    margin-left: 0.3em;
+    margin-right: -0.3em;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    .border-radius(50%);
+    background-color: @darkpink;
+
+}
+/*.tsBtnMulti--filter .tsIcon-ShowMore,
+.tsBtnMulti--select .tsIcon-ShowMore {
+    background-color: @white;
+    width: auto;
+    height: auto;
+    .font-size(20);
+     margin-right: -0.2em;
+}*/
+
+.tsBtnMulti--Primary:hover .caret {
+    background-color: @darkerpink;
+
+}
+.tsBtnMulti--Primary .caret::after, {
+    content: "\e019";
+    color: @white;
+
+}
+.tsBtn--filter-remove {
+    //     line-height: 0.45em!important;
+    //     margin-right: 0;
+
+}
+.tsBtn--filter-remove {
+  background-color: @turq;
+  color: @white;
+  &:hover {
+    color: @white;
+    background-color: @turq;
+    .remove {
+      background-color: @white;
+      color: @turq;
+
+    }
+  }
+  &:focus {
+    background-color: @filter-remove-buttons-color-trigged;
+  }
+}
+
+.tsBtnMulti--filter .tsIcon-ShowMore {
+  color: @darkturq;
+  top: 0;
+}
+
+.tsBtnMulti--select .tsIcon-ShowMore {
+  color: @white;
+  top: 0;
+  background-color: @blue;
+}
+
+.tsBtnMulti--select.active .tsIcon-ShowMore {
+  background-color: @darkblue;
+}
+
+.tsBtnMulti--filter:hover .tsIcon-ShowMore {
+    color: @darkerturq;
+}
+
+.tsBtn--filter-remove .tsIcon-Close {
+  .inline-block;
+  position: relative;
+  top: 0;
+  //.margin(right;2);
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  .border-radius(50%);
+  background-color: @white;
+  .font-size(lineheight; 8; 16);
+  color: @turq;
+}
+
+.touch .tsBtn, .touch .tsBtn--Primary, .touch .tsBtnMulti--Primary {
+    padding: 0.6em 1em 0.6em;
+}
+
+.touch .tsBtnMulti--filter, .touch .tsBtn--filter-remove, .touch .tsBtnMulti--select {
+    padding: 0.4em 1em 0.4em;
+}
+
+.touch .tsBtn--filter-remove {
+  i {
+    font-size: 12px;
+  }
+}
+
+.tsBtn--login, .tsBtn--login--alt {
+    background-color: @purple;
+    border: none;
+    color: @white;
+    .padding(all;
+    @gutter-half);
+    .font-size(16);
+    font-weight: bold;
+    float: right;
+    .margin(top;
+    @gutter-half);
+    -webkit-appearance: none;
+}
+
+.tsBtn--login--alt {
+    background-color: @darkestpurple;
+}
+
+// Fix for Firefox padding/line-height behaviour
+@-moz-document url-prefix() {
+  .touch .tsListFilter .tsBtn--filter-remove {
+      .padding(all; 7);
+  }
+
+  .touch .tsBtn--login, .touch .tsBtn--login--alt {
+    .padding(all;
+    @gutter;@gutter;@gutter;@gutter;);
+  }
+
+  //Where is this used?
+  input[type=submit], .touch input[type=submit] {
+      //padding: 0;
+  }
+  input[type=submit]::-moz-focus-inner, input[type=reset]::-moz-focus-inner, button::-moz-focus-inner {
+      padding: 0.35em 0.7em 0.4em;
+  }
+  .touch input[type=submit]::-moz-focus-inner, .touch input[type=reset]::-moz-focus-inner, .touch button::-moz-focus-inner {
+      padding: 0.5em 1em 0.5em;
+  }
+  .touch .tsSelectList {
+      top: 44px;
+  }
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tsCollapse-trigger {
+  background: none;
+  border: 0 none;
+  .font-size(lineheight;
+  24;
+  45);
+  width: 45px;
+  padding: 0;
+  color: @purple;
+
+  &:hover {
+    background: @darkpurple;
+    color: @white;
+  }
+}
+
+// fix issue in firefox
+.tsCollapse-trigger::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.tsBtn[disabled=disabled] {
+  background-color: lighten(@purple,55%);
+  &:hover {
+    background-color: lighten(@purple,45%);
+  }
+}

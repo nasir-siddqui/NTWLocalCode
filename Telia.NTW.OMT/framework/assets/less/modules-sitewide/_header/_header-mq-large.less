@@ -1,0 +1,303 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * PRIMARY-NAVIGATION..
+ * SEARCH..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRIMARY-NAVIGATION
+\*------------------------------------*/
+
+/* --- menu v4 --- */
+
+.no-js .tsWrapHeader {
+    float: right;
+    overflow: auto;
+}
+
+.tsNavPrimary-SubLevel-list {
+    position: relative;
+//    .padding(left;@gutter*2);
+}
+
+.tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    width: 23.5%;
+}
+
+
+.tsNavPrimary-SubLevelItem--Related {
+//    margin: 0 -30px 0 2.6% !important;
+//    width: 29.5%;
+    margin: 0 0 0 2.6% !important;
+    width: 25.4%;
+}
+
+.tsNavPrimary-SubLevelItem--Related:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 28%;
+    border-left: 1px solid @darkerpurple;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    margin: 0 -40px 0 0;
+    .padding(top;54);
+    border-top: none;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    display: block;
+    width: 100%;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .padding(all;@gutter*2/3;@gutter*2;);
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after {
+    right: @gutter*2px;
+    top: 14px;
+}
+
+
+/* --- END: menu v4 --- */
+
+
+
+
+
+/* --- menu v5 overrides --- * /
+
+.no-js .tsWrapHeader {
+    float: right;
+    overflow: auto;
+}
+
+.tsNavPrimary-SubLevel-list {
+    position: relative;
+}
+
+// Remove
+.menu-v5 .tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    width: 23.5%;
+    width: 25%;
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related {
+    margin: 0 0 0 2.6% !important;
+    width: 25.4%;
+    margin: 20px 0 0 0 !important;
+    width: 25%;
+}
+
+.tsNavPrimary-SubLevelItem--Related:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 28%;
+    border-left: 1px solid @darkerpurple;
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related:before {
+    display: none;
+}
+// --
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+// Remove
+    margin: 0 -40px 0 0;
+    margin: 0;
+    .padding(top;54);
+    padding-top: 0;
+// --
+    border-top: none;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    display: block;
+    width: 100%;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .padding(all;@gutter*2/3;@gutter*2;);
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after {
+    right: @gutter*2px;
+    top: 14px;
+}
+
+
+/* --- END: menu v5 overrides --- */
+
+
+
+
+
+/* --- ONLY menu v5 --- * /
+
+.no-js .tsWrapHeader {
+    float: right;
+    overflow: auto;
+}
+
+.tsNavPrimary-SubLevel-list {
+    position: relative;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    border-top: none;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    display: block;
+    width: 100%;
+}
+
+//.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+//    .padding(all;@gutter*2/3;@gutter*2;);
+//}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after {
+    right: @gutter*2px;
+    top: 14px;
+}
+
+
+/* --- END: ONLY menu v5 --- */
+
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+/* --- menu v4 --- */
+
+.tsHeader-Search {
+    width: 31.9%;
+}
+
+.no-js .tsHeader-Search {
+    float: none;
+    width: 100%;
+}
+
+.tsHeader-Search input[type=search],
+.tsHeader-Search input[type=text] {
+    width: 100%;
+}
+
+/* --- END: menu v4 --- */
+
+
+
+
+/* --- menu v5 overrides --- * /
+
+// container
+
+.menu-v5 .tsHeader-Search {
+    position: relative;
+    width: 165px;
+}
+
+.no-js .tsHeader-Search {
+    float: none;
+    width: 100%;
+}
+
+
+// form
+
+.menu-v5 .tsSearch-form {
+    width: auto;
+    background-color: @lightergrey;
+}
+
+
+// input field
+
+.menu-v5 .tsHeader-Search input[type=search],
+.menu-v5 .tsHeader-Search input[type=text] {
+    width: 165px;
+}
+
+
+// submit icon
+
+.menu-v5 .tsHeader-Search .tsSearch-form .tsIcon-Search {
+    color: @black;
+}
+
+/* --- END: menu v5 overrides --- */
+
+
+
+
+
+/* --- ONLY menu v5 --- * /
+
+// container
+
+.tsHeader-Search {
+    position: relative;
+    //width: 31.9%;
+    width: 165px; //Un/comment to use v5 style
+}
+
+.no-js .tsHeader-Search {
+    float: none;
+    width: 100%;
+}
+
+
+// form
+
+.tsSearch-form {
+    width: auto;
+    background-color: @lightergrey;
+}
+
+
+// input field
+
+.tsHeader-Search input[type=search],
+.tsHeader-Search input[type=text] {
+    width: 165px; //Un/comment to use v5 style
+    //width: 100%;
+}
+
+.tsSearch-form-input {
+	padding: 10px 10px 10px 40px;
+}
+
+
+// submit icon
+
+.tsHeader-Search .tsSearch-form .tsIcon-Search {
+    color: @black;
+}
+
+
+
+.js .is-fixed .tsHeader-Search:not(.is-disabled) > form {
+	right: 0;
+}
+
+
+/* --- END: ONLY menu v5 --- */
+

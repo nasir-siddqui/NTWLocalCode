@@ -1,0 +1,222 @@
+a.tsSpotlightLink {
+    display: block;
+    border-bottom: 10px solid transparent;
+    color: inherit;
+    text-align: center;
+    i, img {
+        .margin(bottom;@gutter);
+    }
+    &:hover {
+        border-color: @purple;
+        color: inherit;
+        background: @nearwhite;
+    }
+}
+
+.tsIconHeader {
+    display: block;
+    background: @lightergrey;
+    color: @darkgrey;
+}
+
+
+.tsSpotlight-header {
+    .margin(bottom;10); 
+}
+
+.tsSpotlight-list {
+    .l-list();
+    .tsSpotlight-item {
+        .margin(top;@gutter);
+        &.toggled {
+            background-color: @white;
+        }
+    }
+}
+
+.tsSpotlight-links {
+    .l-list();
+    .tsSpotlight-link {
+        position: relative;
+        a {
+            background: @purple;
+            .padding(all;12;20;13;20);
+            display: block;
+            color: @white;
+        }
+    }
+}
+
+.tsSpotlight--inverted {
+    .tsIconHeader {
+        background: @white;
+    }
+}
+
+.tsSpotlight-item--promo {
+    width: 100%!important;
+    .tsSpotlight-container {
+        .clearfix;
+    }
+    .tsSpotlight-header {
+        margin-bottom: 0;
+    }
+}
+
+.tsSpotlight-item--purpleHeader {
+    .h2 {
+        color: @purple;
+    }
+    p {
+        color: @grey;
+    }
+}
+
+
+/*------------------------------------*\
+   $Wide alternative
+\*------------------------------------*/
+
+.tsSpotlight-list--wide {
+    float: left;
+    width: 100%;    
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    border-left: 1px solid @inputbordercolor;
+    border-right: 1px solid @inputbordercolor;
+}
+
+.tsSpotlight-link--wide {
+    float: left;
+    width: 50%;
+    .padding(all;@gutter;@gutter;@gutter;@gutter);
+    text-align: center;
+    &:nth-child(even) {
+        border-left: 1px solid @inputbordercolor;
+    }
+    &:nth-child(1n+3) {
+        border-top: 1px solid @inputbordercolor;
+    }
+}
+
+.tsSpotlight-header--big {
+    .font-size(28);
+    color: @purple;
+    .tsIconBackground {
+        display: inline-block;
+        float: left;
+        .margin(right;@gutter);
+        .icon-background(60;@white);
+        i {
+            color: @purple;
+            .font-size(28);
+        }
+    }
+    .tsSpotlight-linkLabel {
+        position: relative;
+        top: 20px;
+    }
+}
+
+.tsSpotlight-list--padding {
+    .padding(top;@gutter);
+    border: none;
+    .tsSpotlight-link--wide {
+        h2, h3, h4 {
+            font-weight: bold;
+        }
+        width: 48.9%;   /* fallback for browsers without support for calc() */
+        width: -webkit-calc(~"50% - 10px");
+        width: calc(~"50% - 10px");
+        border: 1px solid @inputbordercolor;
+        &:nth-child(even) {
+            .margin(left;@gutter);
+        }
+    }
+    a {
+        .font-size(20);
+    }
+    .tsIconBackground {
+        display: inline-block;
+        .icon-background(40;@lightgrey);
+        .margin(right;10);
+        i {
+            color: @purple;
+        }
+    }
+    .tsSpotlight-linkLabel {
+        position: relative;
+        top: -3px;
+    }
+}
+
+
+/*------------------------------------*\
+   $Wide alternative with three columns
+\*------------------------------------*/
+
+.tsSpotlight-link--wide--3col {
+    float: left;
+    width: 33.33%;
+    .padding(all;@gutter;@gutter;@gutter;@gutter);
+    text-align: left;
+    border-right: 1px solid @inputbordercolor;
+    &:nth-child(3n) {
+        border-right: none;
+    }
+    &:nth-child(1n+4) {
+        border-top: 1px solid @inputbordercolor;
+    }
+    .tsSpotlight-header--big {
+        .font-size(23);
+    }
+}
+
+
+/*------------------------------------*\
+   $Alternative with grids
+\*------------------------------------*/
+.tsSpotlight-list--grids {
+    .tsSpotlight-list;
+    .padding(all;0);
+    .margin(bottom;-1);
+    line-height: 0;
+
+
+    .tsSpotlight-item {
+        border: 1px solid @lightergrey;
+        border-top: none;
+        .margin(topbottom; 0; 0);
+        display: inline-block;
+        .line-height();
+    }
+
+    .tsSpotlight-container {
+        .margin(left;0);
+        overflow: auto;
+        .padding(all; @gutter);
+        text-align: center;
+        word-wrap: break-word;
+        h2 {
+            .margin(bottom;@gutter-half);
+        }
+        p {
+            .font-size(12);
+            .margin(bottom;0);
+        }
+    }
+
+    .tsSpotlight-content {
+        float: left;
+        .padding(left; @gutter-half);
+        .padding(top; @gutter-half);
+        width: 50%;
+    }
+
+    .tsSpotlight-header {
+        float: left;
+        .margin(bottom;0);
+        width: 50%;
+    }
+}

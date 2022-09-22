@@ -1,0 +1,20 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.StyrningsalternativEditViewModel
+@{
+	ViewBag.Title = "Skapa styrningsalternativ";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+	<ul class="tsCrumbtrail-links" role="navigation">
+		<li>@Html.ActionLink("Webbstyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+		<li>@Html.ActionLink(Model.abonnemang, "Abonnemang", new { serviceId = Model.serviceId, abonnemang = Model.abonnemang })<i class="tsIcon-Breadcrumb"></i></li>
+		<li>Skapa styrningsalternativ</li>
+	</ul>
+</div>
+
+<!-- Heading -->
+<div class="tsBodyText tsMarginTop tsWrapInner">
+	<h1 class="h1">Skapa styrningsalternativ</h1>
+</div>
+
+@Html.Partial("_Alternativ_EditForm", Model);

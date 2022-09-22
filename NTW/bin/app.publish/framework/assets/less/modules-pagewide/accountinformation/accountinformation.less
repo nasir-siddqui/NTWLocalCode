@@ -1,0 +1,211 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS...............You’re reading it!
+ * ACCOUNT-INFORMATION....Account-information about the user
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $ACCOUNT-INFORMATION
+\*------------------------------------*/
+
+.tsAccountInformation {
+
+    .tsIconBackground {
+        .icon-background(80;@lightgrey);
+        float: left;
+        .margin(bottom; 20);
+    }
+
+    .tsTable3Col th {
+        text-align: left;
+    }
+}
+
+.tsAccountHeader {
+    .padding(top;20);
+    border-top: 1px solid @lightergrey;
+}
+
+.tsAccount-headline {
+    .margin(bottom;@gutter/2);
+}
+
+.tsAccountInformation-headline {
+    float: left;
+    .margin(top;10;);
+    .margin(left;15);
+    color: @grey;
+    font-weight: normal;
+    text-transform: uppercase;
+    span {
+        width: 100%;
+        color: black;
+        float: left;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
+}
+
+.tsAccountInformation-detailedInfo-headline {
+    .padding(top;25);
+    font-weight: 400;
+}
+
+.tsAccountInformation-detailedInfo-secondHeadline {
+    text-transform: uppercase;
+    color: @grey;
+    .padding(bottom;10);
+}
+
+.tsAccountInformation-detailedInfo, .tsAccountInformation-detailedInfo--alt {
+    float: left;
+    width: 100%;
+    list-style-type: none;
+    .padding(left;0);
+    .margin(topbottom;0;0);
+}
+
+.tsAccountInformation-detailedInfo-item {
+    float: left;
+    width: 100%;
+    .padding(bottom;10);
+    .margin(bottom;20);
+    .tsAccountInformation-detailedInfo-itemHeadline {
+        .padding(topbottom;25;5);
+    }
+    .tsAccountInformation-detailedInfo-itemHeadline--alt {
+        .padding(topbottom;25;10);
+        .margin(bottom;15);
+        border-bottom: 1px solid @lightgrey;
+    }
+}
+
+.tsAccountInformation-detailedInfo-table {
+    width: 100%;
+    float: left;
+    td {
+        .padding(topbottom;10;10);
+        vertical-align: middle;
+    }
+    tr.tsAccountInformation-detailedInfo-tableHeadline td {
+        .padding(top;15);
+        .font-size(18);
+    }
+    tr td:first-child {
+        color: @grey;
+        width: 150px;
+    }
+    tr.wide td:first-child {
+        width: 300px;
+    }
+    .tscForm-inputContainer {
+        span.tscFormFeedback-error {
+            float: none;
+            width: auto;
+            .margin(left;@gutter/2);
+        }
+    }
+    .extraField-container {
+        position: relative;
+    }
+    .extraField {
+        position: absolute;
+        top: 18px;
+        left: 235px;
+    }
+}
+
+.tsAccountInformation-detailedInfo-edit {
+    position: relative;
+    width: 20%;
+    float: right;
+    .margin(top;-37);
+    a, input, [class*="--Save"] {
+        float: right;
+        .margin(right;0);
+        &:nth-child(3) {
+            position: relative;
+            top: 12px;
+            right: 20px;
+            //.margin(right;@gutter);
+        }
+    }
+}
+
+.tsAccountInformation-detailedInfo-focusText {
+    .font-size(18);
+    .padding(top;15);
+    .margin(bottom;10);
+}
+
+
+.tsAccountInformation-extraInfo-item {
+    float: left;
+    width: 100%;
+    .padding(all;15;20;20;20);
+    background-color: @darknearwhite;
+    .tsIconBackground {
+        .icon-background(60;@lightgrey);
+        float: left;
+        .margin(topbottom;25;0);
+        .margin(right;20);
+    }
+}
+
+.tsAccountInformation-extraInfo-itemHeadline {
+    .padding(bottom;10);
+    border-bottom: 1px solid @lightgrey;
+}
+
+.tsAccountInformation-extraInfo-details {
+    .l-list();
+    .padding(topbottom;15;15);
+    .tsAccountInformation-extraInfo-detailsHeadline {
+        font-weight: normal;
+    }
+    li {
+        line-height: 25px;
+    }
+}
+
+.tsAccountInformation-extraInfo-explainingText {
+    .font-size(18);
+    float: left;
+    width: 200px;
+    .margin(top;15);
+    .margin(right;60);
+}
+
+.tsAccountInformation-extraInfo-exampleList {
+    .l-list();
+    float: left;
+    width: 500px;
+    .padding(top;15);
+    li {
+        width: 50%;
+        float: left;
+        list-style-type: disc;
+        &:first-child {
+            list-style-type: none;
+            .margin(left;-15);
+            .margin(right;15);
+        }
+    }
+}
+
+.tsAccountInformation-footer {
+    width: 100%;
+    float: left;
+    .margin(topbottom;40;40);
+    .tsBtn {
+        float: right;
+    }
+}

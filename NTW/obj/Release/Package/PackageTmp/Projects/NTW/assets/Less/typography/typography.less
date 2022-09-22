@@ -1,0 +1,117 @@
+.h2, .h3 {
+    font-weight: normal;
+}
+
+.h4 {
+    .font-size(16); 
+}
+
+.h1.inline, .h2.inline, .h3.inline, .h4.inline, .h5.inline, .h6.inline {
+    display: inline-block;
+} 
+
+.h4.normal, .h5.normal, .h6.normal {
+    font-weight: normal;
+} 
+
+.h1.float, .h2.float, .h3.float, .h4.float, .h5.float, .h6.float {
+    float: left;
+} 
+
+.h1.inverted, .h2.inverted, .h3.inverted, .h4.inverted, .h5.inverted, .h6.inverted {
+    color: @white;
+}
+
+.h1 sup {
+    color: @purple;
+}
+
+.h1.highlighted, .h2.highlighted, .h3.highlighted, .h4.highlighted, .h5.highlighted, .h6.highlighted {
+    background: @lightergrey;
+    .padding(all;@gutter-half;@gutter;@gutter-half;@gutter);
+}
+
+.huge {
+    line-height: 110px;
+    font-weight: bold;
+    &.h1 {
+        .font-size(70);
+    }
+    &.h2 {
+        .font-size(56);
+    }
+}
+
+.large {
+    line-height: 56px;
+    font-weight: bold;
+    &.h1 {
+        .font-size(56);
+    }
+    &.h2 {
+        .font-size(40);
+    }
+}
+
+/*.h1.huge {
+    .font-size(lineheight;70;110);
+    font-weight: bold;
+}
+
+.h1.large {
+    .font-size(lineheight;56;56);
+    font-weight: bold;
+    .margin(bottom;@gutter);     
+}*/
+
+.h2.small {
+    .font-size(20);
+}
+
+.h1.title, .h2.title, .h3.title, .h4.title, .h5.title, .h6.title {
+    .margin(bottom;@gutter);
+}
+
+.h2.section {
+    .padding(top;@gutter-double);
+}
+
+.h1.grey, .h2.grey, .h3.grey, .h4.grey, .h5.grey, .h6.grey, p.grey, span.grey {
+    color: @grey;
+}
+
+.h1.darkgrey, .h2.darkgrey, .h3.darkgrey, .h4.darkgrey, .h5.darkgrey, .h6.darkgrey, p.darkgrey, span.darkgrey {
+    color: @darkergrey;
+}
+
+p.error, span.error {
+    color: @validationerror;
+}
+
+p.title {
+    border-bottom: 1px solid @lightgrey;
+    .padding(bottom;@gutter-half/2);
+    .margin(bottom;@gutter-half/2);
+}
+p.small {
+    margin: 0;
+    .font-size(lineheight;11;15);
+
+}
+p.center, div.center, .h1.center, .h2.center, .h3.center, .h4.center, .h5.center, .h6.center {
+    text-align: center;
+}
+
+
+span.price {
+    color: @blue;
+}
+
+.h1.bold, .h2.bold, .h3.bold, .h4.bold, .h5.bold, .h6.bold {
+    font-weight: bold;
+} 
+
+
+
+
+

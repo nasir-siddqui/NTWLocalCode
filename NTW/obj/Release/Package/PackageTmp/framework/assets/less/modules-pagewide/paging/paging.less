@@ -1,0 +1,52 @@
+.tsPaging {
+	margin-left:auto;
+	margin-right:auto;
+	display: table;
+	.margin(topbottom;@gutter;@gutter*2.5);
+	*{
+		.unselectable;
+	}
+}
+.tsPaging-list {
+	.l-inline-list;
+	.inline-block;
+	.font-size;
+	line-height: 22px;
+}
+.tsPaging-list-item {
+	.padding(leftright;@gutter-half;@gutter-half)!important;
+	line-height: 24px;
+	font-weight: bold;
+	a,
+	label {
+		color: @turq;	
+	}
+	input[type=radio]
+	{
+		display: none;
+	}
+}
+.tsPaging-list-item.selected a,
+.tsPaging-list-item.selected label{
+	color: @black;
+}
+.tsPaging-list-item.hide {
+	display: none;
+}
+.tsPaging-arrow-prev,
+.tsPaging-arrow-next {
+	cursor: pointer;
+	background-color: @turq;
+	width: 24px;
+	height: 24px;
+	.inline-block;
+	text-align: center;
+	color: @white;
+	vertical-align: top;
+	&:hover{
+		color: @white;
+	}
+	i{
+		.font-size(lineheight;16;24);
+	}
+}

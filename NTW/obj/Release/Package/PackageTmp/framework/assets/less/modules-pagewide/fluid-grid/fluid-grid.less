@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * NEWS-FEED...........System and network info, and news
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $NEWS-FEED
+\*------------------------------------*/
+.tsFluidGrid-outer {
+	background: lighten(@lightergrey,3%);
+} 
+.tsFluidGrid {
+	background: @lightestblack;
+}
+.tsFluidGrid-list {
+	width: 100%;
+    overflow: hidden;
+	padding: 0;
+	.margin(top;30);
+}
+
+.js .tsFluidGrid-item,
+.js .tsFluidGrid-item--fullsize {
+	display: none;
+}
+
+.tsFluidGrid-item,
+.tsFluidGrid-item--fullsize {
+	
+	list-style: none;
+	background: @white;
+	width: 100%;
+	.padding(all;@gutter-half);
+    float: left;
+    .margin(bottom;15);
+	img {
+
+		width: 100%;
+	}
+	p {
+		color: @black;
+		max-height: 4.2em;
+		overflow: hidden;
+	}
+	&.show{
+		display: block;
+		//visibility: hidden;
+	}
+}
+.lt-ie8 .tsFluidGrid-item,
+.lt-ie8 .tsFluidGrid-item--fullsize {
+	//float: none;
+}
+
+.tsFluidGrid-item--fullsize {
+	width: 100%;
+}
+.tsFluidGrid-image {
+	width: auto;
+	margin-right: -10px;
+	margin-left: -10px;
+	margin-bottom: 10px;
+}
+
+.tsFluidGrid-subheading {
+	.font-size(12);
+	.margin(topbottom;@gutter-half;@gutter-half);
+	color: @grey;
+	a{
+		.font-size(12);
+	}
+}
+
+.tsFluidGrid--alt {
+    .tsFluidGrid-item,
+    .tsFluidGrid-item--fullsize {
+        background: none;
+        .padding(leftright;@gutter-half;@gutter-half);
+        & > div {
+            background: @white;
+            .padding(all;@gutter-half);
+        }
+    }
+}
+
+.fluid-grid-width { width: 100%; }
+
+//TODO: move to ie-specifics
+.ie7 .tsFluidGrid-item {
+	.margin(leftright;@gutter-half/2;@gutter-half/2);
+}

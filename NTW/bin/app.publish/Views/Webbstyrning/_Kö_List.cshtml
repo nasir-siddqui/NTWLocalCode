@@ -1,0 +1,38 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model AbonnemangViewModel
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+    <caption>Styrningskö</caption>
+    <thead>
+        <tr>
+            <th>Begärt datum</th>
+            <th>Benämning</th>
+            <th>Verkställt datum</th>
+            <th>Multistyrning</th>
+            @if (User.IsInRole("Webbstyrning_Write"))
+            {
+                <th>@*Edit och deleteknappar*@</th>
+            }
+        </tr>
+    </thead>
+    @foreach (StyrningsköRow styrningsköRow in Model.Styrningskö)
+    {
+        <tr>
+            <td>@styrningsköRow.BegärtDatum</td>
+            <td>@styrningsköRow.Benämning</td>
+            <td>@styrningsköRow.VerkställtDatum</td>
+            <td>
+                @(styrningsköRow.DelAvMultistyrning ? "Ja" : "Nej")
+            </td>
+            
+            @if (User.IsInRole("Webbstyrning_Write"))
+            {
+                <td>
+	                @Html.ActionLink(" ", "Kö_Edit", new { @abonnemang = Model.Abonnemang, @serviceId = Model.ServiceId, @styrningsId = styrningsköRow.StyrningsId, @begärtDatum = styrningsköRow.BegärtDatum.ToString(), @alternativId = styrningsköRow.AlternativId }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+	                <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Webbstyrning', 'Kö_Delete', 'styrningen', @Model.ServiceId.ToString(), @styrningsköRow.StyrningsId.ToString(), @styrningsköRow.AlternativId.ToString(), '@Model.Abonnemang.ToString()', '@styrningsköRow.BegärtDatum.ToString()') "></a>
+                </td>
+            }
+        </tr>
+    }
+    <tbody></tbody>
+</table>

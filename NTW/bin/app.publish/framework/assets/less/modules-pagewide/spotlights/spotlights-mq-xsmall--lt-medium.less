@@ -1,0 +1,22 @@
+.tsSpotlight-link--wide {
+    width: 100%;
+}
+
+.tsSpotlight-list--padding {
+    .tsSpotlight-link--wide {
+        width: 100%;
+        &:nth-child(1n+2) {
+            border-top: none;
+            .margin(left;0);
+        }
+    }
+}
+
+.tsSpotlight-link--wide--3col {
+    .padding(all;@gutter/2;@gutter/2;@gutter/2;@gutter/2);
+    width: 100%;
+    border-right: none;
+    &:nth-child(1n+2) {
+        border-top: 1px solid @inputbordercolor;
+    }
+}

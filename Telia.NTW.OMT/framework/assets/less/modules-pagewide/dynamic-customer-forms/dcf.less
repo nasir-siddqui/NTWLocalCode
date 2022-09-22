@@ -1,0 +1,188 @@
+[ts-dcf-share-dialog] {
+    
+    position: relative;
+    .transition(width 300ms ease-in-out);
+
+    & > button {
+        width: 100%;
+    }
+
+    & > .wrapper {
+        z-index: 100;
+        position: absolute;
+        width: 100%;
+        background: @white;
+        .padding(all;@gutter-half);
+        border: 1px solid @bordercolor-light;
+        bordet-top: 0 none;
+    }
+
+    &[data-wrapper="above"] > .wrapper {
+        bottom: 44px;
+        border-bottom: 0 none;
+        border-top: 1px solid @bordercolor-light;
+    }
+
+    .ui-helper-hidden-accessible {
+        display: none;
+    }
+
+    [class^="tseTextField"] {
+        position: relative;
+    }
+
+}
+
+.user-email-menu {
+
+    .l-list();
+    background: @white;
+    border: 1px solid @bordercolor-light;
+    li {
+        &.ui-state-focus {
+            background: @lightergrey;
+        }
+        cursor: pointer;
+        .padding(all;@gutter-half);
+        span.email {
+            .margin(left;@gutter);
+            color: @grey;
+            display: block;
+        }
+    }
+}
+
+.dcfForm {
+
+    .error {
+        position: absolute;
+    }
+
+    fieldset {
+        border: 0 none;
+        padding: 0;
+        margin: 0;
+        & > legend {
+            .margin(bottom;@gutter-half);
+        }
+    }
+
+    fieldset.dcfFormGroup {
+
+        .margin(top;@gutter);
+
+        & > legend {
+            .padding(top;@gutter);
+            .font-size(lineheight;20;24);
+            color: @textcolor;
+            border-top: 1px solid @lightgrey;
+            width: 100%;
+        }
+
+        &.last {
+            .padding(bottom;@gutter);
+            border-bottom: 1px solid @lightgrey;
+            .margin(bottom;@gutter);
+        }
+
+        .dcfFormGroup-inner {
+            max-width: 620px;                        
+        }
+        &.full .dcfFormGroup-inner {
+            max-width: none;                                    
+        }        
+
+    }
+
+    fieldset.dcfFormField, fieldset.dcfFormSection {
+
+        & > legend {
+            color: @lightgrey;
+            border: 0 none;
+            .font-size(lineheight;14;20);
+            .padding(top;0);
+            &.strong {
+                color: @black;
+                .font-size(16);
+                font-weight: bold;
+            }
+        }
+
+        p.description {
+            .margin(bottom;5);
+            color: @lightgrey;
+            .font-size(lineheight;12;16);
+        }
+
+    }
+
+    html.placeholder & fieldset.dcfFormField.type-text p.description {
+        display: none;
+    }
+
+    fieldset.dcfFormSection {
+        & > legend {
+            color: @black;
+            .font-size(16);
+            font-weight: bold;                
+        }
+        & > .dcfFormSection-inner {
+            .font-size(important;0);
+            letter-spacing: -1em;
+            .margin(right;-@gutter);
+            & > * {
+                .font-size(@basefontsize);
+                letter-spacing: normal;        
+            }                
+        }
+
+        .field-label {
+            .margin(bottom;5);
+            display: block;
+            color: @lightgrey;
+            &.strong {
+                color: @black;
+                font-weight: bold;
+            }
+            &.inline {
+                display: inline-block;
+                .margin(right;@gutter);
+            }
+        }
+    }
+
+    .field-wrapper {
+        .margin(right;@gutter);
+        .margin(bottom;@gutter);
+        .error {
+            display: block;
+            position: absolute;
+            white-space: nowrap;
+        }
+        &.hasError {
+            .margin(bottom;@gutter-double);
+        }
+    }
+
+    .field-wrapper.inline {
+        display: inline-block;
+    }
+
+    .field-wrapper.type-text.inline {
+        .margin(right;0);
+    }
+
+    .field-wrapper.type-radiospot .group {
+        & > label {
+            background: @grey;
+            border: 1px solid @lightgrey;
+            color: @white;
+            .font-size(importantlineheight;12;12);
+            .padding(all;5;@gutter-half;5;@gutter-half);
+            display: block;
+            .margin(bottom;@gutter-half);
+            max-width: 940px;            
+        }
+    }
+
+}

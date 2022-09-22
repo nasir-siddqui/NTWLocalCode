@@ -1,0 +1,51 @@
+
+
+.tsDivision {
+    .l-inline-list;
+    .margin(topbottom;@gutter*2;@gutter*2);
+}
+
+.tsDivision-Item {
+    width: 48%;
+}
+
+.tsDivision-Item + .tsDivision-Item {
+    margin-left: 4%;
+}
+
+.tsDivision-Item.current:before,
+.tsDivision-Item.current:after {
+    bottom: -41px; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none;     
+}
+
+.tsDivision-Item.current:after {
+    border-color: rgba(240, 239, 237, 0); 
+    border-bottom-color: @lightestblack;
+    border-width: 16px; 
+    left: 50%; 
+    margin-left: -16px;    
+}
+
+.tsDivision-Item.current:before {
+    border-color: rgba(235, 235, 235, 0);
+    border-bottom-color:  @lightergrey;
+    border-width: 18px; 
+    left: 50%; 
+    margin-left: -18px;    
+}
+
+.tsDivision-Link  > * {
+    .font-size(18);
+}
+
+.tsDivision-Link > :last-child {
+    min-height: 100px;
+    min-height: 10rem;
+}
+

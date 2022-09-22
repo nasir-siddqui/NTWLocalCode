@@ -1,0 +1,55 @@
+﻿@using Sigma.Utils.Helpers
+@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.FlexibeltSvarsställeEditViewModel
+
+@{
+    ViewBag.Title = "Flexibelt svarsställe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Nummerstyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>@Html.ActionLink("020-202990", "Abonnemang")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Hantera svarsställe</li>
+    </ul>
+</div>
+
+<!-- Heading -->
+<div class="tsBodyText tsMarginTop tsWrapInner">
+    <h1>Hantera svarsställe</h1>
+</div>
+
+<p class="tsWrapInner">
+    Här kan du se och redigera svarsställe för 020-202990.
+</p>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="tseTextField--Normal--Full--Half tsMarginTop">
+            @Html.LabelFor(m => m.AktivtSvarsställe, new { @class = "tscForm-label" }, DisplayOptions.Humanize)
+            @Html.TextBoxFor(m => m.AktivtSvarsställe, new { @class = "tseInput", @type = "text", @disabled = "disabled" })
+            @Html.ValidationMessageFor(m => m.AktivtSvarsställe)
+        </div>
+
+        <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+            @Html.LabelFor(m => m.NyttSvarsställe, new { @class = "tscForm-label" }, DisplayOptions.Humanize)
+            @Html.TextBoxFor(m => m.NyttSvarsställe, new { @class = "tseInput", @type = "text" })
+            @Html.ValidationMessageFor(m => m.NyttSvarsställe)
+        </div>
+
+        <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+            @Html.LabelFor(m => m.DatumFörNyttSvarsställe, new { @class = "tscForm-label" }, DisplayOptions.Humanize)
+            @Html.TextBoxFor(m => m.DatumFörNyttSvarsställe, new { @class = "tseInput", @type = "text", data_datepicker = "datetime" })
+            @Html.ValidationMessageFor(m => m.DatumFörNyttSvarsställe)
+        </div>
+
+        <div class="tsMarginTop--doubleGutter">
+            <input type="submit" class="tsBtn--Regular" value="Spara" />
+            @Html.ActionLink("Ta bort schemaläggning", "Abonnemang", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+            @Html.ActionLink("Avbryt", "Abonnemang", new { }, new { @class = "tsBtn--Regular tsMarginLeft" })
+        </div>
+    }
+</div>

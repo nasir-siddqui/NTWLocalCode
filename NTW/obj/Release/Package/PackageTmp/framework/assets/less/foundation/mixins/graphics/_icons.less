@@ -1,0 +1,42 @@
+.icon(@width: 10px, @height: 10px, @left: 0, @top: 0) {
+    .inline-block;
+    width: @width;
+	height: @height;
+	background-position: @left @top;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    .hide-text;
+}
+
+.icon-background(@size;@col;) {
+    background-color: @col;
+    width: ~"@{size}px";
+    height: ~"@{size}px";
+    border-radius: ~"@{size}px";
+    i {
+        .font-size(@size/2);
+        color: @white;
+        width: 100%;
+        margin: 0 auto;
+        line-height: ~"@{size}px";
+    }
+}
+
+// this is applied on the "i"-element directly
+.icon-with-background(@size;@col;) {
+    background-color: @col;
+    width: ~"@{size}px";
+    height: ~"@{size}px";
+    border-radius: ~"@{size}px";
+    .font-size(lineheight;@size/2;@size);
+    color: @white;
+}
+
+.iconfont(@width: 10px, @height: 10px, @char: "#") {
+    .inline-block;
+    width: @width;
+    height: @height;
+    &:before {
+        content: @char;
+    }
+}

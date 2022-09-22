@@ -1,0 +1,45 @@
+// todo: make responsvie. only made for static desktop view
+
+.tsGalleryView {	
+	margin: 0;
+	padding: 0;
+	.margin(bottom; @gutter-double);
+	.clearfix;
+	li {
+		inline: block;
+		list-style: none;
+		float: left;
+		.margin(bottom;@gutter);
+		vertical-align: top;
+	
+		width:32%;
+		margin-left: 2%;
+		&:nth-child(3n+1) {
+			margin-left: 0;
+		}
+		width:31%\9;
+		margin-left: 0\9;
+		margin-right: 2%\9;
+	}
+}
+
+.tsGalleryView-image {
+	width: 100%;
+	.margin(bottom;@gutter-half);
+}
+
+.tsGalleryView-link {
+	.font-size(lineheight;16;21);
+	font-weight: bold;
+	.margin(bottom; @gutter-half);
+}
+
+.tsGalleryView-text {
+	.margin(top;5);
+	.font-size(lineheight;14;20);
+}
+.tsDropDown{
+  -webkit-box-sizing: content-box; 
+  -moz-box-sizing: content-box;    
+  box-sizing: content-box; 
+}

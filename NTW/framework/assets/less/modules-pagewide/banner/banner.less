@@ -1,0 +1,55 @@
+.tsBanner {
+	.font-size(14);
+	width: 100%;
+	background: lighten(@lightergrey,5%);
+	border-bottom: 4px solid @lightgrey;
+	position: relative;
+	.margin(bottom;@gutter-double);
+	.clearfix;
+	.transition();
+	&:hover {
+		border-color: @purple;
+	}
+}
+
+.tsBanner-img {
+	float: left;
+	width: 50%;
+}
+
+.tsBanner-content {
+	float: right;
+	.padding(all;@gutter-double;@gutter;0);
+	text-align: center;
+	width: 50%;
+}
+
+.tsBanner-header {
+	color: @purple;
+	.margin(bottom;@gutter);
+}
+
+.tsBanner-text {
+	color: @nearblack;
+	.font-size(lineheight;14;20);
+	overflow: hidden;
+	max-height: 60px;
+	
+}
+
+.tsBanner:nth-child(odd) {
+	.tsBanner-img {
+		float: right
+	}
+	.tsBanner-content {
+		float: left;
+	}	
+}
+.tsBanner:first-child {
+	.tsBanner-img {
+		float: right
+	}
+	.tsBanner-content {
+		float: left;
+	}	
+}

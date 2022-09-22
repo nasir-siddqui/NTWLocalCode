@@ -1,0 +1,84 @@
+﻿@using Sigma.Utils.Helpers
+@model Telia.NTW.Web.ViewModel.Leverantörsinformation.NioHundraNummerRow
+
+@{
+    ViewBag.Title = "NioHundraNummer_Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginBottom--None tsMarginTop">
+    <h1>Redigera @Model.Nummer</h1>
+</div>
+
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="max-width">
+
+            @Html.HiddenFor(m => m.AccessId)
+            @Html.HiddenFor(m => m.ContentProviderId)
+
+            <!-- Organisationsnummer -->
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                @Html.LabelFor(m => m.Organisationsnummer, new { @class = "tscForm-label" }, DisplayOptions.Humanize)
+                @Html.TextBoxFor(m => m.Organisationsnummer, new { @class = "tseInput", @type = "text", @id = "OrgNr" })
+                @Html.ValidationMessageFor(m => m.Organisationsnummer)
+            </div>
+
+            <!-- Hämta bolagsnamn -->
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                <a class="tsBtn--Regular" onclick="getOrgNbr()">Hämta</a>
+            </div>
+
+            <!-- Bolagsnamn -->
+            <div class="tseTextField--Normal--Full--Half tsMarginTop--halfGutter">
+                @Html.LabelFor(m => m.Bolagsnamn, new { @class = "tscForm-label" }, DisplayOptions.Humanize)
+                @Html.TextBoxFor(m => m.Bolagsnamn, new { @class = "tseInput", @type = "text", @id = "Bolagsnamn", @disabled = "disabled" })
+            </div>
+
+            <!-- Tjänst -->
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop--halfGutter">
+                @Html.LabelFor(m => m.Tjänst, new { @class = "tscForm-label tsMarginTop--halfGutter" }, DisplayOptions.Humanize)
+                @Html.TextBoxFor(m => m.Tjänst, new { @class = "tseInput", @type = "text" })
+                @Html.ValidationMessageFor(m => m.Tjänst)
+            </div>
+
+            <!-- Kundtjänstnummer -->
+            <div class="tseTextField--Normal--Half--Inline tsMarginTop--halfGutter">
+                @Html.LabelFor(m => m.Kundtjänstnummer, new { @class = "tscForm-label tsMarginTop--halfGutter" }, DisplayOptions.Humanize)
+                @Html.TextBoxFor(m => m.Kundtjänstnummer, new { @class = "tseInput", @type = "text", @id = "KundtjänstNr" })
+                @Html.ValidationMessageFor(m => m.Kundtjänstnummer)
+            </div>
+
+            <div class="tsMarginTop">
+                @Html.ActionLink("Avbryt", "Telia900Nummer", "Leverantörsinformation", new { @class = "tsBtn--Regular" })
+                <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Spara" />
+            </div>
+
+        </div>
+    }
+</div>
+
+<script>
+    function getOrgNbr() {
+        var orgNr = $("#OrgNr").val();
+        var contentProviderTfn;
+
+        $.ajax({
+            url: '@Url.Content("Get_OrgNr")',
+            type: 'POST',
+            context: document.body,
+            data: {
+                orgNr: orgNr
+            },
+        }).done(function (data) {
+            $("#Bolagsnamn").val(data.orgNamn);
+            $("#KundtjänstNr").val(data.contentProviderTfn);
+            $("#OrgNr").val(data.orgNr);
+
+        });
+    }
+</script>

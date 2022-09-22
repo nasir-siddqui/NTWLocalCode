@@ -1,0 +1,118 @@
+.tsChoosePhone {
+	.tsWrapInner;
+	background: @lighterclay;
+	.padding(topbottom;0;@gutter);
+	// .padding(all;0;@gutter-double*3.25;@gutter;@gutter-double*3.25);
+
+	.tsPageSection>[data-widget-control=collapse-trigger] {
+		.padding(all;0);
+		border-top: 5px solid @lighterclay;
+		background: @lighterclay;
+		
+		.tsBtn--collapse {
+			.padding(topbottom;@gutter-half;@gutter-half);
+			display: block;
+			background: @white;
+			border-radius: 0;
+			border: 0;
+			line-height: 40px;
+
+			&:before {
+				border: 0;
+				-webkit-box-shadow: none;
+				-moz-box-shadow: none;
+				-ms-box-shadow: none;
+				-o-box-shadow: none;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.tsPreview--medium > [data-widget-collapse=inner] {
+		max-height: 407px;
+	}
+
+	.tsPageSection {
+		background: @lighterclay;
+	}
+}
+
+.tsChoosePhone-container {
+	.tsListFilter-trigger-outer {
+		display: inline;
+		float: right;
+		border: 0;
+		background: inherit;
+		width: 10%;
+
+		.tsWrapInner {
+			.padding(leftright;0;0);
+		}
+
+		.tsListFilter-sorting {
+			border: 0;
+		}
+
+		.tsIcon-Sort {
+			.font-size(20);
+		}
+
+		.tsListFilter-sorting-trigger {
+			.font-size(20);
+			.padding(leftright;0;0);
+		}
+	}
+
+	.tsListFilter {
+		.margin(all;0);
+		.padding(all;0);
+	}
+}
+
+.tsPhoneList {
+	.l-list;
+}
+
+.tsPhoneList-item {
+	background: @white;
+	border: 2px solid @white;
+	display: table;
+	width: 100%;
+	.padding(topbottom;@gutter-half;@gutter-half)!important;
+	.padding(right;@gutter)!important;
+	.margin(bottom;@gutter-half/2)!important;
+
+	&.tsItem--selected {
+		border: 2px solid @lightblue;
+		&:hover {
+			border: 2px solid @blue;
+		}
+	}
+}
+
+.tsPhoneList-phoneImage {
+	.margin(right;@gutter-half);
+	display: table-cell;
+	display: inline-block;
+	width: 43px;
+	height: 40px;
+}
+
+.tsPhoneList-phoneInfo {
+	.margin(all;0);
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.tsPhoneList-phoneInfo-highlighted {
+	color: @blue;
+}
+
+.tsPhoneList-dropdownWrapper {
+	vertical-align: middle;
+	height: 40px;
+	display: table-cell;
+	text-align: right;
+}
+
+// Testa sätt display inline block samt float right på dropdownWrapper mobile version

@@ -1,0 +1,44 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning.Multistyrning_Alternativ_FormViewModel
+
+<div class="tsMarginBottom">
+	@using (Html.BeginForm())
+	{
+		// VIPMultiConnectedId
+		@Html.HiddenFor(m => m.VIPMultiConnectedId)
+		
+		// Namn
+		<div class="tseTextField--Normal--Full--Half tsMarginBottom">
+			@Html.LabelFor(m => m.Namn, new { @class = "tscForm-label" })
+			@Html.TextBoxFor(m => m.Namn, new { @class = "tseInput", @type = "text" })
+			@Html.ValidationMessageFor(m => m.Namn)
+		</div>
+
+		<div class="tsComponent">
+			<table class="tsTable tsTable-horizontal">
+				<thead>
+					<tr>
+						<th>Abonnemang</th>
+						<th>Styrningsalternativ</th>
+						<th>@*Kopplat*@</th>
+					</tr>
+				</thead>
+				@for (int i = 0; i < Model.abonnemangList.Count; i++)
+				{
+					@Html.HiddenFor(m => m.abonnemangList[i].ServiceId)
+					@Html.HiddenFor(m => m.abonnemangList[i].VIPMultiConnectedLinkId)
+					@Html.HiddenFor(m => m.abonnemangList[i].Abonnemang)
+					<tr>
+						<td>@Model.abonnemangList[i].Abonnemang</td>
+						<td><div class="tseTextField--Normal--Half--Inline">@Html.DropDownListFor(m => m.abonnemangList[i].ConnectLinkId, @Model.abonnemangList[i].StyrningsalternativList, new { @class = "combobox-autocomplete" })</div></td>
+						<td>@Html.EditorFor(m => m.abonnemangList[i].Kopplat, "Switch")</td>
+					</tr>
+				}
+			</table>
+		</div>
+		
+		<div class="tsMarginTop">
+			<input type="submit" class="tsBtn--Regular" value="Spara" />
+			@Html.ActionLink("Avbryt", "Index", null, new { @class = "tsBtn--Regular tsMarginLeft" })
+		</div>
+	}
+</div>

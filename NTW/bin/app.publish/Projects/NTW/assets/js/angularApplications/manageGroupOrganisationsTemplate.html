@@ -1,0 +1,17 @@
+<div class="tsWrapInner" ts-custom-table ng-show="organisationNumbers.length > 0"
+    x-page-size="20"
+    x-row-details-enabled="false"
+    x-initial-sort-field="name"
+    x-data-definition-identity="organizationTscid"
+    x-data-definition-columns-expr="tableParent.columns"
+    x-api-is-angular-service="true"
+    x-api-name="local/angularApplications/services/manageGroupNgService"
+    x-api-action-fn-name="removeOrganisation"
+    x-api-delete-row-after-action="true"
+    x-api-data-fn-name="getOrganizations"
+    x-api-data-fn-parameters='[]'
+    x-api-allow-data-update="true"
+    x-row-delete-enabled="true"
+    x-row-delete-id-property="organizationTscid"
+    x-row-delete-display-template="false">
+</div>

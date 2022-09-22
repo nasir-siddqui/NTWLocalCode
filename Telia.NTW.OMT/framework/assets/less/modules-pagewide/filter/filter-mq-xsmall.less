@@ -1,0 +1,628 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * FILTER....................
+ * SELECTLIST.................
+ */
+
+/*------------------------------------*\
+  $FILTER
+\*------------------------------------*/
+
+.tsListFilter-outer {
+  .push-down;
+  margin-top: -2px;
+  padding: 0px;
+}
+
+.tsListFilter-trigger-outer {
+  background-color: @lightestblack;
+  border-bottom: 1px solid @lightergrey;
+}
+
+.tsListFilter-trigger-outer > div,
+.tsListFilter-trigger > div {
+  .l-inline-elements(12);
+  width: 100%;
+}
+
+.tsListFilter-trigger {
+  background-color: @lightestblack;
+  border-bottom: 1px solid @lightergrey;
+  left: 0;
+  position: relative;
+  text-align: left;
+  //top: -50px;
+  width: 100%;
+  color: @turq;
+  font-weight: bold;
+  min-height: 48px;
+  .font-size(12);
+  a {
+    color: @turq;
+    &.active {
+      color: @lightgrey;
+    }
+  }
+}
+  
+.tsListFilter-trigger .tsIcon-Filter { 
+  line-height: 1.1 !important;
+  margin-left: 2px; 
+  .font-size(11);
+  //  vertical-align: top; /* icon-font */
+  vertical-align: middle;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.tsListFilter {
+  .tsSelectList-question,
+  .tsBtnMulti--filter,
+  .tsBtn--filter-remove,
+  .tsFilter-prefix {
+    .margin(topbottom;@gutter-half;@gutter-half);
+    vertical-align: middle;
+  }   
+  .tsBtn--filter-remove input[type=checkbox] {
+    display: none;
+  }
+  .tsBtnMulti--filter input[type=checkbox] {
+    .visuallyhidden;
+  }
+}
+
+.tsListFilter-collapse [data-widget-control=collapse-trigger] {
+  .padding(leftright;@gutter;@gutter);
+  .padding(topbottom;14;10);
+  .inline-block();
+}
+
+.is-expanded .tsListFilter-trigger [data-widget-control=collapse-trigger],
+.tsListFilter-trigger [data-widget-control=collapse-trigger].active {
+  .push-down-caret;
+}
+
+.tsListFilter-collapse.is-expanded { 
+  .tsIcon-Filter {
+    color: @lightgrey;
+    background-position: -248px -164px;
+  }
+  [data-widget-control=collapse-trigger] {
+    color: @lightgrey;
+  }
+}
+
+.tsListFilter .hide {
+  display: none;
+  //visibility: hidden;
+}
+.tsListFilter .tsHidden {
+    display: none;
+}
+
+.tsListFilter .tsBtn--filter-remove {
+  cursor: pointer;
+ }
+
+.tsFilter-noElementsFoundText {
+  .margin(topbottom;@gutter-plus;@gutter-plus);
+  color: @textcolor;
+}
+
+.tsListFilter-filter {
+
+}
+
+.tsListFilter-sorting {
+  //width: 100%;  
+  .inline-block;
+  //float: right;
+  //border-bottom: 1px solid @lightergrey;
+  text-align: center;
+}
+
+.tsListFilter-sorting-trigger {
+  cursor: pointer;
+  .inline-block;
+  padding: 14px 20px 14px;
+  color: @turq;
+  font-weight: bold;
+  .font-size(12);
+  &:hover {
+    color: @darkturq;
+  }
+}
+
+.tsListFilter-sorting-trigger i {
+  margin-left: 5px;
+  line-height: 0;
+  .font-size(11);
+//    vertical-align: top; /* icon-font */
+  vertical-align: middle;
+  background-position: -262px -179px;
+  width: 11px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.tsListFilter-no-collapse {
+  background-color: @lightestblack;
+  border-bottom: 1px solid @lightergrey;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  color: @textcolor;
+  min-height: 20px;
+  .font-size(11);
+}
+
+.tsListFilter-filter-trigger {
+  .padding(leftright;@gutter-half/2;@gutter-half/2);
+}
+
+/*------------------------------------*\
+  $SELECTLIST
+\*------------------------------------*/
+.tsFilter-prefix, 
+.tsSelectList-question,
+[data-widget=selectList-wrap] {
+  .margin(right; @gutter-half/2);
+  .font-size(14);
+}
+
+[data-widget=selectList-trigger] {
+ cursor: pointer;
+}
+
+[data-widget=selectList-trigger].active,
+.tsListFilter-sorting-trigger.active {
+   .triggerArrow;   
+ }
+
+.tsBtn--Light--Primary.active {
+   .triggerArrow(@purple);
+ }
+
+.tsListFilter-sorting-trigger.active {
+  &:after, 
+  &:before {
+    bottom: 7px;
+  }
+}
+
+[data-widget=selectList-wrap] {
+  .inline-block;
+  position: relative;
+}
+
+.tsListFilter-outer--alt {
+  display: none;
+  .tsSelectList {
+    display: none;
+  }
+}
+
+.tsSelectList {
+  .l-list;
+ // .pointer(relative;top;outside;5px;5px;0;@white);
+  .border-radius(0.2em);
+  position: absolute;
+  background-color:@white;
+  border: 1px solid @turq;
+  color: @turq;
+  z-index: 5;
+  text-align: left;    
+  top: 53px;
+  left: 50%;
+  input[type=checkbox]{
+    display: none;
+  }
+  .box-shadow(0 6px 12px rgba(0, 0, 0, 0.175));
+}
+
+.touch .tsSelectList {
+  top: 53px;
+}
+
+.tsListFilter .tsSelectList.hide {
+  display: inline-block;
+  visibility: hidden;
+} 
+
+.tsSelectList[class*="--Primary"] {
+    border: 1px solid @purple;
+    color: @purple;
+
+  }
+
+.tsSelectList--nested .tsSelectList-item {
+    .padding(left;15);
+  }
+.tsSelectList-item-heading {
+
+   label {
+    padding-left: 5px;
+    //margin-left: -15px;
+    color: @lightgrey;
+    cursor: normal;
+
+  }
+  &:hover {
+      background-color: transparent!important;
+      cursor: normal;
+    }
+}
+
+
+
+.tsListFilter-sorting .tsSelectList {
+  top:40px;
+}
+.tsSelectList-wrap--alt .tsSelectList {
+  &:after,
+  &:before {
+    border:none;
+  }
+}
+.tsSelectList-item label {
+  .padding(all;@gutter-half/2;@gutter);
+  font-weight: normal;
+}
+
+.touch .tsSelectList-item label {
+  .padding(all;@gutter-half;@gutter);
+}
+
+/*
+.tsSelectList::after{
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 10px;
+  height: 100px;
+  background-color: ;
+  .margin(left;-8);    
+  .rotate;
+  z-index: -1;
+}
+*/
+
+.tsSelectList-item-default,
+.tsFilter-prefix,
+.tsListFilter .tsBtn--filter-remove,
+.tsSelectList-question{
+  //.inline-block;
+}
+
+.tsHighlighted--colored .tsSelectList-question,
+.tsHighlighted--colored  .tsFilter-prefix {
+  color:@white;
+}
+
+.tsSelectList-wrap,
+.tsSelectList-wrap--alt {
+  position: relative;
+}
+.tsSelectList-wrap{
+  display: inline;
+}
+.tsSelectList-wrap--alt {
+  display: block;
+  .tsSelectList {
+    top: 36px;
+  }
+  //.margin(top;@gutter-half);
+}
+
+.tsSelectList-item {
+  &:first-child{
+    &:hover{
+      .border-radius(0.2em 0.2em 0 0);
+    }
+  };
+  &:last-child{
+    &:hover{
+      .border-radius(0 0 0.2em 0.2em );
+    }
+  };
+  &:hover{
+    background-color: @turq;
+    color: @white;
+  }
+  label{
+    display: block;
+  }
+  list-style-type: none;
+}
+
+.tsSelectList-wrap--alt .tsSelectList{
+  // width: 100%;
+  background-color: @white;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  .font-size(14);
+  .margin(top;2);
+  .padding(topbottom;5;5);
+  display: block;
+  
+  &::after {
+    display: none;
+  }
+}
+
+.tsSelectList[class*="--Primary"] .tsSelectList-item {
+    &:hover{
+     background-color: @purple;
+   }
+ }
+
+
+.tsSelectList-wrap--alt .tsSelectList-item,
+.tsSelectList-wrap--alt .tsSelectList-item-alt {
+  a {
+    .padding(all;3;20;3;20;);
+    color: @black;
+    display:block;
+    &:hover {
+      background-color: @lightergrey;
+    }
+  }
+  &:hover {
+    background-color: @white;
+  }
+}
+
+.tsSelectList-wrap--alt .tsSelectList-item-alt {
+  .padding(bottom;10);
+}
+
+.tsSelectList-wrap--alt {
+  .tsBtn--Primary {
+    color: @white;
+  }
+  .tsBtn--Primary.active{
+    background-color: @darkpink;
+  } 
+}
+
+.tsSelectList.hide,
+.tsSelectList.disabled {
+  //display: none;
+  visibility: hidden;
+}
+
+/*
+.is-expanded .arrow_box { 
+  position: relative; 
+  background: @lightestblack;
+  border-bottom: 1px solid @lightergrey;
+  border-top: 1px solid @lightergrey;
+}
+
+.is-expanded .arrow_box:after, 
+.is-expanded .arrow_box:before { 
+  top: 100%; 
+  border: solid transparent; 
+  content: " "; 
+  height: 0px; 
+  width: 0px; 
+  position: absolute; 
+  pointer-events: none; 
+}
+
+.is-expanded .arrow_box:after { 
+  border-color: rgba(240, 239, 237, 0); 
+  border-top-color: @lightestblack;
+  border-width: 16px;
+  left: 50%; 
+  margin-left: -16px;
+}
+
+.is-expanded .arrow_box:before {
+ border-color: rgba(235, 235, 235, 0);
+ border-top-color:  @lightergrey;
+ border-width: 18px; 
+ left: 50%; 
+ margin-left: -18px; 
+}*/
+
+/*------------------------------------*\
+  $SELECTPACKAGE
+\*------------------------------------*/
+
+.tsSelectPackage {
+  .border-radius(0.2em);
+  position: absolute;
+  background-color: @white;
+  border: 1px solid @turq;
+  color: @turq;
+  z-index: 5;
+  text-align: left;    
+  left: -2000px;
+  top: 53px;
+  //.push-down;
+  input[type=checkbox]{
+    display: none;
+  }
+  .box-shadow(0 6px 12px rgba(0, 0, 0, 0.175));
+}
+
+.tsSelectPackage.hide,
+.tsListSelectPackage.disabled {
+  visibility: hidden;
+}
+
+.tsSelectCategoryList {
+  .l-list;
+  float: left;
+  left: -40px;
+  padding: 10px;
+  width: 180px;
+  padding-bottom: 10px;
+  height: 400px;
+
+  .tsSelectCategoryList-item label {
+    .padding(all;@gutter-half/2;@gutter);
+    font-weight: normal;
+  }
+  
+  .tsSelectCategoryList-item {
+    margin-top: 2px;
+    padding-left: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 20px;
+    &:hover{
+      color: @darkturq;
+      border: 1px solid @darkturq;
+      .border-radius(0.8em);
+    }
+    
+    &.active {
+      border: 1px solid @turq;
+      .border-radius(0.8em);
+    }
+  }
+}
+
+.tsSelectPackageList {
+  .l-list;
+  left: -40px;
+  padding: 10px;
+}
+
+.tsSelectPackage-item {
+  cursor: pointer;
+  float: left;
+  padding: 3px;
+  margin-left: 3px;
+  margin-top: 3px;
+  &:hover {
+    border: 1px solid @turq;
+    .border-radius(0.4em);
+  }
+  &.active {
+    color: @black;
+    border: 1px solid @turq;
+    .border-radius(0.4em);
+  }
+}
+
+.tsSelectPackageList--medium {
+  display: none;
+}
+
+/*------------------------------------*\
+  $SEARCH
+\*------------------------------------*/
+
+.tsListFilter-search {
+  //float: right;
+}
+
+.tsListSearch {
+  display: none;
+}
+
+.tsListSearch > input[type=search],
+.tsListSearch > input[type=text] {
+  height: 22px;
+  border: none;
+  color: @turq;
+  //.margin(top;15);
+  .font-size(12);
+  .border-radius();
+  .padding(all;0;@gutter-half;0;@gutter-half);
+  .margin(all;13;@gutter;13;@gutter);
+  outline: none;
+  font-weight: bold;
+  max-width: 130px;
+  background-color: @white;
+}
+
+/*
+.tsListSearch + .tsListFilter-sorting  {
+  float: right;
+  width: 25%;
+  text-align: left;
+  max-width: 255px;
+  margin: auto;
+}
+*/
+
+.tsListSearch input::-webkit-input-placeholder,
+.tsListSearch textarea::-webkit-input-placeholder{
+  color: @turq;
+  .font-size(12);
+}
+
+.tsListSearch input:-moz-placeholder, 
+.tsListSearch textarea:-moz-placeholder,
+.tsListSearch input::-moz-placeholder,
+.tsListSearch textarea::-moz-placeholder{
+  color: @darkturq;
+ .font-size(12);
+}
+
+.tsListSearch input:-ms-input-placeholder, 
+.tsListSearch textarea:-ms-input-placeholder { 
+  color: @turq;
+  .font-size(12);
+}
+
+/*
+.tsListSearch input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+*/
+
+.no-touch .tsListSearch input[type="search"]::-webkit-search-cancel-button:after {
+  color: @turq;
+  .inline-block;
+  text-align: center;
+  font-family: iconfont;
+  font-size: 10px;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;  // What looks best?
+  content: "\e037";
+}
+
+.no-touch .tsListSearch ::-ms-clear {
+  color: @turq;
+}
+
+.tsListFilter-trigger {
+  .l-inline-elements(12);
+  //white-space: nowrap;
+  .tsListFilter-filteringWrapper, .tsListFilter-sortingWrapper {
+    width: 50%;
+    display: inline-block;
+  }
+  .tsListFilter-filteringWrapper {
+    text-align: right;
+    a.active:before, a.active:after {
+      bottom: -5px!important;
+    }
+  }
+  .tsListFilter-sortingWrapper {
+    text-align: left;
+    .tsSelectList {
+      display: none;
+    }
+  }
+}
+
+.js .tsListFilter--noCollapse {
+  display: block;
+    .margin(bottom;@gutter);
+    padding-bottom: 0;
+  }
+
+.js .tsListFilter--noCollapse .tsListFilter {
+    text-align: left;
+  }

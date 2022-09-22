@@ -1,0 +1,73 @@
+.tsResponsiveTabs,
+.tsResponsiveTabs--Alt {
+	position: relative;
+	border-top: @lightergrey 1px solid;
+}
+.tsResponsiveTabs--Alt {
+	border-top-color: @darkestpurple;
+}
+.tsResponsiveTabs-Panel,
+.tsResponsiveTabs-Nav {
+	margin: 0 auto;
+	max-width: @width-innerwrap;
+	.padding(leftright;@gutter-half;@gutter-half);
+}
+
+.tsResponsiveTabs-Tab {
+	position: relative;
+	top: -1px;
+}
+
+
+.tsResponsiveTabs-Tab.is-active {
+	margin-bottom: -1px;
+	background-color: @white;
+}
+
+.tsResponsiveTabs-Tab.is-disabled {
+	opacity: 0.5;
+}
+
+.tsResponsiveTabs-Content {
+	width: 100%;
+	background-color: @white;
+}
+.tsResponsiveTabs-Panel {
+	
+	.accordian-panel;
+}
+
+.tsResponsiveTabs .tsResponsiveTabs-Anchor {
+	.accordian-anchor;
+}
+.tsResponsiveTabs-Title {
+	.accordian-title;
+}
+.tsResponsiveTabs-Title.is-active {
+	.accordian-title-is-active;
+}
+
+.tsResponsiveTabs-Title.is-disabled {
+	.accordian-title-is-disabled;
+
+}
+
+.tsResponsiveTabs-Title.is-active .tsResponsiveTabs-Anchor {
+	margin-bottom: 0;
+}
+
+
+.tsResponsiveTabs-Tab {
+	display: block;
+	margin: 0;
+	list-style: none;
+	float: left;
+}
+.tsResponsiveTabs-Panel.is-active {
+	border-bottom: @lightergrey 1px solid;
+}
+
+.r-tabs-nav {
+	display: none;
+}
+

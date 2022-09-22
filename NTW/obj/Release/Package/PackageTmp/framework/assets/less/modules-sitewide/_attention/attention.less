@@ -1,0 +1,281 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * ATTENTION...........
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $ATTENTION
+\*------------------------------------*/
+
+.tsAttention {
+	background-color: transparent;
+	[class^="tsAttention-Message"] {
+		color: @pink;
+	}
+	
+   .tsAttention-Icon {
+       color: @white;
+       background: @pink;
+       .padding(all;3);
+       font-size: 8px;
+       .border-radius();
+       .margin(right;5);
+       vertical-align: middle;
+       .margin(top;3);
+    }
+}
+
+
+.tsAttention--Info {
+	background-color: @lightblue;
+	[class^="tsAttention-Message"] {
+		background-color: @blue;
+	}
+    .tsIcon-Information {
+        color: @white;
+    }
+}
+.tsAttention--Info--button {
+    background-color: @lightblue;
+    [class^="tsAttention-Message"] {
+        background-color: @blue;
+        .padding(topbottom;5;5);
+    }
+    .tsIcon-Information {
+        color: @white;
+    }
+
+    p {
+        .margin(bottom;0);
+        color: @white!important;
+    }
+}
+
+.tsAttention--Info--alt {
+	background-color: @lightergreen;
+	[class^="tsAttention-Message"] {
+		background-color: @lightgreen;
+		color: @black;
+	}
+    .tsIcon-Information {
+        color: @black;
+    }
+}
+
+.tsAttention--Warning {
+	border-bottom: 2px solid @orange;
+	border-top: 2px solid @orange;
+	[class^="tsAttention-Message"] {
+		color: @orange;
+	}
+   .tsIcon-Panic {
+      color: @orange;
+   }
+}
+
+.tsAttention--Panic {
+	background-color: @lightorange;
+	[class^="tsAttention-Message"] {
+		background-color: @orange;
+	}
+    .tsIcon-Panic {
+        color: @white;
+    }
+}
+
+
+.tsAttention-List--Inline {
+	.l-inline-list;
+	padding: 0;
+	.margin(bottom;@gutter);
+}
+
+.tsAttention--fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4999;
+}
+
+
+// place all message stuff inside this so you can inherit it in less
+[class^="tsAttention-Message"] {
+    position: relative;
+	.padding(topbottom;@gutter-half;@gutter-half);
+	color: @white;
+
+    & > :last-child:not([class^='tsAttention-List--Inline']) {
+        .margin(bottom;0);
+    }
+    & > *:not([class*='tsIcon-']):not([class^='tscInline']):not([class^='tsAttention-List']) {
+        .padding(left;30);
+    } 
+    a {
+        color: @white;
+        &:not([class^="tsBtn"]) {
+            font-weight: bold;
+            text-decoration: underline;    
+        }
+    }
+}
+
+
+
+.lt-ie9 [class^="tsAttention-Message"] {
+    p {
+	   .margin(bottom;0);
+	   .padding(left;@gutter-plus);
+    }
+}
+
+[class*='tsAttention-'] [class*='tsIcon-'] {
+	float: left;
+}
+
+[class*='tsAttention-'] [class^="tscInline"] [class*='tsIcon-'] {
+    float: none;
+    .font-size(21);
+}
+
+.tsAttention-heading {
+    
+}
+
+.tsAttention--Warning a {
+    color: @orange;
+}
+
+.tsAttention--Info--alt a {
+	color: @black;
+}
+
+.tsAttention-closeMessage {
+    cursor:pointer;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    .padding(left;40);
+    span {
+        float: left;
+        .font-size(13);
+        font-weight: normal;
+        .margin(right;5);
+    }
+    i {
+        position: relative;
+        top: 3px;
+        .font-size(14);
+    }
+}
+
+.tsAttention-MessageClosable {
+    p {
+        position: relative;
+        .padding(right;90);
+    }
+}
+
+.tsAttention-Message--question {
+    .tsAttention-Question {
+        .padding(left; 0);
+        .margin(topbottom; @gutter-half + (@gutter-half / 2); @gutter-half + (@gutter-half / 2));
+        float: left;
+    }
+    .tsAttention-Answer{
+        float: left;
+        .padding(top; 2);
+
+        & >:first-child {
+            .margin(right; 10);
+        }
+
+    }
+    p {
+        .padding(left; 30);
+        .margin(bottom; 0);
+    }
+}
+
+.js .tsAttention-JS {
+    display: none;
+}
+
+
+.tsAttention--tableLayout {
+    .tsAttention-Message {
+        display: table;
+        width: 100%;
+        & > i {
+            line-height: 20px;
+        }
+        & > * {
+            display: table-cell;
+            float: none;
+            vertical-align: middle;
+            white-space: nowrap;
+            padding:0 !important;
+            .padding(left;@gutter) !important;
+            &:first-child {
+                padding-left: 0 !important;
+            }
+        }
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            i {
+                .font-size(14);
+                vertical-align: middle;
+                float: none;
+            }
+            & > * {
+                .margin(left;5);
+                &:first-child {
+                    margin: 0;
+                }
+            }
+            &:hover {
+                color: @white;
+            }
+        }
+        .tsAttention-Content {
+            font-size: 0;
+            letter-spacing: -1em;
+            width: 100%;
+            white-space: normal;
+            & > * {
+                vertical-align: middle;
+                .margin(right;@gutter);
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            span {
+                .font-size(14);
+                letter-spacing:normal;
+            }
+            button {
+                .font-size(14);
+                letter-spacing:normal;
+            }
+            a {
+                text-decoration: underline;
+                white-space: nowrap;
+            }
+            a[class^="tsBtn"] {
+                text-decoration: none;
+            }
+        }
+    }
+}
+td .tsAttention--tableLayout .tsAttention-Message {
+    display: block;
+}

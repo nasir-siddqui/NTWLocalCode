@@ -1,0 +1,163 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model BolagEditViewModel
+
+@{
+    string analysContactUserId = Model.AnalysContactUserId != null ? Model.AnalysContactUserId.ToString() : "null";
+    string webbstyrningContactUserId = Model.WebstyrningContactUserId != null ? Model.WebstyrningContactUserId.ToString() : "null";
+    string levinfoContactUserId = Model.LevinfoContactUserId != null ? Model.LevinfoContactUserId.ToString() : "null";
+}
+
+@Html.AntiForgeryToken()
+
+<div ng-non-bindable data-$injector>
+    <div data-angular="editBolagApp" ng-controller="editBolagCtrl" ng-cloak class="tsWrapInner tsMarginBottom tsMarginTop"
+         ng-init="init(@analysContactUserId, @webbstyrningContactUserId, @levinfoContactUserId)">
+        <div class="tsMarginTop">
+            <div class="max-width">
+                <!-- CompanyId -->
+                @Html.HiddenFor(m => m.CompanyId)
+                
+                <!-- OrgNr -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                    @Html.LabelFor(m => m.OrgNr, new { @class = "tscForm-label" })
+                    @{
+                        RouteValueDictionary attributes = new RouteValueDictionary(new { @class = "tseInput", @type = "text" });
+
+                        if (Model.OrgNrExists)
+                        {
+                            attributes.Add("disabled", "");
+                        }
+                    }
+                    @Html.TextBoxFor(m => m.OrgNr, attributes)
+                    @Html.ValidationMessageFor(m => m.OrgNr)
+                </div>
+
+                @Html.HiddenFor(m => m.OrgNr)
+
+                <!-- Bolagsnamn -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                    @Html.LabelFor(m => m.Bolagsnamn, new { @class = "tscForm-label" })
+                    @Html.TextBoxFor(m => m.Bolagsnamn, new { @class = "tseInput", @type = "text" })
+                    @Html.ValidationMessageFor(m => m.Bolagsnamn)
+                </div>
+
+                <!-- Koncern -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                    @Html.LabelFor(m => m.GroupId, new { @class = "tscForm-label" })
+                    @Html.DropDownListFor(m => m.GroupId, Model.KoncernSelectList, "", new { @class = "combobox-autocomplete" })
+                    @Html.ValidationMessageFor(m => m.GroupId)
+                </div>
+
+                <!-- Land -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                    @Html.LabelFor(m => m.Land, new { @class = "tscForm-label" })
+                    @Html.TextBoxFor(m => m.Land, new { @class = "tseInput", @type = "text" })
+                    @Html.ValidationMessageFor(m => m.Land)
+                </div>
+
+                <h2 class="h2 tsMarginTop--doubleGutter">
+                    Aktiva moduler
+                </h2>
+
+                <h3 class="h3 tsBorderTop tsMarginTop tsPaddingTop">
+                    Analys
+                </h3>
+
+                <!-- Analys -->
+                <div class="tseTextField--Normal--Full--Half">
+                    @Html.EditorFor(m => m.AnalysActive, "Switch")
+                </div>
+
+                <!-- Analys - Kontaktperson -->
+                <div class="tseTextField--Normal--Full--Half tsMarginTop--halfGutter">
+                    @Html.LabelFor(m => m.AnalysContactUserId, new { @class = "tscForm-label" })
+                    @Html.DropDownListFor(m => m.AnalysContactUserId, Model.ContactSelectList, "", new { @class = "combobox-autocomplete", ng_Model = "analysContactUserId" })
+                    @Html.ValidationMessageFor(m => m.AnalysContactUserId)
+                </div>
+
+                <!-- Analys - Kontaktperson - Email -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="AnalysContactEmail" class="tscForm-label">Email</label>
+                    <input id="AnalysContactEmail" type="text" class="tseInput" disabled ng-model="analysContact.email" />
+                </div>
+
+                <!-- Analys - Kontaktperson - Telefon -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="AnalysContactTelefon" class="tscForm-label">Telefon</label>
+                    <input id="AnalysContactTelefon" type="text" class="tseInput" disabled ng-model="analysContact.telefon" />
+                </div>
+
+                <h3 class="h3 tsBorderTop tsMarginTop tsPaddingTop">
+                    Webbstyrning
+                </h3>
+
+                <!-- Webstyrning -->
+                <div class="tseTextField--Normal--Full--Half">
+                    @Html.EditorFor(m => m.WebstyrningActive, "Switch")
+                </div>
+
+                <!-- Multistyrning -->
+                <div>
+                    @Html.EditorFor(m => m.WebstyrningMultistyrningActive, "Checkbox")
+                </div>
+
+                <!-- Webstyrning nyckel -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop">
+                    @Html.LabelFor(m => m.WebstyrningNyckel, new { @class = "tscForm-label" })
+                    @Html.TextBoxFor(m => m.WebstyrningNyckel, new { @class = "tseInput", @type = "text" })
+                    @Html.ValidationMessageFor(m => m.WebstyrningNyckel)
+                </div>
+
+                <!-- Webstyrning - Kontaktperson -->
+                <div class="tseTextField--Normal--Full--Half tsMarginTop--halfGutter">
+                    @Html.LabelFor(m => m.WebstyrningContactUserId, new { @class = "tscForm-label" })
+                    @Html.DropDownListFor(m => m.WebstyrningContactUserId, Model.ContactSelectList, "", new { @class = "combobox-autocomplete", ng_Model = "webstyrningContactUserId" })
+                    @Html.ValidationMessageFor(m => m.WebstyrningContactUserId)
+                </div>
+
+                <!-- Webstyrning - Kontaktperson - Email -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="WebstyrningContactEmail" class="tscForm-label">Email</label>
+                    <input id="WebstyrningContactEmail" type="text" class="tseInput" disabled ng-model="webstyrningContact.email" />
+                </div>
+
+                <!-- Webstyrning - Kontaktperson - Telefon -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="WebstyrningContactTelefon" class="tscForm-label">Telefon</label>
+                    <input id="WebstyrningContactTelefon" type="text" class="tseInput" disabled ng-model="webstyrningContact.telefon" />
+                </div>
+
+                <h3 class="h3 tsBorderTop tsMarginTop tsPaddingTop">
+                    Leverantörsinformation
+                </h3>
+
+                <!-- Levinfo -->
+                <div class="tseTextField--Normal--Full--Half">
+                    @Html.EditorFor(m => m.LevinfoActive, "Switch")
+                </div>
+
+                <!-- Levinfo - Kontaktperson -->
+                <div class="tseTextField--Normal--Full--Half tsMarginTop--halfGutter">
+                    @Html.LabelFor(m => m.LevinfoContactUserId, new { @class = "tscForm-label" })
+                    @Html.DropDownListFor(m => m.LevinfoContactUserId, Model.ContactSelectList, "", new { @class = "combobox-autocomplete", ng_Model = "levinfoContactUserId" })
+                    @Html.ValidationMessageFor(m => m.LevinfoContactUserId)
+                </div>
+
+                <!-- Levinfo - Kontaktperson - Email -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="LevinfoContactEmail" class="tscForm-label">Email</label>
+                    <input id="LevinfoContactEmail" type="text" class="tseInput" disabled ng-model="levinfoContact.email" />
+                </div>
+
+                <!-- Levinfo - Kontaktperson - Telefon -->
+                <div class="tseTextField--Normal--Half--Inline tsMarginTop tscForm-row">
+                    <label for="LevinfoContactTelefon" class="tscForm-label">Telefon</label>
+                    <input id="LevinfoContactTelefon" type="text" class="tseInput" disabled ng-model="levinfoContact.telefon" />
+                </div>
+
+                @Html.Partial("_Hantera_Bolag_Nummer_List", Model)
+            </div>
+        </div>
+    </div>
+
+</div>

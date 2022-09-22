@@ -1,0 +1,185 @@
+/* NEW CODE FOR MY PAGES */
+
+.tsLogin-options{
+	.font-size(18);
+	color: @darkgrey;
+	.margin(bottom; @gutter-half);
+}
+
+//Loginboxes
+.tsLogin-boxes {
+	background-color: @nearwhite;
+	.margin(top;-@gutter);
+}
+.tsLogin-boxes > div {
+	background-color: @lightestblack;
+}
+.tsLogin-boxlist {
+	.l-inline-list;
+	li{
+		border-right: 1px solid @lightergrey;
+		border-left: 1px solid @lightergrey;
+		.padding(all;0);
+		&:last-child,
+		&:first-child {
+			border: none 0;
+		}
+	}
+}
+.tsLogin-boxlist-item {
+	width: 33.33%;
+	text-align: center;
+	
+	> a {
+		.padding(all;@gutter;@gutter-double;@gutter;@gutter-double);
+		display: block;
+		border-bottom: 9px transparent solid;
+	}
+	> a:hover {
+		border-bottom: 9px solid @purple;
+		background-color: @white;
+		p{
+			color: @black;
+		}
+	}
+	img {
+		display: inline-block;
+	}
+	/*i{
+		width: 70px;
+		height: 70px;
+		background-color: @purple;
+		border: 1px solid @white;
+		color: @white;
+		.font-size(lineheight;40;70);
+		display: inline-block;
+	}*/
+	h3 {
+		font-weight: normal;
+		.font-size(20);
+		.margin(top;@gutter-half);
+	}
+	p {
+		.font-size(12);
+	}
+}
+
+
+
+
+
+/* OLD CODE FOR OPEN PAGES */
+/* VVVVVVVVVVVVVVVVVVVVVVV */
+
+
+
+.tsLogin-wrapper {
+	overflow: hidden;
+}
+.tsLogin {
+	.padding(all;@gutter;0;@gutter;@gutter);
+}
+
+
+.tsLogin--alt {
+	.padding(all;@gutter;@gutter;@gutter;@gutter-double);
+	display: block;
+}
+
+.tsLogin-container {
+	.padding(all;@gutter;@gutter-double;@gutter;@gutter);
+}
+.tsLogin-container,
+.tsLogin--alt {
+	width: 50%;
+	float: left;
+}
+
+.tsLogin-linklist-loginlinks li {
+	overflow: hidden;
+	&>div {
+
+		float: left;
+		width: 100%;	
+		&:before{
+			.border-radius(50%);
+			background-color:@lightgrey;
+			width: 12px;
+			height: 12px;
+			content: "";
+			float: left;
+			.margin(all;3;@gutter-half;16;0);
+		}
+	}
+}
+
+.tsLogin-linklist a {
+	.padding(all;0);
+}
+
+.tsLogin--large {
+
+    height: 100%;
+    .padding(all;@gutter-half);
+
+    .tsLogin-contentColumnWrapper {
+        display: table;
+        width: 100%;
+    }
+    .tsLogin-contentColumn {
+        display: table-cell;
+        vertical-align: middle;
+        width: 50%;
+    }
+/*
+
+    .tsLogin-contentColumn:nth-child(1) {
+        width: 60%;
+    }
+    .tsLogin-contentColumn:nth-child(2) {
+        width: 40%;
+    }
+*/
+    .tsLogin-background {
+        height: 100%;
+        width: 100%;
+        display: table;
+        .padding(top;88);
+    }
+
+    .tsLogin-content {
+
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+
+    }
+
+    .tsLogin-loginWrapper {
+        .margin(left;@gutter-double * 2); 
+    }
+
+    .tsLogin-info {
+        display: block;
+        .margin(right;@gutter);
+    }
+
+    .tsLogin--large-mainWrapper, .tsLogin--large-topWrapper {
+        display: table-row;
+    }
+    .tsLogin--large-mainWrapper {
+        height: 100%;
+    }
+
+}
+
+.tsLogin--noPadding {
+    .padding(all;0);
+    .tsLogin-background {
+        .padding(all;0);
+    }
+}
+
+/*.no-js .tsAttention-JS ~ .flexcontainer .tsLogin--large {
+    top: 85px;
+}*/

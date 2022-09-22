@@ -1,0 +1,54 @@
+@import "carousel";
+@import "carousel-mq-medium";
+
+
+.lt-ie9 .tsCarousel {
+    min-width: @width-innerwrap;
+}
+.lt-ie9 .tsCarousel a {
+    cursor: pointer;
+}
+
+
+.lt-ie9 .tsHero-splash,
+.lt-ie9 .tsHero-splash--alt {
+  .background-image(no-radius-splash;png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.lt-ie9 .tsHero-splash {
+  background-position: top right;
+}
+
+.lt-ie8 .tsHero-splash {
+  span {
+    display: block;
+    .margin(top;@gutter-half);
+  }
+}
+.lt-ie8 .tsHero-splash--alt{
+  span {
+    display: block;
+    .margin(top;@gutter);
+  }
+}
+
+.no-touch .lt-ie9 {
+    .tsCarousel{
+        .tsCarousel-Prev,
+        .tsCarousel-Next {
+            display: none;
+        }
+        &:hover {
+            .tsCarousel-Prev,
+            .tsCarousel-Next {
+                .inline-block;
+            }
+        }
+    }
+}
+.lt-ie9 .tsCarousel-Prev,
+.lt-ie9  .tsCarousel-Next {
+    background-color: transparent;
+}

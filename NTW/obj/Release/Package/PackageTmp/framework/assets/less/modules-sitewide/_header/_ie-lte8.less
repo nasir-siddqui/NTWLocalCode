@@ -1,0 +1,178 @@
+@import "_header.less";
+
+@import "_header-mq-xsmall.less"; 
+@import "_header-mq-medium.less";
+@import "_header-mq-large.less"; 
+
+
+
+
+/*------------------------------------*\
+    $HEADER-LOGO
+\*------------------------------------*/
+
+.ie8 .tsLogo,
+.ie7 .tsLogo {
+    z-index: 1000; // Ridiculous, I know /pekkos - Made less rediculous, since the seach should overlap
+}
+.lt-ie9 .tsLogo{
+    width: 120px;
+}
+
+
+
+
+/*------------------------------------*\
+    $HEADER-NAVSITE
+\*------------------------------------*/
+
+.lt-ie9 .tsNavSite {
+    min-width: 1020px;
+    overflow: hidden;
+}
+
+.lt-ie9 .tsNavSite-list-login li{
+    .margin(top;7);
+}
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER-SEARCH
+\*------------------------------------*/
+.lt-ie9 .tsHeader-Search {
+    input[type=text] {
+        padding-top: 5px;
+        padding-bottom: 0;
+    }
+}
+.ie7 .tsHeader-Search {
+    float: right;
+    input[type=text] {
+        padding: 0;
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER-LOGIN
+\*------------------------------------*/
+
+.lt-ie9 .tsRadio-login input {
+    visibility: visible;
+}
+
+.ie7 .tsLogin-form-textinput {
+    width: 94%;
+}
+
+.js .tsWrapHeader,
+.no-js .tsWrapHeader {
+    .clearfix;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @width-innerwrap;
+    width: @width-innerwrap;
+}
+
+.lt-ie9 .tsNavPrimaryTabs {
+    overflow: hidden;
+}
+
+.lt-ie8 .tsNavPrimary {
+    position: static;
+}
+
+// .no-js .lt-ie9 .tsNavPrimary {
+.lt-ie9 .tsNavPrimary { // Both js and no-js
+    width: 1020px;
+    margin: 0 auto;
+}
+
+.lt-ie9 .tsNavPrimary-close {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+// *** Top level
+/*
+Removed issue to open menu in ie7 
+
+.lt-ie8 .tsNavPrimary-TopLevel {
+   max-height: 0;
+}*/
+
+// *** Sub level
+.lt-ie8 .tsNavPrimary-SubLevel {
+    position: static;
+}
+
+
+// *** Cross site links
+
+.lt-ie9 .tsNavPrimary-CrossSite {
+    display: none;
+}
+
+
+// *** Campaign
+
+.js .lt-ie8 .tsNavPrimary-Campaign {
+    top: 140px;
+    width: 20%;
+
+}
+
+
+
+.js .lt-ie8 .tsWrapHeader {
+    max-width: 840px;
+}
+
+.lt-ie9 .tsNavSite {
+    min-width: 1020px;
+    overflow: hidden;
+}
+.lt-ie9 .tsNavSite-list-login li{
+    .margin(top;7);
+}
+.lt-ie8 .tsNavPrimary {
+    position: static;
+}
+.lt-ie8 .tsNavPrimary-CrossSite {
+    display: none;
+}
+
+.lt-ie8 .tsNavPrimary-TopLevel {
+
+}
+.lt-ie8 .tsNavPrimary-SubLevel {
+    position: static;
+}
+
+.js .lt-ie8 .tsNavPrimary-Campaign {
+    top: 140px;
+    width: 20%;
+
+}
+
+.lt-ie8 .tsNavPrimary-SubLevel-list {
+    width: 970px;
+}
+
+.lt-ie8 .tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    width: 200px;
+}
+
+.lt-ie8 .tsNavPrimary-SubLevelItem--Related {
+    margin-right: -30px !important;
+    width: 280px;
+}
+
+
+

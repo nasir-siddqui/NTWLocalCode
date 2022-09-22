@@ -1,0 +1,12 @@
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\bin\Debug\Telia.NTW.DB.AdvanceWebb.dacpac
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\bin\Debug\AdvanceWebb.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\bin\Debug\AdvanceWebb.pdb
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\bin\Debug\master.dacpac
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\Telia.NTW.DB.AdvanceWebb.sqlproj.AssemblyReference.cache
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\Model.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\refactor.xml
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\postdeploy.sql
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\predeploy.sql
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\Telia.NTW.DB.AdvanceWebb.sqlproj.CopyComplete
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\AdvanceWebb.dll
+C:\Telia Code\nummertjanster-webb-prod-fix_runningTheCode\src\NTW\AdvanceWebb\obj\Debug\AdvanceWebb.pdb

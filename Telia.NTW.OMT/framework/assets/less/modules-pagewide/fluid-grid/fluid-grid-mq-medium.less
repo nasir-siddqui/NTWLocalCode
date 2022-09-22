@@ -1,0 +1,40 @@
+.tsFluidGrid-list {
+	
+}
+ 
+.tsFluidGrid-item {
+	width: 30.303%; //33.33% - margin-left/margin-right
+    margin: 0 1.515% 1.875em; // left+right rest of % to width:33.33%
+}
+.tsFluidGrid-item--fullsize {
+	width: 96.97%;
+	margin: 0 1.515% 1.875em; 
+    .tsFluidGrid-image {
+		float: left;
+		width: 67%;
+		margin-right: 20px;
+	}
+.tsFluidGrid-header,
+.tsFluidGrid-footer,
+	p {
+		float: right;
+		width: 31%;
+		max-height: none;
+	}
+}
+
+
+.tsFluidGrid--alt {
+    .tsFluidGrid-item { 
+        width: 33.3333%;
+        .margin(all;0;0;15;0);
+    }
+    .tsFluidGrid-item--fullsize { 
+        width: 100%;
+        .margin(all;0;0;15;0);
+    }
+}
+
+.fluid-grid-width {
+    width: 33.3333%;
+}

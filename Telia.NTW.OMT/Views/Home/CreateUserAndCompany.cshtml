@@ -1,0 +1,47 @@
+﻿@model Telia.NTW.OMT.ViewModels.OMTUserAndCompanyViewModel
+
+@{
+    ViewBag.Title = "Skapa bolag";
+    Layout = "~/Views/Shared/_LayoutNoMenu.cshtml";
+}
+
+<div class="tsWrapInner">
+    <div class="tsBodyText tsMarginTop">
+        <h1 class="h1">Nummertjänster Webb: Skapa bolag</h1>
+        <p>
+            Bolaget finns inte i Nummertjänster Webb. Var vänlig fyll i information om bolaget också nedan.
+        </p>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.UserId)
+        @Html.HiddenFor(m => m.Username)
+        @Html.HiddenFor(m => m.AnvändarID)
+		@Html.HiddenFor(m => m.Namn)
+		@Html.HiddenFor(m => m.Email)
+		@Html.HiddenFor(m => m.Telefon)
+
+        @Html.EditorFor(m => m.Organisationsnummer, "TeliaTextField", new { HtmlAttributes = new {Disabled = "disabled"} })
+        @Html.EditorFor(m => m.Bolagsnamn, "TeliaTextField")
+		@Html.EditorFor(m => m.Koncern, "TeliaDropdown", new { SelectList = Model.KoncernSelectList })
+		@Html.EditorFor(m => m.Land, "TeliaTextField")
+		@Html.EditorFor(m => m.WebbstyrningNyckel, "TeliaTextField")
+
+		<div class="tseTextField tsMarginTop">
+			<label class="tscForm-label">Behörigheter:</label>
+		</div>
+		<div class="col-md-12 tscForm-row tsMarginBottom--doubleGutter">
+			<div class="tscForm-inputContainer">
+				@Html.EditorFor(m => m.CompanyAnalys, "TeliaCheckbox")
+				@Html.EditorFor(m => m.CompanyWebbstyrning, "TeliaCheckbox")
+				@Html.EditorFor(m => m.CompanyMultistyrning, "TeliaCheckbox")
+				@Html.EditorFor(m => m.CompanyLeverantörsinformation, "TeliaCheckbox")
+			</div>
+		</div>
+
+        <div class="tsMarginTop tsMarginBottom--doubleGutter">
+            <input type="submit" value="Spara" class="tsBtn--Regular" />
+        </div>
+	}
+</div>

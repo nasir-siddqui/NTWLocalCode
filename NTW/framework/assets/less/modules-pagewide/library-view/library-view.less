@@ -1,0 +1,285 @@
+.tsLibrary {
+    .l-list;
+    //.margin(bottom;60);  
+}
+
+.tsLibrary-item {
+    .clearfix;
+    .media;
+    .padding(all;@gutter-half;@gutter-half;@gutter-half;0);
+    border-bottom: 1px solid @lightergrey;
+}
+
+
+
+.tsLibrary p {
+    .font-size(lineheight;11;13);
+    color: @black;
+}
+
+.tsLibrary-subtext {
+	.font-size(11);
+	display: block;
+}
+
+.tsLibrary-img {
+	border: 1px solid rgb(208,240,232); //lighten(@turq,58%);
+	width: 67px;
+	height: 67px;
+	.margin(right;@gutter-half);
+}
+.tsLibrary-img-alt{
+	border: none;
+	width: 53px;
+	height: 53px;
+	.margin(right;@gutter-half);
+}
+.tsLibrary-img-alt img{
+    height: auto;
+}
+.tsLibrary-title {
+	color: @black;
+	.font-size(lineheight;14;16);
+}
+
+.tsLibrary-bd > :last-child {
+    margin-bottom: 0;
+}
+
+.tsLibrary-bd p {
+	.margin(bottom;0);
+	&:last-child {
+		.margin(bottom;@gutter-half);
+	}
+}
+
+dl.tsLibrary {
+    .font-size();
+    letter-spacing: normal;
+}
+
+dl.tsLibrary dd > a {
+    display: block;
+    color: @textcolor;
+    .font-size(lineheight;11;13);
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+.touch dl.tsLibrary dd > a {
+    .font-size(lineheight;14;20);
+}
+
+.tsLibrary dd {
+    .margin(bottom;@gutter);
+}
+
+.tsLibrary--linkList{
+   .l-list;
+   .margin(bottom;60);     
+}
+
+.tsLibrary--linkList > li{
+    .margin(bottom;@gutter-half);
+    width: 100%;
+    
+    .h3{
+        color: @nearblack;
+        .font-size(18);
+        i{
+            color: @darkgrey;
+            .font-size(15);
+            text-align: left;
+            width: 18px;
+            width: 1.8rem;
+        }
+    }
+
+    .tsLibrary-innerlist--lastChild{
+        border-bottom:0;
+    }
+}
+
+.tsLibrary-innerlist--linkList {
+    .l-inline-list;
+    border-bottom:1px solid @lightclay;
+    .margin(bottom;@gutter);
+    .padding(bottom;@gutter-half);
+    p:before {
+        color: @linkcolor;
+        content: " \00b7";
+        .font-size(18);
+        font-weight: bold;
+        .margin(right;@gutter-half);
+    }
+    p a{
+        color: @linkcolor;
+        .font-size(14);
+        font-weight: bold;
+    }
+    li {
+        .margin(bottom;0);
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.tsLibrary-item--linkList {
+    border: none;
+    .padding(topbottom;4;4);
+}
+
+
+.tsLibrary-title--linkList{
+    color: @nearblack;
+}
+
+.tsLibrary-titleContainer{
+    .padding(topbottom;@gutter-double;@gutter);
+    border-bottom:1px solid @lightclay;
+}
+
+
+
+
+
+.tsLibrary-small {
+    .l-inline-list;
+    margin-left: -4%;
+}
+.tsLibrary-small > li {
+    display: inline-block;
+    margin: 4% 0 0 4%;
+    width: 21%;
+    height: 21%;
+    display: inline-block;
+    border: 1px solid @lightergrey;
+}
+.tsLibrary-small .tsLibrary-item--noborder{
+    border: none;
+    width: 15%;
+    height: 15%;
+    margin: 2% 0 2% 4%;
+}
+
+.tsLibrary-small > li[data-js="foldout-item"].is-expanded {
+    .margin(bottom; 5);
+    border-width: 2px;   
+}
+
+.tsLibrary-small > li[data-js="foldout-item"].is-expanded:before {
+    bottom: -18px;
+}
+.tsLibrary-small > li[data-js="foldout-item"].is-expanded:after {
+    bottom: -18px;
+    border-bottom-color: @white;
+    margin-left: -10px;
+    border-width: 10px;
+}
+
+.tsLibrary-small .tsFoldout {
+    width: 96%;
+    margin-top: 10px;
+}
+
+.js .tsLibrary-small > li:hover .tsLibrary-item--alt {
+    &:after {
+        display: none;
+    }
+}
+
+.tsLibrary-item--alt img {
+  //  height: 100%;
+    width: 100%;
+}
+
+.tsLibrary-small .tsLibrary-img {
+    margin: 0;
+    border:none;
+    //.padding(all;5);
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: @white;
+}
+.tsLibrary-small .tsLibrary-img img{
+    width: 100%;
+    height: auto;
+}
+.js .tsLibrary-small > li .tsLibrary-item-info,
+.js .tsLibrary-small > li .tsLibrary-item-info span {
+    display: none;
+}
+.tsLibrary-small > li:hover .tsLibrary-item--alt {
+    position: relative;
+    &:after {
+        position: absolute;
+        content: attr(data-title);
+        .padding(all;5);
+        .font-size(10);
+        .box-sizing;
+        word-break:break-all;
+        .transition;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        //border:1px solid @lightgrey;
+    }
+}
+
+
+
+.js .tsLibrary-small > li:hover .tsLibrary-item-info {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+    //border: 1px solid @lightgrey;
+    height: 100%;
+    width: 100%;
+    &> span{
+        height: 100%;
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        overflow: hidden;
+        &> span {
+            word-break: break-word;
+            display: table-cell;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            .font-size(lineheight;10;10);
+            .padding(all;5);
+            color:@grey;
+            
+        }
+    }
+}
+.tsLibrary--Alt {
+    text-align: left;
+}
+.tsLibrary--Alt .tsLibrary-item {
+    display: table;
+    padding: 0 10px 0 0;
+    border: none;
+    margin-bottom: 5px;
+    p {
+            margin-bottom: 0;
+    }
+}
+.tsLibrary--Alt .tsLibrary-item > :last-child {
+    vertical-align: middle;
+}
+
+

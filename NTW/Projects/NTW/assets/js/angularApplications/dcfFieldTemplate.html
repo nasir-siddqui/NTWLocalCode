@@ -1,0 +1,74 @@
+<h4 class="h4 title" ng-if="field.type === 'label'">{{ model.attributeValue }}</h4>
+
+<div ng-if="field.type === 'radio'">
+    <label class="field-label" ng-class="{'strong':field.strongLabel}" ng-if="section" ng-hide="field.hideLabel">{{ field.title }}</label>
+    <div data-rules="{{ field.rules }}" data-name="{{ field.id }}" data-type="radio" data-title="{{ field.name }}">
+        <div class="tseRadioBox--Normal{{ field.opt.style }}{{ $last ? '--Inline' : '--InlineSmall' }}" ng-repeat="item in field.opt.options">
+            <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}" value="{{ item.value }}" ng-model="model.attributeValue">
+            <label for="{{ field.id }}-{{ item.value }}" ng-bind-html="getHtml(item.label)"></label>
+        </div>
+    </div>
+</div>
+
+<div ng-if="field.type === 'checkbox'">
+    <label class="field-label inline" ng-class="{'strong':field.strongLabel}" ng-if="section" ng-hide="field.hideLabel">{{ field.title }}</label>
+    <div class="tseRadioBox--Normal--ColorNavigation{{ field.opt.style }}--Inline">
+        <input type="checkbox" name="{{ field.id }}" id="{{ field.id }}" value="true" ng-true-value="{{ field.opt.checked }}" ng-false-value="{{ field.opt.unchecked }}" ng-model="model.attributeValue" data-rules="{{ field.rules }}" data-title="{{ field.name }}">
+        <label for="{{ field.id }}" data-checked="{{ field.opt.checked }}">{{ field.opt.unchecked }}</label>
+    </div>
+</div>
+
+<div ng-if="field.type === 'radiospot'">
+    <div data-rules="{{ field.rules }}" data-name="{{ field.id }}" data-type="radio" data-title="{{ field.name }}">
+        <div class="tseRadioBox--Normal--Spot--Inline" ng-if="field.single" ng-repeat="item in field.single">
+            <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}" value="{{ item.value }}" ng-model="model.attributeValue">
+            <label for="{{ field.id }}-{{ item.value }}">
+                <h4>{{ item.label }}</h4>
+                <span>{{ item.unit }}</span>
+                <p ng-if="item.price">{{ item.price }}</p>
+            </label>
+        </div>
+        
+        <div class="group" ng-if="field.groups" ng-repeat="group in field.groups">
+            <label>{{ group.title }}</label>
+            <div class="tseRadioBox--Normal--Spot--Inline" ng-repeat="item in group.options">
+                <input type="radio" name="{{ field.id }}" id="{{ field.id }}-{{ item.value }}"value="{{ item.value }}" ng-model="model.attributeValue">
+                <label for="{{ field.id }}-{{ item.value }}">
+                    <h4>{{ item.label }}</h4>
+                    <span>{{ item.unit }}</span>
+                    <p ng-if="item.price">{{ item.price }}</p>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tseRadioBox--Normal--Spot" ng-if="field.type === 'checkboxspot'">
+    <input type="checkbox" name="{{ field.id }}" id="{{ field.id }}" value="true" ng-true-value="{{ field.opt.value }}" ng-false-value="" ng-model="model.attributeValue" data-rules="{{ field.rules }}" data-title="{{ field.name }}">
+    <label for="{{ field.id }}">
+        <h4>{{ field.opt.label }}</h4>
+        <span>{{ field.opt.unit }}</span>
+        <p ng-if="field.opt.price">{{ field.opt.price }}</p>
+    </label>
+</div>
+        
+<div class="tseTextField--Normal{{ field.opt.width }}{{ field.opt.width ? '--Inline' : '' }}" ng-if="field.type === 'text'">
+    <label ng-class="{ 'field-label': section }" ng-if="section" ng-hide="field.hideLabel" for="{{ field.id }}">{{ field.title }} {{ field.required ? '*' : '' }}</label>
+    <input type="text" name="{{ field.id }}" id="{{ field.id }}" ng-model="model.attributeValue" data-rules="{{ field.rules }}" data-title="{{ field.name }}" placeholder="{{ field.description }}">
+</div>
+
+<div ng-if="field.type === 'select'">
+    <label class="field-label" ng-if="section">{{ field.title }}</label>
+    <div class="tseSelect--Normal{{ field.opt.width }}">
+        <select name="{{ field.id }}" id="{{ field.id }}" ng-model="model.attributeValue" data-rules="{{ field.rules }}" data-title="{{ field.name }}" data-select-value="{{ model.attributeValue }}" ng-options="item.value as item.label for item in field.opt.options">
+            <!--<option ng-repeat="item in field.opt.options" value="{{ item.value }}" ng-selected="item.value === model.attributeValue">{{ item.label }}</option>-->
+        </select>
+    </div>
+</div>
+
+<div class="tseTextArea" ng-if="field.type === 'textarea'">
+    <label ng-hide="field.hideLabel" for="{{ field.id }}" ng-if="section">{{ field.title }} {{ field.required ? '*' : '' }}</label>
+    <textarea name="{{ field.id }}" id="{{ field.id }}" rows="{{ field.opt.rows }}" ng-model="model.attributeValue" data-rules="{{ field.rules }}" data-title="{{ field.name }}"></textarea>
+</div>
+
+<a ng-if="field.type === 'link'" href="{{ field.opt.url }}"><i class="{{ field.opt.icon }}"></i> {{ field.opt.title }}</a>

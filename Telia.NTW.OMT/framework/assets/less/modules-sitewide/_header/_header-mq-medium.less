@@ -1,0 +1,1423 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * HEADER..............
+ * LOGO................
+ * SITE-NAVIGATION.....
+ * PRIMARY-NAVIGATION..
+ * SEARCH..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.tsHeader {
+    min-height: 121px;
+}
+
+.csstransitions .tsHeader { // what does this do?
+    .transition;
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    $LOGO
+\*------------------------------------*/
+
+.tsHeader-LogoWrapper {
+    position: relative;
+}
+
+.tsLogo {
+    position: absolute;
+    top: 26px;
+    left: 40px;
+    width: 95px;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $SITE-NAVIGATION
+\*------------------------------------*/
+
+.tsNavSite {
+    border-bottom: 1px solid @bordercolor-light;
+    .background-image(utility-xrep-background);
+    background-position: left bottom;
+    background-repeat: repeat;
+}
+
+.tsNavSite [class^="tsNavSite-list"] {
+    .l-inline-list;
+
+    > li {
+        .font-size(13)
+    }
+}
+
+.tsNavSite-item {
+    text-align: center;
+    font-weight: bold;
+}
+.tsNavSite-list-login .tsNavSite-item {
+    font-weight: normal;
+}
+
+.tsNavSite-item.current {
+    border-left: 1px solid @bordercolor-light;
+    border-right: 1px solid @bordercolor-light;
+    background-color: @bodycolor;
+}
+
+.tsNavSite-item a,
+.tsNavSite-item span {
+    display: block;
+    position: relative;
+    top: 1px;
+   //padding: 0.65em 1em 0.65em 1em;
+    .padding(all;6.5;10;6.5;10);
+}
+
+.tsNavSite-item a:hover {
+    text-decoration: underline;
+}
+
+.tsNavSite-item {
+     &:last-child {
+        a {
+            //padding-right: 0; //
+           // margin-right: 2.8em;
+        }
+    };
+}
+
+.tsNavSite-item.current a,
+.tsNavSite-item.current span {
+    background-color: @bodycolor;
+    color: @black;
+}
+.tsNavSite-list-login .tsNavSite-item {
+    border-right: 1px @lightgrey solid;
+    .padding(all;0;5;0;5)!important;
+    .margin(all;6.5;0;6.5;0)!important;
+    overflow: hidden;
+    &:last-child {
+        border-right: 0;
+    }
+}
+.tsNavSite-list-login .tsNavSite-item a {
+    .font-size(10);
+   .padding(all;0);
+   float: left;
+   color: @grey;
+}
+.tsNavSite-list-login .tsNavSite-item a.tsNavSite-item-link {
+    color:@blue;
+    float: left;
+    .margin(left;@gutter-half/2);
+}
+
+.tsNavSite-list {
+    float:left;
+}
+.tsNavSite-list-login {
+    float: right;
+}
+.tsNavSite-list {
+    .padding(left;@gutter-double);
+}
+.tsNavSite-list-login {
+    text-align: right;
+    .padding(right;@gutter-double);
+}
+.tsNavSite-list-login i {
+    .font-size(lineheight;16;10);
+    .margin(right;@gutter-half/2);
+}
+.tsNavSite-list-login  .tsNavSite-item:last-child a {
+    .margin(all;0);
+}
+
+
+
+
+
+/*------------------------------------*\
+    $PRIMARY-NAVIGATION
+\*------------------------------------*/
+
+
+/* --- menu v4 --- */
+
+.tsIcon-Expand {
+    .visuallyhidden;
+}
+
+// move this:
+.tsIcon-FoldOutCloseButton {
+    .margin(left;5);
+    width: 20px;
+    height: 20px;
+    .border-radius(50%);
+    background-color: @darkerpurple;
+    display: inline-block;
+    background-image: none !important;
+}
+
+.positionFollow {
+    position: relative;
+}
+
+.tsNavPrimary {
+    position: relative;
+}
+
+
+.js .tsWrapNavigation {
+    position: relative;
+    .media(right);
+}
+
+.js .tsWrapHeader {
+    .tsWrapInner;
+    .padding(leftright;180;40);
+}
+
+
+.no-js .tsWrapHeader {
+    overflow: hidden;
+}
+
+.no-js .tsNavPrimary-Inner {
+    margin: 0 auto;
+    .padding(leftright;180;@gutter*2);
+    max-width: @width-innerwrap;
+    border: none;
+}
+
+
+.tsNavPrimary-Tabs {
+    display: block;
+}
+
+.tsNavPrimary-Large .tsNavPrimary-Tabs {
+    position: absolute;
+    left: 139px;
+    white-space: nowrap;
+}
+
+
+// *** Tabs & Top Level
+
+.tsNavPrimary-TopLevel,
+.tsNavPrimary-Tabs {
+    .l-inline-list(20);
+}
+
+.tsNavPrimary-TabsItem {
+    position: relative;
+}
+
+.js .tsNavPrimary-TopLevelItem {
+    display: block;
+}
+
+.tsNavPrimary-TopLevelItem,
+.tsNavPrimary-TabsItem {
+    background-color: @bodycolor;
+    &:hover {
+//        background-color: @darkerpurple;
+    }
+    &:hover > a {
+        text-decoration: none;
+    }
+    &> a  > b {
+        position: relative;
+        font-weight: normal;
+    }
+    &> a:hover > b:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.1em;
+        width: 100%;
+        border-bottom: 2px solid @purple;
+    }
+}
+
+
+
+.js .tsNavPrimary-TopLevelLabel {
+    display: none;
+}
+
+
+.tsNavPrimary-TopLevelItem > a,
+.tsNavPrimary-TabsItem > a {
+    display: block;
+    padding: 36px 10px 31px;
+    color: @linkcolor;
+    .transition(none);
+    cursor: pointer;
+}
+
+
+.tsNavPrimary-TabsItem > a.is-expanded {
+    background-color: @purple;
+    color: @linkcolorinverted;
+    &:hover > b:after {
+        border-bottom: 2px solid @white;
+    }
+}
+
+.no-js .tsNavPrimary-TopLevelItem:not(.tsNavPrimary-TopLevelLink):hover > a {
+    background-color: @purple;
+    color: @linkcolorinverted;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    position: relative;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(22);
+}
+
+
+// *** Sub level
+
+
+
+.js .tsNavPrimary-SubLevel {
+    display: none;
+    position: relative;
+    .margin(bottom;@gutter);
+//    .padding(leftright;20;20);
+//    min-height: 291px; needs to be set after campign has been populated
+//    background-color: lighten(@darkerpurple, 5%);
+    background-color: @darkerpurple;
+    overflow: hidden;
+}
+
+
+.tsNavPrimary-SubLevel-list {
+    width: 100%;
+    max-width: @width-innerwrap;
+//    min-height: 292px;
+    .l-inline-list(20);
+    margin-left: auto;
+    margin-right: auto;
+    .padding(all;@gutter-half;@gutter*2.5/2;@gutter-half;@gutter*2.5/2); // 10px / 25px
+    background-color: @purple;
+    font-weight: bold;
+}
+
+.tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    .margin(topbottom;@gutter;@gutter);
+//    margin-right: 1.5%;
+    .padding(leftright;@gutter*1.5/2;@gutter*1.5/2); // 15px
+    width: 33%;
+    background-color: @purple;
+}
+
+.tsNavPrimary-SubLevelLabel {
+    position: relative;
+    .margin(bottom;4);
+    padding-right: 20px;
+    border-bottom: 2px solid @white;
+    .ellipsis;
+    &:hover {
+        background-color: @darkerpurple;
+        text-decoration: none;
+    }
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-] {
+    position: absolute;
+    right: 2px;
+    top: 10px;
+//    float: right;
+    height: 28px;
+    vertical-align: middle;
+    .font-size(24);
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-]:before {
+    display: block;
+    position: relative;
+}
+
+.tsNavPrimary-SubLevelLabel .tsIcon-mobile:before     { top: -8px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-coverage:before   { top: -15px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-tv:before         { top: -13px; right: 0; }
+
+.tsNavPrimary-SubLevel a {
+    display: block;
+    //.margin(topbottom;5;0);
+    //.margin(topbottom;5;@gutter-half;);
+    .padding(all;11;10;11;10;);
+//    .padding(top;5);
+    color: @linkcolorinverted;
+}
+
+.tsNavPrimary-SubLevel {
+//    display: none; // why this?
+}
+
+// no-js: Without javascript, the sub level menu panel falls out on hover, positioned on top of (covering) the content below
+.tsNavPrimary-TopLevel {
+    position: relative;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    position: absolute;
+    z-index: 100000;
+    left: 0;
+    top: 100%;
+    width: 100%;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    display: none;
+}
+
+//.no-js .tsNavPrimary-TopLevelItem > a:hover + .tsNavPrimary-SubLevel,
+//.no-js .tsNavPrimary-TopLevelItem > a:focus + .tsNavPrimary-SubLevel {
+.no-js .tsNavPrimary-TopLevelItem:hover .tsNavPrimary-SubLevel,
+.no-js .tsNavPrimary-TopLevelItem > a:focus + .tsNavPrimary-SubLevel {
+    display: block;
+}
+
+.no-js .tsNavPrimary-TopLevelItem:not(:hover) .tsNavPrimary-SubLevel {
+//    .visuallyhidden;
+}
+
+.no-js .tsNavPrimary-SubLevel .tsNavPrimary-SubLevel-list {
+    .padding(all;10;10;10;30;);
+}
+
+.tsNavPrimary-close {
+    display: block!important;
+    .tsWrapInner;
+//    max-width: none;
+    border-top: 1px solid @darkerpurple;
+    background-color: @purple;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background-color: @darkerpurple;
+    }
+//    .margin(all;@gutter-half;-@gutter-double;0;-@gutter-double;);
+    a {
+//        border-left: 1px solid @darkerpurple;
+//        border-right: 1px solid @darkerpurple;
+        .font-size(12);
+        .padding(all;@gutter-half);
+        .inline-block;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: none;
+        background-color: @darkerpurple;
+    }
+    i {
+//        .border-radius(50%);
+        .font-size(8);
+        .padding(all;4);
+        .margin(left;@gutter-half/2);
+//        background-color: @darkerpurple;
+    }
+
+
+}
+
+.tsNavPrimary-EndLevel>li {
+    list-style:none!important;
+}
+
+.tsNavPrimary-SubLevelItem--Related {
+    width: 100%;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+    .margin(leftright;@gutter*1.5/2;@gutter*1.5/2);
+    border-top: 1px solid @darkerpurple;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    .inline-block;
+    width: 49.5%;
+    .font-size(13);
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    position: relative;
+    .padding(all;@gutter*2/3;@gutter*2;@gutter*2/3;@gutter/2);
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after,
+.tsNavPrimary-SubLevelLabel:after {
+    content: "\e01b";
+    position: absolute;
+    top: @gutter/2*1px;
+    right: @gutter*1px;
+    width: @gutter*1px;
+    height: @gutter*1px;
+    text-align: center;
+    font-family: iconfont;
+    .font-size(16);
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: @gutter*1px;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.tsNavPrimary-SubLevelLabel:after {
+    right: 5px;
+}
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .font-size(15);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.tsNavPrimary-EndLevelLink {
+    .font-size(11);
+    a:after {
+        content: "...";
+    }
+}
+
+.tsNavPrimary-EndLevelItem a,
+.tsNavPrimary-EndLevelLink a {
+    .transition;
+    &:hover {
+//        background-color: @darkerpurple;
+        text-decoration: underline;
+    }
+}
+
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    &:hover {
+        background-color: @darkerpurple;
+        text-decoration: none;
+    }
+}
+
+
+.tsNavPrimaryV2-Horizontal {
+	.tsNavPrimaryV2-EndLevel {
+		.clearfix();
+	}
+	.tsNavPrimaryV2-EndLevelItem {
+		float: left;
+		margin-right: 20px;
+	}
+}
+
+
+// *** Cross site links
+
+body:not(.lt-ie9) li.tsNavPrimary-CrossSite {
+    .visuallyhidden; // Forces IE8 into compatibility mode for some reason, ie-fallback implemented
+}
+
+
+/* --- END: Menu v4 --- */
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Menu v5 overrides --- * /
+
+
+.tsIcon-Expand {
+    .visuallyhidden;
+}
+
+
+.tsNavPrimary {
+    position: relative;
+}
+
+.no-js .menu-v5 .tsNavPrimary {
+	position: absolute;
+	top: 34px;
+	width: 100%;
+}
+
+.js .tsWrapNavigation {
+    position: relative;
+    .media(right);
+}
+
+.tsWrapHeader {
+    .tsWrapInner;
+    .padding(leftright;180;40);
+}
+
+.no-js .tsWrapHeader {
+    overflow: hidden;
+}
+
+.no-js .tsNavPrimary-Inner {
+    margin: 0 auto;
+    .padding(leftright;180;@gutter*2);
+    max-width: @width-innerwrap;
+    border: none;
+}
+
+
+
+// *** Tabs & Top Level
+
+.tsNavPrimary-Tabs {
+    display: block;
+}
+
+.tsNavPrimary-Large .tsNavPrimary-Tabs {
+    position: absolute;
+    left: 139px;
+    white-space: nowrap;
+}
+
+.tsNavPrimary-TopLevel,
+.tsNavPrimary-Tabs {
+    .l-inline-list(20);
+}
+
+.tsNavPrimary-TabsItem {
+    position: relative;
+}
+
+.js .tsNavPrimary-TopLevelItem {
+    display: block;
+}
+
+.tsNavPrimary-TopLevelItem,
+.tsNavPrimary-TabsItem {
+    background-color: @bodycolor;
+
+    &:hover > a {
+        text-decoration: none;
+    }
+
+    &> a  > b {
+        position: relative;
+        font-weight: normal;
+    }
+
+    &> a:hover > b:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.1em;
+        width: 100%;
+        border-bottom: 2px solid @purple;
+    }
+}
+
+
+
+.js .tsNavPrimary-TopLevelLabel {
+    display: none;
+}
+
+.no-js .menu-v5 .tsNavPrimary-TopLevelLabel.is-hidden {
+    display: block;
+}
+
+.menu-v5 .tsNavPrimary-TopLevelItem > a,
+.menu-v5 .tsNavPrimary-TabsItem > a {
+    display: block;
+    padding: 36px 10px 31px;
+    color: @linkcolor;
+    .transition();
+    cursor: pointer;
+}
+
+.search-is-focused .tsNavPrimary-TopLevelItem > a,
+.search-is-focused .tsNavPrimary-TabsItem > a {
+    color: @lightgrey;
+}
+
+// Remove
+.tsNavPrimary-TabsItem > a.is-expanded {
+    background-color: @purple;
+    color: @linkcolorinverted;
+    &:hover > b:after {
+        border-bottom: 2px solid @white;
+    }
+}
+// --
+
+.menu-v5 .tsNavPrimary-TabsItem > a {
+    .transition(color);
+}
+
+.menu-v5 .tsNavPrimary-TabsItem.is-expanded > a {
+    background-color: transparent;
+    color: purple;
+}
+
+// When a top level item is expanded, the adjascent items turns grey
+
+.menu-v5 .tsNavPrimary-TabsItem.is-expanded ~ .tsNavPrimary-TabsItem > a {
+    color: @lightgrey;
+    &:hover {
+        color: @purple;
+    }
+}
+
+// top level item caret
+.menu-v5 .tsNavPrimary-TabsItem.is-expanded:before {
+    content: "\e031";
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: -1px;
+	padding-bottom: 1px;
+    width: 12px;
+    height: 6px;
+    margin-left: -6px;
+    background-color: @bodycolor;
+    color: @lightgrey;
+    font-family: iconfont;
+    font-size: 6px;
+    line-height: 6px;
+}
+
+
+// Remove
+.no-js .menu-v5 .tsNavPrimary-TopLevelItem:not(.tsNavPrimary-TopLevelLink):hover > a {
+    background-color: @bodycolor;
+    color: @purple;
+}
+// --
+
+.tsNavPrimary-TopLevelLabel {
+    position: relative;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(22);
+}
+
+.js .menu-v5 .tsNavPrimary-TopLevelLink {
+	display: none;
+}
+
+
+// *** Sub level
+
+.js .menu-v5 .tsNavPrimary-SubLevel {
+    display: none;
+    position: relative;
+    .margin(bottom;@gutter);
+// Remove
+    background-color: @darkerpurple;
+    background-color: @bodycolor;
+// --
+    overflow: hidden;
+}
+
+.no-js .menu-v5 .tsNavPrimary-SubLevel {
+	border: 1px solid @lightergrey;
+	border-top: none;
+}
+
+.menu-v5 .tsNavPrimary-SubLevel-list {
+    width: 100%;
+    max-width: @width-innerwrap;
+    .l-inline-list(20);
+    margin-left: auto;
+    margin-right: auto;
+    .padding(all;0;@gutter*2.5/2;@gutter-half;@gutter*2.5/2); // 0 / 25PX / 10px / 25px
+    border-top: 1px solid @lightergrey;
+// Remove
+    background-color: @purple;
+    background-color: @bodycolor;
+    font-weight: bold;
+    font-weight: normal;
+// --
+
+}
+
+.menu-v5 .tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    .margin(topbottom;@gutter;@gutter);
+    .padding(leftright;@gutter*1.5/2;@gutter*1.5/2); // 15px
+    width: 25%;
+// Remove
+    background-color: @purple;
+    background-color: @bodycolor;
+// --
+}
+
+.menu-v5 .tsNavPrimary-SubLevelLabel {
+    position: relative;
+// Remove
+    .margin(bottom;4);
+    margin-bottom: 0;
+// --
+    padding-right: 20px;
+// Remove
+    border-bottom: 2px solid @white;
+    border-bottom: none;
+// --
+    .ellipsis;
+    &:hover {
+        background-color: @lightergrey;
+        text-decoration: none;
+    }
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-] {
+    position: absolute;
+    right: 2px;
+    top: 10px;
+    height: 28px;
+    vertical-align: middle;
+    .font-size(24);
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-]:before {
+    display: block;
+    position: relative;
+}
+
+.tsNavPrimary-SubLevelLabel .tsIcon-mobile:before     { top: -8px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-coverage:before   { top: -15px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-tv:before         { top: -13px; right: 0; }
+
+.menu-v5 .tsNavPrimary-SubLevel a {
+    display: block;
+    .padding(all;11;10;11;10;);
+    color: @darkgrey;
+}
+
+
+// no-js: Without javascript, the sub level menu panel falls out on hover, positioned on top of (covering) the content below
+.tsNavPrimary-TopLevel {
+    position: relative;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    position: absolute;
+    z-index: 100000;
+    left: 0;
+    top: 100%;
+    width: 100%;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    display: none;
+}
+
+.no-js .tsNavPrimary-TopLevelItem:hover .tsNavPrimary-SubLevel,
+.no-js .tsNavPrimary-TopLevelItem > a:focus + .tsNavPrimary-SubLevel {
+    display: block;
+}
+
+.no-js .tsNavPrimary-SubLevel .tsNavPrimary-SubLevel-list {
+    .padding(all;10;10;10;30;);
+}
+
+.menu-v5 .tsNavPrimary-close {
+    display: block!important;
+    .tsWrapInner;
+// Remove
+    border-top: 1px solid @darkerpurple;
+    border-top: none;
+// --
+    border-bottom: 1px solid @lightergrey;
+// Remove
+    background-color: @purple;
+    background-color: @bodycolor;
+// --
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @lightergrey;
+    }
+
+    a {
+        .font-size(12);
+        .padding(all;@gutter-half);
+        .inline-block;
+// Remove
+        font-weight: bold;
+        font-weight: normal;
+// --
+        color: @lightgrey;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    i {
+        .font-size(8);
+        .padding(all;4);
+        .margin(left;@gutter-half/2);
+    }
+}
+
+
+
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related {
+    margin: 20px 0 0 0 !important;
+    width: 25%;
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevel {
+// Remove
+    .margin(leftright;@gutter*1.5/2;@gutter*1.5/2);
+    .margin(leftright;0;0);
+    border-top: 1px solid @darkerpurple;
+    border: none;
+// --
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+// Remove
+    .inline-block;
+    display: block;
+    width: 49.5%;
+    width: 100%;
+// --
+    .font-size(13);
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    display: block;
+    position: relative;
+//    .padding(all;5);
+    .padding(all;11;10;11;10;);
+
+    &:hover {
+        background-color: @lightergrey;
+        // Remove
+                text-decoration: underline;
+                text-decoration: none;
+        // --
+    }
+}
+
+// Remove
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after,
+.tsNavPrimary-SubLevelLabel:after {
+    content: "\e01b";
+    position: absolute;
+    top: @gutter/2*1px;
+    right: @gutter*1px;
+    width: @gutter*1px;
+    height: @gutter*1px;
+    text-align: center;
+    font-family: iconfont;
+    .font-size(16);
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: @gutter*1px;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.tsNavPrimary-SubLevelLabel:after {
+    right: 5px;
+}
+
+.menu-v5 .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a:after,
+.menu-v5 .tsNavPrimary-SubLevelLabel:after {
+    display: none
+}
+// --
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .font-size(15);
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+//.tsNavPrimary-EndLevelLink {
+//    .font-size(11);
+//    a:after {
+//        content: "...";
+//    }
+//}
+
+.menu-v5 .tsNavPrimary-EndLevelItem a,
+.menu-v5 .tsNavPrimary-EndLevelLink a {
+    display: block;
+    .transition;
+    &:hover {
+        background-color: @lightergrey;
+        // Remove
+        text-decoration: none;
+        // --
+    }
+}
+
+
+
+// *** Cross site links
+
+body:not(.lt-ie9) li.tsNavPrimary-CrossSite {
+    .visuallyhidden; // Forces IE8 into compatibility mode for some reason, ie-fallback implemented
+}
+
+/* --- END: menu v5 overrides --- */
+
+
+
+
+
+
+
+
+/* --- Menu v5 --- * /
+
+
+.tsIcon-Expand {
+    .visuallyhidden;
+}
+
+.tsNavPrimary {
+    position: relative;
+}
+
+.no-js .tsNavPrimary {
+	position: absolute;
+	top: 34px;
+	width: 100%;
+}
+
+.js .tsWrapNavigation {
+    position: relative;
+    .media(right);
+}
+
+.tsWrapHeader {
+    .tsWrapInner;
+    .padding(leftright;180;40);
+}
+
+.no-js .tsWrapHeader {
+    overflow: hidden;
+}
+
+.no-js .tsNavPrimary-Inner {
+    margin: 0 auto;
+    .padding(leftright;180;@gutter*2);
+    max-width: @width-innerwrap;
+    border: none;
+}
+
+
+
+// *** Tabs & Top Level
+
+.tsNavPrimary-Tabs {
+    display: block;
+}
+
+.tsNavPrimary-Large .tsNavPrimary-Tabs {
+    position: absolute;
+    left: 139px;
+    white-space: nowrap;
+}
+
+.tsNavPrimary-TopLevel,
+.tsNavPrimary-Tabs {
+    .l-inline-list(20);
+}
+
+.tsNavPrimary-TabsItem {
+    position: relative;
+}
+
+.js .tsNavPrimary-TopLevelItem {
+    display: block;
+}
+
+.tsNavPrimary-TopLevelItem,
+.tsNavPrimary-TabsItem {
+    background-color: @bodycolor;
+
+    &:hover > a {
+        text-decoration: none;
+    }
+
+    &> a  > b {
+        position: relative;
+        font-weight: normal;
+    }
+
+    &> a:hover > b:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.1em;
+        width: 100%;
+        border-bottom: 2px solid @purple;
+    }
+}
+
+
+
+.js .tsNavPrimary-TopLevelLabel {
+    display: none;
+}
+
+.no-js .tsNavPrimary-TopLevelLabel.is-hidden {
+    display: block;
+}
+
+.tsNavPrimary-TopLevelItem > a,
+.tsNavPrimary-TabsItem > a {
+    display: block;
+    padding: 36px 10px 31px;
+    color: @linkcolor;
+    .transition();
+    cursor: pointer;
+}
+
+.search-is-focused .tsNavPrimary-TopLevelItem > a,
+.search-is-focused .tsNavPrimary-TabsItem > a {
+    color: @lightgrey;
+}
+
+.tsNavPrimary-TabsItem > a {
+    .transition(color);
+}
+
+.tsNavPrimary-TabsItem.is-expanded > a {
+    background-color: transparent;
+    color: purple;
+}
+
+// When a top level item is expanded, the adjascent items turns grey
+
+.tsNavPrimary-TabsItem.is-expanded ~ .tsNavPrimary-TabsItem > a {
+    color: @lightgrey;
+    &:hover {
+        color: @purple;
+    }
+}
+
+// top level item caret
+.tsNavPrimary-TabsItem.is-expanded:before {
+    content: "\e031";
+    display: block;
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: -1px;
+	padding-bottom: 1px;
+    width: 12px;
+    height: 6px;
+    margin-left: -6px;
+    background-color: @bodycolor;
+    color: @lightgrey;
+    font-family: iconfont;
+    font-size: 6px;
+    line-height: 6px;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    position: relative;
+}
+
+.tsNavPrimary-TopLevelLabel {
+    .font-size(22);
+}
+
+.js .tsNavPrimary-TopLevelLink {
+	display: none;
+}
+
+
+// *** Sub level
+
+.js .tsNavPrimary-SubLevel {
+    display: none;
+    position: relative;
+    .margin(bottom;@gutter);
+    overflow: hidden;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+	border: 1px solid @lightergrey;
+	border-top: none;
+}
+
+.tsNavPrimary-SubLevel-list {
+    width: 100%;
+//    max-width: @width-innerwrap;
+	max-width: 940px;
+    .l-inline-list(20);
+    margin-left: auto;
+    margin-right: auto;
+//    .padding(all;0;@gutter*2.5/2;@gutter-half;@gutter*2.5/2); // 0 / 25PX / 10px / 25px
+    border-top: 1px solid @lightergrey;
+}
+
+.tsNavPrimary-SubLevel-list > li.tsNavPrimary-SubLevelItem {
+    .margin(topbottom;@gutter;@gutter);
+    .padding(right;@gutter*1.5/2); // 15px
+    width: 25%;
+	width: 24%;
+}
+
+.tsNavPrimary-SubLevelLabel {
+    position: relative;
+    padding-right: 20px;
+    .ellipsis;
+    &:hover {
+        background-color: @lightergrey;
+        text-decoration: none;
+    }
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-] {
+    position: absolute;
+    right: 2px;
+    top: 10px;
+    height: 28px;
+    vertical-align: middle;
+    .font-size(24);
+}
+
+.tsNavPrimary-SubLevelLabel [class*=tsIcon-]:before {
+    display: block;
+    position: relative;
+}
+
+.tsNavPrimary-SubLevelLabel .tsIcon-mobile:before     { top: -8px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-coverage:before   { top: -15px; right: 0; }
+.tsNavPrimary-SubLevelLabel .tsIcon-tv:before         { top: -13px; right: 0; }
+
+.tsNavPrimary-SubLevel a {
+    display: block;
+	margin-left: -2px;
+    .padding(all;11;2;11;2;);
+    color: @darkgrey;
+}
+
+
+// no-js: Without javascript, the sub level menu panel falls out on hover, positioned on top of (covering) the content below
+.tsNavPrimary-TopLevel {
+    position: relative;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    position: absolute;
+    z-index: 100000;
+    left: 0;
+    top: 100%;
+    width: 100%;
+}
+
+.no-js .tsNavPrimary-SubLevel {
+    display: none;
+}
+
+.no-js .tsNavPrimary-TopLevelItem:hover .tsNavPrimary-SubLevel,
+.no-js .tsNavPrimary-TopLevelItem > a:focus + .tsNavPrimary-SubLevel {
+    display: block;
+}
+
+.no-js .tsNavPrimary-SubLevel .tsNavPrimary-SubLevel-list {
+    .padding(all;10;10;10;30;);
+}
+
+.tsNavPrimary-close {
+    display: block !important;
+    .tsWrapInner;
+//    border-bottom: 1px solid @lightergrey;
+
+	&:hover {
+    	background-color: transparent;
+	}
+}
+
+.tsNavPrimary-InnerClose {
+	display: none !important;
+}
+
+.tsNavPrimary-InnerClose > a,
+.tsNavPrimary-close > a {
+	.inline-block;
+}
+
+.tsNavPrimary-SubLevelItem--Related {
+    margin: 20px 0 0 0 !important;
+//    width: 25%;
+
+	width: 28%;
+	padding-left: 20px !important;
+}
+
+.tsNavPrimary-SubLevelItem--Related > .tsNavPrimary-EndLevel {
+	position: relative;
+	padding-left: 20px;
+}
+
+.tsNavPrimary-SubLevelItem--Related > .tsNavPrimary-EndLevel:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -21px;
+	left: 0;
+	border-top: 1px solid @lightgrey;
+	width: 100%;
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem {
+    .font-size(13);
+}
+
+.tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    display: block;
+    position: relative;
+	margin-left: -2px;
+    .padding(all;11;2;11;2;);
+    .font-size(14);
+
+    &:hover {
+        background-color: @lightergrey;
+    }
+}
+
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .font-size(15);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.tsNavPrimary-EndLevelItem a,
+.tsNavPrimary-EndLevelLink a {
+    display: block;
+    .transition;
+    &:hover {
+        background-color: @lightergrey;
+        // Remove
+        text-decoration: none;
+        // --
+    }
+}
+
+
+
+// *** Cross site links
+
+body:not(.lt-ie9) li.tsNavPrimary-CrossSite {
+    .visuallyhidden; // Forces IE8 into compatibility mode for some reason, ie-fallback implemented
+}
+
+
+/* --- END: ONLY menu v5 --- */
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+/* --- menu v4 --- */
+
+.js .tsHeader-Search.no-fouc {
+    .visuallyhidden;
+}
+
+.no-js .tsHeader-Search {
+    float: right;
+}
+
+.tsSearch-form-label {
+    .visuallyhidden;
+}
+
+.tsHeader-Search {
+    .padding(top;27);
+}
+
+.csstransitions.tsHeader-Search {
+    .transition;
+}
+
+.js .tsHeader-Search:not(.is-disabled) {
+    .padding(top;87);
+}
+
+.js .tsHeader-Search.is-expanded:not(.is-disabled) {
+    .padding(top;130);
+}
+
+.js .tsHeader-Search .tsIcon-Search {
+    //top: 37px;
+}
+
+.js .tsHeader-Search:not(.is-disabled) .tsIcon-Search {
+    //top: 10px;
+}
+
+.tsHeader-Search [data-widget-control=collapse-trigger] .tsIcon-Search {
+//    left: 11px;
+//    width: 20px;
+}
+
+.js .tsHeader-Search:not(.is-disabled) div {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    z-index: 1;
+}
+
+/* --- END: menu v4 --- */

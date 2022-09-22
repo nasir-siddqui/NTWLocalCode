@@ -1,0 +1,20 @@
+// variant of message that only is on one line
+.tsAttention-Message--oneLine {
+    & [class*='tsIcon-'] {
+        float: none;
+        vertical-align: sub;
+    }
+    p {
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    & > :not([class*="tsIcon-"]) {
+        .padding(left;@gutter-half);   
+    } 
+}
+
+.tsAttention-List--Inline > li {
+	.margin(right;@gutter-double);
+}

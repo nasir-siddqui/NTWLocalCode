@@ -1,0 +1,23 @@
+﻿@model Telia.NTW.Web.ViewModel.Analys.AnalysFilterViewModel
+
+@{
+    var items = Enum.GetValues(Model.FilterTyp.GetType()).Cast<Enum>().ToList().Select((value, i) => new { i, value });
+    var name = "FilterTyp"; 
+}
+
+@foreach (var item in items)
+{
+    var htmlAttr = new Dictionary<string, object>();
+    htmlAttr.Add("id", String.Format("{0}{1}", name, item.i));
+    if (Model.FilterTyp.ToString() == item.value.ToString())
+    {
+        htmlAttr.Add("checked", "checked");
+    }
+    if ( Model.DisabledFilterTypeList.ToList().Contains((Telia.NTW.Web.Enums.FilterTyp)item.value))
+    {
+        htmlAttr.Add("disabled", "disabled");
+    }
+   
+    @Html.RadioButtonFor(m => m.FilterTyp, item.value, htmlAttr)
+    @Html.LabelFor(m => m.FilterTyp, item.value.ToString(), new { @for = String.Format("{0}{1}", name, item.i), @class = "tsMarginRight" })
+}

@@ -1,0 +1,369 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * SUB-NAVIGATION - New 2013-11-21
+
+*/
+
+
+/*------------------------------------*\
+    $SUB-NAVIGATION - New v5
+\*------------------------------------*/
+
+
+/* --- menu v5 overrides * /
+
+.menu-v5 .tsSubNavigation-wrapper {
+	background-color: @lightergrey;
+}
+.menu-v5  .tsSubNavigation {
+	display: block;
+	border: none;
+	width:100%;
+	.vertical-space(bottom);
+}
+.menu-v5 .is-fixed .tsSubNavigation {
+	margin-bottom: 0;
+}
+
+.menu-v5 .tsSubNavigation-item {
+	float: right;
+	margin-right: 0!important;
+}
+
+
+
+.menu-v5 .tsSubNavigation > ul {
+	//Remove
+	border:none;
+
+	.l-inline-list;
+
+}
+.menu-v5 .tsSubNavigation > ul > li
+{
+	//Remove
+	border-bottom: none;
+
+	.inline-block;
+	width: auto;
+	.margin(all;0;@gutter;0;@gutter);
+	 >a, >i {
+		.padding(all;16;0;13;0);
+		color: @grey; //Change to other grey
+
+	}
+	> a{
+		//remove
+		font-weight: normal;
+
+		border-bottom: 3px solid transparent;
+		.padding(topbottom;15;12);
+		display: block;
+		.font-size(15);
+		&:hover {
+			//remove
+			text-decoration: none;
+
+			border-bottom-color: @black;
+		}
+	}
+	>i{
+		.font-size(lineheight;10;14);
+	}
+}
+.menu-v5.search-is-focused .is-fixed .tsSubNavigation > ul > li > a {
+	color: lighten(@lightgrey, 5%);
+}
+
+.menu-v5 .tsSubNavigation > ul > li .tsSubNavigation-current {
+	//remove
+	text-decoration: none;
+
+	border-bottom-color: @black;
+	color: @black;
+}
+
+.menu-v5 .tsSubNavigation > ul > li  .tsSubNavigation-parent {
+	color: @lightgrey;
+}
+//Sliced menu
+.menu-v5 .tsSubNavigation .is-disabled,
+.menu-v5 .tsSubNavigation-sliced-list.is-disabled,
+.menu-v5 .is-fixed .tsNavPrimary-Tabs {
+	display: none!important;
+}
+.menu-v5 .tsSubNavigation-sliced {
+	margin-right: 0!important;
+	margin-left: 0!important;
+	position: relative;
+}
+.menu-v5 .tsSubNavigation-sliced-list {
+	white-space:nowrap;
+	.l-list;
+	.padding(all;@gutter-half;0;@gutter-half;0);
+	position: absolute;
+	top:47px;
+	right: 0;
+	background-color:  @lightergrey;
+	text-align: right;
+	a {
+		//remove
+		font-weight: normal;
+
+
+		color: @grey;
+		.padding(all;@gutter-half;@gutter;@gutter-half;@gutter);
+		display: block;
+		&:hover {
+
+			text-decoration: none;
+			background-color: @white;
+		}
+	}
+}
+.menu-v5 .tsSubNavigation-sliced-link {
+	width: 42px;
+	text-align: center;
+	cursor: pointer;
+	.font-size(12);
+	&:hover {
+		text-decoration: none;
+		border-bottom: 3px solid transparent!important;
+	}
+}
+.menu-v5 .tsSubNavigation-sliced-link > i {
+	.font-size(6);
+}
+.menu-v5 .tsSubNavigation-sliced-link.is-active + .tsSubNavigation-sliced-list,
+.menu-v5 .tsSubNavigation-sliced-link.is-active {
+	background-color: darken(@lightergrey, 5%);
+}
+
+
+
+//Make this private?
+.menu-v5 .is-fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5;
+	right: 0;
+}
+
+.menu-v5 .is-fixed .tsHeader-Search,
+.menu-v5 .is-fixed.tsWrapFixed,
+.menu-v5 .is-fixed .tsWrapHeader {
+	z-index: 6;
+	height: 0;
+}
+
+.js .menu-v5 .is-fixed .tsHeader-Search {
+	padding-top: 0px;
+	float:right;
+}
+
+ .js .menu-v5 .is-fixed .tsHeader-Search:not(.is-disabled) > form {
+	top:3px;
+}
+
+
+.menu-v5 .is-fixed .tsWrapFixed-Inner {
+	.tsWrapInner;
+	.padding(right;@gutter-double);
+	height: 0;
+}
+.menu-v5 .tsWrapFixed {
+    .transition;
+}
+
+
+/* --- END menu v5 overrides --- */
+
+
+
+
+
+
+/* --- Only menu version 5 --- */
+
+
+.tsSubNavigation-wrapper {
+	background-color: @lightergrey;
+	z-index: 4;
+}
+
+.tsSubNavigation {
+	
+	border: none;
+	width:100%;
+	.vertical-space(bottom);
+}
+
+.is-fixed .tsSubNavigation {
+	margin-bottom: 0;
+}
+
+.tsSubNavigation-item {
+	float: right;
+	margin-right: 0!important;
+}
+
+.tsSubNavigation > ul {
+//.tsSubNavigation-Items {
+	.l-inline-list;
+}
+
+.tsSubNavigation > ul > li {
+//.tsSubNavigation-Item {
+	.inline-block;
+//	margin-left: @gutter * 1px !important;
+//	margin-right: @gutter * 1px !important;
+	.margin(right;@gutter-plus);
+//	.margin(all;0;@gutter;0;@gutter);
+	width: auto;
+//	& > a,
+	> i {
+		.padding(all;16;0;13;0);
+		color: @darkergrey; //Change to other grey
+
+	}
+
+	> a {
+		display: block;
+		.padding(topbottom;12;12);
+		border-bottom: 3px solid transparent;
+//		color: @grey; //Change to other grey
+//		color: @darkgrey; //Change to other grey
+		color: @purple; //Change to other grey
+		.font-size(15);
+//		font-weight: normal;
+		font-weight: bold;
+
+		&:hover {
+//			border-bottom-color: @purple;
+			text-decoration: underline;
+		}
+	}
+
+	> i {
+		.font-size(lineheight;10;14);
+	}
+}
+
+.search-is-focused .is-fixed .tsSubNavigation > ul > li > a {
+//.search-is-focused .is-fixed .tsSubNavigation-Item > a {
+	color: lighten(@lightgrey, 5%);
+}
+
+.tsSubNavigation-current {
+//.tsSubNavigation-Item--Current {
+//	.tsSubNavigation-Item;
+//	border-bottom-color: @purple;
+//	color: @purple;
+	text-decoration: underline;
+}
+
+.tsSubNavigation > ul > li  .tsSubNavigation-parent {
+//.tsSubNavigation-ItemParent {
+	color: @lightgrey;
+
+	> a {
+		.inline-block;
+		color: @grey;
+	}
+
+	&::after {
+		content: "\e01b";
+		.inline-block;
+		.margin(left;@gutter*2);
+		font-family: iconfont;
+		.font-size(11);
+		color: @darkgrey;
+	}
+}
+
+/*
+//Sliced menu
+.tsSubNavigation .is-disabled,
+.tsSubNavigation-sliced-list.is-disabled,
+.is-fixed .tsNavPrimary-Tabs {
+	display: none!important;
+}
+
+.tsSubNavigation-sliced {
+	margin-right: 0!important;
+	margin-left: 0!important;
+	position: relative;
+
+	> a {
+		.padding(topbottom;12;15);
+	}
+
+	&:hover {
+		border-bottom-color: darken(@lightergrey, 7%);
+	}
+}
+
+.tsSubNavigation-sliced-list {
+	white-space:nowrap;
+	.l-list;
+	.padding(all;@gutter-half;0;@gutter-half;0);
+	position: absolute;
+	top:47px;
+	right: 0;
+	background-color:  @lightergrey;
+	text-align: right;
+	z-index: 4;
+	a {
+		color: @grey;
+		.padding(all;@gutter-half;@gutter;@gutter-half;@gutter);
+		display: block;
+		&:hover {
+
+			text-decoration: none;
+//			background-color: @white;
+			background-color: @lightergrey;
+		}
+	}
+}
+
+.tsSubNavigation-sliced-link {
+	width: 42px;
+	text-align: center;
+	cursor: pointer;
+	.font-size(12);
+
+	&:hover {
+		text-decoration: none;
+//		border-bottom: 3px solid transparent!important;
+	}
+}
+
+.tsSubNavigation-sliced-link > i {
+	.font-size(7);
+	color: @darkergrey;
+}
+
+.tsSubNavigation-sliced-link.is-active + .tsSubNavigation-sliced-list,
+.tsSubNavigation-sliced-link.is-active {
+	background-color: darken(@lightergrey, 7%);
+//	background-color: @lightgrey;
+}
+
+
+
+//Make this private?
+.is-fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5;
+	right: 0;
+}
+
+
+*/

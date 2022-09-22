@@ -1,0 +1,8 @@
+﻿@model bool
+
+@{
+    ViewData["OnValue"] = "Ja";
+    ViewData["OffValue"] = "Nej";
+}
+
+@Html.Partial("EditorTemplates/SwitchBase", Model)

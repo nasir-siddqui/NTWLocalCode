@@ -1,0 +1,24 @@
+﻿<div ng-show="visible">
+    <div ng-if="allRoles === null" class='tscLoading--Full'><div class='tsLoading-icon-large'></div></div>
+    <div ng-if="allRoles !== null" class="tsShortCuts-container tsShortCuts--inverted">
+        <h2 class="h2 inline inverted">{{headerText}}</h2>
+        <a class="tsShortCuts-manage tsToggleDropdown" ng-click="toggleManage()" ng-show="manageEnabled"><span ng-show="!manage">{{ manageText }}</span><span ng-show="manage">{{ closeText }}</span><i class="tsIcon-Configure"></i></a>
+        <ul class="tsShortCuts-links">
+            <li ng-repeat="role in combinedRoles | orderBy:'displayName'">
+                <span class="tsBookmark-item">{{role.roleName}}<i ng-show="!role.$disabled" class="tsIcon-Minus tsHandleShortCut-icon" ng-click="toggleRole(role)"></i><span ng-if="role.systemRole" class="tscLabel" style="float: none; top: 0;">Systemroll</span></span>
+            </li>
+            <li id="toggle-add" class="tsShortCuts-add-link pin" ng-show="manage || !manageEnabled" ng-click="toggleAdd()">
+                <span>{{addText}}<i class="tsIcon-Add"></i></span>
+            </li>
+        </ul>
+        <div class="tsShortCuts-arrow-up tsShortCuts-hide"></div>
+    </div>
+    <ul class="tsAccordion-list tsAccordion-list--striped tsShortCuts-list tsHidden" ts-animate="addActive && (manage || !manageEnabled)" data-animate-type="slide" data-animate-duration="300">
+        <li class="tsAccordion-list-item" ng-repeat="role in allRoles | orderBy:'displayName'" ng-click="toggleRole(role)">
+            <h2 class="h4">{{role.roleName}}</h2><span ng-if="role.systemRole" class="tscLabel">Systemroll</span><i ng-show="!role.$selected && !role.$disabled" class="tsIcon-Add tsShortCuts-add-btn"></i><i ng-show="role.$selected && !role.$disabled" class="tsIcon-Minus tsShortCuts-add-btn"></i>
+        </li>
+        <li ng-if="allRoles === null" class="tsAccordion-list-item">
+            <div class='tscLoading'><div class='tsLoading-icon-large'></div></div>
+        </li>
+    </ul>
+</div>

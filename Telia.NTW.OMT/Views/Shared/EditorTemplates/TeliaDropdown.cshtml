@@ -1,0 +1,16 @@
+﻿@using Sigma.Utils.Helpers
+@model int?
+
+@{
+	var fullOrHalfClass =
+		(@ViewData["Half"] != null && (bool)@ViewData["Half"])
+		|| (@ViewData["Full"] != null && !(bool)@ViewData["Full"])
+			? "tseTextField--Normal--Half--Inline"
+			: "tseTextField--Normal--Full--Half";
+}
+
+<div class="@fullOrHalfClass tsMarginTop">
+    @Html.LabelForV2(m => m, new { @class = "tscForm-label" })
+    @Html.DropDownListFor(m => m, (SelectList)@ViewData["SelectList"], "", new { @class = "combobox-autocomplete" })
+    @Html.ValidationMessageFor(m => m)
+</div>

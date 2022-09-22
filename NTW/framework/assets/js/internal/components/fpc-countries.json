@@ -1,0 +1,29 @@
+{
+    "countries": [
+        {
+            "id":   "den",
+            "name": "Danmark",
+            "zone": "zone_1_Danmark"
+        },{
+            "id":   "nor",
+            "name": "Norge",
+            "zone": "zone_1_Norge"
+        },{
+            "id":   "fin",
+            "name": "Finnland",
+            "zone": "zone_1_Finnland"
+        },{
+            "id":   "isl",
+            "name": "Island",
+            "zone": "zone_1_Island"
+        },{
+            "id":   "swi",
+            "name": "Schweiz",
+            "zone": "zone_1_Schweiz"
+        },{
+            "id":   "swe",
+            "name": "Sverige",
+            "zone": "zone_1_Sverige"
+        }
+    ]
+}

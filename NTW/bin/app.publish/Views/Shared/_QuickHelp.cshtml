@@ -1,0 +1,39 @@
+﻿@model Telia.NTW.Web.ViewModel.QuickHelpViewModel
+
+@if (Model != null && Model.HTML != null) {
+	<div class="tsQuickHelp-container">
+		<div class="tsWrapInner">
+			<div class="tsIconBackground-wrapper">
+				<div class="tsIconBackground active" data-toggle="collapse" data-collapse-type="slide" data-collapse-duration="350" data-target="[data-id=01284c69-f20a-474e-8bc4-21858ae5ab70]" data-toggle-class-target="[data-toggle-hidden]">
+					<i data-toggle-hidden="tsHidden" class="tsIcon-Help2"></i>
+					<i data-toggle-hidden="tsHidden" class="tsIcon-Delete tsHidden"></i>
+				</div>
+			</div>
+		</div>
+		<div data-id="01284c69-f20a-474e-8bc4-21858ae5ab70" class="tsHidden">
+			<div @*class="tsComponent tsComponent--lightNoBorder tsQuickHelp"
+				data-widget="toggleData"
+				data-json-file="/QuickHelp"
+				data-data-container="#guideContainer"
+				data-toggle-list-items=".toggleListItem"
+				data-type="guide">*@
+				 class="tsComponent tsComponent--light tsQuickHelp"
+				 data-widget="toggleData"
+				 data-json-file="/QuickHelp/Guide"
+				 data-second-json-file="/QuickHelp/FAQ"
+				 data-data-container="#dataContainer"
+				 data-toggle-list-items=".toggleListItem"
+				 data-second-toggle-list-items=".secondaryToggleListItem"
+				 data-type="guide"
+				 data-toggle-type="slide"
+				 data-toggle-duration="300"
+				 data-toggle-class-target="[data-toggle-target]">
+
+				@* TODO: se över attribute, bl.a. data-json-file *@
+				<div class="tsWrapInner">
+					@Html.Raw(Model.HTML)
+				</div>
+			</div>
+		</div>
+	</div>
+}

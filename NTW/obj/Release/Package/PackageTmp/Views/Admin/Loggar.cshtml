@@ -1,0 +1,182 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Loggar
+@model LoggarViewModel
+
+@{
+    ViewBag.Title = "Loggar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginBottom--None tsMarginTop">
+    <h1>Loggar</h1>
+    <p>
+        Dessa sidor ger dig möjlighet att övervaka services samt jobb.
+    </p>
+</div>
+
+<div class="tsTable-select tsComponent tsWrapInner" ng-cloak>
+    <p>
+        Sök på ett intervall nedan för att se loggar för det valda intervallet.<br />
+        OBS! ju längre tidsintervall du väljer desto längre tid tar det att ladda data och vi har begärnsat sökningen till två månader pga den mängd data som genereras. <br />
+    </p>
+    @using (Html.BeginForm())
+    {
+        <div class="tseTextField--Normal--Half--Inline">
+            @Html.TextBoxFor(m => m.StartDate, new { @class = "tseInput", @type = "text", data_datepicker = "date" })
+            @Html.ValidationMessage("FrånDatumValidation1")
+            @Html.ValidationMessage("FrånDatumValidation2")
+        </div>
+        <div class="tseTextField--Normal--Half--Inline">
+            @Html.TextBoxFor(m => m.EndDate, new { @class = "tseInput", @type = "text", data_datepicker = "date" })
+            @Html.ValidationMessage("TillDatumValidation1")
+            @Html.ValidationMessage("TillDatumValidation2")
+        </div>
+        <div class="tsMarginTop">
+            @Html.ActionLink("Avbryt", "Hantera", "Admin", new { @class = "tsBtn--Regular" })
+            <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Sök" />
+        </div>
+    }
+</div>
+@if (@Model.LoadTables)
+{
+    <div class="tsTable-select tsComponent tsWrapInner" ng-cloak>
+        <!-- Admin -->
+        <table class="tsTable tsTable-horizontal tsTable-datatable">
+            <caption>Admin</caption>
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Användare</th>
+                    <th>Område</th>
+                    <th>Beskrivning</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AdminLoggList)
+                {
+                    <tr>
+                        <td class="max-width">@item.EffectDate</td>
+                        <td class="max-width">@item.UserId</td>
+                        <td class="max-width">@item.Area</td>
+                        <td class="max-width">@item.Description</td>
+                        <td class="max-width">@item.cmdSQL</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Processlogg -->
+        <table class="tsTable tsTable-horizontal tsTable-datatable">
+            <caption>Processer</caption>
+            <thead>
+                <tr>
+                    <th>Startdatum</th>
+                    <th>Slutdatum</th>
+                    <th>Processnamn</th>
+                    <th>Lyckades</th>
+                    <th>Anmärkningar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Processlogs)
+                {
+                    <tr>
+                        <td class="max-width">@item.StartDate</td>
+                        <td class="max-width">@item.EndDate</td>
+                        <td class="max-width">@item.ProcessName</td>
+                        @if (@item.Success == true)
+                        {
+                            <td class="max-width">Ja</td>
+                        }
+                        else if (@item.Success == false)
+                        {
+                            <td class="max-width">Nej</td>
+                        }
+                        else
+                        {
+                            <td class="max-width">-</td>
+                        }
+                        <td class="max-width">@item.Notes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Service -->
+        <table class="tsTable tsTable-horizontal tsTable-datatable">
+            <caption>Servisar</caption>
+            <thead>
+                <tr>
+                    <th>Tidpunkt</th>
+                    <th>Komponent</th>
+                    <th>Felnivå</th>
+                    <th>Beskrivning</th>
+                    <th>Detaljer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Servicelogg)
+                {
+                    <tr>
+                        <td class="max-width">@item.TimeStamp</td>
+                        <td class="max-width">@item.Component</td>
+                        <td class="max-width">@item.ErrNo</td>
+                        <td class="max-width">@item.Description</td>
+                        <td class="max-width">@item.DetailDescription</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- STAFF -->
+        <table class="tsTable tsTable-horizontal tsTable-datatable">
+            <caption>STAFF</caption>
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Användare</th>
+                    <th>Område</th>
+                    <th>Beskrivning</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.StaffloggList)
+                {
+                    <tr>
+                        <td class="max-width">@item.EffectDate</td>
+                        <td class="max-width">@item.UserId</td>
+                        <td class="max-width">@item.Area</td>
+                        <td class="max-width">@item.Description</td>
+                        <td class="max-width">@item.CmdSQL</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- System -->
+        <table class="tsTable tsTable-horizontal tsTable-datatable">
+            <caption>System</caption>
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Användare</th>
+                    <th>Process</th>
+                    <th>Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.SystemloggList)
+                {
+                    <tr>
+                        <td class="max-width">@item.DateTime</td>
+                        <td class="max-width">@item.UserName</td>
+                        <td class="max-width">@item.Process</td>
+                        <td class="max-width">@item.Body</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+ 
+    </div>
+}

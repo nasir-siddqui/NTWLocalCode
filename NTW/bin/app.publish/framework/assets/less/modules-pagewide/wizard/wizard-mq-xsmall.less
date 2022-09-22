@@ -1,0 +1,123 @@
+
+.tsWizardWrapper {
+	counter-reset: wizard-counter;
+}
+
+.tsWizard {
+	.l-list;
+	.margin(top;@gutter);
+}
+
+.tsWizard > li {
+	.margin(left;@gutter);
+	.padding(bottom;@gutter);
+	.padding(left;7/4*@gutter);	// 7*20/4 = 35px
+}
+
+[class^="tsWizard-Item"] {
+	// position: relative;
+	min-height: 60px;
+	border-left: 2px solid @lightgrey;
+}
+
+[class^="tsWizard-Item"]:last-child {
+	border-left: 2px solid transparent;
+}
+
+[class^="tsWizard-Item"]:before {
+	content: counter(wizard-counter);
+	counter-increment: wizard-counter;
+	display: block;
+	position: absolute;
+	left: -24px;
+	top: -10px;
+	width: 42px;
+	border: 2px solid @lightgrey;
+	.border-radius(40px);
+	background-color: @bodycolor;
+	color: @lightgrey;
+	line-height: 42px;
+	text-align: center;
+	z-index: 4;
+}
+
+.tsWizard-Item > :last-child {
+	margin-bottom: 0;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"] {
+	.margin(top;@gutter);
+	.padding(topbottom;@gutter;@gutter);
+	border-left: none;
+	border-top: 2px solid @turq;
+	text-align: center;
+	color: @turq;
+}
+
+.tsWizard--Horizontal [class^="tsWizard-Item"]:before {
+	top: -21px;
+	left: 50%;
+	margin-left: -21px;
+	border: 2px solid @turq;
+	color: @turq;
+}
+
+.tsWizard--Horizontal .tsWizard-Item--Current ~ .tsWizard-Item {
+	border-color: @lightgrey;
+	color: @lightgrey;
+}
+
+.tsWizard--Horizontal .tsWizard-Item--Current ~ .tsWizard-Item:before {
+	border-color: @lightgrey;
+	color: @lightgrey;
+}
+.tsWizard--Alt {
+	margin:0;
+	padding: 0;
+}
+
+.tsWizard--Alt [class^="tsWizard-Item"].is-disabled  {
+	background-image: none!important;
+	background-color: @lightergrey;
+}
+.tsWizard--Alt .is-disabled .tsLinkList-Wrapper { 
+	.visuallyhidden;
+}
+
+.tsWizard--Alt [class^="tsWizard-Item"]:before {
+	margin: 0 auto;
+	margin-top: -20px;
+	border: 2px solid @purple;
+	color: @purple;
+	position: static;
+}
+.tsWizard--Alt [class^="tsWizard-Item"].is-active .tsWrapInner{
+	border-bottom: 2px solid transparent;
+}
+.tsWizard--Alt [class^="tsWizard-Item"].is-active:before {
+	border: none;
+	.padding(all;2);
+	background-color: @purple;
+	color: @white;
+
+}
+.tsWizard--Alt [class^="tsWizard-Item"] {
+	border-top: 1px solid @lightgrey;
+	background-color: @nearwhite;
+}
+
+.tsWizardWrapper [data-ng-cloak].tsWizard-Item:first-child {
+	position: relative;
+	display: block !important;
+    [data-ng-cloak].tsLoading {
+		min-height: 200px;
+    	position: absolute;
+    	margin-top: -20px;
+        display: block !important;
+        z-index: 5;
+    }
+
+}
+.tsWizardWrapper .tsWizard-Item.is-loading {
+	position: relative;
+}

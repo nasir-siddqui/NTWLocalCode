@@ -1,0 +1,73 @@
+
+
+.padding(top;@value) {
+    @value-rem: (@value / 10);
+    padding-top: ~"@{value}px";
+    padding-top: ~"@{value-rem}rem";    
+}
+
+.padding(bottom;@value) {
+    @value-rem: (@value / 10);
+    padding-bottom: ~"@{value}px";
+    padding-bottom: ~"@{value-rem}rem";    
+}
+
+.padding(left;@value) {
+    @value-rem: (@value / 10);
+    padding-left: ~"@{value}px";
+    padding-left: ~"@{value-rem}rem";    
+}
+
+.padding(right;@value) {
+    @value-rem: (@value / 10);
+    padding-right: ~"@{value}px";
+    padding-right: ~"@{value-rem}rem";    
+}
+
+.padding(topbottom;@top;@bottom) {
+    @top-rem: (@top / 10);
+    @bottom-rem: (@bottom / 10);
+    padding-top: ~"@{top}px";
+    padding-top: ~"@{top-rem}rem";    
+    padding-bottom: ~"@{bottom}px";
+    padding-bottom: ~"@{bottom-rem}rem";     
+}
+
+.padding(leftright;@left;@right) {
+    @left-rem: (@left / 10);
+    @right-rem: (@right / 10);
+    padding-left: ~"@{left}px";
+    padding-left: ~"@{left-rem}rem";    
+    padding-right: ~"@{right}px";
+    padding-right: ~"@{right-rem}rem";    
+}
+
+.padding(all;@value) {
+    @value-rem: (@value / 10);
+    padding: ~"@{value}px";
+    padding: ~"@{value-rem}rem";
+}
+
+.padding(all;@topbottom;@leftright) {
+    @topbottom-rem: (@topbottom / 10);
+    @leftright-rem: (@leftright / 10);
+    padding: ~"@{topbottom}px" ~"@{leftright}px";
+    padding: ~"@{topbottom-rem}rem" ~"@{leftright-rem}rem";        
+}
+
+.padding(all;@top;@leftright;@bottom) {
+    @top-rem: (@top / 10);
+    @leftright-rem: (@leftright / 10);
+    @bottom-rem: (@bottom / 10);
+    padding: ~"@{top}px" ~"@{leftright}px" ~"@{bottom}px";
+    padding: ~"@{top-rem}rem" ~"@{leftright-rem}rem" ~"@{bottom-rem}rem";        
+}
+
+.padding(all;@top;@right;@bottom;@left) {
+    @top-rem: (@top / 10);
+    @right-rem: (@right / 10);
+    @bottom-rem: (@bottom / 10);
+    @left-rem: (@left / 10);
+    padding: ~"@{top}px" ~"@{right}px" ~"@{bottom}px" ~"@{left}px";
+    padding: ~"@{top-rem}rem" ~"@{right-rem}rem" ~"@{bottom-rem}rem" ~"@{left-rem}rem";        
+}

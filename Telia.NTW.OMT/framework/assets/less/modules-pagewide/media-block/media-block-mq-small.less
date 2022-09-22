@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * MEDIA-BLOCK...............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $MEDIA-BLOCK
+\*------------------------------------*/
+
+.tsMediaBlock {
+    .margin(bottom; @gutter-double);
+}
+
+.tsMediaBlocks .tsMediaBlock {
+    .clearfix;
+    .media;
+}
+
+
+
+.tsMediaBlocks .tsMediaBlock:nth-child(odd) > :first-child {
+    .margin(right;@gutter);
+}
+
+.tsMediaBlocks .tsMediaBlock:nth-child(even) > :first-child {
+    float: right;
+    .margin(left;@gutter);
+}
+
+.tsMediaBlock-img {
+    width: 32%; // 300px / 940px
+    text-align: center;
+}
+
+.tsMediaBlock p:last-child {
+    .margin(bottom; 0);
+}

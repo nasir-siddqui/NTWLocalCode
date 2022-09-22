@@ -1,0 +1,78 @@
+﻿@using Telia.NTW.Core.Helpers
+@model Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning.StyrningsalternativViewModel
+
+@{
+    ViewBag.Title = "Visa styrningsalternativ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsMarginTop tsWrapInner">
+    <h1>Visa styrningsalternativ</h1>
+</div>
+
+<div class="tsComponent--20px tsComponent--light tsMarginTop">
+    <div class="tsWrapInner">
+        @if (User.IsInRole(RoleHelper.Administratör))
+        {
+	        @Html.ActionLink("Redigera styrningsalternativ", "Alternativ_Edit", new
+	        {
+		        connectLinkId = Model.connectLinkId,
+		        lopnummer = Model.lopnummer,
+		        alternativnummer = Model.alternativnummer,
+		        namn = Model.namn,
+		        index = Model.index,
+		        status = Model.status,
+		        abonnemang = Model.abonnemang,
+		        serviceId = Model.serviceId
+	        }, new { @class = "tsBtn--Regular" })
+        }
+
+
+        
+	    @Html.ActionLink("Tillbaka", "Abonnemang", new
+	    {
+		    serviceId = Model.serviceId,
+		    abonnemang = Model.abonnemang
+	    }, new { @class = "tsBtn--Regular" })
+    </div>
+</div>
+
+<div class="tsWrapInner tsMarginBottom--doubleGutter">
+    <ul class="tscList">
+        <!-- Status -->
+        <li class="tscInfoRow">
+            <span>Status:</span>
+            <span>@Model.status</span>
+        </li>
+    </ul>
+
+    <!-- Styrning -->
+    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+        @Html.LabelFor(m => m.namn, new { @class = "tscForm-label" })
+        @Html.TextBoxFor(m => m.namn, new { @class = "tseInput", @disabled = true })
+    </div>
+
+    <!-- Löpnummer -->
+    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+        @Html.LabelFor(m => m.lopnummer, new { @class = "tscForm-label" })
+        @Html.TextBoxFor(m => m.lopnummer, new { @class = "tseInput", @disabled = true })
+    </div>
+
+    <!-- Alterantivnummer -->
+    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+        @Html.LabelFor(m => m.alternativnummer, new { @class = "tscForm-label" })
+        @Html.TextBoxFor(m => m.alternativnummer, new { @class = "tseInput", @disabled = true })
+    </div>
+
+    <!-- Index -->
+    <div class="tseTextField--Normal--Half--Inline tsMarginBottom">
+        @Html.LabelFor(m => m.index, new { @class = "tscForm-label" })
+        @Html.TextBoxFor(m => m.index, new { @class = "tseInput", @disabled = true })
+    </div>
+
+    <h2 class="h2 tsMarginTop tsBorderTop tsPaddingTop tsMarginBottom--halfGutter">
+        Styrningsalternativträd
+    </h2>
+
+    @Html.Partial("_Alternativ_Tree_View", Model.tree)
+</div>

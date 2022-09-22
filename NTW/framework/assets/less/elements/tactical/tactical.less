@@ -1,0 +1,172 @@
+[class^="tsTactical-Ribbon"] { 
+  position: absolute; 
+  width: 80px; 
+  height: 80px; 
+  top: -10px; 
+  left: -10px; 
+  color: #fff; 
+  line-height: 30px; 
+  text-align: center; 
+  z-index: 1; 
+  overflow: hidden;
+  text-indent: 0; 
+  &:before,
+  &:after {
+    content: ""; 
+    display: block; 
+    z-index: -1; 
+    position: absolute; 
+    background: #009974; 
+  }
+  &:before {
+    top: 0; 
+    right: 0; 
+    width: 16px; 
+    height: 9px; 
+  }
+  &:after {
+    bottom: 0; 
+    left: 0; 
+    height: 16px; 
+    width: 9px; 
+  }
+}
+
+[class^="tsTactical-Ribbon"] > span {
+  height: 34px; 
+  display: block; 
+  background-color: @turq; 
+  .transform(rotate(-45deg));
+  width: 114px; 
+  position: relative; 
+  left: -29px; 
+  bottom: -8px; 
+  font-size: 18px; 
+  line-height: 34px; 
+  font-weight: bold; 
+}
+[class^="tsTactical-Ribbon"][class*="--Medium"] span { 
+  font-size: 16px; 
+}
+[class^="tsTactical-Ribbon"][class*="--Small"] span { 
+  font-size: 14px; 
+
+}
+[class^="tsTactical-Ribbon"][class*="--XSmall"] { 
+  width: 50px; 
+  height: 50px; 
+  top: -7px;
+  left: -8px;
+  >span {
+    width: 92px; 
+    padding: 0;
+    height: 22px;
+    left: -28px;
+    bottom: -6px;
+  }
+  span { 
+    .font-size(lineheight;8;22);
+  }
+  &:before {
+    width: 7px; 
+    height: 7px; 
+  }
+  &:after {
+
+    height: 6px; 
+    width: 8px; 
+  } 
+}
+
+
+
+.ie8 .tsTactical-Ribbon  > span { 
+  bottom: 28px; 
+  left: -23px; 
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067690849304, M12=0.7071067690849304, M21=-0.7071067690849304, M22=0.7071067690849304)"; /* IE8 */ 
+}
+
+
+
+
+
+/* round badge - work in progress... */
+
+[class^="tsTactical-Badge"] {
+	position: absolute; 
+	top: 10px;
+	z-index: 1;
+   display: table-row;
+   .border-radius(50%);
+   background-color: @purple;
+	span {
+		text-align: center;
+		vertical-align: middle;
+		color: @white;	
+		display: table-cell;
+	}
+}
+
+[class^="tsTactical-Badge"][class*="--Small"] span {
+	width: 56px;
+	height: 56px;
+	.font-size(lineheight;10;12);
+	b {
+		.font-size(lineheight;18;20);	
+	}
+
+}
+
+[class^="tsTactical-Badge"][class*="--Medium"] span {
+	width: 80px;
+	height: 80px;
+	.font-size(lineheight;14;18);
+	b {
+		.font-size(lineheight;28;28);	
+	}
+}
+[class^="tsTactical-Badge"][class*="--Large"] span {
+  width: 112px;
+  height: 112px;
+  .font-size(lineheight;18;20);
+  b {
+    .font-size(lineheight;26;30); 
+  }
+}
+
+[class^="tsTactical-Badge"][class*="--XLarge"] span {
+	width: 170px;
+	height: 170px;
+	.font-size(lineheight;26;30);
+}
+
+[class^="tsTactical-Badge"][class*="--Primary"] { 	
+	background-color: @blue;
+}
+
+[class^="tsTactical-Badge"][class*="--Secondary"] { 	
+	background-color: @pink;
+}
+
+/*
+[class^="tsTactical-Badge"][class*="--Feature"] { 	
+	background-color: @blue;
+}
+*/
+
+[class^="tsTactical-Badge"][class*="--Left"] { 	
+	left: 10px;
+	right: auto;	
+}
+
+[class^="tsTactical-Badge"][class*="--Right"] {
+	left: auto;
+	right: 10px;
+}
+
+[class^="tsTactical-Badge"][class*="--Medium"] + [class^="tsTactical-Badge"][class*="--Medium"] {
+  top: 70px;
+}
+
+
+

@@ -1,0 +1,61 @@
+.tsAutoComplete {
+	position: relative;
+}
+
+.tsAutoComplete-List {
+	.l-list;
+	position:absolute;
+	top:38px;
+	left:0;
+	z-index:5;
+	width: 100%;
+	.transparency.background(@white);
+	border: 1px solid @lightgrey;
+	border-top: none;
+   .tsAutoComplete-Item	{
+   		.padding(all;5;@gutter-half;5;@gutter-half;);
+   }
+}
+.tsAutoComplete-Item {
+	cursor: pointer;
+	
+	a {
+		color: @grey;
+		cursor: pointer;
+		display: block;
+	}
+	&.active,
+	&:hover {
+		.transparency.background(@lightergrey);
+
+	}
+}
+.tsAutoComplete-Btn {
+	position:absolute;
+	top:1px;
+	right:0;
+	margin:0!important;
+}
+.tsAutoComplete-Search {
+	.padding(right;28)!important;
+}
+.tsAutoComplete-Clear{
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px @lightgrey solid;
+        display: block;
+        height: 24px;
+        width: 24px;
+        color: @lightgrey;
+        i{
+            line-height: 15px;
+            font-size: 10px;
+            color: @lightgrey;
+            display: inline-block;
+        }
+    
+}
+

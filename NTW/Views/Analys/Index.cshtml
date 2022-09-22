@@ -1,0 +1,186 @@
+﻿@model Telia.NTW.Web.ViewModel.Analys.AnalysViewModel
+
+@{
+	ViewBag.Title = "Analys";
+	Layout = "../Shared/_Layout.cshtml";
+}
+
+@*@Html.Partial("_QuickHelp")*@
+
+<div class="tsBodyText tsWrapInner">
+	<h1>Analys</h1>
+	<p>
+		Här kan du analysera din abonnemangsdata. Börja med att filtrera med formuläret nedan.
+	</p>
+</div>
+
+@section Scripts
+{
+	<script src="/Framework/assets/js/external/libs/jquery/jquery-1.10.2.min.js"></script>
+	<script>
+		$("#SelectedAbonnemangId").select(function () {
+		    $('#svarstallen-upptagningsomraden').addClass("hidden");
+			$('#dataTable').css("display", "none");
+			$(".ajax-loader").css("display", "block");
+			var newId = $("#SelectedAbonnemangId").val();
+			var startDate = $("#Fr_nDatum").val();
+			var endDate = $("#TillDatum").val();
+			$.get('@Url.Action("SvarstallenAndUpptagningsomraden", "Analys")', { id: newId, frånDatum:startDate, tillDatum:endDate }, function (data) {
+				$('#svarstallen-upptagningsomraden').html(data);
+				$(".ajax-loader").css("display", "none");
+				$('#svarstallen-upptagningsomraden').removeClass("hidden");
+				$(".tseCheckbox").initCheckbox();
+				initCheckBoxesAnalys();
+			});
+		});
+		
+        function initCheckBoxesAnalys() {
+            $("#checkboxAllaSvarstallen").change(function () {
+                if ($(this).prop('checked')) {
+                    $(".checkboxSvarstallen").each(function () {
+                        $(this).addClass("tseCheckbox--checked");
+                        $(this).prop('checked', true);
+                    });
+                }
+                else {
+                    $(".checkboxSvarstallen").each(function () {
+                        $(this).removeClass("tseCheckbox--checked");
+                        $(this).prop('checked', false);
+                    });
+                }
+            });
+            $("#checkboxAllaUpptagningsomraden").change(function () {
+                if ($(this).prop('checked')) {
+                    $(".checkboxUpptagningsomraden").each(function () {
+                        $(this).addClass("tseCheckbox--checked");
+                        $(this).prop('checked', true);
+                    });
+                }
+                else {
+                    $(".checkboxUpptagningsomraden").each(function () {
+                        $(this).removeClass("tseCheckbox--checked");
+                        $(this).prop('checked', false);
+                    });
+                }
+            });
+
+            $("input:reset").click(function () {
+                $("input:checkbox").each(function () {
+                    $(this).removeClass("tseCheckbox--checked");
+                    $(this).prop('checked', false);
+                });
+            });
+
+            $(".checkboxSvarstallen").change(function () { 
+                if ($(".checkboxSvarstallen:checked").length>0) {
+                    $("#checkboxAllaSvarstallen").removeClass("tseCheckbox--checked");
+                    $("#checkboxAllaSvarstallen").prop('checked', false);
+                }
+                if ($(".checkboxSvarstallen:not(:checked)").length == 0) {
+                    $("#checkboxAllaSvarstallen").addClass("tseCheckbox--checked");
+                    $("#checkboxAllaSvarstallen").prop('checked', true);
+                }
+            });
+
+            $(".checkboxUpptagningsomraden").change(function () {
+                if ($(".checkboxUpptagningsomraden:checked").length > 0) {
+                    $("#checkboxAllaUpptagningsomraden").removeClass("tseCheckbox--checked");
+                    $("#checkboxAllaUpptagningsomraden").prop('checked', false);
+                }
+                if ($(".checkboxUpptagningsomraden:not(:checked)").length == 0) {
+                    $("#checkboxAllaUpptagningsomraden").addClass("tseCheckbox--checked");
+                    $("#checkboxAllaUpptagningsomraden").prop('checked', true);
+                }
+            });
+
+            $("input[name=FilterTyp]:radio").change(function () {
+                if ($("input[name=FilterTyp]:radio:checked").val() == "Rådata") {
+                    $("#btnExportRawData").removeClass("hidden");
+                    $("#btnExportTidUrsprung").addClass("hidden");
+                }
+                else {
+                    $("#btnExportRawData").addClass("hidden");
+                    $("#btnExportTidUrsprung").removeClass("hidden");
+                }
+            });
+
+        }
+
+        $(document).ready(function () {
+           
+            $("field-validation-error").addClass("hidden");
+            initCheckBoxesAnalys();
+            
+            if ($(".checkboxSvarstallen").length==0)
+            {
+                $("#svarstallen-upptagningsomraden").addClass("hidden");
+            }
+
+            $("form").submit(function () {
+                $("input:checkbox").each(function () {
+                    if (!$(this).hasClass("tseCheckbox--checked")) {
+                        $(this).prop('checked', false);
+                    }
+                });
+                var btn = $(this).find("input[type=submit]:focus");
+                if (btn.val() == "Sök") {
+                    $(".submit-loader").removeClass("hidden");
+                    $("input:submit, input:reset").addClass("hidden");
+                }
+            });
+
+            $("input[name=FilterTyp]:radio").change(function () {
+                if ($("input[name=FilterTyp]:radio:checked").val() == "Rådata") {
+                    $("#btnExportRawData").removeClass("hidden");
+                    $("#btnExportTidUrsprung").addClass("hidden");
+                }
+                else {
+                    $("#btnExportRawData").addClass("hidden");
+                    $("#btnExportTidUrsprung").removeClass("hidden");
+                }
+            });
+
+            if ($("input[name=FilterTyp]:radio:checked").val() == "Rådata") {
+                $("#btnExportRawData").removeClass("hidden");
+                $("#btnExportTidUrsprung").addClass("hidden");
+            }
+            else {
+                $("#btnExportRawData").addClass("hidden");
+                $("#btnExportTidUrsprung").removeClass("hidden");
+            }
+                        
+        });
+ 
+</script>
+}
+@section CustomStyle
+{
+	<style>
+		.tseCheckbox + label.tseCheckbox-label {
+			width: 166px;
+			margin-top: 8px;
+		}
+
+		.ajax-loader {
+			display: none;
+            margin-top:20px;
+		}
+		.ui-autocomplete {
+			max-height: 200px;
+			overflow: auto;
+		}
+		.combobox-autocomplete {
+			display: none;
+		}
+        .hidden {
+            display:none;
+        }
+        div#svarstallen-upptagningsomraden {
+            margin-top: 20px;
+        }
+
+	</style>
+}
+
+@Html.Partial("_Filter", Model.FilterViewModel)
+@Html.Partial("_Data", Model.DataViewModel)

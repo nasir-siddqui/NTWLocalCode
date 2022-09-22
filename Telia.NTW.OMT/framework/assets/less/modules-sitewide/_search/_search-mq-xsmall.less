@@ -1,0 +1,131 @@
+.tsSearch-results-left {
+  display: block;
+}
+
+.tsSearch-results-right {
+  display: block;
+}
+
+.tsSearch-results-float {
+  .margin(bottom;@gutter);
+}
+
+.tsSearch-result-list > li{
+  .padding(leftright;0;0);
+  .margin(bottom;@gutter);
+  &.tsSearch-result-item-image{
+    .margin(bottom;@gutter-half/4);
+    .padding(leftright;0;@gutter-half);
+  }
+}
+
+//Images
+.tsSearch-result-item-price {
+  display: none !important;
+}
+
+.tsSearch-result-item-usp {
+  display: none;
+}
+
+.tsSearch-image-container {
+  display: block;
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  bottom: 0;
+}
+
+.tsSearch-item-container {
+  display: block;
+  vertical-align: middle;
+  h2 {
+    height: 32px;
+    height: ~"3.2rem";
+    overflow: hidden;
+  }
+}
+
+.tsSearch-results--Alt {
+  .tsSearch-image-container {
+    display: inline-block;
+    width: 18%;
+    a {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .tsSearch-item-container {
+    display: inline-block;
+    .padding(left; @gutter);
+    width: 75%;
+    h2 {
+      height: auto;
+      overflow: visible;
+    }
+  }
+}
+
+.tsSearch-result-item-image {
+  display: inline;
+  float: left;
+  width: 33%;
+  text-align: center;
+  // .padding(leftright; @gutter/4; @gutter/4);
+}
+
+.tsSearch-result-url {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 265px;
+  a {
+    color: @lightblue;
+    .font-size(10);
+    // line-height: 12px;
+    // font-size: 10px;
+  }
+}
+
+.tsIcon-Search {
+  position: absolute;
+  right: 58px!important;
+  top: -58px!important;
+  display: block;
+  height: 58px;
+  width: 58px;
+  overflow: hidden;
+  background-color: transparent;
+  color: @purple;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 58px;
+  line-height: 5.8rem;
+  cursor: pointer;
+}
+
+
+.is-loggedin .tsIcon-Search {
+    top: -114px!important;
+}
+
+.tsIcon-Search:hover {
+  background-color: @purple;
+  color: @white;
+  .transition;
+}
+//Searchbox
+.tsSearch-searchbox {
+  margin-right: 65px;
+}
+.tsSearch-searchbox > input {
+  font-size: 16px;
+  padding-left: 6px;
+}
+.tsSearch-area-close {
+  top: 14px;
+  padding-right: 12px;
+  font-size: 18px;
+}

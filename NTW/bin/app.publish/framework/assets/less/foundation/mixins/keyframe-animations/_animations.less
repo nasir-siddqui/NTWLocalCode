@@ -1,0 +1,31 @@
+@import "_fade-in";
+@import "_fade-out";
+
+.animation(@duration:800ms, @mode:both, @delay:0, @timing:ease) {
+	-webkit-animation-duration:@duration;
+	-moz-animation-duration:@duration;
+	-ms-animation-duration:@duration;
+	-o-animation-duration:@duration;
+	animation-duration:@duration;
+
+	-webkit-animation-fill-mode:@mode;
+	-moz-animation-fill-mode:@mode;
+	-ms-animation-fill-mode:@mode;
+	-o-animation-fill-mode:@mode;
+	animation-fill-mode:@mode;
+
+	-webkit-animation-delay: @delay;
+	-moz-animation-delay: @delay;
+	-ms-animation-delay: @delay;
+	-o-animation-delay: @delay;
+	animation-delay: @delay;
+
+	-webkit-animation-timing-function: @timing;
+	-moz-animation-timing-function: @timing;
+	-ms-animation-timing-function: @timing;
+	-o-animation-timing-function: @timing;
+	animation-timing-function: @timing;
+}
+
+
+

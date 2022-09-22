@@ -1,0 +1,60 @@
+.tsColorSelector--Alt {
+    .l-inline-list;
+  
+    input[type=radio] {
+        display: none;
+    }
+    label{
+        position: relative;
+    
+    }  
+    input[type=radio] + label {
+        border: 1px solid @lightgrey;
+        .border-radius(50%);
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        .margin(all;8);
+    }
+    input[type=radio]:checked + label
+      {
+        
+        &:before {
+            .border-radius(50%);
+            border: 1px solid @lightgrey;
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            width: 26px;
+            height: 26px;
+            content: " ";
+        }
+    }
+}
+.lt-ie9 .tsColorSelector--Alt label.selected {
+    border: 2px solid @blue;
+}
+.tsColorSelector-Wrapper {
+    .clearfix;
+    margin-top: 20px;
+    &>label,
+    [data-widget="instock"] {
+        font-size: 12px;
+        float: left;
+        margin: 0;
+    }
+    &>label {
+        line-height: 33px;
+        margin-right: 10px;
+    }
+    .tsColorSelector--Alt{
+      float: left;
+      margin-bottom: 10px;
+    }
+
+
+}
+.ie8 .tsColorSelector--Alt input[type=radio] { 
+    position: absolute;
+  border: 2px solid @blue;
+}

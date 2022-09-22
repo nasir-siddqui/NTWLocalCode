@@ -1,0 +1,210 @@
+/*new collapse class*/
+.js .tsPreview--xxsmall > [data-widget-collapse=inner] {
+  max-height: 110px;
+  min-height: 110px;
+}
+.js .tsPreview--xxsmall-campaign > [data-widget-collapse=inner] {
+  max-height: 80px;
+  min-height: 85px;
+}
+
+
+/* offer layout *
+---------------------------
+tsOffer-List
+  tsOffer
+	tsOffer-Row
+	  tsOffer-HeaderCol
+		tsOffer-Header-Container
+		  tsCampaign
+		  tsOffer-Description-Container
+			tsOffer-Row-Title
+			tsOffer-Row-Description
+	  tsOffer-ExtraInfo
+		tsWrapInner
+		  tsBodyText
+			tsOffer-ExtraInfo-LeftCol
+			tsOffer-ExtraInfo-RightCol
+	  tsOffer-EndCol
+		tsOffer-PriceContainer
+		  tsOffer-OriginalPrice
+		tsOffer-ChooseContainer
+		  tsBtn
+----------------------------*/
+
+
+.blue{
+    color: #0083be!important;
+  }
+
+.tsOffer-List{
+  font-size: 1.6rem;  
+  margin-bottom: 4rem;
+
+}
+
+.tsOffer-List [data-widget-control=collapse-trigger] {
+  /*
+  remove this comment if you don't want the gradient background
+  background-image: none !important;
+  */
+
+  /*
+  if the trigger button should not take all available space, may overlay other buttons
+  width: 200px !important;
+  */
+}
+
+.tsOffer-List .tsBtn{
+	padding: 0.8rem 1.5rem;
+}
+
+
+.tsOffer{
+  position: relative;
+}
+
+
+.tsOffer:last-child{
+  border-bottom: solid 2px @lightgrey;
+}
+
+.tsOffer-Row{
+    border-top: solid 2px @lightgrey;
+    min-height: 132px;
+    z-index:0;
+}
+
+
+
+
+.tsOffer-Terms{
+  margin-bottom: 5px;
+}
+
+.tsOffer-List-Terms-Show{
+  color: @purple !important;
+  font-size: 1.4rem;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+/*tsOffer-Row column layout*/
+
+
+.tsOffer-HeaderCol{
+  width: 80% !important;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.tsOffer-EndCol{
+  width: 130px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+
+.tsOffer-PriceContainer{
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+}
+
+.tsOffer-PricePrefix, .tsOffer-PricePostfix{
+  font-weight: 700;
+}
+
+.tsOffer-Price{
+  color: @pink;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.tsOffer-ChooseContainer{
+}
+
+
+.tsOffer-Description-Container{
+  display: inline-block;
+}
+
+.tsOffer-Row-Description{
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+  color: @darkergrey;
+  margin: 0px;
+  margin-top: 0.5rem;
+}
+
+.tsOffer-OriginalPrice{
+  color: @lightgrey;
+}
+
+
+
+/*extra info  layout*/
+.tsOffer-ExtraInfo{
+  font-size: 1.3rem !important;
+  z-index:0;
+}
+
+.tsOffer-ExtraInfo .tsWrapInner{
+  padding: 10px;
+}
+
+.tsOffer-ExtraInfo td{
+  border: none !important;
+}
+
+.tsOffer-ExtraInfo a{
+  color: @purple !important;
+}
+
+.tsOffer-ExtraInfo ul{
+  padding: 0px 0px 1rem 2rem !important;
+}
+
+.tsOffer-ExtraInfo li{
+  margin-bottom: 0.7rem;
+}
+
+
+.tsOffer-ExtraInfo .tsBtn--collapse{
+  border: none !important;
+  background: @lightgrey !important;
+  color: @white !important;
+}
+
+/* circle around arrow*/
+.tsOffer-ExtraInfo .tsBtn--collapse i{
+  color: @white;
+}
+
+/* arrow*/
+.tsOffer-ExtraInfo .tsIcon-ShowMore{
+  background-color: @grey ;
+}
+
+.tsOffer-List-ExtraInfo-Table h4{
+  color: @black;
+}
+
+.tsOffer-List-ExtraInfo-Table td{
+  vertical-align: top;
+  font-size: 1.3rem;
+}
+
+
+
+.tsOffer-List-ExtraInfo-Table tr{
+  background-color: transparent !important;
+  float: left;
+  width: 33%;
+}
+
+.tsOffer-List-ExtraInfo-IncludedIcon img{
+  width: 55px;
+  max-width: initial;
+}
+

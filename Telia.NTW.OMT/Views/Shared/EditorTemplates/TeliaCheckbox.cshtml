@@ -1,0 +1,28 @@
+﻿@model bool
+
+@{
+    string fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var displayName = ViewData.ModelMetadata.DisplayName;
+    if (displayName == null || displayName.Equals(""))
+    {
+        int indexOfArrayMarker = fieldName.LastIndexOf("].");
+        if (indexOfArrayMarker > 0 && indexOfArrayMarker + 2 < fieldName.Length)
+        {
+            displayName = fieldName.Substring(indexOfArrayMarker + 2);
+        }
+        else
+        {
+            displayName = fieldName;
+        }
+    }
+
+    var checkedValue = Model ? "checked" : "";
+	var classes = "tseCheckbox";
+	if (Model) {classes += " tseCheckbox--checked";}
+
+    string onclickAttr = ViewData.ContainsKey("onclick") ? "onclick = " + ViewData["onclick"] : "";
+}
+
+<input type="checkbox" class="@classes" name="@fieldName" id="@fieldName" @checkedValue value="true" @onclickAttr />
+<label class="tseCheckbox-label tsMarginRight--halfGutter" for="@fieldName">@displayName</label>
+<input type="hidden" name="@fieldName" value="false" />

@@ -1,0 +1,86 @@
+/* 
+    CSS for iframed bankID login, that should integrate with the old look on Telia. 
+*/
+
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body { 
+    padding: 10px;
+    font-size: 14px;    
+}
+
+input[type="text"] {
+    font-size: 15px;
+    background: #fdfdfd;
+    border: 1px solid #d8d3dc;
+    border-radius: 3px;
+    padding: 3px;
+    padding-right: 1px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    color: #333;
+    width: 300px;
+    line-height: 21.4285717010498px;
+    display: block;
+}
+
+button {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.298039) 0px -1px 1px;
+    text-align: center;
+    padding-right: 8px;
+    padding-top: 4px;
+    vertical-align: baseline;
+    line-height: 20px;
+    display: block;
+    background: url('https://www.telia.se/tse/img/buttons/tsButtonRichPurple29.png');
+    border: 0;
+    margin-top: 10px;
+}
+
+
+/*
+button:before,
+button:after {
+    content: '';
+    width: 5px;
+    height: 29px;
+    display: block;
+    margin-top: -6px;
+}
+
+button:before {
+    border: 1px solid red;
+    float: left;
+    background: url('https://www.telia.se/tse/img/buttons/tsButtonRichPurple29.png') top left;
+    margin-left: -6px;
+    margin-right: 10px;
+}
+
+button:after {
+    float: right;
+    border: 1px solid blue;
+    background: url('https://www.telia.se/tse/img/buttons/tsButtonRichPurple29.png') top right;
+}
+
+*/
+
+
+label[for="socialSecurityNumber"] {
+    display: block;
+}
+
+
+.tsSizeZero {
+    width: 0;
+    height: 0;
+}
+
+.tsValidation-error {
+    color: rgb(255, 99, 25);
+    margin: 10px 0;
+}

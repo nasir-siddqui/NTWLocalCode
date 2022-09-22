@@ -1,0 +1,96 @@
+.tscForm--inlineLabelAbove {
+    .margin(left;-@gutter);
+    .clearfix;
+    .tscForm-inputContainer, .tscForm-inputContainer--noLabel{
+        float:left;
+        .padding(all;25;0;0;@gutter);
+        .margin(all;0);
+    }
+    .tscForm-inputContainer--noLabel{
+        .padding(top;0);
+    }
+    label {
+        position: absolute;
+        .margin(top;-25);
+    }
+    .tsInlineFeedback{
+        .margin(left;@gutter);
+    }
+    .tseSubmit {
+        .margin(all;25;0;0;@gutter);
+    }
+}
+
+
+
+.tscForm-inputContainer--30pwidth{
+    width: 30%;
+    .tseInput {
+        width: 100%;
+    }
+}
+
+.tscForm-inputContainer--40pwidth{
+    width: 40%;
+    .tseInput {
+        width: 100%;
+    }
+}
+
+.tscForm-inputContainer--50pwidth{
+    width: 50%;
+    .tseInput {
+        width: 100%;
+    }
+}
+
+.tscForm-inputContainer--100pwidth{
+    width: 100%;
+    .tseInput {
+        width: 100%;
+    }   
+}
+
+.tscForm--appendItem {
+    .tscForm-appendArea {
+        width: 220px;
+    }
+}
+
+.tscForm--inlineLabelAbove {
+    .tscForm-inputContainer--break{
+        position: static;
+        .margin(top; @gutter-half);
+    }
+}
+
+.tscForm-floatBlock{
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    .tseSubmit {
+        margin-left: 0;
+    }
+}
+
+.tscForm-floatBlock--lastChild{
+    .padding(left; @gutter);
+    [class^="tsBtn"] {
+        .margin(all;25;0;0;@gutter);
+    }
+}
+
+.tscForm-floatBlock--info{
+    .margin(left; @gutter);
+}
+
+.tscForm-header {
+    .margin(left;@gutter);
+}
+
+
+[class^="tscForm"][class*="--InsetInline"] {
+    [class^="tseTextField"] {
+        .margin(bottom; @gutter-half);
+    }
+}

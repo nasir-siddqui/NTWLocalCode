@@ -1,0 +1,35 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model List<WebbstyrningLogg>
+
+
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+    <caption>Logg</caption>
+    <thead>
+        <tr>
+            <th>Registrerad</th>
+            <th>Begärt</th>
+            <th>Verkställd</th>
+            <th>Styrning</th>
+            <th>Händelse</th>
+            <th>Användare</th>
+            <th>SMS id</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (WebbstyrningLogg logg in Model)
+        {
+            <tr>
+                <td>@logg.Registrerad</td>
+                <td>@logg.Begärt</td>
+                <td>@logg.Verkställd</td>
+                <td>@logg.Styrning</td>
+                <td>@logg.Händelse</td>
+                <td>@logg.Användare</td>
+                <td>@logg.SmsId</td>
+                <td>@logg.Info</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+@import "_feedback.less";
+@import "_feedback-mq-medium.less";
+
+.no-touch .lt-ie9 .tsFeedback-button > div:hover .tsFeedback-label {
+    &:after,
+    &:before {
+        display: none;
+    }
+}
+.lt-ie9 .tsFeedback-label {
+    margin-right: 0;
+}
+.lt-ie8 .tsFeedback-label {
+    width: 40px;
+}
+
+/* $CHECKBOX & RADIOBUTTON */
+
+
+.lt-ie9 .tsCheckbox-styled:checked + .tsCheckbox-label span:before {
+	margin-top: 6px;
+}

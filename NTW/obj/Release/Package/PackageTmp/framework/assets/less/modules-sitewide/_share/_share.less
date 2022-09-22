@@ -1,0 +1,38 @@
+.tsShare,
+.tsShare--alt{
+	text-align: center;
+	.padding(bottom;@gutter);
+}
+
+.tsShare--alt {
+    .font-size(lineheight;14;20);
+	.padding(bottom;@gutter-double);
+}
+
+.tsShare-wrap {
+	.inline-block;
+	
+	padding: 0 5px;
+	background-color: @white;
+
+	&> a, &> div, &> iframe {
+		margin: 0 5px;
+		.inline-block;
+	}
+	img {
+		vertical-align: top;
+	}
+}
+
+.tsShare--alt .tsShare-wrap {
+	background-color: transparent;
+}
+
+.tsShare-line {
+	height: 1px;
+    position: relative;
+    top: -15px;
+	border-bottom: 1px solid @lightergrey;
+	width: 100%;
+	z-index: -1;
+}

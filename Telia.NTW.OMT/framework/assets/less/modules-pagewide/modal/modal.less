@@ -1,0 +1,122 @@
+.tsModal,
+.tsModal--Alt {
+	position: fixed;
+	z-index:5002;
+	background-color: @white;
+	outline:none;
+	width: 100%;
+	//height: 100%;
+	top: 0;
+	left: 0;
+}
+
+/*
+.tsModal-backdrop{
+	display: none;
+}
+*/
+
+.tsModal-header {
+	.padding(all;@gutter);
+	background-color: lighten(@lighterclay,2%);
+}
+
+.tsModal-title {
+	margin:0;
+	line-height:30px;
+}
+
+.tsModal-body {
+	position:relative;
+	overflow-y:auto;
+	.padding(all;@gutter*2);
+}
+
+.tsModal-footer{
+	.padding(all;@gutter);
+	margin-bottom:0;
+	background-color: @lighterclay;
+	text-align: center;
+	*zoom:1;
+	&:before,
+	&:after {
+		display:table;
+		content:'';
+		line-height:0;
+	}
+	&:after{
+		clear:both;
+	}
+}
+
+.tsModal--Alt .tsModal-title,
+.tsModal--Alt .tsModal-body {
+	text-align: center;
+	.tsForm {
+		text-align: left;
+		margin: 0 auto 20px auto;
+
+	}
+}
+.tsModal-info {
+	display: table;
+	i {
+		color: @blue;
+	}
+	i, span, .tsModal-infoText {
+		display:table-cell;
+		vertical-align: top;
+
+	}
+	span {
+		padding-left: 10px;
+	}
+    .center {
+        display: block;
+        text-align: center;
+    }
+}
+
+.tsModal-infoLarge {
+    i {
+        font-size: 128px;
+    }
+}
+.tsModal-Close {
+	position: absolute;
+	top: 24px;
+	right: 20px;
+	cursor: pointer;
+}
+.tsModal--Form {
+	z-index: 5000000;
+	text-align: left;
+	.h4{
+		padding: 0;
+		text-align: left;
+	}
+	input[type=submit]{
+		float: right;
+	}
+
+	.tsModal-header {
+		position: relative;
+		padding-right: 45px
+	}
+	.tsModal-content {
+		overflow-y: scroll;
+
+	}
+	.tsModal-body {
+		.padding(all;@gutter);
+		.padding(bottom;@gutter-double);
+		overflow: visible;
+	}	
+}
+.touch .tsModal--Form {
+	height: 100%!important;
+	input[type=text],
+	textarea {
+			.font-size(16);
+	}
+}

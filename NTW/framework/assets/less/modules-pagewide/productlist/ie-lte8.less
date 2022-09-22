@@ -1,0 +1,44 @@
+@import "productlist";
+@import "productlist-mq-xsmall"; 
+@import "productlist-mq-small"; 
+@import "productlist-mq-medium"; 
+@import "productlist-mq-large"; 
+
+
+.lt-ie8 .tsProductListContainer--alt .tsPageSection {
+
+    height: 100%!important;
+    overflow: hidden;
+
+}
+
+
+.tsListFilter-trigger {
+     z-index: 11;
+}
+
+/*.lt-ie8 .tsProductList-Item {
+    float: left;
+}
+*/
+
+.lt-ie8 .tsProductList--Alt {
+    overflow: hidden;
+    z-index: 2;
+}
+
+.lt-ie9 .tsBtn--filter-remove .tsIcon-Close {
+    .font-size(lineheight;8;14);
+}
+
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item,
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item--tsCampaign,
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item--tsCampaign--double {
+  display: none;
+}
+
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item.show,
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item--tsCampaign.show,
+.js .lt-ie8 [data-widget=filter] .tsProductList-Item--tsCampaign--double.show {
+    display: inline;
+}

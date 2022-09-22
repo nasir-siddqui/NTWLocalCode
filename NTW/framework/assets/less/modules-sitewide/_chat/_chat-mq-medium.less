@@ -1,0 +1,105 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * FEEDBACK............
+
+*/
+
+
+
+/*------------------------------------*\
+    $CHAT
+\*------------------------------------*/
+
+ .tsChat {
+  position: fixed;
+  right: 0px;
+  top: 50%;
+  //margin-right: -51px;
+  overflow: visible;
+  .transform(rotate(-90deg));
+  -webkit-transform-origin: 50%  51%;
+  z-index: 10;
+  // & > div {
+  //  overflow: visible;
+  // }
+}
+.csstransforms  .tsChat{
+  right:-39px;
+}
+
+.tsChat-button > div {
+}
+ .tsChat-label {
+
+  .background-image('feedback');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  //background-color: transparent;
+  display: block;
+  width: 20px;
+  height: 95px;
+  float: right;
+  font-weight: bold;
+  line-height: 40px;
+
+  &> span, 
+  [class*=tsIcon-] 
+  {
+    .visuallyhidden;
+  }
+
+}
+
+.csstransforms .tsChat-label {
+  background-image: none;
+  position: static;
+  padding: 0;
+  margin: 0;
+  height: 32px;
+  line-height: 28px;
+  float: none;
+    background-color: @turq;
+    color: @white;
+    width: auto;
+  .border-radius(5px 5px 0 0);
+  .inline-block;
+
+}
+
+.csstransforms .tsChat-label > span {
+  .visuallyvisible;
+  display: inline-block;
+  padding: 0 8px 0 29px;
+  float: none;
+  font-weight: normal;
+
+}
+
+.csstransforms .tsChat [class*=tsIcon-] {
+  .visuallyvisible;
+  background-color: transparent;
+  .font-size(lineheight;17;20); 
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  margin: auto;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  .transform(rotate(90deg));
+  
+}
+
+.tsChat--feedback {
+  background-color: @turq;
+  float: left;
+  width: 100%;
+  .font-size(28);
+  .padding(top;15);
+}
+

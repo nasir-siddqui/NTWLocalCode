@@ -1,0 +1,196 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * WRAP................
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $WRAP
+\*------------------------------------*/
+
+.tsWrapInner,
+[class*="tsWrapInner--"] {
+    .padding(leftright;@gutter-double;@gutter-double);
+}
+
+[class*="tsWrapInner"][class*="--Highlighted"]{
+    background: @darknearwhite;
+}
+
+.pp .tsWrapInner {
+    .padding(leftright;@gutter;@gutter);
+    
+}
+
+
+/*------------------------------------*\
+    $ASIDE-DIVIDED
+\*------------------------------------*/
+
+.tsContentSplit {
+	.media(direction-left;65%;65%;@gutter*1px);
+}
+
+.tsContentColumn,
+.tsContentSplit-Primary {
+	width: 65%;
+}
+
+.tsContentSplit-Primary {
+	float: left;
+}
+
+.tsContentSplit-Secondary {
+    float: right;
+    width: 30%;
+}
+
+.tsContentSplit-Primary,
+.tsContentSplit-Secondary {
+	.margin(bottom; @gutter);
+}
+
+
+.tsContentSplit--Half{
+    overflow: hidden;
+}
+.tsContentSplit--Half > *:first-child{
+    float: left;
+}
+.tsContentSplit--Half > *{
+    float: left;
+    width: 50%;
+}
+
+
+/*------------------------------------*\
+    $ASIDE-DIVIDED
+\*------------------------------------*/
+
+.tsAsideDivided .tsBodyText {
+    .tsContentSplit-Primary;
+}
+
+.tsAsideDivided .tsBodyRelated {
+    .tsContentSplit-Secondary;
+}
+
+
+/*
+Moved to LARGE
+
+.tsColumnBlock
+{
+    overflow: hidden;
+    .media;
+    & >:first-child  {
+        width: 66.66%;
+    }
+    & >:last-child {
+      text-align: left;
+      vertical-align: middle;
+    }
+    & :only-child {
+      width:100%;
+    }
+
+}
+*/
+
+/*------------------------------------*\
+    $BACKDROP
+\*------------------------------------*/
+.tsBackdrop{
+    .padding(leftright;@gutter;@gutter);
+    
+    .tsWrapInner,
+    [class*="tsWrapInner--"]{
+        .padding(leftright;@gutter;@gutter);        
+
+    }
+    [class*="tsWrapInner--"][class*="--NoPadding"]{
+        .padding(leftright;0;0);
+    }
+}
+
+/*------------------------------------*\
+    $DIVIDERS
+\*------------------------------------*/
+.tsDivider{
+    margin: 20px 0;
+}
+
+
+
+/*------------------------------------*\
+    $Divided list
+\*------------------------------------*/
+
+.tsDividedList{
+    margin-left: -20px;
+    li{
+        .inline-block;
+        vertical-align: text-top;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+    li + li{
+        border-left: 1px solid @grey;
+    }
+    li:last-child{
+        padding-right: 0;
+    }
+    li.firstInRow{
+        border-left: none;
+    }
+}
+
+
+.tsColumnBlock-link:last-child {
+	//.margin(top;40);
+}
+
+.tsColumnBlock-link {
+    //.padding(left;@gutter);
+}
+
+.tsColumn-list-2 {
+    width: 50%;
+}
+
+.tsColumn-list-4 {
+    width: 25%;
+}
+
+.tsAlignRight--medium{
+    text-align: right;
+}
+
+
+.tsPullLeft--Medium{
+    float: left;
+}
+.tsPullRight--Medium{
+    float: right;
+}
+
+
+/* fix for making the footer stick to the bottom of the page on short page */
+//.tsPageWrapper  {
+//    min-height: 100%;
+//    height: auto !important;
+//    height: 100%;
+//    margin-bottom: -415px; /* height of the footer */
+//    &:after {
+//        content: "";
+//        display: block;    
+//        height: 415px; /* must be the same height as .tsFooter */
+//    }
+//}

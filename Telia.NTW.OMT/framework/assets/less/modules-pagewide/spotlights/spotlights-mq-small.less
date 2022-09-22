@@ -1,0 +1,66 @@
+// .tsSpotlight {
+//     .margin(left;-20);
+// }
+.tsSpotlight {
+    .tsIconHeader {
+        .font-size(lineheight;72;200);
+    }
+}
+
+.tsSpotlight-list {
+    .l-inline-list();
+    .margin(left;-@gutter);
+    .margin(top;-@gutter);
+}
+
+.tsSpotlight-container {
+    .margin(left;@gutter);
+}
+
+
+.tsSpotlight-links {
+    .tsSpotlight-link {
+        .margin(bottom;3);
+    }
+}
+
+.tsSpotlight-item--promo {
+    .tsSpotlight-container {
+        margin-left: 0;
+    }
+    .tsSpotlight-header {
+        float: left;
+        .padding(left;20);
+    }
+    .tsSpotlight-info {
+        float: left;
+        .padding(left;20);
+    }
+}
+
+
+/*------------------------------------*\
+   $Alternative with grids
+\*------------------------------------*/
+.tsSpotlight-list--grids {
+    .l-inline-list();
+    border-left:1px solid @lightergrey;
+    .margin(bottom;-1);
+
+    .tsSpotlight-item {
+        border-left:none;
+        vertical-align: top;
+    }
+
+    .tsSpotlight-content {
+        float: none;
+        .padding(left; 0);
+        .padding(top; @gutter);
+        width: 100%;
+    }
+
+    .tsSpotlight-header {
+        float: none;
+        width: 100%;
+    }
+}

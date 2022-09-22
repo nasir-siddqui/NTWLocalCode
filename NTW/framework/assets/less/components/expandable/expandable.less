@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * EXPANDABLE..........AN EXPANDABLE AREA
+ */
+
+
+
+
+/*------------------------------------*\
+   $EXPANDABLE
+\*------------------------------------*/
+
+.tsExpandableWrapper {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.tsExpandableArea {
+    .padding(top;@gutter);
+}
+
+.tsExpandable-arrowDown {
+    position: relative;
+    &:after,
+    &:before {
+        bottom: -1px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        z-index: 10;
+    }
+    &:after{
+        border-bottom-color: @nearwhite;
+        border-width: 11px;
+        left: 50%;
+        margin-left: -11px;
+    }
+    &:before {
+        border-bottom-color: @lightergrey;
+        border-width: 13px;
+        left: 50%;
+        margin-left: -13px;
+    }
+}
+
+.tsExpandable-close {
+    float: right;
+}
+
+.tsExpandableArea {
+    .tsGuide {
+        background: none;
+        border: none;
+        &:last-child {
+            border-top: none;
+        }
+    }
+    .tsGuideContainer {
+        padding: 0;
+    }
+    .tsGuide-close {
+        top: 0;
+        right: 0;
+    }
+    p {
+        max-width: 700px;
+    }
+}

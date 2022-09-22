@@ -1,0 +1,18 @@
+// Creates transparent HSLa from an RGB color paired with an alpha opacity value.
+// Falls back to non transparent RGB for browsers that don't handle HSL colors
+
+.transparency() {
+    .background(@color: @purple, @alpha: 0.8) {
+        background-color: @color;
+        background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    }
+    .border(@color: @purple, @alpha: 0.8) {
+        border-color: @color;
+        border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+        background-clip: padding-box;
+    }
+    .color(@color: @purple, @alpha: 0.8) {
+        color: @color;
+        color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);        
+    }
+}

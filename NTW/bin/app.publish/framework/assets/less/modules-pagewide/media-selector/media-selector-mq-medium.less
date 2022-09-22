@@ -1,0 +1,30 @@
+.tsMediaSelector-Wrapper {
+	float: left;
+	padding: 0;
+}
+.tsMediaSelector {
+    width: 100%;
+    visibility: visible;
+}
+.tsMediaSelector-Items {
+    overflow: visible;
+    padding-bottom: 94%;
+    &>div {
+        float:none;
+        .animation();
+        .fadeIn();
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        width: 100%;
+        padding-bottom: 0;
+	}
+}
+.tsProductIntro .tsMediaSelector-Wrapper {
+    width: 33%;
+}
+[data-min="mqMedium"] .hide{
+    opacity: 0;
+    display: none;
+}

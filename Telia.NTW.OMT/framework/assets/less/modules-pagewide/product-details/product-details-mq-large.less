@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCT-IMAGE.............
+ * PRODUCT-LEADINS...........
+ * MOVIE.....................
+
+*/
+
+/*------------------------------------*\
+    $PRODUCT-IMAGE
+\*------------------------------------*/
+
+.tsProductImage {
+    .tsProductItem-tagWrapper+.tsProductItem-tagWrapper {
+        top: 20%;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-LEADINS
+\*------------------------------------*/
+
+[class^="tsProductLeadins"] .tsProductList > .tsProductList-Item,
+//[class^="tsProductLeadins"] .tsProductList-Item--single,
+[class^="tsProductLeadins"] .tsProductList-Item--color {
+    width: 20%;
+}
+
+[class^="tsProductLeadins"] .tsProductList-Item--combo  {
+    width: 40%;
+}
+
+/*------------------------------------*\
+    $MOVIE
+\*------------------------------------*/
+
+.tsProductItem--movie {
+  
+        .tsMovieImage {
+            max-width: 25%;
+        }
+
+        .tsMovieContent{
+            .padding(all; @gutter; @gutter; @gutter; 0);
+            max-width: 75%;
+            .tsMovieInfo {
+                .tsMovieInfo--description {
+                    display: inline-block;
+                    max-width: 50%;
+                }
+                .tsMovieInfo--data {
+                    .margin(left;@gutter);
+                    display: inline-block;
+                    max-width: 45%;
+                }
+            }
+        }
+    }

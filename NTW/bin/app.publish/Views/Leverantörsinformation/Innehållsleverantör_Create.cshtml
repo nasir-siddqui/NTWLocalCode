@@ -1,0 +1,26 @@
+﻿@model Telia.NTW.Web.ViewModel.Leverantörsinformation.InnehållsleverantörViewModel
+
+@{
+    ViewBag.Title = "Innehållsleverantör_Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Leverantörsinformation", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Skapa innehållsleverantör</li>
+    </ul>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("_Innehållsleverantör")
+        <div class="tsMarginTop">
+            @Html.ActionLink("Avbryt", "Innehållsleverantörer", "Leverantörsinformation", new { @class = "tsBtn--Regular" })
+            <input type="submit" class="tsBtn--Regular tsMarginLeft" value="Skapa" />
+        </div>
+    }
+</div>
+
+

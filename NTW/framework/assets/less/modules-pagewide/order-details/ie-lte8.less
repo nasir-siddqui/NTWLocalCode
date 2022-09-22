@@ -1,0 +1,31 @@
+@import "order-details";
+@import "order-details-mq-small";
+@import "order-details-mq-medium";
+@import "order-details-mq-large";
+
+
+.lt-ie9 {
+	.tsSalesBlock-alt,
+	.tsSalesBlock {
+		.padding(leftright;0;0) !important;
+		input[type="text"],
+		input[type="number"],
+		input[type="email"]{
+			.padding(all;7;4;8;4);
+		}
+	}
+}
+
+.ie7 {
+	tsSalesBlock-alt,
+	.tsSalesBlock {
+		input[type="submit"] {
+			.padding(all;4;0;6;0);
+		}
+	}
+}
+
+.lt-ie9 .tsSalesBlock-horizontal-list li {
+	.margin(right;65);
+}
+

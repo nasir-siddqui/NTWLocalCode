@@ -1,0 +1,29 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning
+@model List<MultistyrningsköRow>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+	<caption>Multistyrningskö</caption>
+	<thead>
+		<tr>
+			<th>Begärt datum</th>
+			<th>Namn</th>
+		    <th>Verkställt datum</th>
+            <th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (MultistyrningsköRow multistyrning in Model)
+		{
+			<tr>
+				<td>@multistyrning.BegärtDatum</td>
+				<td>@multistyrning.Namn</td>
+			    <td>@multistyrning.VerkställtDatum</td>
+			    <td>
+			        <!-- Nedan skulle hela objektet multistyrning kunnat skickas med. Problemet är att formatet på Begärt datum då blir fel och formuläret tar begärt datum från get-parametern istället för det från modellen om de heter samma. -->
+				    @Html.ActionLink(" ", "Kö_Edit", new { multistyrning.KöVIPMultiConnectedId, BegärtDatum = multistyrning.BegärtDatum.ToString(), multistyrning.Namn }, new { @class = "tsIcon-Edit", @title = "Redigera" })
+				    <a class="tsIcon-Delete tsMarginLeft" onclick="deleteConfirmation.showConfirmation(event, 'Multistyrning', 'Kö_Delete', 'multistyrningen', @multistyrning.KöVIPMultiConnectedId, '@multistyrning.BegärtDatum.ToString()')"></a>
+			    </td>
+			</tr>
+		}
+	</tbody>
+</table>

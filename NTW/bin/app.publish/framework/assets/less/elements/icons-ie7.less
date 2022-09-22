@@ -1,0 +1,142 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * DEFAULT.............Default icon declarations
+ * HEADER..............Header icons and graphics
+ * FOOTER..............Footer icons and graphics, including social media link icons
+ * EASY-TO-FIND........
+ * NEWS-LIST...........
+ * CRUMBTRAIL..........
+ * FEEDBACK............
+ * FILTER..............
+ */
+
+
+/*
+IE7 can't understand pseudo elements like  and :after.
+Instead a css expression is used to insert the character content for all defined icons.
+However, icons that use the data-icon attribute will not be visible in IE7.
+*/
+
+
+/*------------------------------------*\
+   $DEFAULT
+\*------------------------------------*/
+
+.ie7icon(@inner) {
+	*zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '@{inner}');"
+}
+
+[class^="tsIcon-SafeStorage"] 		{ .ie7icon('&#xe000;'); }
+[class^="tsIcon-Twitter"] 			{ .ie7icon('&#xe001;'); }
+[class^="tsIcon-Facebook"] 			{ .ie7icon('&#xe002;'); }
+[class^="tsIcon-ShowMore"] 			{ .ie7icon('&#xe003;'); }
+[class^="tsIcon-MyPages"] 			{ .ie7icon('&#xe004;'); }
+[class^="tsIcon-Check"] 			{ .ie7icon('&#xe005;'); }
+[class^="tsIcon-Edit"] 				{ .ie7icon('&#xe006;'); }
+[class^="tsIcon-Share"] 			{ .ie7icon('&#xe007;'); }
+[class^="tsIcon-Telephone"] 		{ .ie7icon('&#xe008;'); }
+[class^="tsIcon-Broadband"] 		{ .ie7icon('&#xe009;'); }
+[class^="tsIcon-ConnectionHealth"] 	{ .ie7icon('&#xe00a;'); }
+[class^="tsIcon-Locked"] 			{ .ie7icon('&#xe00b;'); }
+[class^="tsIcon-Mail"] 				{ .ie7icon('&#xe00c;'); }
+[class^="tsIcon-Desktop"] 			{ .ie7icon('&#xe00d;'); }
+[class^="tsIcon-ViewAsGraph"] 		{ .ie7icon('&#xe00e;'); }
+[class^="tsIcon-ViewAsList"] 		{ .ie7icon('&#xe00f;'); }
+[class^="tsIcon-Breadcrumb"] 		{ .ie7icon('&#xe010;'); }
+[class^="tsIcon-Tablet"] 			{ .ie7icon('&#xe011;'); }
+[class^="tsIcon-Panic"] 			{ .ie7icon('&#xe012;'); }
+[class^="tsIcon-Search"] 			{ .ie7icon('&#xe013;'); }
+[class^="tsIcon-PlayMedia"] 		{ .ie7icon('&#xe014;'); }
+[class^="tsIcon-ArrowDown"] 		{ .ie7icon('&#xe015;'); }
+[class^="tsIcon-Feedback"] 			{ .ie7icon('&#xe016;'); }
+[class^="tsIcon-Sort"] 				{ .ie7icon('&#xe017;'); }
+[class^="tsIcon-Filter"] 			{ .ie7icon('&#xe018;'); }
+[class^="tsIcon-Close"] 			{ .ie7icon('&#xe019;'); }
+[class^="tsIcon-Previous"] 			{ .ie7icon('&#xe01a;'); }
+[class^="tsIcon-Next"] 				{ .ie7icon('&#xe01b;'); }
+[class^="tsIcon-Combinations"] 		{ .ie7icon('&#xe01c;'); }
+[class^="tsIcon-TeliaPlay"] 		{ .ie7icon('&#xe01d;'); }
+[class^="tsIcon-3g4g"] 				{ .ie7icon('&#xe01e;'); }
+[class^="tsIcon-Blog"] 				{ .ie7icon('&#xe01f;'); }
+[class^="tsIcon-Forum"] 			{ .ie7icon('&#xe020;'); }
+[class^="tsIcon-UpgradeSim"] 		{ .ie7icon('&#xe021;'); }
+[class^="tsIcon-Range"] 			{ .ie7icon('&#xe022;'); }
+[class^="tsIcon-Accessories"] 		{ .ie7icon('&#xe023;'); }
+[class^="tsIcon-RefillSim"] 		{ .ie7icon('&#xe024;'); }
+[class^="tsIcon-Environment"] 		{ .ie7icon('&#xe025;'); }
+[class^="tsIcon-Information"] 		{ .ie7icon('&#xe026;'); }
+[class^="tsIcon-ImproveSpeed"] 		{ .ie7icon('&#xe027;'); }
+[class^="tsIcon-Help"] 				{ .ie7icon('&#xe028;'); }
+[class^="tsIcon-Television"] 		{ .ie7icon('&#xe029;'); }
+[class^="tsIcon-Sim"] 				{ .ie7icon('&#xe02a;'); }
+[class^="tsIcon-Mobile"] 			{ .ie7icon('&#xe02b;'); }
+[class^="tsIcon-TeliaLogo"] 		{ .ie7icon('&#xe02c;'); }
+[class^="tsIcon-ShowLess"] 			{ .ie7icon('&#xe02d;'); }
+[class^="tsIcon-ArrowUp"] 			{ .ie7icon('&#xe02e;'); }
+[class^="tsIcon-NewWindow"] 		{ .ie7icon('&#xe02f;'); }
+[class^="tsIcon-ArrowDown2"] 		{ .ie7icon('&#xe030;'); }
+[class^="tsIcon-ArrowUp2"] 			{ .ie7icon('&#xe031;'); }
+[class^="tsIcon-Menu"] 				{ .ie7icon('&#xe032;'); }
+[class^="tsIcon-Return"] 			{ .ie7icon('&#xe033;'); }
+[class^="tsIcon-Move"] 				{ .ie7icon('&#xe034;'); }
+[class^="tsIcon-Lock"] 				{ .ie7icon('&#xe035;'); }
+[class^="tsIcon-Star"] 				{ .ie7icon('&#xe036;'); }
+[class^="tsIcon-Delete"] 			{ .ie7icon('&#xe037;'); }
+[class^="tsIcon-Configure"] 		{ .ie7icon('&#xe038;'); }
+[class^="tsIcon-Add"] 				{ .ie7icon('&#xe039;'); }
+[class^="tsIcon-PDF"] 				{ .ie7icon('&#xe040;'); }
+[class^="tsIcon-Download"] 			{ .ie7icon('&#xe041;'); }
+[class^="tsIcon-ThumbsUp"] 			{ .ie7icon('&#xe042;'); }
+[class^="tsIcon-ThumbsDown"] 		{ .ie7icon('&#xe043;'); }
+[class^="tsIcon-ArrowRight"] 		{ .ie7icon('&#xe044;'); }
+[class^="tsIcon-Time"] 				{ .ie7icon('&#xe045;'); }
+[class^="tsIcon-Audio"] 			{ .ie7icon('&#xe046;'); }
+[class^="tsIcon-Reload"] 			{ .ie7icon('&#xe047;'); }
+[class^="tsIcon-Help2"] 			{ .ie7icon('&#xe600;'); }
+[class^="tsIcon-Cart"]              { .ie7icon('&#xe602;'); }
+[class^="tsIcon-Trash"]             { .ie7icon('&#xe603;'); }
+[class^="tsIcon-Minus"]             { .ie7icon('&#xe606;'); }
+[class^="tsIcon-Up"]                { .ie7icon('&#xe607;'); }
+[class^="tsIcon-Down"]              { .ie7icon('&#xe608;'); }
+[class^="tsIcon-Left"]              { .ie7icon('&#xe609;'); }
+[class^="tsIcon-Right"]             { .ie7icon('&#xe610;'); }
+[class^="tsIcon-Combinations2"]     { .ie7icon('&#xe604;'); }
+[class^="tsIcon-MobileBroadband"]   { .ie7icon('&#xe60a;'); }
+[class^="tsIcon-Ethernet"]          { .ie7icon('&#xe60b;'); }
+[class^="tsIcon-Troubleshoot"]      { .ie7icon('&#xe622;'); }
+[class^="tsIcon-GetStarted"]        { .ie7icon('&#xe623;'); }
+[class^="tsIcon-Top5"]              { .ie7icon('&#xe624;'); }
+[class^="tsIcon-Guide"]             { .ie7icon('&#xe60c;'); }
+[class^="tsIcon-PhoneProblems"]     { .ie7icon('&#xe60d;'); }
+[class^="tsIcon-TecInfo"]           { .ie7icon('&#xe60e;'); }
+[class^="tsIcon-Tv"]                { .ie7icon('&#xe60f;'); }
+[class^="tsIcon-Invoice"]           { .ie7icon('&#xe61a;'); }
+
+
+[class^="tsIcon-Order"]          { .ie7icon('&#xe626;') }
+[class^="tsIcon-TecSupport"]     { .ie7icon('&#xe61d;') }
+[class^="tsIcon-Complaints"]     { .ie7icon('&#xe62a;') }
+[class^="tsIcon-Domains"]        { .ie7icon('&#xe62c;') }
+[class^="tsIcon-Subscription"]   { .ie7icon('&#xe625;') }
+[class^="tsIcon-E-leg"]          { .ie7icon('&#xe628;') }
+[class^="tsIcon-PaymentNotification"] { .ie7icon('&#xe627;') }
+[class^="tsIcon-Delivery"]       { .ie7icon('&#xe629;') }
+[class^="tsIcon-ReceptionMap"]   { .ie7icon('&#xe62b;') }
+[class^="tsIcon-MobileBroadband2"]{ .ie7icon('&#xe61c;') }
+[class^="tsIcon-Telephony"]    	 { .ie7icon('&#xe61b;') }
+[class^="tsIcon-InvoiceNotice"]  { .ie7icon('&#xe61f;') }
+[class^="tsIcon-Chat"]     	 { .ie7icon('&#xe62e;') }
+[class^="tsIcon-Email"] 		 { .ie7icon('&#xe62d;') }
+
+[class^="tsIcon-RefillCharge"]   { .ie7icon('&#xe683;') }
+[class^="tsIcon-RefillSurf"]     { .ie7icon('&#xe684;') }
+[class^="tsIcon-Transmit"]     	 { .ie7icon('&#xe685;') }
+[class^="tsIcon-CheckInvoice"] 	 { .ie7icon('&#xe686;') }
+
+
+
+

@@ -1,0 +1,47 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * FLEXLAYOUT..........
+ */
+
+
+
+
+
+/*------------------------------------*\
+    $FLEXLAYOUT
+\*------------------------------------*/
+
+.flexcontainer {
+    .flexbox(column);
+//    display: block; // can't be display: block, since the flexbox declaration givers it display: flex
+//    zoom: 1; // ???
+}
+
+.tsSubNavigation {
+    // This moves the sub navigation below main content
+    .flexbox-order(2);
+}
+
+.flexwrap {
+    // For clarity
+    .flexbox-order(1);
+}
+
+@-moz-document url-prefix() {
+    .flexcontainer {
+        width: 100%;
+        -moz-box-sizing: border-box;
+    }
+}
+
+.tsColumn-list-2 {
+    width: 100%;
+}
+
+.tsColumn-list-4 {
+    width: 100%;
+}

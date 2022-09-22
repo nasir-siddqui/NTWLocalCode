@@ -1,0 +1,133 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PRODUCT-IMAGE.............
+ * LEAD-INS..................
+ * MOVIE.....................
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRODUCT-IMAGE
+\*------------------------------------*/
+
+
+.tsProductImage {
+    .tsProductItem-tagWrapper {
+        right: 0;
+        +.tsProductItem-tagWrapper {
+            top: 20%;
+        }
+        .tsProductItem-tag {
+            width: 80px;
+            height: 80px;
+        }
+        .tsProductItem-tag--Small {
+            .font-size(15);
+        }
+        .tsProductItem-tag--Medium {
+            .font-size(25);
+        }
+        .tsProductItem-tag--Large {
+            .font-size(35);
+        }
+    }
+}
+
+
+
+
+
+
+
+/*------------------------------------*\
+    $LEAD-INS
+\*------------------------------------*/
+
+
+[class^="tsProductLeadins"] .tsProductList > .tsProductList-Item,
+[class^="tsProductLeadins"] .tsProductList-Item--combo,
+[class^="tsProductLeadins"] .tsProductList-Item--single,
+[class^="tsProductLeadins"] .tsProductList-Item--color {
+    width: 100%;
+    border: none;
+    &:last-child {
+        border: none;
+    }
+}
+
+[class*="tsProductItem--Leadin"][data-campaigntext]:before {
+    content: attr(data-campaigntext);
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: -2.5rem;
+    width: 100%;
+    border-left: 1px solid @pink;
+    border-right: 1px solid @pink;
+    text-align: center;
+    background-color: @pink;
+    color: rgb(255, 255, 255);
+    .font-size(lineheight;12;25);
+    font-weight: bold;
+}
+
+.lt-ie9 [class*="tsProductItem--Leadin"][data-campaigntext]:before {
+    top:-25px;
+}
+
+
+.tsProductLeadins .tsProductList {
+    text-align: center;
+}
+
+
+/*------------------------------------*\
+    $MOVIE
+\*------------------------------------*/
+
+.tsProductItem--movie {
+    .tsMovieImage {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+    }
+    .tsMovieContent{
+        .padding(all; @gutter; @gutter; @gutter; @gutter);
+        .tsMovieInfo {
+            .tsMovieInfo--description {
+                display: block;
+                max-width: 100%;
+            }
+            .tsMovieInfo--data {
+                display: block;
+                max-width: 100%;
+                margin: 0;
+                .tsTable--alt {
+                    td {
+                      &:last-child {
+                        display: table-cell;
+                      }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tsMovieSimilar {
+    .tsMovieList {
+        li:last-child {
+            display: none;
+        }
+        .tsMovieList-Item {
+            width: 30%;
+        }
+    }
+}

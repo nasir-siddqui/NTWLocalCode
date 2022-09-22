@@ -1,0 +1,332 @@
+﻿@using Telia.NTW.Core.Helpers
+@using Telia.NTW.Web.Helpers
+@model Telia.NTW.Web.ViewModel.BaseViewModel
+
+<!DOCTYPE html>
+<html class="no-js" lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>@ViewBag.Title - Telia Nummertjänster</title>
+    @* TODO: fixa länkning *@
+    <link rel="icon" href="@Url.Content("~/Media/favicon.png")">
+
+    @* TODO: Skall vi ha dessa med? *@
+    @*<meta property="og:title" content="telia.se" />
+        <meta property="og:image" content="http://lab2.packos.com/media/telialogo-facebook.png" />
+        <meta property="og:site_name" content="Telia Nummertjänst" />
+        <meta property="og:description" content="" />*@
+
+    <link rel="apple-touch-icon" href="@Url.Content("~/Media/favicon.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="@Url.Content("~/Media/favicon-76.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="@Url.Content("~/Media/favicon-120.png")">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="@Url.Content("~/Media/favicon-152.png")">
+
+    @*TODO: fixa länkningen*@
+    <!-- Android Launcher mdpi -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-48.png")" sizes="48x48">
+    <!-- non-retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-57.png")" sizes="57x57">
+    <!-- non-retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-72.png")" sizes="72x72">
+    <!-- non-retina iPad iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-76.png")" sizes="76x76">
+    <!-- Android Launcher xhdpi-->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-96.png")" sizes="96x96">
+    <!-- retina iPhone pre iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-114.png")" sizes="114x114">
+    <!-- retina iPhone iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-120.png")" sizes="120x120">
+    <!-- retina iPad pre iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-144.png")" sizes="144x144">
+    <!-- retina iPad iOS 7 -->
+    <link rel="apple-touch-icon-precomposed" href="@Url.Content("~/resources/templating-kit/themes/telia-se/css/appicons/appicon-152.png")" sizes="152x152">
+
+    <!--[if IE]><link rel="shortcut icon" href="@Url.Content("~/Media/favicon.ico")"><![endif]-->
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    @* TODO: fixa länkning *@
+    <meta name="msapplication-TileImage" content="@Url.Content("~/Media/favicon-144.png")">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @* NOTE: Primarily add styles by including them in the main less file, found at ~/Projects/NTW/Assets/Less/ts-ntw.less *@
+    @RenderSection("CustomStyle", required: false)
+
+</head>
+<!--[if lt IE 7]>      <body class="sticky-header lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <body class="sticky-header lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <body class="sticky-header lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<body class="sticky-header">
+    <!--<![endif]-->
+
+    <div id="mybusiness-wrapper">
+        <b2b-serviceweb-banner app-id="NUMBER_SERVICE_WEB" app-name="Nummertjänst Webb" language="sv"></b2b-serviceweb-banner>
+        @*TODO: inkludera felmeddelandehantering*@
+        @foreach (var panicMessage in Model.MeddelandeList.PanicMessages)
+        {
+            <div class="tsAttention--Panic">
+                <div class="tsAttention-Message tsWrapInner">
+                    <i class="tsIcon-Information"></i>
+                    <p>
+                        @panicMessage.Text
+                    </p>
+                </div>
+            </div>
+        }
+        @*TODO: inkludera informationsmeddelandehantering*@
+        @foreach (var infoMessage in Model.MeddelandeList.InfoMessages)
+        {
+            <div class="tsAttention--Info" @*data-uuid="563ea24c-3d05-4bb7-a56e-3d97084a0b28"*@>
+                <div class="tsAttention-Message tsAttention-MessageClosable tsWrapInner">
+                    <i class="tsIcon-Information"></i>
+                    <p>
+                        @*<span>Du har blivit utloggad automatiskt... (testmeddelande)</span>*@
+                        @infoMessage.Text
+                    </p>
+                </div>
+            </div>
+        }
+
+        <div class="header" role="banner">
+            <button class="tsCollapse-trigger navigation-trigger" data-toggle="collapse" data-target=".header-inner" data-collapse-id="header">
+                <i class="tsIcon-Menu"></i>
+            </button>
+
+            <div class="logo">
+                <a href="@Url.Content("~")">
+                    <img alt="Telia logga" src="@Url.Content("~/Media/logo2x.png")" />
+                </a>
+            </div>
+
+            <div class="header-inner @if (Model.HasSubMenu) { <text>has-subnavigation</text> }">
+                <div class="navigation-wrapper">
+                    @*<button class="tsCollapse-trigger tsSettings-trigger" data-toogle="collapse" data-target=".tsSettings-menu-list" data-collapse-duration="0" data-collapse-hide="auto">
+                            <i class="tsIcon-Configure"></i><i class="tsIcon-ArrowDown"></i>
+                        </button>*@
+
+                    @*<button class="tsCollapse-trigger search-trigger" data-toggle="collapse" data-targt=".header-search" data-pusher=".header" data-pusher-class="search-pusher" data-change=".header" data-collapse-group="header" data-widget="setFocus" data-focus-target="#inputSearch">
+                            <i class="tsIcon-Search"></i>
+                        </button>*@
+
+                    @*<div class="search header-search">
+                            <div class="search-inner">
+                                <form class="search-form">
+                                    <input id="inputSearch" type="search" data-search="categorySearch" class="search-field" name="search" placeholder="Sök..." />
+                                    <i class="tsIcon-Search"></i>
+                                    <input type="submit" class="search-submit" value="Sök" />
+                                </form>
+                            </div>
+                        </div>*@
+
+                    <div class="primary-navigation">
+
+                        @{
+                            var controllerName = ViewContext.RouteData.Values["Controller"].ToString();
+                            var actionName = ViewContext.RouteData.Values["Action"].ToString();
+                        }
+
+                        <ul class="toplevel" role="navigation">
+                            @if (User.IsInRole("Analys"))
+                            {
+                                <li class="toplevel-item @(controllerName == "Analys" ? "open" : "")">
+                                    <a href="@Url.Action("Index", "Analys")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem1" data-pusher=".header" data-change=".header" data-collapse-group="header">Analys</a>
+                                    @*<ul id="menuitem1" class="sublevel">
+                                            <li class="sublevel-item selected">
+                                                <a href="#" class="sublevel-link">Översikt</a>
+                                            </li>
+                                        </ul>*@
+                                </li>
+                            }
+
+                            <!-- Meny för Webbstyrning -->
+                            @if (User.IsInRole(RoleHelper.Webbstyrning) || User.IsInRole(RoleHelper.Administratör))
+                            {
+                                <li class="toplevel-item @(controllerName == "Webbstyrning" || controllerName == "Multistyrning" ? "open" : "")">
+                                    @if (User.IsInRole(RoleHelper.Webbstyrning))
+                                    {
+                                        <a href="@Url.Action("Index", "Webbstyrning")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem2" data-pusher=".header" data-change=".header" data-collapse-group="header">Webbstyrning</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("EjVerkställdaStyrningar", "Webbstyrning")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem2" data-pusher=".header" data-change=".header" data-collapse-group="header">Webbstyrning</a>
+                                    }
+                                    <ul id="menuitem2" class="sublevel">
+                                        @if (User.IsInRole(RoleHelper.Webbstyrning))
+                                        {
+                                            <li class="sublevel-item @(controllerName == MVC.Webbstyrning.Name && actionName == "Index" ? "selected" : "")">
+                                                @Html.ActionLink("Webbstyrning", "Index", "Webbstyrning", new { }, new { @class = "sublevel-link" })
+                                            </li>
+                                        }
+
+                                        @if (User.IsInRole(RoleHelper.WebbstyrningMultistyrning))
+                                        {
+                                            <li class="sublevel-item @(controllerName == MVC.Multistyrning.Name && actionName == "Index" ? "selected" : "")">
+                                                @Html.ActionLink("Multistyrning", "Index", "Multistyrning", new { }, new { @class = "sublevel-link" })
+                                            </li>
+                                        }
+
+                                        @*<li class="sublevel-item @(actionName == "Kundlogg" ? "selected" : "")">
+                                                @Html.ActionLink("Kundlogg", "Kundlogg", "Webstyrning", new { }, new { @class = "sublevel-link" })
+                                            </li>*@
+
+                                        @if (User.IsInRole(RoleHelper.Administratör))
+                                        {
+                                            <li class="sublevel-item @(controllerName == MVC.Webbstyrning.Name && actionName == "EjVerkställdaStyrningar" ? "selected" : "")">
+                                                @Html.ActionLink("Ej verkställda styrningar", "EjVerkställdaStyrningar", "Webbstyrning", new { }, new { @class = "sublevel-link" })
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+
+                            <!-- Meny för Leverantörsinformation -->
+                            @if (User.IsInRole(RoleHelper.Leverantörsinformation) || User.IsInRole(RoleHelper.Administratör))
+                            {
+                                <li class="toplevel-item @(controllerName == "Leverantörsinformation" ? "open" : "")">
+                                    @if (User.IsInRole(RoleHelper.Leverantörsinformation))
+                                    {
+                                        <a href="@Url.Action("Telia900Nummer", "Leverantörsinformation")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem3" data-pusher=".header" data-change=".header" data-collapse-group="header">Leverantörsinformation</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Innehållsleverantörer", "Leverantörsinformation")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem3" data-pusher=".header" data-change=".header" data-collapse-group="header">Leverantörsinformation</a>
+                                    }
+
+                                    <ul id="menuitem4" class="sublevel">
+                                        @if (User.IsInRole(RoleHelper.Leverantörsinformation))
+                                        {
+                                            <li class="sublevel-item @(actionName == "Telia900Nummer" ? "selected" : "")">
+                                                <a href="@Url.Action("Telia900Nummer", "Leverantörsinformation")" class="sublevel-link">Telia 900 nummer</a>
+                                            </li>
+                                        }
+
+                                        <li class="sublevel-item @(actionName == "Innehållsleverantörer" ? "selected" : "")">
+                                            <a href="@Url.Action("Innehållsleverantörer", "Leverantörsinformation")" class="sublevel-link">Innehållsleverantörer</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                            @if (User.IsInRole("Administratör"))
+                            {
+                                <li class="toplevel-item @(controllerName == "Admin" ? "open" : "")">
+                                    <a href="@Url.Action("Hantera", "Admin")" class="toplevel-link" data-tobble="collapse" data-target="#menuitem4" data-pusher=".header" data-change=".header" data-collapse-group="header">Admin</a>
+                                    <ul id="menuitem4" class="sublevel">
+                                        <li class="sublevel-item @(actionName == "Hantera" ? "selected" : "")">
+                                            <a href="@Url.Action("Hantera", "Admin")" class="sublevel-link">Hantera</a>
+                                        </li>
+                                        <li class="sublevel-item @(actionName == "Meddelande" ? "selected" : "")">
+                                            <a href="@Url.Action("Meddelande", "Admin")" class="sublevel-link">Meddelande</a>
+                                        </li>
+                                        <li class="sublevel-item @(actionName == "Användarstatistik" ? "selected" : "")">
+                                            <a href="@Url.Action("Användarstatistik", "Admin")" class="sublevel-link">Statistik användare</a>
+                                        </li>
+                                        <li class="sublevel-item @(actionName == "Loggar" ? "selected" : "")">
+                                            <a href="@Url.Action("Loggar", "Admin")" class="sublevel-link">Loggar</a>
+                                        </li>
+                                        <li class="sublevel-item @(actionName == "Hantera_Bolag_Inloggning" ? "selected" : "")">
+                                            <a href="@Url.Action("Hantera_Bolag_Inloggning", "Admin")" class="sublevel-link">Logga in via bolag</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+
+                    </div>
+
+                    <div class="secondary-navigation">
+                        <div class="secondary-navigation-inner">
+                            <ul class="site">
+                                <li class="site-item">
+                                    <a href="https://www.telia.se/foretag" class="site-link">Företag</a>
+                                </li>
+                                <li class="site-item">
+                                    <a href="https://www.telia.se/fastighetsagare/" class="site-link">Fastighetsägare</a>
+                                </li>
+                            </ul>
+                            <ul class="nav">
+                                <li class="nav-item nav-item-login">
+                                    @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                            string username = CookieHelper.GetUserDisplayName();
+                                            <a href="" class="nav-link">Inloggad som @username @Model.UserDetails.Bolagsnamn @Model.UserDetails.BolagOrgNr</a>
+                                            if (!Model.UserDetails.LogoutUrl.IsEmpty())
+                                            {
+                                                @Html.ActionLink("Logga ut", "LocalLogout", "SAML", new { logoutUrl = @Model.UserDetails.LogoutUrl }, new { @class = "nav-link nav-link-blue" })
+                                            }
+                                        }
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    @*<div class="tsSettings-menu">
+                            <ul class="tsSettings-menu-list">
+                                <li class="tsSettings-menu-item">
+                                    <a href="">Min profil</a>
+                                </li>
+                                <li class="tsSettings-menu-item">
+                                    <a href="">Kontoinställningar</a>
+                                </li>
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="flexcontainer">
+            @*@if (controllerName != "Analys" && controllerName != "Home")
+                {
+                    <div class="flexwrap">
+                        @Html.Partial("_Breadcrumb", new string[] { "Start", controllerName, actionName == "Index" ? "Översikt" : actionName })
+                    </div>
+                }*@
+            <div class="main" role="main">
+                @Html.Partial("_QuickHelp", Model.QuickHelp)
+                <div @(Model.QuickHelp == null || Model.QuickHelp.HTML == null ? "class=tsMarginTop" : "")>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+        <div class="tsFooter">
+            <div class="tsWrapInner tsFooterSimple">
+                <h3 class="tsFooter-heading">© @DateTime.Now.Year Telia part of TeliaSonera</h3>
+            </div>
+        </div>
+    </div>
+    @*<script src="~/Scripts/banner.js"></script>*@
+    <script src="https://www.telia.se/modules/master/&#64;telia/b2b-serviceweb-banner/*/dist/b2b-serviceweb-banner/b2b-serviceweb-banner.js"></script>
+    @*<script scr="@Url.Content("https://www.telia.se/modules/master/@telia/b2b-serviceweb-banner/*/dist/b2b-serviceweb-banner/b2b-serviceweb-banner.js")"></script>*@
+
+    <script src="@Url.Content("~/Framework/assets/js/external/libs/require.js")" data-main="@Url.Content("~/Projects/NTW/Assets/js/main.js")" type="text/javascript"></script>
+   
+    @* NOTE: Primarly add scripts trought require.js by adding them to ~/Projects/NTW/Assets/js/init-require.js *@
+    @RenderSection("Scripts", required: false)
+
+    @*	@if (System.Configuration.ConfigurationManager.AppSettings["LessWatch"].Equals("true"))*@
+    @*	{*@
+    @*		<script>*@
+    @*			less = {*@
+    @*				env: "development",*@
+    @*				async: false,*@
+    @*				fileAsync: false,*@
+    @*				poll: 1000,*@
+    @*				functions: {},*@
+    @*				dumpLineNumbers: "comments",*@
+    @*				relativeUrls: true*@
+    @*			};*@
+    @*		</script>*@
+    @*		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js"></script>*@
+    @*		<script>less.watch();</script>*@
+    @*	}*@
+</body>
+</html>

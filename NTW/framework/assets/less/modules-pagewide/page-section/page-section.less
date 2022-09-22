@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS..................You’re reading it!
+ * PAGE-SECTION..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PAGE-SECTION
+\*------------------------------------*/
+
+.tsPageSection {
+    position: relative;
+}
+
+.tsPageSection-heading,
+.tsPageSection-heading--alt {
+    .margin(bottom;@gutter);
+    background-color: @semidarkturq;
+    .box-shadow(inset 0 2px  1px rgba(0, 0, 0, 0.2));
+    .tsPageSection-headingLabel {
+        .padding(left;0) !important;
+        color: @white;
+        .font-size(15);
+        width: 100%;
+        &:before {
+            right:10px;
+            left: auto;
+        }
+        &:after {
+            right: 20px;
+            left: auto !important;
+        }
+    }
+}
+.tsPageSection-heading--alt {
+    margin-bottom: 0;
+}
+
+.tsPageSection-heading > .h2,
+.tsPageSection-heading--alt > .h2 {
+    .padding(topbottom;6;6);
+    background-color: @semidarkturq;
+    color: @white;
+    .font-size(15);
+    .box-shadow(inset 0 2px  1px rgba(0, 0, 0, 0.2));
+}
+
+.tsPageSection.is-collapsed:not(.is-disabled) > [data-widget-collapse=inner] {
+	//max-height: 172px;
+	overflow: hidden;
+    //.margin(bottom;60);
+}
+
+.tsPageSection.is-disabled > [data-widget-collapse=inner] {
+	max-height: none !important;
+}
+
+
+.tsPageSection > [data-widget-control=collapse-trigger],
+.tsCollapse-Btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3; 
+    display: block;
+    margin: 0 auto;
+    .padding(all;@gutter*2;0;@gutter/2;0;);
+    /*max-width: 270px;*/
+    /* width: 100%; */
+    text-align: center;
+//    .collapseBtn;
+}
+
+[data-toggle='showmore'] > [data-widget-control=collapse-trigger] {
+    .padding(top;@gutter);
+}
+
+.tsShowMore-status {
+    background-color: @white;
+    bottom: 0;
+    .padding(bottom; @gutter-half);
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+    text-align: center; 
+    width:100%;
+    z-index: 3; 
+}
+
+.tsShowMore-statusText {
+    color: @grey;
+    font-weight: bold;
+    .font-size(12);
+}
+
+/*[data-toggle='showmore'] > [data-widget-control=collapse-trigger] span{
+    display:block;
+}
+
+[data-text-status] > [data-widget-control=collapse-trigger] {
+    .padding(top;0);
+    .padding(bottom;0);
+}
+
+[data-text-status] > [data-widget-control=collapse-trigger] > span{
+    .padding(all;@gutter*2;0;@gutter/2;0;);
+}*/
+
+
+.cssgradients .tsPageSection > [data-widget-control=collapse-trigger],
+.tsCollapse-Btn.is-collapsed {
+    background-image: none;
+    .vertical-gradient-bg(rgba(255,255,255,0.0), rgb(255,255,255), rgba(255,255,255,0));
+}
+.tsPageSection.is-expanded > [data-widget-control=collapse-trigger] {
+    background: none;
+    padding-top: 0;
+}
+[data-widget-control=collapse-trigger].hide {
+    display: none!important;
+}
+/*
+.tsPageSection > [data-widget-control=collapse-trigger] .tsBtn--collapse > i::after {
+    .collapseBtn-caret;
+}
+
+.tsPageSection.is-expanded > [data-widget-control=collapse-trigger] .tsBtn--collapse > i::after {
+    .collapseBtn-caret-expanded;
+}
+*/

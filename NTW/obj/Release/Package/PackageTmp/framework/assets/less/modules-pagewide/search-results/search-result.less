@@ -1,0 +1,179 @@
+.tsSearchResults{
+    .search {
+        background: @lightclay;
+        width: 100%;
+        .search-inner {
+            .tsWrapInner;
+            .padding(topbottom;@gutter-half;@gutter-half);
+        }
+        .search-field{
+            height: 45px;
+        }
+        .search-submit{
+            height:45px;
+            width:45px;
+        }
+        i {
+            .font-size(lineheight;24;45);
+            color: @purple;
+        }
+    }
+
+    .tsFluidGrid-outer{
+        background-color: @bodycolor;
+    }
+
+    h1 {
+        .margin(bottom;@gutter);
+    }
+
+
+    .tsLoading-icon-large{
+        display: block;
+        margin: auto;
+        .margin(topbottom; @gutter-double; @gutter-double);
+    }
+
+}
+
+.tsSearchResults-status {
+
+    h2 {
+        color: @lightgrey;
+    }
+    &.center {
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.tsSearchResults--inHero{
+    color: @bodycolor;
+    p {
+        .font-size(18);
+        .line-height();
+    }
+}
+
+.tsSearchResults-categoryList{
+    .l-list();
+    .padding(top;@gutter);
+}
+
+li.tsSearchResults-categoryItem{
+    border-bottom: 1px solid @lightergrey;
+    .margin(bottom; 40);
+}
+
+.tsSearchResults-noMatch{
+    font-weight: bold;
+    .font-size(16);
+    color: @grey;
+}
+
+.tsSearchResults-resultList {
+    .padding(top; @gutter);
+}
+
+.tsSearchResults-image {
+    float: left;
+    .margin(right; @gutter);
+}
+
+.tsSearchResults-text {
+    overflow: hidden;
+    width: auto;
+
+}
+
+.tsSearchResults-resultItemHeader{
+    color: @purple;
+}
+
+.tsSearchResults-resultItemLink {
+    .margin(bottom; 0);
+
+    a {
+        color: @grey;
+    }
+}
+
+.tsSearchResults-close{
+    float:right;
+    .padding(left;@gutter-half);
+    a {
+        color: @linkcolorinternal;
+        font-weight: bold;
+    }
+}
+
+.tsSearchResults-faqListing {
+    /*.padding(top;@gutter);*/
+    border-bottom:1px solid @lightergrey;
+    /*.margin(bottom;@gutter);*/
+    ul {
+        list-style: none;
+        .padding(left;0);
+    }
+}
+
+.tsSearchResults-faqList{
+    .padding(bottom; @gutter);
+}
+
+.tsSearchResults-faqQuestion {
+    .margin(top;@gutter-half);
+    &:last-child {
+        .tsSearchResults-faqAnswer{
+            border-bottom:0;
+            .margin(bottom; @gutter-half);
+        }
+    }
+    &:before {
+        content: "•";
+        color: black;
+    }
+    h3 {
+        display:inline;
+        a{
+            color: @turq;
+        }
+    }
+}
+
+.tsSearchResults-faqAnswer {
+    .padding(top;@gutter/2);
+    .margin(bottom;30);
+    border-bottom: 1px solid @lightergrey;
+    p {
+        max-width: @text-area-maxwidth;
+        .margin(bottom;15);
+    }
+}
+
+.tsSearchResults-docListing {
+    .l-inline-list;
+    .padding(top;@gutter);
+    .padding(bottom;@gutter);
+
+    li {
+        .margin(bottom;@gutter);
+        overflow: hidden;
+        width: 100%;
+        word-break: break-all;
+    }
+}
+
+.tsSearchResults-docTitle{
+    display: block;
+    font-weight: bold;
+    .padding(right; @gutter-half);
+}
+
+.tsSearchResults-label{
+    .font-size(12);
+    font-weight: normal;
+    color:@grey;
+}

@@ -1,0 +1,337 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * FORM..............Form declarations
+ */
+
+
+
+
+/*------------------------------------*\
+   $FORM
+\*------------------------------------*/
+
+
+
+.tscForm {
+
+    .field-wrapper {
+        .margin(right;@gutter);
+        .margin(bottom;@gutter);
+        .error {
+            white-space: nowrap;
+        }
+        &.hasError {
+            .margin(bottom;@gutter-double);
+        }
+    }
+    .field-wrapper.inline {
+        display: inline-block;
+        margin-right: 0;
+    }
+    .field-wrapper.type-radio,
+    .field-wrapper.type-checkbox,
+    .field-wrapper.type-checkboxspot,
+    .field-wrapper.type-link {
+        display: inline-block;
+    }
+    .field-wrapper.type-radiospot {
+        .margin(bottom;0);
+        [class^="tscFormGroup"][class*="--Inline"] {
+            max-width: 960px;
+        }
+    }
+    .field-label {
+        .margin(bottom;5);
+        color: @lightgrey;
+        display: block;
+    }
+
+    .tscFormSection, [class^="tscFormSection--"] {
+        border: 0 none;
+        padding: 0;
+        margin: 0;
+        .margin(top;@gutter);
+        & > legend {
+            .margin(bottom;@gutter-half);
+            .padding(top;@gutter);
+            .font-size(lineheight;20;24);
+            color: @textcolor;
+            border-top: 1px solid @lightgrey;
+            width: 100%;
+        }
+        &:last-child {
+            .padding(bottom;@gutter);
+            border-bottom: 1px solid @lightgrey;
+        }
+        & > p.description {
+            .margin(bottom;@gutter-half);
+            color: @grey;
+            .font-size(lineheight;11;15);
+        }
+        & > .tscFormSection-inner {
+            max-width: 620px;            
+            & > [class^="tse"], & > .fields-wrapper > [class^="tse"]  {
+                .margin(bottom;25);
+            }
+        }
+    }
+    [class^="tscFormSection"][class*="--Full"] {
+        & > .tscFormSection-inner {
+            max-width: none;
+        } 
+    }
+    [class^="tscFormSection"][class*="--Sub"] {
+        .margin(top;0);
+        & > legend {
+            color: @lightgrey;
+            border: 0 none;
+            .font-size(lineheight;14;20);
+            .padding(top;0);
+            &.tscFormSection-SubLabel {
+                color: @black;
+                .font-size(16);
+                font-weight: bold;
+            }            
+        }
+        &:last-child {
+            .padding(bottom;0);
+            border: 0 none;
+        }
+    }
+    [class^="tscFormSection"][class*="--Inline"] {
+        & > .tscFormSection-inner {
+            max-width: none;
+            .margin(right;-@gutter);
+            .font-size(important;0);
+            letter-spacing: -1em;
+            & > * {
+                .font-size(@basefontsize);
+                letter-spacing: normal;        
+            }
+            & > [class^="tse"]:not([class*="--Inline"]), & > [class^="tsc"]:not([class*="--Inline"]) {
+                .margin(right;@gutter);
+            }
+        }
+        & > legend {
+            // DOESN'T SEEM TO HAVE EFFECT
+            // could be a problem if it used with a border
+            //.margin(right;@gutter);
+        }
+        [class^="tse"] {
+            position: relative;
+        }
+        .error {
+            display: block;
+            position: absolute;
+        }
+        .push-error {
+            position: static;
+        }
+    }
+
+
+
+
+
+    [class^="tscFormGroup"] {
+        & > label {
+            background: @grey;
+            border: 1px solid @lightgrey;
+            color: @white;
+            .font-size(importantlineheight;12;12);
+            .padding(all;5;@gutter-half;5;@gutter-half);
+            display: block;
+            .margin(bottom;@gutter-half);
+        }
+    }
+    [class^="tscFormGroup"][class*="--Inline"] {
+        display: inline-block;
+        .margin(right;@gutter);
+        .font-size(important;0);
+        letter-spacing: -1em;
+        & > * {
+            .font-size(@basefontsize);
+            letter-spacing: normal;
+            &[class*="--Inline"]:last-child {
+                .margin(right;@gutter);
+            }        
+        }
+        & > label {
+            .margin(right;@gutter);
+        }
+    }
+
+
+    .error {
+        position: absolute;
+        display: block;
+    }
+
+    [class^="tse"] {
+        position: relative;
+    }
+
+}
+
+
+
+// inline form with label above each input
+// should end with a submit
+.tscForm--inlineLabelAbove {
+    .clearfix;
+    .tscForm-inputContainer, .tscForm-inputContainer--noLabel {
+        .margin(bottom;@gutter-half);
+    }
+    label {
+        display: block;
+        color: @grey;
+    }
+    .tsInlineFeedback-error .error {
+        display:block;
+    }
+    .tseDropdown {
+        width: 100%;
+    }
+}
+
+.tscForm-container {
+    max-width: @text-area-maxwidth;
+    position: relative;
+}
+
+.tscForm-row {
+    label {
+        display: block;
+    }
+    .tseInput {
+        width: 100%;
+    }
+    .margin(bottom;@gutter-half);
+    &.tscForm-row--gutter {
+        .padding(topbottom;@gutter;@gutter);
+    }
+    &.tscForm-row--halfGutter {
+        .padding(topbottom;@gutter/2;@gutter/2);
+    }
+}
+
+.tscForm-row--twoColumn {
+    .l-inline-elements();
+    .margin(left;-@gutter);
+    .tscForm-inputContainer {
+        width: 50%;
+        .padding(left;@gutter);
+    }
+}
+
+.tscForm--fullWidth {
+    .tscForm-inputContainer {
+        .tseSubmit {
+            float: right;
+        }
+        .tseInput {
+            width: 100%;
+        }
+        .margin(bottom;@gutter);
+    }
+}
+
+.tscForm--appendItem {
+    .tseTextarea {
+        height: 140px;
+        .margin(bottom;@gutter);
+    }
+    .tseSubmit {
+        float: right;
+    }
+    .tscForm-appendArea {
+        float: left;
+        width: 440px;
+    }
+}
+
+.tscForm-inputContainer--break {
+    clear:both;
+    color: @grey;
+}
+
+.tscForm-required {
+    color: @purple;
+    font-weight: bold;
+}
+
+input.tscFormFeedback-error {
+    border: 1px solid red;
+}
+
+span.tscFormFeedback-error {
+    color: red;
+    .font-size(13);
+    float: left;
+    width: 100%;
+    .margin(top;5);
+}
+
+.tscForm-fadedInfo {
+    color: @grey;
+}
+
+.tscForm-group {
+    float: left;
+    width: 100%;
+    .margin(bottom;@gutter);
+}
+
+.tscForm-header {
+    clear:both;
+    font-weight: normal;
+    .margin(all;0;0;@gutter;0);
+}
+
+.tscForm-header--small {
+    .tscForm-header;
+    .font-size(19);
+}
+
+.tscForm-label {
+    color: @grey;
+    .margin(bottom;@gutter/4);
+}
+
+.tscForm-floatBlock--info {
+    background-color: @darknearwhite;
+    .padding(all;@gutter);
+    .margin(bottom;@gutter);
+
+    p {
+        color: @darkgrey;
+    }
+}
+
+/**
+ * A form that is inline and used in an inset container,
+ * used in mybusiness and needs rather specific behavior
+ */
+[class^="tscForm"][class*="--InsetInline"] {
+    input[disabled="disabled"],a[disabled="disabled"],
+    input[disabled], a[disabled]{
+        .opacity(0.5);
+    }
+    >a {
+        .margin(left; @gutter-half);
+    }
+    [class*="--MarginRight"] {
+        .margin(right; @gutter);
+    }
+    [class^="tseTextField"] {
+        .margin(bottom; @gutter-half);
+    }
+    .error {
+        display: block;
+        position: absolute;
+    }
+}

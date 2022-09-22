@@ -1,0 +1,23 @@
+﻿@using Telia.NTW.Web.ViewModel.Webbstyrning.Webbstyrning
+@model List<SvarsställeRow>
+
+<table class="tsTable tsTable-horizontal tsTable-datatable" data-search="true">
+    <caption>Svarsställen</caption>
+    <thead>
+        <tr>
+            <th>Svarsställe Nr</th>
+            <th>Svarsställe beskrivning</th>
+            <th>Styrning</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (SvarsställeRow svarsställe in Model)
+        {
+            <tr>
+                <td>@svarsställe.SvarsställeNr</td>
+                <td>@svarsställe.SvarsställeBeskrivning</td>
+                <td>@svarsställe.Styrning</td>
+            </tr>
+        }
+    </tbody>
+</table>

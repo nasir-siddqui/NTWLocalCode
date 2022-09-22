@@ -1,0 +1,28 @@
+﻿@model Telia.NTW.Web.ViewModel.Webbstyrning.Multistyrning.Multistyrning_Alternativ_FormViewModel
+
+@{
+    ViewBag.Title = "Redigera Multistyrningsalternativ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsCrumbtrail tsCrumbtrail--middle tsWrapInner">
+    <ul class="tsCrumbtrail-links" role="navigation">
+        <li>@Html.ActionLink("Multistyrning", "Index")<i class="tsIcon-Breadcrumb"></i></li>
+        <li>Redigera Multistyrningsalternativ</li>
+    </ul>
+</div>
+
+<div class="tsBodyText tsWrapInner tsMarginTop">
+    <h1>Redigera Multistyrningsalternativ</h1>
+</div>
+
+<div class="tsWrapInner tsMarginBottom">
+
+    @Html.Partial("_Alternativ_EditForm", Model)
+
+    @*<div class="tsMarginTop">
+        @Html.ActionLink("Avbryt", "Multistyrning", "Webstyrning", new { @class = "tsBtn--Regular" })
+        <input type="submit" class="tsBtn--Regular" value="Spara" />
+    </div>*@
+
+</div>

@@ -1,0 +1,26 @@
+<div>
+    <div ng-if="loading" class="tscLoading--Full">
+        <div class="tsLoading-icon-large tsMarginTop--doubleGutter"></div>
+    </div>
+    <div ng-if="!loading">
+        <h2 class="h2">{{ translation.translate("HEADLINE") }}</h2>
+        <ul class="tsNotifications">
+            <li ng-show="pendingRequestsLength  > 0">
+                <i class="tsIcon-Profile"></i>
+                <p><a href="{{ pendingRequestsUrl }}">{{ pendingRequestsLength  }} {{ translation.translate("NEW_USERS") }}</a> {{ translation.translate("AWAITING_VERIFICATION") }}</p>
+            </li>
+            <li ng-show="ordersAssignedToMeLength > 0">
+                <i class="tsIcon-Cart"></i>
+                <p><a href="{{ ordersAssignedToMeUrl }}">{{ ordersAssignedToMeLength }} {{ translation.translate("ORDERS_SHARED") }}</a></p>
+            </li>
+            <li ng-show="savedOrdersLength > 0">
+                <i class="tsIcon-Time"></i>
+                <p><a href="{{ savedOrderUrl }}">{{ savedOrdersLength }} {{ translation.translate("ORDERS_PAUSED") }}</a></p>
+            </li>
+            <li ng-hide="(pendingRequestsLength  > 0) || (ordersAssignedToMeLength > 0) || (savedOrdersLength > 0)">
+                {{ translation.translate("NO_NOTIFICATIONS") }}
+            </li>
+        </ul>
+    </div>
+</div>
+

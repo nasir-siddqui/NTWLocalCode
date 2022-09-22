@@ -1,0 +1,123 @@
+.header {
+    .margin(top;@gutter);
+    .search-trigger {
+        display: none;
+    }
+    .logo {
+        .margin(bottom;@gutter);
+        .tsWrapInner;
+        a {
+            width: 100px;
+        }
+    }
+    .header-inner {
+        display: none;
+    }
+    .navigation-wrapper {
+        background: @darkestpurple;
+        .padding(all;16;@gutter-half;14;@gutter-half);
+        .tsWrapInner {
+            .padding(leftright;0;0);
+        }
+    }
+    .search {
+        .margin(bottom;2);
+        display: block!important;
+    }
+    ul li {
+        .margin(bottom;2);
+        a {
+            background: @purple;
+            color: @white;
+            .padding(all;12;10;12;10);
+            .font-size(20);
+            display: block;
+        }
+    }
+    .sublevel-item {
+        .margin(top;2);
+        .sublevel-link {
+            .font-size(15);
+            background: @darkestpurple;
+            &:hover {
+                background: darken(@darkestpurple, 5%)
+            }
+        }
+    }
+    ul.site li.site-item.active {
+        display: none;
+    }
+    ul.nav li.nav-item {
+        display: none;
+    }
+    // fix for default header
+    ul.site li.tsNavSite-item {
+        display: block;
+        &.active, &.current {
+            display: none;
+        }
+    }    
+    
+    .pusher {
+        display: none;
+    }
+}
+
+/*
+.sticky-header {
+    padding-top: 0 !important;
+}
+*/
+
+.subnav-fixed {
+    .subnav-pusher {
+        display: none;
+    }
+}
+
+/* 
+* ------------------------------------------------------------------------
+* Application header
+*
+* Special header for pages with a iframe. Used when you want the customer
+* to get the feeling that he/she hasn't left the domain.
+* ------------------------------------------------------------------------
+*/
+
+.tsApplicationHeader {
+    .margin(topbottom;0;@gutter);
+    background-color: @purple;
+    .logo {
+        margin: 0;
+        display: inline-block;
+
+        a {
+            .padding(topbottom;15;15);
+        }
+    }
+    .header-inner {
+        display: inline-block;
+        float: right;
+        .navigation-wrapper {
+            background: none;
+            .padding(all;0;@gutter/2;0;0);
+            a {
+                color: @white;
+                line-height: 68px;
+                span {
+                    .font-size(16);
+                    position: relative;
+                    top: 1px;
+                    .margin(right;10);
+                }
+                i {
+                    .font-size(16);
+                    position: relative;
+                    top: 3px;
+                    .margin(right;5);
+                }
+            }
+        }
+    }
+
+}

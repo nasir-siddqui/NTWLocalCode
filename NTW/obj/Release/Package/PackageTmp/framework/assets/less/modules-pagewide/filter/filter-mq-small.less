@@ -1,0 +1,51 @@
+/*------------------------------------*\
+  $FILTER
+\*------------------------------------*/
+.tsListFilter-trigger {
+    width: 100%;
+    text-align: center;
+    background-color: lightestblack;
+}
+
+/*.tsListFilter-sorting {
+    border-bottom:none;
+    width: 50%;
+    float: right;
+    text-align: left;
+}
+.tsListFilter-sorting.tsSolo {
+    width: 100%;
+    float: none;
+    text-align: center;
+}*/
+
+.tsListFilter-trigger-outer {
+    //height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.tsListFilter-collapse [data-widget-control=collapse-trigger] {
+    //border-right: 1px solid @lightergrey;
+   // border-left: 1px solid @lightergrey;
+}
+.tsListFilter-trigger > div > div,
+.tsListFilter-trigger-outer > div > div,
+.tsListFilter-trigger-outer > div > div > div {
+    border-left: 1px solid @lightergrey;
+}
+.tsListFilter-trigger > div > div:first-child,
+.tsListFilter-trigger-outer > div:first-child > div,
+.tsListFilter-trigger-outer > div > div:first-child > div {
+    border-color: transparent
+}
+.tsListFilter-trigger > div > div:only-child,
+.tsListFilter-trigger-outer > div > div:only-child > div {
+    border-right: 1px solid @lightergrey;
+    border-left: 1px solid @lightergrey;
+}
+
+.js .tsListFilter--noCollapse {
+    padding: 0;
+}
+

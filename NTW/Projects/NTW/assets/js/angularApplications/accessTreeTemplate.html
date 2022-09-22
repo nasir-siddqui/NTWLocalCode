@@ -1,0 +1,40 @@
+﻿<div>
+    <div ng-if="puiStructure === null" class="tsWrapInner">
+        <div class='tscLoading--Full'><div class='tsLoading-icon-large'></div></div>
+    </div>
+    <div class="tsConfigure tsPageSection" ts-showmore data-target="> ul" data-height="110" data-showmore="Visa mer" ng-if="puiStructure !== null">
+
+        <ul class="tsAccordion-list">
+            <li class="tsAccordion-list-item tsAccordion-configContainer" ng-repeat="item in puiStructure">
+                <div class="tsPageSection-heading" ng-class="{ blueAlt: readOnly }">
+                    <div class="tseRadioBox--CheckButton--ColorNavInverted tsWrapInner" ng-class="{ semichecked: isSemichecked(item), readOnly: readOnly }">
+                        <input type="checkbox" id="{{ item.name }}" ng-change="checkStatusChanged(item)" ng-model="item.$selected" ng-disabled="readOnly">
+                        <label class="h2 tsPageSection-headingLabel" for="{{ item.name }}">{{ item.displayName }}</label>
+                    </div>
+                </div>
+                <ul class="tsAccordion-list tsAccordion-list--striped tsWrapInner" style="display: block;">
+                    <li class="tsAccordion-list-item" ng-repeat="item2 in item.items | orderBy:'displayName'" ts-animate-toggle="toggleAccordion">
+                        <div ng-if="item2.displayName" class="col-xs-12">
+                            <div class="tseRadioBox--CheckButton--ColorNavigation tsAccordion-label" ng-class="{ semichecked: isSemichecked(item2), readOnly: readOnly }">
+                                <input type="checkbox" id="{{ item2.name }}" ng-change="checkStatusChanged(item2)" ng-model="item2.$selected" ng-disabled="readOnly">
+                                <label class="h4 tsPullLeft empty" for="{{ item2.name }}"></label>
+                                <h4 class="h4 tsPullLeft">{{ item2.displayName }}</h4>
+                            </div>
+                            <div ng-if="item2.items" class="tsAccordion-show-more"><i ng-hide="toggleAccordion" class="tsIcon-ArrowDown arrowDown showArrow"></i><i ng-show="toggleAccordion" class="tsIcon-ArrowUp arrowUp showArrow"></i></div>
+                        </div>
+                        <ul ng-if="item2.items" class="tsAccordion-alt-list" ts-animate="toggleAccordion">
+                            <li class="tsAccordion-list-item tsAccordion-alt-list-item" ng-repeat="item3 in item2.items | orderBy:'displayName'">
+                                <div ng-if="item3.displayName" class="tseRadioBox--CheckButton--ColorNavigation tsAccordion-label" ng-class="{ readOnly: readOnly }">
+                                    <input type="checkbox" id="{{ item3.name }}" ng-change="checkStatusChanged(item3)" ng-model="item3.$selected" ng-disabled="readOnly">
+                                    <label class="h4 tsPullLeft empty" for="{{ item3.name }}"></label>
+                                    <h4 class="h4 tsPullLeft">{{ item3.displayName }}</h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+    </div>
+</div>

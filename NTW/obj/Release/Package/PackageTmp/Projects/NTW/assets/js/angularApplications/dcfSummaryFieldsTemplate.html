@@ -1,0 +1,11 @@
+<div class="tscInlineRow--Top tsMarginTop" ng-repeat-start="field in fields" ng-if="field.type !== 'textarea' && field.visible && !field.removeFieldInModel" ng-init="initField(group, field)">
+    <div class="tscInlineRow-narrow">
+        <span class="grey">{{ field.name }}</span>
+    </div>
+    <div class="tscInlineRow-main">
+        {{ model.attributes[field.index].attributeValue }}
+    </div>     
+</div>
+<div class="tsBodyText" ng-repeat-end  ng-if="field.type === 'textarea' && field.visible && !field.removeFieldInModel">
+    <p ng-bind-html="model.attributes[field.index].attributeValue"></p>
+</div>

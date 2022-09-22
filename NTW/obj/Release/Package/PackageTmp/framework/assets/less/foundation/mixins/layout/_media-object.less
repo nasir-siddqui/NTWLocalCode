@@ -1,0 +1,127 @@
+
+// The media object is typically used to layout an image with adjacent text blocks
+// For IE<9 (especially version 7) some adjustments need to be taken, add overflow: hidden for instance
+
+.media(@float-direction: left;) {
+    *position: relative;
+    *zoom: 1;
+    
+    & > :first-child {
+        float: @float-direction;
+    }
+
+    & > :last-child {
+        display: table-cell;
+        width: 10000px;
+        *width: auto;
+        *zoom: 1;
+    }
+    
+    & > :only-child {
+         float: @float-direction;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+    }    
+}
+
+.media(width;@float-direction: left;@first-child-width:100%;@only-child-width: 100%;) {
+    *position: relative;
+    *zoom: 1;
+    
+    & > :first-child {
+        float: @float-direction;
+        width: @first-child-width;
+    }
+
+    & > :last-child {
+        display: table-cell;
+        width: 10000px;
+        *width: auto;
+        *zoom: 1;
+    }
+    
+    & > :only-child {
+         float: @float-direction;
+         width: @only-child-width;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+    }    
+}
+
+.media(margin-left;@float-direction: left;@first-child-width:100%;@only-child-width: 100%;@margin-left:0) {
+    *position: relative;
+    *zoom: 1;
+    
+    & > :first-child {
+        float: @float-direction;
+        width: @first-child-width;
+    }
+
+    & > :last-child {
+        display: table-cell;
+        width: 10000px;
+        *width: auto;
+        *zoom: 1;
+    }
+    
+    & > :only-child {
+         float: @float-direction;
+         width: @only-child-width;
+         margin-left: @margin-left;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+    }    
+}
+
+
+.media(direction-left;@first-child-width:100%;@only-child-width: 100%;@margin:@gutter*1px) {
+    *position: relative;
+    *zoom: 1;
+    
+    & > :first-child {
+        float: left;
+		margin-right: @margin;
+        width: @first-child-width;
+    }
+	
+
+    & > :last-child {
+        display: table-cell;
+        width: 10000px;
+        *width: auto;
+        *zoom: 1;
+    }
+    
+    & > :only-child {
+        float: left;
+        width: @only-child-width;
+		margin-right: @margin;
+    }
+
+    &:after {
+        content: "";
+        clear: both;
+    }    
+}
+
+
+.media-overflow(@float-direction: left) {
+    
+    & > :first-child {
+        float: @float-direction;
+    }
+
+    & > :last-child {
+        overflow: hidden;
+    }
+    
+}

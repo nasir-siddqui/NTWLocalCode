@@ -1,0 +1,85 @@
+
+.form( @max-widht:none; @background-color:transparent) {
+                
+    background-color: @background-color;
+    
+    .h2 {
+        .margin(bottom;20);
+    }  
+
+
+     fieldset {
+        border: none;
+        padding: 0;
+        .margin(all;0;0;@gutter;0);
+        max-width: @max-widht;
+    }
+     input[type="text"],
+     input[type="number"], 
+     input[type="email"],
+     input[type="search"],
+     input[type="password"],
+     textarea
+     {
+        .border-radius(3px);
+        color: rgb(136, 136, 136);
+        line-height: 24px;
+        height: 44px;
+        padding: 10px 0;
+        text-indent: 14px;
+        border: 1px solid @borderGrey;
+        display: block;
+        width: 100%;
+        margin-bottom: 4px;
+        outline: none;
+
+        &:focus{
+            color: rgb(0, 0, 0);
+            border: 1px solid @purple;
+        }
+    }
+     textarea {
+        padding: 14px;
+        height: 185px;
+        line-height: 1.2;
+        text-indent: 0;
+        resize: vertical;
+
+        &.tsTwoRows{
+            height: 58px;
+            resize: none;
+        }
+    }
+     label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0;
+        line-height: 1.4;
+    }
+
+    & > label:first-child{
+        margin-top: 0;
+    }
+
+    input[type=submit]{
+        .margin(top;@gutter);
+    }
+    input[type=submit][class*="--noMargin"]{
+        .margin(top; 0);
+    }
+     input[type=checkbox] {
+        .margin(right;@gutter-half/2);
+    }
+    input.inlineBlock,
+    label.inlineBlock{
+        .inline-block;
+        width: auto;
+    }
+
+    .tsInputNotice{
+        line-height: 1;
+        .font-size(12);
+        color: @darkgrey;
+    }
+}
+

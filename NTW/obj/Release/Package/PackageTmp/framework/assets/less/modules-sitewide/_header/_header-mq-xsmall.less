@@ -1,0 +1,740 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+
+/**
+ * CONTENTS............You’re reading it!
+ * PRIMARY-NAVIGATION..
+ * SEARCH..............
+
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $PRIMARY-NAVIGATION
+\*------------------------------------*/
+
+/* --- menu v4 --- */
+
+.tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.tsNavPrimary > [data-widget-collapse=trigger] {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -58px;
+    width: 58px;
+    height: 58px;
+    
+    .tsIcon-Menu {
+        color: @purple;
+        .font-size(27);
+        line-height: 58px;
+        width: 58px;
+        height: 58px;
+        overflow: hidden;
+    }
+    .tsIcon-Menu:before {
+        display: block;
+    }
+    /*&:hover {
+        background-color: @darkestpurple;
+        .tsIcon-Menu {
+            color:@white;
+        }        
+    }*/
+}
+
+.js .tsNavPrimary.no-fouc > [data-widget-collapse="trigger"] {
+    .visuallyhidden;
+}
+
+.tsHeader.is-loggedin .tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.tsHeader.is-loggedin .tsNavPrimary > [data-widget-collapse=trigger] {
+    top: -113px;
+}
+
+.tsNavPrimary.is-expanded > [data-widget-collapse=trigger]{
+    background-color: @darkestpurple;
+    .tsIcon-Menu {
+        color: @white;
+
+    }  
+}
+
+.tsNavPrimary.is-disabled > [data-widget-collapse=trigger] {
+    display: none;
+}
+
+
+// *** Top level
+
+.tsNavPrimary-TopLevelLabel {
+    color: @linkcolor;
+    .font-size(14);
+    font-weight: normal;
+}
+
+.trigger-text {
+    .visuallyhidden;
+    display: none;
+}
+
+
+// *** Sub level
+
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .l-list;
+    font-style: normal;
+}
+
+
+/* --- END: menu-v4 --- */
+
+
+
+
+
+/* --- menu-v5 overrides --- * /
+
+
+.menu-v5 .tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.menu-v5 .tsNavPrimary > [data-widget-collapse=trigger] {
+    display: block;
+    position: absolute;
+// Remove:
+    right: 0;
+    right: auto;
+// ---
+    left: 0;
+    top: -58px;
+    width: 58px;
+    height: 58px;
+
+    .tsIcon-Menu {
+        color: @purple;
+        .font-size(18);
+        line-height: 58px;
+        width: 58px;
+        height: 58px;
+        overflow: hidden;
+        .transition;        
+    }
+
+    .tsIcon-Menu:before {
+        display: block;
+    }
+
+    &:hover {
+        background-color: transparent;
+        .tsIcon-Menu {
+            color: @purple;
+        }        
+    }
+}
+
+.js .tsNavPrimary.no-fouc > [data-widget-collapse="trigger"] {
+    .visuallyhidden;
+}
+
+.menu-v5 .tsHeader.is-loggedin .tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.menu-v5 .tsHeader.is-loggedin .tsNavPrimary > [data-widget-collapse=trigger] {
+    top: -58px;
+}
+
+.menu-v5 .tsNavPrimary.is-expanded > [data-widget-collapse=trigger]{
+    background-color: transparent;
+    .tsIcon-Menu {
+        color: @black;
+    }  
+}
+
+.menu-v5 .tsNavPrimary.is-disabled > [data-widget-collapse=trigger] {
+    display: none;
+}
+
+
+
+// *** Top level
+
+
+.tsNavPrimary-TopLevelLabel {
+    color: @linkcolor;
+    .font-size(14);
+    font-weight: normal;
+}
+
+.js .menu-v5 .tsNavPrimary-TopLevelLabel.is-hidden,
+.no-js .menu-v5 .tsNavPrimary-TopLevelLabel.is-hidden {
+    display: none;
+}
+
+.trigger-text {
+    .visuallyhidden;
+    display: none;
+}
+
+.tsNavPrimaryV5 .tsNavPrimary-TopLevelItem,
+.tsNavPrimaryV5 .tsNavPrimary-SubLevelItem,
+.tsNavPrimaryV5 .tsNavPrimary-SubLevelItem--Related {
+// Remove
+    background-color: transparent;
+// --
+    a:hover {
+        background-color: @lightergrey;    
+    }
+}
+
+
+
+// *** Sub level
+
+
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelLabel,
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem,
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelLabel a,
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .font-size(18);
+    color: @textcolor;
+}
+
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem,
+.menu-v5 .tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .font-size(15);
+    color: @darkgrey;
+}
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .l-list;
+    font-style: normal;
+}
+
+
+/* --- END: menu-v5 overrides --- */
+
+
+
+
+
+
+/* --- ONLY menu-v5 --- * /
+
+
+.tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.tsNavPrimary > [data-widget-collapse=trigger] {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -58px;
+    width: 58px;
+    height: 58px;
+
+    .tsIcon-Menu {
+        color: @purple;
+        .font-size(18);
+        line-height: 58px;
+        width: 58px;
+        height: 58px;
+        overflow: hidden;
+        .transition;        
+    }
+
+    .tsIcon-Menu:before {
+        display: block;
+    }
+
+    &:hover {
+        background-color: transparent;
+        .tsIcon-Menu {
+            color: @purple;
+        }        
+    }
+}
+
+.js .tsNavPrimary.no-fouc > [data-widget-collapse="trigger"] {
+    .visuallyhidden;
+}
+
+.tsHeader.is-loggedin .tsNavPrimary:not(.is-disabled) > [data-widget-collapse=trigger],
+.tsHeader.is-loggedin .tsNavPrimary > [data-widget-collapse=trigger] {
+    top: -58px;
+}
+
+.tsNavPrimary.is-expanded > [data-widget-collapse=trigger]{
+    background-color: transparent;
+    .tsIcon-Menu {
+        color: @black;
+    }  
+}
+
+.tsNavPrimary.is-disabled > [data-widget-collapse=trigger] {
+    display: none;
+}
+
+
+
+// *** Top level
+
+.tsNavPrimary-TopLevelLabel {
+    color: @linkcolor;
+    .font-size(14);
+    font-weight: normal;
+}
+
+.js .tsNavPrimary-TopLevelLabel.is-hidden,
+.no-js .tsNavPrimary-TopLevelLabel.is-hidden {
+    display: none;
+}
+
+.trigger-text {
+    .visuallyhidden;
+    display: none;
+}
+
+.tsNavPrimary-TopLevelItem,
+.tsNavPrimary-SubLevelItem,
+.tsNavPrimary-SubLevelItem--Related {
+    a:hover {
+        background-color: @lightergrey;    
+    }
+}
+
+
+
+// *** Sub level
+
+
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelLabel,
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem,
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelLabel a,
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .font-size(18);
+    color: @textcolor;
+}
+
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem,
+.tsNavPrimary-TopLevelItem .tsNavPrimary-SubLevelItem--Related .tsNavPrimary-EndLevelItem a {
+    .font-size(15);
+    color: @darkgrey;
+}
+
+
+// *** End level
+
+.tsNavPrimary-EndLevel {
+    .l-list;
+    font-style: normal;
+}
+
+/* --- END: ONLY menu-v5 --- */
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    $SEARCH
+\*------------------------------------*/
+
+
+/* -------- menu V4 -------- */
+
+
+.flexbox.touch .tsHeader-Search form {
+    .flexbox;
+}
+
+.flexbox.touch .tsHeader-Search input[type=submit] {
+   // .margin(left;@gutter-half);
+}
+
+.tsSearch-submit {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    overflow: hidden;
+    text-indent: 40px;
+}
+
+
+// Collapse widget styles
+
+.tsHeader-Search:not(.is-disabled) > [data-widget-control=collapse-trigger],
+.tsHeader-Search:not(.is-disabled) > [data-widget-collapse=trigger] {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2.7rem;
+    width: 42px;
+    height: 42px;
+    &:hover {
+        background-color: @purple;        
+    }
+}
+
+.tsHeader-Search [data-widget-control=collapse-trigger] .tsIcon-Search,
+.tsHeader-Search [data-widget-collapse=trigger] .tsIcon-Search {
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    .font-size(24);
+    line-height: 42px;
+    color: @purple;
+    &:hover {
+        color: @white;
+    }
+}
+
+.tsHeader-Search [data-widget-control=collapse-trigger] .tsIcon-Search:before,
+.tsHeader-Search [data-widget-collapse=trigger] .tsIcon-Search:before {
+    .inline-block;
+}
+
+.tsHeader-Search.is-expanded [data-widget-control=collapse-trigger] .tsIcon-Search {
+    color: @white;
+}
+
+.tsHeader-Search.is-disabled > [data-widget-control=collapse-trigger],
+.tsHeader-Search.is-disabled > [data-widget-collapse=trigger] {
+    display: none;
+}
+
+.tsHeader-Search:not(.is-disabled) form {
+    position: relative;
+}
+
+.tsHeader-Search-alternate.is-expanded form {
+    left: -200px;
+    width: 242px;
+}
+
+.tsHeader-Search.is-expanded > [data-widget-control=collapse-trigger] {
+    background-color: @purple;
+    i {
+        background-position: -183px -119px;
+    }   
+}
+
+
+/* -------- END menu V4 -------- */
+
+
+
+
+
+
+/* -------- menu V5 overrides -------- * /
+
+
+// form
+
+.flexbox.touch .tsHeader-Search form {
+    .flexbox;
+}
+
+.menu-v5 .tsSearch-form {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+
+// label
+
+.js .menu-v5 .tsHeader-Search label,
+.no-js .menu-v5 .tsHeader-Search label {
+    .visuallyhidden;
+}
+
+
+// input field
+
+.menu-v5 .tsSearch-form-input {
+    display: inline;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 10px 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: @black;
+    .transition;
+}
+
+.menu-v5 .tsSearch-form-input:focus {
+    padding: 10px 10px 10px 40px;
+	width: 100%;
+	outline: none;
+    background-color: @lightergrey;    
+}
+
+
+// input field placeholder
+
+.menu-v5 .tsSearch-form-input::-webkit-input-placeholder { 
+    // WebKit browsers
+    color: @black;
+}
+
+.menu-v5 .tsSearch-form-input:-moz-placeholder { 
+    // Mozilla Firefox 4 to 18
+    color: @black;
+}
+
+.menu-v5 .tsSearch-form-input::-moz-placeholder { 
+    // Mozilla Firefox 19+
+    color: @black;
+}
+
+.menu-v5 .tsSearch-form-input:-ms-input-placeholder { 
+    // Internet Explorer 10+
+    color: @black;
+}
+
+
+// submit button
+
+.tsSearch-submit {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+    cursor: pointer;
+    overflow: hidden;
+    text-indent: 40px;
+}
+
+.flexbox.touch .tsHeader-Search input[type=submit] {
+   // .margin(left;@gutter-half);
+}
+
+
+.menu-v5 .tsSearch-submit {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 37px;
+    height: 40px;
+    overflow: hidden;
+    //left: 10px;
+    //z-index: -1;
+    border: none;
+    background-color: transparent;
+    text-indent: 40px;
+    cursor: pointer;
+    .transition;
+}
+
+.menu-v5 .tsSearch-submit:focus {
+    outline: none;
+}
+
+
+.menu-v5 .tsSearch-form-input:focus ~ .tsSearch-submit {
+    z-index: 4;
+}
+
+
+// submit icon
+
+.tsHeader-Search [data-widget-control=collapse-trigger] .tsIcon-Search,
+.tsHeader-Search [data-widget-collapse=trigger] .tsIcon-Search {
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    .font-size(24);
+    line-height: 42px;
+    color: @purple;
+    &:hover {
+        color: @white;
+    }
+}
+
+
+.menu-v5 .tsHeader-Search .tsIcon-Search {
+    position: absolute;
+    z-index: 1;
+//    top: 10px;
+    .transition;
+}
+
+.menu-v5 .tsHeader-Search .tsSearch-form-input:focus ~ .tsIcon-Search {
+    z-index: 3;
+}
+
+
+/* -------- END: menu V5 overrides-------- */
+
+
+
+
+
+
+/* -------- ONLY menu V5 -------- * /
+
+
+// form
+
+.flexbox.touch .tsHeader-Search form {
+    .flexbox;
+}
+
+.tsSearch-form {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+
+// label
+
+.js .tsHeader-Search label,
+.no-js .tsHeader-Search label {
+    .visuallyhidden;
+}
+
+
+// input field
+
+.tsSearch-form-input {
+    display: inline;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 10px 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: @black;
+    .transition;
+}
+
+.tsSearch-form-input:focus {
+    padding: 10px 10px 10px 40px;
+	width: 100%;
+	outline: none;
+    background-color: @lightergrey;    
+}
+
+.tsHeader-Search .tsSearch-form .tsSearch-form-input,
+.tsHeader-Search .tsSearch-form.focus .tsSearch-form-input {
+	border: none;
+}
+
+// input field placeholder
+
+.tsSearch-form-input::-webkit-input-placeholder { 
+    // WebKit browsers
+    color: @black;
+}
+
+.tsSearch-form-input:-moz-placeholder { 
+    // Mozilla Firefox 4 to 18
+    color: @black;
+}
+
+.tsSearch-form-input::-moz-placeholder { 
+    // Mozilla Firefox 19+
+    color: @black;
+}
+
+.tsSearch-form-input:-ms-input-placeholder { 
+    // Internet Explorer 10+
+    color: @black;
+}
+
+
+// submit button
+
+.tsSearch-submit {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 37px;
+    height: 40px;
+    overflow: hidden;
+    border: none;	
+    background-color: transparent;
+    text-indent: 40px;
+    cursor: pointer;
+    .transition;
+}
+
+.tsSearch-submit:focus {
+    outline: none;
+}
+
+.tsSearch-form-input:focus ~ .tsSearch-submit {
+    z-index: 4;
+}
+
+
+// submit icon
+
+.tsHeader-Search [data-widget-control=collapse-trigger] .tsIcon-Search,
+.tsHeader-Search [data-widget-collapse=trigger] .tsIcon-Search {
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    .font-size(24);
+    line-height: 42px;
+    color: @purple;
+    &:hover {
+        color: @white;
+    }
+}
+
+
+.tsHeader-Search .tsIcon-Search {
+    position: absolute;
+    z-index: 1;
+    .transition;
+}
+
+.tsHeader-Search .tsSearch-form.focus .tsIcon-Search {
+	background-color: transparent;
+}
+
+.tsHeader-Search .tsSearch-form-input:focus ~ .tsIcon-Search {
+    z-index: 3;
+}
+
+
+/* -------- END: ONLY menu V5 -------- */
+
+
+

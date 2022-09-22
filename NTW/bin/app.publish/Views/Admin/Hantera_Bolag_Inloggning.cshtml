@@ -1,0 +1,58 @@
+﻿@using Telia.NTW.Web.ViewModel.Admin.Hantera
+@model HanteraViewModel
+
+@{
+	ViewBag.Title = "Logga in som bolag";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tsBodyText tsWrapInner tsMarginBottom tsMarginTop">
+	<h1>Logga in som bolag</h1>
+</div>
+
+<div class="tsSearchResults">
+	<div class="search">
+		<div class="search-inner">
+			@using (Html.BeginForm("Hantera_Bolag_Inloggning", "Admin", FormMethod.Post, new { @class = "search-form" }))
+			{
+				<input type="search" class="search-field" name="search" placeholder="Sök..." value="@Model.Search" autocomplete="off" />
+				<i class="tsIcon-Search"></i>
+				<input type="submit" class="search-submit" value="Sök" />
+			}
+		</div>
+	</div>
+</div>
+
+@if (!Model.HideResult)
+{
+	<div class="tscLoading--PaddingGutter" ng-hide="true">
+		<div class="tsLoading-icon-large tsMarginTop"></div>
+	</div>
+
+	<div class="tsTable-select tsComponent tsWrapInner" ng-cloak>
+		<table class="tsTable tsTable-horizontal tsTable-datatable">
+			<caption>Bolag</caption>
+			<thead>
+				<tr>
+					<th>OrgNr</th>
+					<th>Bolagsnamn</th>
+					<th>Koncern</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (BolagListRow bolag in Model.Bolag)
+				{
+					if (bolag.Bolagsnamn != string.Empty)
+					{
+						<tr>
+							<td>@bolag.OrgNr</td>
+							<td>@Html.ActionLink(@bolag.Bolagsnamn, "Hantera_Bolag_LoggaIn", "Admin", new { companyId = bolag.CompanyId }, null)</td>
+							<td>@bolag.Koncern</td>
+						</tr>
+					}
+
+				}
+			</tbody>
+		</table>
+	</div>
+}
